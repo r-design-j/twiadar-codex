@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="AI Radar: X / Codex / GPT high-signal daily intelligence and personal knowledge cards." />
+    <title>AI Radar | Codex & GPT Daily Signal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="kima-shell">
+      <aside class="profile-pane" aria-label="AI Radar profile">
+        <section class="profile-hero" id="top">
+          <a class="identity" href="#top" aria-label="AI Radar home">
+            <img src="./assets/avatar.png" alt="" />
+            <span>
+              <strong>AI Radar</strong>
+              <small>Codex & GPT Curator</small>
+            </span>
+          </a>
+
+          <p class="lead">
+            每天从 X/Twitter、官方文档、博客和视频里，筛出 Codex、GPT、AI 工作流里真正值得看的内容。
+          </p>
+
+          <p class="status"><span></span> Updated daily at 09:00 CST.</p>
+
+          <div class="profile-actions">
+            <a href="#dailyBrief">看今日热点</a>
+            <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+              <span></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="source-strip" aria-label="Tracked sources">
+          <div class="source-marquee">
+            <span>OPENAI</span>
+            <span>CODEX</span>
+            <span>GPT</span>
+            <span>X</span>
+            <span>GITHUB</span>
+            <span>IOS</span>
+            <span>AGENTS</span>
+            <span>OPENAI</span>
+            <span>CODEX</span>
+            <span>GPT</span>
+            <span>X</span>
+            <span>GITHUB</span>
+          </div>
+        </section>
+
+        <section class="profile-section">
+          <h2>今日结论</h2>
+          <p id="reportConclusion">
+            Codex 正在从代码助手，变成跨设备、可排程、可接入 PR / IDE / 手机的个人工作系统。
+          </p>
+          <dl class="stats-list">
+            <div>
+              <dt id="sourceCount">14</dt>
+              <dd>source cards</dd>
+            </div>
+            <div>
+              <dt id="topCount">5</dt>
+              <dd>top signals</dd>
+            </div>
+            <div>
+              <dt id="knowledgeCount">3</dt>
+              <dd>knowledge cards</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="profile-section service-list">
+          <h2>分类筛选</h2>
+          <nav aria-label="Signal filters">
+            <button class="filter active" type="button" data-filter="all"><span>01</span> 全部信号</button>
+            <button class="filter" type="button" data-filter="hot"><span>02</span> 今日热门</button>
+            <button class="filter" type="button" data-filter="workflow"><span>03</span> Codex / GPT 工作流</button>
+            <button class="filter" type="button" data-filter="mobile"><span>04</span> iPhone + Mac 协作</button>
+            <button class="filter" type="button" data-filter="knowledge"><span>05</span> 知识库资产</button>
+            <button class="filter" type="button" data-filter="accounts"><span>06</span> 建议关注账号</button>
+            <button class="filter" type="button" data-filter="tools"><span>07</span> 工具栈</button>
+          </nav>
+        </section>
+
+        <section class="profile-section report-mini" id="report">
+          <h2>日报摘录</h2>
+          <p id="reportDate">2026-07-06</p>
+          <time id="updatedAt" datetime="2026-07-06T10:21:37+08:00">2026-07-06 10:21 CST</time>
+          <div id="reportExcerpt">
+            <p>2026-07-06 的首要信号是：Codex 正在从“电脑上的写代码助手”变成“跨设备、可排程、可接入 IDE/PR/硬件快捷键的个人工作系统”。</p>
+            <p>今日登录态 X 补采显示，Codex / Claude Code 沙箱配置、Obsidian 第二大脑、iPhone 指挥云端 coding agents、网页提取工具池是值得继续追踪的方向。</p>
+          </div>
+        </section>
+      </aside>
+
+      <section class="work-pane" aria-label="Daily signal board">
+        <section class="masonry-board" id="signals" aria-live="polite"></section>
+
+        <section class="knowledge-panel" id="knowledge">
+          <div>
+            <span>Personal knowledge</span>
+            <h2>值得沉淀进个人知识库的资产</h2>
+          </div>
+          <div class="knowledge-grid" id="knowledgeGrid"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="signalTemplate">
+      <article class="signal-tile">
+        <div class="tile-link">
+          <img class="tile-image" src="" alt="" loading="lazy" />
+          <div class="tile-caption">
+            <div>
+              <span class="tag"></span>
+              <span class="score"></span>
+            </div>
+            <h3></h3>
+            <p class="summary"></p>
+            <p class="takeaway"></p>
+            <footer>
+              <span class="author"></span>
+              <span class="source"></span>
+              <a class="source-link" href="#" target="_blank" rel="noreferrer">打开原文</a>
+              <button class="codex-run" type="button">让 Codex 跑</button>
+            </footer>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <div class="toast" role="status" aria-live="polite">已复制 Codex 任务</div>
+
+    <script src="./data/report-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

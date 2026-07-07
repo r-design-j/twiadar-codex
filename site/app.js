@@ -275,7 +275,7 @@ grid.addEventListener("click", async (event) => {
 if (window.location.protocol === "file:" && fallbackReport) {
   hydrate(fallbackReport);
 } else {
-  fetch("./data/report.json")
+  fetch(`./data/report.json?v=${Date.now()}`, { cache: "no-store" })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Report data unavailable: ${response.status}`);

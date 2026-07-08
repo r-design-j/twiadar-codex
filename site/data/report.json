@@ -1,171 +1,171 @@
 {
-  "date": "2026-07-07",
-  "updatedAt": "2026-07-07T11:18:00+08:00",
-  "updatedLabel": "2026-07-07 11:18 CST",
-  "conclusion": "今日主线是：Codex 已经从单点代码助手，升级成手机遥控、云端工作站、多 agent 分工和硬件快捷入口的个人工作台。",
+  "date": "2026-07-08",
+  "updatedAt": "2026-07-08T09:00:00+08:00",
+  "updatedLabel": "2026-07-08 09:00 CST",
+  "conclusion": "今日主线是：Codex 正在从聊天式问答升级为可被手机调度、被安全边界约束、被知识库喂养的长期委托工作流。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-07-07 的重点不是某一个新 prompt，而是 Codex 工作流的形态变化：Remote、DigitalOcean 云端工作站、Subagents、Automations 和 Codex Micro 一起指向“可被调度的个人工作系统”。",
-    "今天已补上自动化规则：后续每日 09:00 不只生成本地日报，还要同步更新网站数据、推 GitHub、重新部署 Vercel。"
+    "2026-07-08 的重点是把 Codex 从“写代码工具”重新理解为“可委托任务系统”：手机负责捕捉和调度，Codex 后台执行，Mac 负责复核和发布。",
+    "今天新增的知识沉淀集中在三块：委托任务、私有 MCP 安全边界、agent 可读第二大脑。"
   ],
   "signals": [
     {
-      "title": "Codex Remote GA：手机可以启动、继续、审批本机任务",
-      "author": "OpenAI / ChatGPT release notes",
-      "source": "official",
-      "url": "https://openai.com/products/release-notes/",
-      "category": ["hot", "mobile", "workflow"],
-      "score": "HIGH",
-      "tag": "Remote",
-      "summary": "Codex Remote 已经从概念变成可日常使用的手机入口：用 ChatGPT 移动端连接 Mac/Windows 主机，远程继续任务和审批动作。",
-      "takeaway": "动作：把 iPhone 定位成 Codex 遥控器，而不是深度阅读设备；手机只发任务和审批，Mac 做复核。"
-    },
-    {
-      "title": "DigitalOcean for Codex：一条 prompt 拉起云端开发机",
-      "author": "DigitalOcean",
-      "source": "blog",
-      "url": "https://www.digitalocean.com/blog/run-codex-in-the-cloud",
-      "category": ["hot", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Cloud",
-      "summary": "DigitalOcean 插件让 Codex 可以按需创建持久远程开发环境，减少手动开服务器、配 SSH、装依赖的摩擦。",
-      "takeaway": "动作：重任务不要全压在本机，后续可把“跑 demo / 大型 repo 探索 / 长构建”列为云端 Codex 候选场景。"
-    },
-    {
-      "title": "Subagents：Codex 可以并行派专业小队",
-      "author": "OpenAI Developers",
-      "source": "official",
-      "url": "https://developers.openai.com/codex/subagents",
-      "category": ["workflow", "knowledge"],
-      "score": "HIGH",
-      "tag": "Team",
-      "summary": "官方 Subagents 文档强调把复杂任务拆给专门 agent 并行处理，再汇总成一个结果，适合研究、代码排查、设计验收和网站更新。",
-      "takeaway": "动作：把 AI Radar 拆成采集、事实核验、知识卡片、网站发布四个角色，而不是让一个 agent 从头包到尾。"
-    },
-    {
-      "title": "Codex Automations：日报没自动更新的根因就在这里",
-      "author": "OpenAI Developers",
-      "source": "official",
-      "url": "https://developers.openai.com/codex/app/automations",
-      "category": ["workflow", "knowledge"],
-      "score": "HIGH",
-      "tag": "Schedule",
-      "summary": "Automations 是让 Codex 定时运行的正式机制；但项目级自动化要求本机 Codex app 运行、项目路径可用，并且任务本身必须写清落盘、push、deploy。",
-      "takeaway": "动作：自动化提示词必须包含完整闭环：生成日报、更新 JSON、提交 GitHub、部署 Vercel、失败报告。"
-    },
-    {
-      "title": "Codex Micro：OpenAI 把编码 agent 做进硬件快捷入口",
-      "author": "OpenAI Developers / Work Louder",
-      "source": "x-news",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder",
-      "category": ["hot", "workflow", "tools"],
-      "score": "WATCH",
-      "tag": "Hardware",
-      "summary": "OpenAI Developers 在 X 上预告 Codex Micro，媒体交叉报道显示它像面向 Codex 的快捷键/宏控制器，预计 2026-07-15 正式揭晓。",
-      "takeaway": "动作：先不买硬件，先沉淀“常用 Codex 动作清单”，未来才能判断硬件快捷键值不值。"
-    },
-    {
-      "title": "Codex 正在变成知识工作工具，而非只服务程序员",
+      "title": "OpenAI 研究：Codex 把工作单位从聊天变成长期委托",
       "author": "OpenAI",
       "source": "official",
-      "url": "https://openai.com/index/codex-for-knowledge-work/",
-      "category": ["hot", "knowledge"],
+      "url": "https://openai.com/index/how-agents-are-transforming-work/",
+      "category": ["hot", "workflow", "knowledge"],
       "score": "HIGH",
-      "tag": "Knowledge",
-      "summary": "OpenAI 把 Codex 的定位扩展到知识工作：自动化重复工作、减少启动成本、把任务从聊天迁移到可执行 agent。",
-      "takeaway": "动作：日报不要只收代码技巧，也要收能改善设计、研究、知识库、发布流程的 Codex 用法。"
+      "tag": "Delegation",
+      "summary": "OpenAI 用 Codex 使用数据说明，agentic AI 的核心变化是从一次性聊天转向可运行数分钟到数小时的委托任务。",
+      "takeaway": "动作：把 AI Radar 的 HIGH 信号写成可委托任务，要求 Codex 给证据、验证和可复用输出。"
     },
     {
-      "title": "Codex changelog：仍是每日雷达的基准来源",
+      "title": "ChatGPT iOS 已能创建、搜索、打开、fork、管理 Codex tasks",
       "author": "OpenAI Developers",
       "source": "official",
       "url": "https://developers.openai.com/codex/changelog",
+      "category": ["hot", "mobile", "workflow"],
+      "score": "HIGH",
+      "tag": "iOS",
+      "summary": "2026-07-06 的 Codex changelog 显示，ChatGPT iOS 1.2026.181 已把 Codex task 管理推进到手机会话里。",
+      "takeaway": "动作：iPhone 用来捕捉链接和派 task，Mac 用来复核结果和做最终决策。"
+    },
+    {
+      "title": "Codex Remote：手机是启动、转向、审查、整理任务的控制中心",
+      "author": "Thomas Ricouard / OpenAI Developers",
+      "source": "official-blog",
+      "url": "https://developers.openai.com/blog/mastering-codex-remote-for-engineering",
+      "category": ["mobile", "workflow"],
+      "score": "HIGH",
+      "tag": "Remote",
+      "summary": "OpenAI Developers 把 Codex Remote 定义为 phone control center，不只是看进度，而是能启动、转向、审查和组织工程任务。",
+      "takeaway": "动作：建立固定模板：手机发起 -> Codex 执行 -> Mac 收尾。"
+    },
+    {
+      "title": "Secure MCP Tunnel：私有工具可接入，但不该直接公开暴露",
+      "author": "Denys Kurylenko / OpenAI Developers",
+      "source": "official-blog",
+      "url": "https://developers.openai.com/blog/connect-private-mcp-servers-to-openai-products",
+      "category": ["hot", "tools", "workflow"],
+      "score": "HIGH",
+      "tag": "MCP",
+      "summary": "OpenAI 介绍了让私有 MCP server 可达但不公开暴露的方式，重点是出站连接、认证、可检查客户端和保持私有网络边界。",
+      "takeaway": "动作：本地桥和知识库默认只读、白名单、不开公网隧道；任何外部暴露先确认。"
+    },
+    {
+      "title": "Obsidian second brain 项目把知识库包装成多 CLI agent 技能",
+      "author": "Eugeniu Ghelbur",
+      "source": "github",
+      "url": "https://github.com/eugeniughelbur/obsidian-second-brain",
+      "category": ["knowledge", "tools"],
+      "score": "HIGH",
+      "tag": "Second Brain",
+      "summary": "该项目把 Obsidian vault 包装为 Claude Code、Codex CLI、Gemini、OpenCode 等工具可复用的 AI-first second brain。",
+      "takeaway": "动作：AI Radar 知识卡统一字段，后续才能被不同 agent 稳定读取。"
+    },
+    {
+      "title": "Introducing Codex：官方基线仍是并行任务、隔离环境、可验证证据",
+      "author": "OpenAI",
+      "source": "official",
+      "url": "https://openai.com/index/introducing-codex/",
       "category": ["workflow", "tools"],
       "score": "HIGH",
       "tag": "Baseline",
-      "summary": "Changelog 持续记录 Codex App、CLI、Remote、Chrome extension、Computer Use、Automations 等变化，是判断 X 热帖是否靠谱的基准。",
-      "takeaway": "动作：每天先看 changelog，再看 X 和媒体；所有二手解读都要回到官方能力边界。"
+      "summary": "Codex 的基础定义是可并行执行任务，并通过终端日志、测试输出和引用证据让用户复核。",
+      "takeaway": "动作：所有日报自动化都要产出证据和失败点，不只产出漂亮摘要。"
     },
     {
-      "title": "OpenAI Developers 六月总结：Codex mobile、DigitalOcean、Realtime、Agents 集中出现",
-      "author": "OpenAI Developers",
-      "source": "x-article",
-      "url": "https://x.com/OpenAIDevs/article/2072779246905573588",
-      "category": ["hot", "accounts"],
-      "score": "MED",
-      "tag": "Account",
-      "summary": "OpenAI Developers 的月度总结适合作为高信噪比账号样本：它把平台更新聚合到一个入口，比刷碎片帖更省时间。",
-      "takeaway": "动作：OpenAI Developers 值得进入每日观察池，但仍只建议观察，不自动关注。"
+      "title": "OpenAI release notes：Remote 与 DigitalOcean 仍是手机+云端双线基准",
+      "author": "OpenAI",
+      "source": "official",
+      "url": "https://openai.com/products/release-notes/",
+      "category": ["mobile", "workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Release",
+      "summary": "Release notes 仍是核验 Codex Remote、手机配对、DigitalOcean workspace 能力边界的一手来源。",
+      "takeaway": "动作：把手机控制和云端重任务拆成两类玩法，不混成一个概念。"
     },
     {
-      "title": "Simon Willison：把 Subagents 当成复杂任务的上下文分流器",
-      "author": "Simon Willison",
-      "source": "blog",
-      "url": "https://simonwillison.net/2026/Mar/16/codex-subagents/",
-      "category": ["knowledge", "workflow", "accounts"],
-      "score": "MED",
-      "tag": "Method",
-      "summary": "Simon 的写法把 Subagents 从概念翻译成实际任务句式：让不同 agent 分别复现、追代码、修 UI，再汇总。",
-      "takeaway": "动作：后续每个“让 Codex 跑”任务都可以生成一个子 agent 分工版本。"
-    },
-    {
-      "title": "digitalocean/CodexPlugin：云端工作站插件已有开源仓库",
-      "author": "DigitalOcean",
-      "source": "github",
-      "url": "https://github.com/digitalocean/CodexPlugin",
+      "title": "AWS：Codex on Bedrock 强调企业身份、日志、隔离和采购路径",
+      "author": "Amazon Staff",
+      "source": "official-blog",
+      "url": "https://www.aboutamazon.com/news/aws/bedrock-openai-models",
       "category": ["tools", "workflow"],
       "score": "MED",
-      "tag": "Repo",
-      "summary": "插件仓库显示它会创建 Droplet、配置 SSH、连接到 Codex desktop app；适合后续做一次真实成本和安全评估。",
-      "takeaway": "动作：不要直接接生产账号；先列评估表：费用、销毁机制、SSH 安全、数据是否适合上云。"
+      "tag": "Enterprise",
+      "summary": "AWS 文章把 Codex 放进 Bedrock、IAM、VPC isolation、encryption、CloudTrail 等企业控制语境里。",
+      "takeaway": "动作：公司环境评估 Codex 时，别只问模型强不强，要问权限、日志、数据边界和费用归属。"
     },
     {
-      "title": "AI agents are here for real this time：Codex 使用正在从聊天转向委托任务",
-      "author": "Axios",
-      "source": "news",
-      "url": "https://www.axios.com/2026/06/25/codex-agents-growth-openai",
-      "category": ["knowledge"],
+      "title": "AWS Summit：agent 真正规模化时需要 context、治理和发布管理",
+      "author": "Swami Sivasubramanian / AWS",
+      "source": "official-blog",
+      "url": "https://www.aboutamazon.com/news/aws/aws-summit-nyc-2026-ai-agents",
+      "category": ["workflow", "knowledge"],
+      "score": "MED",
+      "tag": "Ops",
+      "summary": "AWS 新发布强调知识图谱、移动编排、可审计安全、release management，说明 agent 不只是生成内容，还要能安全上线。",
+      "takeaway": "动作：AI Radar 的自动化也要有依赖健康、失败报告和发布确认。"
+    },
+    {
+      "title": "RedMonk：AI IDE 竞争点正在从模型转向 remote session 和 harness",
+      "author": "Stephen O'Grady / RedMonk",
+      "source": "analysis",
+      "url": "https://redmonk.com/sogrady/2026/06/23/kiro-ai-ide-market/",
+      "category": ["workflow", "tools"],
       "score": "WATCH",
-      "tag": "Trend",
-      "summary": "媒体报道聚焦 Codex 这类 agent 正在承担更复杂的委托任务，说明“每日让 Codex 主动跑”不是边缘玩法。",
-      "takeaway": "动作：把 AI Radar 从信息展示升级为任务入口，继续强化每张卡的“让 Codex 跑”。"
+      "tag": "Market",
+      "summary": "RedMonk 用 Kiro iOS 分析 remote cloud session、模型控制点和工具壳层，适合观察 Codex 与 Claude Code 的长期分工。",
+      "takeaway": "动作：个人工作流先沉淀 repo 规则和任务模板，不急着押注单一 AI IDE。"
     },
     {
-      "title": "Codex CLI 2026 参考整理：MCP、hooks、subagents、remote tasks 成为组合拳",
-      "author": "CodeGateway",
+      "title": "MindStudio：第二大脑从被动笔记变成可执行上下文",
+      "author": "MindStudio Team",
       "source": "guide",
-      "url": "https://www.codegateway.dev/en/blog/openai-codex-cli-complete-guide-2026",
-      "category": ["tools", "workflow"],
+      "url": "https://www.mindstudio.ai/blog/build-ai-second-brain-claude-code-obsidian",
+      "category": ["knowledge"],
+      "score": "MED",
+      "tag": "Memory",
+      "summary": "指南把 Claude Code + Obsidian 描述为能读取笔记、理解上下文、跨会话自动化重复任务的工作系统。",
+      "takeaway": "动作：知识卡不要只写结论，要写适用场景、步骤、风险和来源。"
+    },
+    {
+      "title": "OpenAI Status：日报依赖也要监控 API、ChatGPT、Codex 可用性",
+      "author": "OpenAI Status",
+      "source": "status",
+      "url": "https://status.openai.com/incidents/01K0224SDY6TYX3719Y566S4K7",
+      "category": ["workflow"],
       "score": "WATCH",
-      "tag": "Guide",
-      "summary": "第三方长文把 CLI、MCP、AGENTS.md、subagents、hooks 和 remote tasks 串成一张工具图，适合作为学习地图，但需回查官方文档。",
-      "takeaway": "动作：只把它当目录索引；具体能力和命令以 OpenAI Developers 文档为准。"
+      "tag": "Reliability",
+      "summary": "2026-07-07 的状态事件提醒，日报依赖 OpenAI、X、GitHub、Vercel 等外部服务，失败时不能静默吞掉。",
+      "takeaway": "动作：后续 runbook 加依赖健康检查；失败时保留本地文件并报告具体环节。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Remote",
-      "title": "iPhone 是遥控器，不是工作台",
-      "body": "手机端最适合发起任务、补充一句指令、审批动作；复杂判断和最终合并仍放回 Mac。这样能利用碎片时间，但不被信息流拖走。"
+      "label": "01 / Delegation",
+      "title": "委托任务比聊天更适合 Codex",
+      "body": "聊天是问一个答案，委托是交一件事。HIGH 信号要变成可执行任务：读原文、核验、做小实验、产出知识卡、标注失败点。"
     },
     {
-      "label": "02 / Cloud",
-      "title": "云端工作站是重任务缓冲区",
-      "body": "DigitalOcean for Codex 的价值不是炫技，而是把长构建、大 repo 探索、并行 demo 验证放到云端，避免本机被拖慢。"
+      "label": "02 / Mobile",
+      "title": "iPhone 是 Codex task 控制台",
+      "body": "手机负责捕捉链接、创建 task、追踪进度和轻量转向；Mac 负责证据复核、最终判断和不可逆动作。"
     },
     {
-      "label": "03 / Team",
-      "title": "Subagents 是 agent 小队",
-      "body": "不要让一个 Codex 既找资料、又验事实、又写文案、又部署。把任务拆成不同角色，结果会更稳，也更容易复盘。"
+      "label": "03 / Boundary",
+      "title": "私有 MCP 先守边界",
+      "body": "本地桥和知识库默认只读、白名单、可审计，不为便利直接公开暴露。任何公网隧道都先确认。"
     },
     {
-      "label": "04 / Publish",
-      "title": "自动化必须闭环到上线",
-      "body": "只生成 Markdown 不叫日报上线；完整闭环必须包括更新 report.json、同步 report-data.js、提交 GitHub、部署 Vercel、验证 Ready。"
+      "label": "04 / Memory",
+      "title": "第二大脑要写成 agent 可执行格式",
+      "body": "知识卡要有标题、来源、概念、适用场景、步骤、风险和更新时间，才能被 Codex、Claude Code 等工具复用。"
     }
   ]
 }

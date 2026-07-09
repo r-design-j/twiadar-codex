@@ -1,171 +1,212 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-07-08",
-  "updatedAt": "2026-07-08T09:00:00+08:00",
-  "updatedLabel": "2026-07-08 09:00 CST",
-  "conclusion": "今日主线是：Codex 正在从聊天式问答升级为可被手机调度、被安全边界约束、被知识库喂养的长期委托工作流。",
+  "date": "2026-07-09",
+  "updatedAt": "2026-07-09T09:00:00+08:00",
+  "updatedLabel": "2026-07-09 09:00 CST",
+  "conclusion": "今日主线是：Codex 正在从会写代码的聊天框升级为跨设备可调度的工作代理，iPhone 派活、Mac 验收、AGENTS.md 和知识卡承接长期上下文。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-07-08 的重点是把 Codex 从“写代码工具”重新理解为“可委托任务系统”：手机负责捕捉和调度，Codex 后台执行，Mac 负责复核和发布。",
-    "今天新增的知识沉淀集中在三块：委托任务、私有 MCP 安全边界、agent 可读第二大脑。"
+    "2026-07-09 的重点是把 Codex 工作流拆成三层：手机做捕捉和调度，Codex 后台核验和整理，Mac 做证据复核、提交和发布。",
+    "今天新增的知识沉淀集中在四块：手机不做终审、agent 成本要和产出绑定、AGENTS.md 是跨工具同声传译、先最小 agent 再拆 subagents。"
   ],
   "signals": [
     {
-      "title": "OpenAI 研究：Codex 把工作单位从聊天变成长期委托",
-      "author": "OpenAI",
-      "source": "official",
-      "url": "https://openai.com/index/how-agents-are-transforming-work/",
-      "category": ["hot", "workflow", "knowledge"],
+      "title": "Codex Remote 对全部 ChatGPT 方案开放并支持二维码配对",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
+      "category": [
+        "hot",
+        "mobile",
+        "workflow"
+      ],
       "score": "HIGH",
-      "tag": "Delegation",
-      "summary": "OpenAI 用 Codex 使用数据说明，agentic AI 的核心变化是从一次性聊天转向可运行数分钟到数小时的委托任务。",
-      "takeaway": "动作：把 AI Radar 的 HIGH 信号写成可委托任务，要求 Codex 给证据、验证和可复用输出。"
+      "tag": "Remote",
+      "summary": "OpenAI release notes 把 Codex Remote 推进到更稳定的手机/桌面协作入口，适合建立跨设备派活链路。",
+      "takeaway": "动作：固定使用 iPhone 捕捉和派活，Mac 负责证据复核、提交和公开发布。"
     },
     {
-      "title": "ChatGPT iOS 已能创建、搜索、打开、fork、管理 Codex tasks",
+      "title": "Codex changelog：iOS task 管理、diff 控制和使用限制提示继续补齐",
       "author": "OpenAI Developers",
       "source": "official",
       "url": "https://developers.openai.com/codex/changelog",
-      "category": ["hot", "mobile", "workflow"],
+      "category": [
+        "hot",
+        "mobile",
+        "workflow"
+      ],
       "score": "HIGH",
       "tag": "iOS",
-      "summary": "2026-07-06 的 Codex changelog 显示，ChatGPT iOS 1.2026.181 已把 Codex task 管理推进到手机会话里。",
-      "takeaway": "动作：iPhone 用来捕捉链接和派 task，Mac 用来复核结果和做最终决策。"
+      "summary": "Codex task 的创建、搜索、打开、fork、管理和 review 控制继续向移动端靠拢。",
+      "takeaway": "动作：手机只做创建、查找、补指令和轻审批，最终验证仍回 Mac。"
     },
     {
-      "title": "Codex Remote：手机是启动、转向、审查、整理任务的控制中心",
-      "author": "Thomas Ricouard / OpenAI Developers",
-      "source": "official-blog",
-      "url": "https://developers.openai.com/blog/mastering-codex-remote-for-engineering",
-      "category": ["mobile", "workflow"],
-      "score": "HIGH",
-      "tag": "Remote",
-      "summary": "OpenAI Developers 把 Codex Remote 定义为 phone control center，不只是看进度，而是能启动、转向、审查和组织工程任务。",
-      "takeaway": "动作：建立固定模板：手机发起 -> Codex 执行 -> Mac 收尾。"
-    },
-    {
-      "title": "Secure MCP Tunnel：私有工具可接入，但不该直接公开暴露",
-      "author": "Denys Kurylenko / OpenAI Developers",
-      "source": "official-blog",
-      "url": "https://developers.openai.com/blog/connect-private-mcp-servers-to-openai-products",
-      "category": ["hot", "tools", "workflow"],
-      "score": "HIGH",
-      "tag": "MCP",
-      "summary": "OpenAI 介绍了让私有 MCP server 可达但不公开暴露的方式，重点是出站连接、认证、可检查客户端和保持私有网络边界。",
-      "takeaway": "动作：本地桥和知识库默认只读、白名单、不开公网隧道；任何外部暴露先确认。"
-    },
-    {
-      "title": "Obsidian second brain 项目把知识库包装成多 CLI agent 技能",
-      "author": "Eugeniu Ghelbur",
-      "source": "github",
-      "url": "https://github.com/eugeniughelbur/obsidian-second-brain",
-      "category": ["knowledge", "tools"],
-      "score": "HIGH",
-      "tag": "Second Brain",
-      "summary": "该项目把 Obsidian vault 包装为 Claude Code、Codex CLI、Gemini、OpenCode 等工具可复用的 AI-first second brain。",
-      "takeaway": "动作：AI Radar 知识卡统一字段，后续才能被不同 agent 稳定读取。"
-    },
-    {
-      "title": "Introducing Codex：官方基线仍是并行任务、隔离环境、可验证证据",
-      "author": "OpenAI",
-      "source": "official",
-      "url": "https://openai.com/index/introducing-codex/",
-      "category": ["workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Baseline",
-      "summary": "Codex 的基础定义是可并行执行任务，并通过终端日志、测试输出和引用证据让用户复核。",
-      "takeaway": "动作：所有日报自动化都要产出证据和失败点，不只产出漂亮摘要。"
-    },
-    {
-      "title": "OpenAI release notes：Remote 与 DigitalOcean 仍是手机+云端双线基准",
+      "title": "Workspace Agent token 计费让 agent 工作进入成本可见阶段",
       "author": "OpenAI",
       "source": "official",
       "url": "https://openai.com/products/release-notes/",
-      "category": ["mobile", "workflow", "tools"],
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
       "score": "HIGH",
-      "tag": "Release",
-      "summary": "Release notes 仍是核验 Codex Remote、手机配对、DigitalOcean workspace 能力边界的一手来源。",
-      "takeaway": "动作：把手机控制和云端重任务拆成两类玩法，不混成一个概念。"
+      "tag": "Cost",
+      "summary": "Workspace Agent 开始按 token 使用量记录，说明自动化不只要完成任务，也要能解释投入产出。",
+      "takeaway": "动作：每次 AI Radar 记录 sourceCards、Top signals、knowledgeCards、验证命令和发布状态。"
     },
     {
-      "title": "AWS：Codex on Bedrock 强调企业身份、日志、隔离和采购路径",
-      "author": "Amazon Staff",
-      "source": "official-blog",
-      "url": "https://www.aboutamazon.com/news/aws/bedrock-openai-models",
-      "category": ["tools", "workflow"],
+      "title": "Agents SDK 选型边界：先简单单代理，再多代理编排",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/tracks/building-agents",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Agents",
+      "summary": "OpenAI 把 agent 能力拆成模型、工具、记忆、guardrails、handoffs、评估等层级，适合避免过早复杂化。",
+      "takeaway": "动作：AI Radar 先用单 agent 跑通，只有采集/核验/转译/发布明显分工时再拆 subagents。"
+    },
+    {
+      "title": "AGENTS.md 互操作指南把仓库规则变成 coding agents 的同声传译",
+      "author": "Yurukusa",
+      "source": "gist",
+      "url": "https://gist.github.com/Yurukusa/b63c955fdf91b2049f5a19353d511aac",
+      "category": [
+        "knowledge",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "AGENTS",
+      "summary": "社区把 Codex、Claude Code、Jules、Cursor 等工具的仓库说明统一成可迁移规则。",
+      "takeaway": "动作：把仓库安全边界、测试命令和输出范式写成一份短而可执行的 AGENTS.md。"
+    },
+    {
+      "title": "AGENTS.md 公共规范站点让多工具共享仓库说明成为显性标准",
+      "author": "AGENTS.md community",
+      "source": "community-spec",
+      "url": "https://agents.md/",
+      "category": [
+        "knowledge",
+        "tools"
+      ],
       "score": "MED",
-      "tag": "Enterprise",
-      "summary": "AWS 文章把 Codex 放进 Bedrock、IAM、VPC isolation、encryption、CloudTrail 等企业控制语境里。",
-      "takeaway": "动作：公司环境评估 Codex 时，别只问模型强不强，要问权限、日志、数据边界和费用归属。"
+      "tag": "Standard",
+      "summary": "公共规范站点降低了不同 coding agents 读取同一仓库规则的成本。",
+      "takeaway": "动作：规则要短、明确、可验证，避免把所有偏好堆成一篇长文。"
     },
     {
-      "title": "AWS Summit：agent 真正规模化时需要 context、治理和发布管理",
-      "author": "Swami Sivasubramanian / AWS",
-      "source": "official-blog",
-      "url": "https://www.aboutamazon.com/news/aws/aws-summit-nyc-2026-ai-agents",
-      "category": ["workflow", "knowledge"],
-      "score": "MED",
-      "tag": "Ops",
-      "summary": "AWS 新发布强调知识图谱、移动编排、可审计安全、release management，说明 agent 不只是生成内容，还要能安全上线。",
-      "takeaway": "动作：AI Radar 的自动化也要有依赖健康、失败报告和发布确认。"
+      "title": "OpenAI Codex 产品页仍是解释委托式代码工作的官方基线",
+      "author": "OpenAI",
+      "source": "official",
+      "url": "https://openai.com/codex/",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Baseline",
+      "summary": "Codex 的公开定义继续围绕 delegated tasks、环境、执行证据和用户复核。",
+      "takeaway": "动作：每条 Codex 工作流都要写清任务、环境、证据和交接结果。"
     },
     {
-      "title": "RedMonk：AI IDE 竞争点正在从模型转向 remote session 和 harness",
-      "author": "Stephen O'Grady / RedMonk",
-      "source": "analysis",
-      "url": "https://redmonk.com/sogrady/2026/06/23/kiro-ai-ide-market/",
-      "category": ["workflow", "tools"],
-      "score": "WATCH",
-      "tag": "Market",
-      "summary": "RedMonk 用 Kiro iOS 分析 remote cloud session、模型控制点和工具壳层，适合观察 Codex 与 Claude Code 的长期分工。",
-      "takeaway": "动作：个人工作流先沉淀 repo 规则和任务模板，不急着押注单一 AI IDE。"
-    },
-    {
-      "title": "MindStudio：第二大脑从被动笔记变成可执行上下文",
-      "author": "MindStudio Team",
-      "source": "guide",
-      "url": "https://www.mindstudio.ai/blog/build-ai-second-brain-claude-code-obsidian",
-      "category": ["knowledge"],
-      "score": "MED",
-      "tag": "Memory",
-      "summary": "指南把 Claude Code + Obsidian 描述为能读取笔记、理解上下文、跨会话自动化重复任务的工作系统。",
-      "takeaway": "动作：知识卡不要只写结论，要写适用场景、步骤、风险和来源。"
-    },
-    {
-      "title": "OpenAI Status：日报依赖也要监控 API、ChatGPT、Codex 可用性",
+      "title": "OpenAI Status 提醒日报自动化要把依赖可用性写进结果",
       "author": "OpenAI Status",
       "source": "status",
-      "url": "https://status.openai.com/incidents/01K0224SDY6TYX3719Y566S4K7",
-      "category": ["workflow"],
+      "url": "https://status.openai.com/",
+      "category": [
+        "workflow"
+      ],
       "score": "WATCH",
       "tag": "Reliability",
-      "summary": "2026-07-07 的状态事件提醒，日报依赖 OpenAI、X、GitHub、Vercel 等外部服务，失败时不能静默吞掉。",
-      "takeaway": "动作：后续 runbook 加依赖健康检查；失败时保留本地文件并报告具体环节。"
+      "summary": "日报依赖 OpenAI、GitHub、Vercel、公开网页等外部服务，失败时应保留本地文件并说明失败点。",
+      "takeaway": "动作：发布失败不做破坏性重试，直接报告失败环节和本地文件状态。"
+    },
+    {
+      "title": "Multi-Agent Claude Code 项目可作为角色拆分参考",
+      "author": "Terp AI Labs",
+      "source": "github",
+      "url": "https://github.com/Terp-AI-Labs/Multi-Agent-Claude-Code",
+      "category": [
+        "tools",
+        "workflow"
+      ],
+      "score": "MED",
+      "tag": "Subagents",
+      "summary": "该项目展示了多 agent 编排的公开实现思路，适合观察角色拆分而非直接接入私密仓库。",
+      "takeaway": "动作：只把采集、核验、转译、发布这类天然角色拆成 subagents。"
+    },
+    {
+      "title": "Codex Micro 暗示重复 AI 命令正在变成物理快捷键",
+      "author": "Work Louder",
+      "source": "product-page",
+      "url": "https://worklouder.cc/codexmicro",
+      "category": [
+        "tools",
+        "workflow"
+      ],
+      "score": "WATCH",
+      "tag": "Hardware",
+      "summary": "Codex 周边硬件说明一部分 AI 工作流会从屏幕菜单变成肌肉记忆式快捷操作。",
+      "takeaway": "动作：先列出重复命令：启动任务、粘贴来源、跑检查、打开部署、归档卡片，再决定是否需要硬件。"
+    },
+    {
+      "title": "ChatGPT widgets + iPhone Shortcuts 示例适合做手机采集入口",
+      "author": "Paul Solt",
+      "source": "guide",
+      "url": "https://paulsolt.com/chatgpt-widgets-example/",
+      "category": [
+        "mobile",
+        "workflow"
+      ],
+      "score": "MED",
+      "tag": "Shortcuts",
+      "summary": "移动端 widget 和 Shortcuts 可以成为 ChatGPT/Codex 任务捕捉入口。",
+      "takeaway": "动作：先做一个只读快捷指令，把 URL 加入 AI Radar 输入队列，不做公开互动。"
+    },
+    {
+      "title": "Awesome AI Agents 2026 适合做发现池，但不能替代一手核验",
+      "author": "Zijian Ni / contributors",
+      "source": "github",
+      "url": "https://github.com/Zijian-Ni/awesome-ai-agents-2026",
+      "category": [
+        "accounts",
+        "tools",
+        "knowledge"
+      ],
+      "score": "WATCH",
+      "tag": "Discovery",
+      "summary": "AI agents 清单能帮助发现工具和作者，但每条都需要回到官方文档、论文、仓库或原帖核验。",
+      "takeaway": "动作：把清单当线索池，不把清单内容直接写成结论。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Delegation",
-      "title": "委托任务比聊天更适合 Codex",
-      "body": "聊天是问一个答案，委托是交一件事。HIGH 信号要变成可执行任务：读原文、核验、做小实验、产出知识卡、标注失败点。"
+      "label": "01 / Mobile",
+      "title": "手机只负责派活，不负责终审",
+      "body": "iPhone 负责捕捉链接、创建 task、补一句上下文和看状态；Mac 负责证据复核、提交、部署和不可逆动作。"
     },
     {
-      "label": "02 / Mobile",
-      "title": "iPhone 是 Codex task 控制台",
-      "body": "手机负责捕捉链接、创建 task、追踪进度和轻量转向；Mac 负责证据复核、最终判断和不可逆动作。"
+      "label": "02 / Cost",
+      "title": "Agent 成本要和产出绑定",
+      "body": "当 agent 工作开始被计量，日报就要记录来源数、Top 信号、知识卡、验证命令和发布状态，避免只制造更多摘要。"
     },
     {
-      "label": "03 / Boundary",
-      "title": "私有 MCP 先守边界",
-      "body": "本地桥和知识库默认只读、白名单、可审计，不为便利直接公开暴露。任何公网隧道都先确认。"
+      "label": "03 / AGENTS",
+      "title": "AGENTS.md 是 coding agents 的同声传译",
+      "body": "把仓库规则写成 Codex、Claude Code、Jules 等工具都能读的共同说明：边界、命令、安全禁区和输出格式。"
     },
     {
-      "label": "04 / Memory",
-      "title": "第二大脑要写成 agent 可执行格式",
-      "body": "知识卡要有标题、来源、概念、适用场景、步骤、风险和更新时间，才能被 Codex、Claude Code 等工具复用。"
+      "label": "04 / Subagents",
+      "title": "先最小 agent，再拆 subagents",
+      "body": "单 agent 先跑通；只有采集、核验、转译、发布这些角色反复出现瓶颈时，再拆成小队。"
     }
   ]
 }

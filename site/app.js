@@ -13,7 +13,7 @@ const themeToggle = document.querySelector(".theme-toggle");
 const toast = document.querySelector(".toast");
 const fallbackReport = window.AI_RADAR_REPORT;
 const BRIDGE_URL = "http://127.0.0.1:8787";
-const BRIDGE_CWD = "/Users/renyujie/Documents/Codex/AI-Radar/x-ai-codex-gpt";
+const BRIDGE_CWD = window.AI_RADAR_BRIDGE_CWD || "";
 const CODEX_RUNNER = "codex-app-thread";
 
 const tileImages = [
@@ -163,23 +163,28 @@ function setRunButtonState(button, label, disabled) {
 }
 
 async function startCodexTask(button) {
+  const taskPayload = {
+    prompt: button.dataset.prompt,
+    runner: CODEX_RUNNER,
+    metadata: {
+      source: "ai-radar-site",
+      threadTitle: compactTitle(button.dataset.title),
+      title: button.dataset.title,
+      url: button.dataset.url,
+      category: button.dataset.category
+    }
+  };
+
+  if (BRIDGE_CWD) {
+    taskPayload.cwd = BRIDGE_CWD;
+  }
+
   const response = await fetch(`${BRIDGE_URL}/tasks`, {
     method: "POST",
     headers: {
       "content-type": "application/json"
     },
-    body: JSON.stringify({
-      prompt: button.dataset.prompt,
-      runner: CODEX_RUNNER,
-      cwd: BRIDGE_CWD,
-      metadata: {
-        source: "ai-radar-site",
-        threadTitle: compactTitle(button.dataset.title),
-        title: button.dataset.title,
-        url: button.dataset.url,
-        category: button.dataset.category
-      }
-    })
+    body: JSON.stringify(taskPayload)
   });
 
   const payload = await response.json().catch(() => ({}));

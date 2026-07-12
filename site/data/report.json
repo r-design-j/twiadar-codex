@@ -1,171 +1,211 @@
 {
-  "date": "2026-07-09",
-  "updatedAt": "2026-07-09T09:00:00+08:00",
-  "updatedLabel": "2026-07-09 09:00 CST",
-  "conclusion": "今日主线是：Codex 正在从会写代码的聊天框升级为跨设备可调度的工作代理，iPhone 派活、Mac 验收、AGENTS.md 和知识卡承接长期上下文。",
+  "date": "2026-07-12",
+  "updatedAt": "2026-07-12T09:00:00+08:00",
+  "updatedLabel": "2026-07-12 09:00 CST",
+  "conclusion": "今日主线是：GPT-5.6 把 Codex/GPT 工作流从“单个最强模型”推进到“按任务路由模型、工具、subagents 和审批边界”的阶段，iPhone 继续负责控制，Mac 负责验收。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-07-09 的重点是把 Codex 工作流拆成三层：手机做捕捉和调度，Codex 后台核验和整理，Mac 做证据复核、提交和发布。",
-    "今天新增的知识沉淀集中在四块：手机不做终审、agent 成本要和产出绑定、AGENTS.md 是跨工具同声传译、先最小 agent 再拆 subagents。"
+    "2026-07-12 的核心变化不是只多了一个新模型，而是 Sol/Terra/Luna、Programmatic Tool Calling、Multi-agent beta、Codex desktop 和 Remote 共同构成了新的工作流分层。",
+    "今天新增的可复用资产集中在四块：模型路由白名单、PTC 工具流水线、ChatGPT desktop 验收台、更强 agent 的硬边界。"
   ],
   "signals": [
     {
-      "title": "Codex Remote 对全部 ChatGPT 方案开放并支持二维码配对",
+      "title": "GPT-5.6 把模型选择变成工作流路由问题",
+      "author": "OpenAI",
+      "source": "official",
+      "url": "https://openai.com/index/gpt-5-6/",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "GPT-5.6",
+      "summary": "Sol、Terra、Luna 同时进入 GA，覆盖高难任务、日常任务和高频低成本任务；Codex、ChatGPT Work、API 都被放进同一套模型家族里。",
+      "takeaway": "动作：给 AI Radar 加一条路由规则：难题用 Sol/max，常规自动化用 Terra，批量摘要用 Luna。"
+    },
+    {
+      "title": "ChatGPT / Work / Codex 的 GPT-5.6 可用范围并不相同",
       "author": "OpenAI Help Center",
       "source": "official-help",
-      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
-      "category": ["hot", "mobile", "workflow"],
+      "url": "https://help.openai.com/en/articles/20001354",
+      "category": [
+        "hot",
+        "workflow"
+      ],
       "score": "HIGH",
-      "tag": "Remote",
-      "summary": "OpenAI release notes 把 Codex Remote 推进到更稳定的手机/桌面协作入口，适合建立跨设备派活链路。",
-      "takeaway": "动作：固定使用 iPhone 捕捉和派活，Mac 负责证据复核、提交和公开发布。"
+      "tag": "Access",
+      "summary": "标准 ChatGPT 对话、ChatGPT Work、Codex 和 API 的模型选择入口不同，尤其是 Codex/Work 更强调 Sol、Terra、Luna 与 effort 的组合。",
+      "takeaway": "动作：写操作说明时不要只说“切 GPT-5.6”，要写清在哪个产品里点哪里、选哪个层级。"
     },
     {
-      "title": "Codex changelog：iOS task 管理、diff 控制和使用限制提示继续补齐",
-      "author": "OpenAI Developers",
-      "source": "official",
-      "url": "https://developers.openai.com/codex/changelog",
-      "category": ["hot", "mobile", "workflow"],
-      "score": "HIGH",
-      "tag": "iOS",
-      "summary": "Codex task 的创建、搜索、打开、fork、管理和 review 控制继续向移动端靠拢。",
-      "takeaway": "动作：手机只做创建、查找、补指令和轻审批，最终验证仍回 Mac。"
-    },
-    {
-      "title": "Workspace Agent token 计费让 agent 工作进入成本可见阶段",
-      "author": "OpenAI",
-      "source": "official",
-      "url": "https://openai.com/products/release-notes/",
-      "category": ["hot", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Cost",
-      "summary": "Workspace Agent 开始按 token 使用量记录，说明自动化不只要完成任务，也要能解释投入产出。",
-      "takeaway": "动作：每次 AI Radar 记录 sourceCards、Top signals、knowledgeCards、验证命令和发布状态。"
-    },
-    {
-      "title": "Agents SDK 选型边界：先简单单代理，再多代理编排",
+      "title": "Programmatic Tool Calling 适合“工具流水线”，不适合所有判断",
       "author": "OpenAI Developers",
       "source": "official-docs",
-      "url": "https://developers.openai.com/tracks/building-agents",
-      "category": ["workflow", "tools", "knowledge"],
+      "url": "https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling",
+      "category": [
+        "tools",
+        "workflow",
+        "knowledge"
+      ],
       "score": "HIGH",
-      "tag": "Agents",
-      "summary": "OpenAI 把 agent 能力拆成模型、工具、记忆、guardrails、handoffs、评估等层级，适合避免过早复杂化。",
-      "takeaway": "动作：AI Radar 先用单 agent 跑通，只有采集/核验/转译/发布明显分工时再拆 subagents。"
+      "tag": "PTC",
+      "summary": "PTC 让模型写并运行受限 JavaScript 来协调工具、过滤中间结果、减少模型往返；但需要边界、schema、重试和停止条件。",
+      "takeaway": "动作：把 source-card 去重、排序、字段校验交给 PTC；把“是否值得沉淀”留给模型判断。"
     },
     {
-      "title": "AGENTS.md 互操作指南把仓库规则变成 coding agents 的同声传译",
-      "author": "Yurukusa",
-      "source": "gist",
-      "url": "https://gist.github.com/Yurukusa/b63c955fdf91b2049f5a19353d511aac",
-      "category": ["knowledge", "workflow", "tools"],
+      "title": "Responses API Multi-agent beta 让 subagents 成为一等能力",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/tools-multi-agent",
+      "category": [
+        "tools",
+        "workflow"
+      ],
       "score": "HIGH",
-      "tag": "AGENTS",
-      "summary": "社区把 Codex、Claude Code、Jules、Cursor 等工具的仓库说明统一成可迁移规则。",
-      "takeaway": "动作：把仓库安全边界、测试命令和输出范式写成一份短而可执行的 AGENTS.md。"
+      "tag": "Multi-agent",
+      "summary": "GPT-5.6 可在一次 Responses 请求里并行派 subagents，再由 root agent 汇总，适合代码库探索、文档和实现类任务。",
+      "takeaway": "动作：只拆天然并行的角色：采集、核验、实验、发布；不要为了“看起来高级”拆。"
     },
     {
-      "title": "AGENTS.md 公共规范站点让多工具共享仓库说明成为显性标准",
-      "author": "AGENTS.md community",
-      "source": "community-spec",
-      "url": "https://agents.md/",
-      "category": ["knowledge", "tools"],
-      "score": "MED",
-      "tag": "Standard",
-      "summary": "公共规范站点降低了不同 coding agents 读取同一仓库规则的成本。",
-      "takeaway": "动作：规则要短、明确、可验证，避免把所有偏好堆成一篇长文。"
-    },
-    {
-      "title": "OpenAI Codex 产品页仍是解释委托式代码工作的官方基线",
-      "author": "OpenAI",
-      "source": "official",
-      "url": "https://openai.com/codex/",
-      "category": ["workflow", "tools"],
+      "title": "Codex 进入 ChatGPT 桌面端，Mac 变成统一验收台",
+      "author": "OpenAI Learn",
+      "source": "official-changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
       "score": "HIGH",
-      "tag": "Baseline",
-      "summary": "Codex 的公开定义继续围绕 delegated tasks、环境、执行证据和用户复核。",
-      "takeaway": "动作：每条 Codex 工作流都要写清任务、环境、证据和交接结果。"
+      "tag": "Desktop",
+      "summary": "Codex 加入 ChatGPT desktop app，支持直接编辑 Markdown/代码、侧栏看 PR review、一个项目跨多个 repo。",
+      "takeaway": "动作：Mac 上把 ChatGPT desktop 当控制室，日报、PR、代码和部署验证在同一入口收口。"
     },
     {
-      "title": "OpenAI Status 提醒日报自动化要把依赖可用性写进结果",
-      "author": "OpenAI Status",
-      "source": "status",
-      "url": "https://status.openai.com/",
-      "category": ["workflow"],
-      "score": "WATCH",
-      "tag": "Reliability",
-      "summary": "日报依赖 OpenAI、GitHub、Vercel、公开网页等外部服务，失败时应保留本地文件并说明失败点。",
-      "takeaway": "动作：发布失败不做破坏性重试，直接报告失败环节和本地文件状态。"
+      "title": "Codex CLI 0.144 的 writes 模式把只读和写入分层",
+      "author": "OpenAI Learn",
+      "source": "official-changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "category": [
+        "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Approval",
+      "summary": "CLI 新增 declared read-only 放行、写入再确认的 approval mode，并在 Ultra 高并发时提示用量可能快速上涨。",
+      "takeaway": "动作：采集类自动化默认只读；进入写文件、commit、deploy 前再显式进入写入阶段。"
     },
     {
-      "title": "Multi-Agent Claude Code 项目可作为角色拆分参考",
-      "author": "Terp AI Labs",
-      "source": "github",
-      "url": "https://github.com/Terp-AI-Labs/Multi-Agent-Claude-Code",
-      "category": ["tools", "workflow"],
+      "title": "GPT-5.6 System Card 提醒更强 agent 更需要硬边界",
+      "author": "OpenAI Deployment Safety",
+      "source": "official-safety",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6",
+      "category": [
+        "knowledge",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Safety",
+      "summary": "系统卡强调更强 cyber/bio 能力、更强 safeguards，也指出 agentic coding 任务中存在越过用户意图的风险。",
+      "takeaway": "动作：给 Codex 任务写清停止条件、可写范围、审批点和最终 diff 复核，尤其别让安全类任务自动放权。"
+    },
+    {
+      "title": "iPhone 的定位是 Codex 控制台，不是小号 IDE",
+      "author": "Thomas Ricouard / OpenAI Developers",
+      "source": "official-blog",
+      "url": "https://learn.chatgpt.com/blog/mastering-codex-remote-for-engineering",
+      "category": [
+        "mobile",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Remote",
+      "summary": "Remote 文章把手机定义成 control plane：选 host、workspace、worktree，决定 queue/steer，做审批和轻复核。",
+      "takeaway": "动作：iPhone 负责派活、转向、审批和整理队列；Mac 负责深度 review、提交和发布。"
+    },
+    {
+      "title": "Secure MCP Tunnel 给私有工具一个“不公开也可用”的路径",
+      "author": "Denys Kurylenko / OpenAI Developers",
+      "source": "official-blog",
+      "url": "https://learn.chatgpt.com/blog/connect-private-mcp-servers-to-openai-products",
+      "category": [
+        "tools",
+        "knowledge",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "MCP",
+      "summary": "OpenAI 的私有 MCP 方案强调 outbound-only、显式目的地、客户侧可审计客户端，不把私有服务直接暴露到公网。",
+      "takeaway": "动作：本地桥和 MCP 只走白名单与出站连接思路；任何公网 tunnel 都先单独拍板。"
+    },
+    {
+      "title": "GitHub Copilot 也接入 GPT-5.6，模型路由要跨工具迁移",
+      "author": "GitHub Changelog",
+      "source": "platform-changelog",
+      "url": "https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot/",
+      "category": [
+        "tools",
+        "accounts"
+      ],
       "score": "MED",
-      "tag": "Subagents",
-      "summary": "该项目展示了多 agent 编排的公开实现思路，适合观察角色拆分而非直接接入私密仓库。",
-      "takeaway": "动作：只把采集、核验、转译、发布这类天然角色拆成 subagents。"
+      "tag": "Copilot",
+      "summary": "GPT-5.6 出现在 GitHub Copilot，说明 Sol/Terra/Luna 的选择不只发生在 OpenAI 产品内。",
+      "takeaway": "动作：沉淀一张“模型选择白名单”，按任务难度、成本、工具权限、验收要求来选，而不是按产品名选。"
     },
     {
-      "title": "Codex Micro 暗示重复 AI 命令正在变成物理快捷键",
-      "author": "Work Louder",
-      "source": "product-page",
-      "url": "https://worklouder.cc/codexmicro",
-      "category": ["tools", "workflow"],
-      "score": "WATCH",
-      "tag": "Hardware",
-      "summary": "Codex 周边硬件说明一部分 AI 工作流会从屏幕菜单变成肌肉记忆式快捷操作。",
-      "takeaway": "动作：先列出重复命令：启动任务、粘贴来源、跑检查、打开部署、归档卡片，再决定是否需要硬件。"
-    },
-    {
-      "title": "ChatGPT widgets + iPhone Shortcuts 示例适合做手机采集入口",
-      "author": "Paul Solt",
-      "source": "guide",
-      "url": "https://paulsolt.com/chatgpt-widgets-example/",
-      "category": ["mobile", "workflow"],
+      "title": "CLI coding agent 采用率研究把“省时间”变成可测指标",
+      "author": "Microsoft researchers / arXiv",
+      "source": "paper",
+      "url": "https://arxiv.org/abs/2607.01418",
+      "category": [
+        "knowledge",
+        "workflow"
+      ],
       "score": "MED",
-      "tag": "Shortcuts",
-      "summary": "移动端 widget 和 Shortcuts 可以成为 ChatGPT/Codex 任务捕捉入口。",
-      "takeaway": "动作：先做一个只读快捷指令，把 URL 加入 AI Radar 输入队列，不做公开互动。"
+      "tag": "Adoption",
+      "summary": "研究用 Microsoft 早期 2026 rollout 观察 CLI coding agents 的采用、留存和合并 PR 增长，同时提醒 PR 数只是价值代理指标。",
+      "takeaway": "动作：评估 Codex 不只看跑了多少任务，还看留存、合并质量、返工、成本和同伴可见使用。"
     },
     {
-      "title": "Awesome AI Agents 2026 适合做发现池，但不能替代一手核验",
-      "author": "Zijian Ni / contributors",
-      "source": "github",
-      "url": "https://github.com/Zijian-Ni/awesome-ai-agents-2026",
-      "category": ["accounts", "tools", "knowledge"],
-      "score": "WATCH",
-      "tag": "Discovery",
-      "summary": "AI agents 清单能帮助发现工具和作者，但每条都需要回到官方文档、论文、仓库或原帖核验。",
-      "takeaway": "动作：把清单当线索池，不把清单内容直接写成结论。"
+      "title": "GPT-5.6 原始图片尺寸和 computer use 改进利好视觉验收",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "category": [
+        "tools",
+        "workflow"
+      ],
+      "score": "MED",
+      "tag": "Visual QA",
+      "summary": "模型 guidance 提到原始图像 detail、computer use、frontend design 改进，适合把设计/站点检查做成可复核流程。",
+      "takeaway": "动作：需要看 UI 时保留原图细节，让 agent 先观察截图，再给出像素/布局级验收建议。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Mobile",
-      "title": "手机只负责派活，不负责终审",
-      "body": "iPhone 负责捕捉链接、创建 task、补一句上下文和看状态；Mac 负责证据复核、提交、部署和不可逆动作。"
+      "label": "01 / Routing",
+      "title": "模型选择是一张工作流白名单",
+      "body": "不要笼统说“用最强模型”。把任务分成高难推理、日常自动化、高频摘要和人工终审四类，再选择 Sol、Terra、Luna、max、pro 或 ultra。"
     },
     {
-      "label": "02 / Cost",
-      "title": "Agent 成本要和产出绑定",
-      "body": "当 agent 工作开始被计量，日报就要记录来源数、Top 信号、知识卡、验证命令和发布状态，避免只制造更多摘要。"
+      "label": "02 / PTC",
+      "title": "PTC 只接管有边界的工具流水线",
+      "body": "Programmatic Tool Calling 适合去重、排序、字段校验、批量工具调用等确定性阶段；是否值得沉淀、是否要发布仍交回模型和人复核。"
     },
     {
-      "label": "03 / AGENTS",
-      "title": "AGENTS.md 是 coding agents 的同声传译",
-      "body": "把仓库规则写成 Codex、Claude Code、Jules 等工具都能读的共同说明：边界、命令、安全禁区和输出格式。"
+      "label": "03 / Desktop",
+      "title": "ChatGPT 桌面端是 Mac 验收台",
+      "body": "Codex 进入 ChatGPT desktop 后，Mac 可以统一承担查看 diff、编辑 Markdown、读 PR feedback、跑验证和发布前复核。"
     },
     {
-      "label": "04 / Subagents",
-      "title": "先最小 agent，再拆 subagents",
-      "body": "单 agent 先跑通；只有采集、核验、转译、发布这些角色反复出现瓶颈时，再拆成小队。"
+      "label": "04 / Boundary",
+      "title": "更强 agent 更需要硬边界",
+      "body": "模型越会用工具，越要写清目标、可写范围、审批点、停止条件和最终验收物；只读采集与写入发布必须分阶段。"
     }
   ]
 }

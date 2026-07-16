@@ -1,20 +1,63 @@
 {
-  "date": "2026-07-15",
-  "updatedAt": "2026-07-15T09:19:31+08:00",
-  "updatedLabel": "2026-07-15 09:19 CST",
-  "conclusion": "今日主线是：AI 工作流正在从“会聊天的模型”升级成“有工作台、有派工表、有验收口的个人操作系统”。ChatGPT Work 负责收纳，Codex 负责执行，iPhone 负责派工，Mac 负责终审。",
+  "date": "2026-07-16",
+  "updatedAt": "2026-07-16T09:28:34+08:00",
+  "updatedLabel": "2026-07-16 09:28 CST",
+  "conclusion": "今日主线是：Codex 正在从聊天窗口里的 coding agent 变成可被物理设备、桌面、手机和 API 同时调度的工作流层。Codex Micro 把任务状态、审批、语音和推理强度做成桌面控制面板；GitHub 安全更新提醒 agent 发布链路必须有白名单、验证和终审。",
   "metrics": {
-    "sourceCards": 11,
+    "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-07-15 的可复用变化集中在四块：ChatGPT Work 工作台、Web Search 可追溯采集、iPhone/Mac/Codex 分工、coding-agent 本地指标。",
-    "今天的安全结论很明确：公开 AI Radar 只展示公开来源；私有 connector、cookie、私信、截图、本地敏感路径不进入网站数据。"
+    "2026-07-16 的可复用变化集中在四块：Codex Micro 物理控制台、GPT-5.6 模型路由、Agents SDK 候选池模板、prompt injection 安全闸门。",
+    "今天的安全结论很明确：硬件和快捷入口会降低操作摩擦，也会放大误触风险；不可逆动作仍要回到 Mac 终审。"
   ],
   "signals": [
     {
-      "title": "ChatGPT Work 把 AI 入口升级成工作台",
+      "title": "Codex Micro 把 agent 控制推到桌面硬件",
+      "author": "ChatGPT Learn / OpenAI",
+      "source": "official-docs",
+      "url": "https://learn.chatgpt.com/codex/features/codex-micro",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Codex Micro",
+      "summary": "Codex Micro 把任务状态、多 agent 切换、审批、语音输入和推理强度做成实体控制点，说明 Codex 正在成为桌面工作流层。",
+      "takeaway": "动作：先定义按钮白名单；查看状态和补上下文可以低风险，commit、push、deploy 仍需 Mac 终审。"
+    },
+    {
+      "title": "Work Louder 展示 Codex 物理控制台形态",
+      "author": "Work Louder",
+      "source": "product-page",
+      "url": "https://worklouder.cc/codex-micro/",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Hardware",
+      "summary": "产品页展示按键、旋钮和滑杆如何承载启动、审批、暂停、语音补充和推理强度控制。",
+      "takeaway": "动作：把自己的 Codex 高频动作拆成启动、查看、审批、暂停、语音、推理强度六类。"
+    },
+    {
+      "title": "媒体报道补充 Codex Micro 场景判断",
+      "author": "The Verge",
+      "source": "media",
+      "url": "https://www.theverge.com/news/708104/openai-keyboard-chatgpt-codex-micro-work-louder",
+      "category": [
+        "hot",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Context",
+      "summary": "媒体报道提供了 Codex Micro 的发布语境和用户场景，但能力判断仍应回到官方 Learn 和产品页。",
+      "takeaway": "动作：媒体只做场景补充，不把报道摘要当功能事实。"
+    },
+    {
+      "title": "ChatGPT Work 继续收束个人 AI 工作台",
       "author": "OpenAI",
       "source": "official",
       "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
@@ -25,128 +68,112 @@
       ],
       "score": "HIGH",
       "tag": "Work",
-      "summary": "OpenAI 把 ChatGPT、Codex、Projects、Connectors、Record、Study、Deep Research 放在同一套工作叙事里，意味着 AI 工作流要按任务区分入口。",
-      "takeaway": "动作：把个人 AI 工作台拆成收集、执行、验收、沉淀四个区；不要把所有事塞进聊天窗口。"
+      "summary": "OpenAI 把 ChatGPT、Codex、Projects、Connectors、Record、Deep Research 放进同一工作叙事，强化工作台方向。",
+      "takeaway": "动作：AI Radar 继续按收集、执行、验收、沉淀四段组织。"
     },
     {
-      "title": "Build Week 适合做一周官方更新路线图",
+      "title": "GPT-5.6 推动模型按任务路由",
       "author": "OpenAI",
       "source": "official",
-      "url": "https://openai.com/build-week/",
-      "category": [
-        "hot",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Build Week",
-      "summary": "OpenAI 用 Build Week 集中串联近期产品变化，适合 AI Radar 每天拆一条能改工作流的更新，而不是追热点噪音。",
-      "takeaway": "动作：把本周官方更新拆成每日跟进清单，只沉淀能变成操作链路的内容。"
-    },
-    {
-      "title": "Codex/ChatGPT desktop changelog 是可用性核验入口",
-      "author": "OpenAI Learn",
-      "source": "official-changelog",
-      "url": "https://learn.chatgpt.com/docs/changelog",
+      "url": "https://openai.com/index/introducing-gpt-5-6/",
       "category": [
         "hot",
         "workflow",
-        "mobile",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Desktop",
-      "summary": "Codex、ChatGPT desktop、Work、模型入口和移动端能力的可用性集中在 changelog，适合发布前回查。",
-      "takeaway": "动作：所有操作说明都写清入口：mobile 控制、desktop 验收、CLI 执行、API 自动化。"
+      "tag": "Model",
+      "summary": "GPT-5.6 强调更强推理、代码和可靠性，提示自动化不要默认一个模型跑到底。",
+      "takeaway": "动作：在复杂 Codex 任务里记录模型选择理由，区分初筛、代码、安全和发布判断。"
     },
     {
-      "title": "Web Search 结果要从“搜到”变成“可追溯”",
+      "title": "Agents SDK 适合沉淀只读候选池模板",
       "author": "OpenAI Developers",
       "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/guides/tools-web-search",
+      "url": "https://developers.openai.com/tracks/building-agents/",
       "category": [
         "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Search",
-      "summary": "Responses API 的 Web Search guide 强调正式工具、筛选、来源控制和结构化输出；AI Radar 应保留 query、来源类型和原文链接。",
-      "takeaway": "动作：source-card 增加 query/evidenceType 候选字段；搜索阶段只产候选池，不自动发布。"
-    },
-    {
-      "title": "API changelog 是工具迁移的基准表",
-      "author": "OpenAI Developers",
-      "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/changelog",
-      "category": [
         "tools",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "API",
-      "summary": "Responses、tools、模型和迁移时间点要以 API changelog 为准，避免按社区转述误改自动化。",
-      "takeaway": "动作：每次改 AI Radar 采集/工具链前先查 changelog，并把影响列成待办。"
-    },
-    {
-      "title": "Codex 计划边界影响自动化成本解释",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
-      "category": [
-        "accounts",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Codex",
-      "summary": "Codex 的计划、可用范围和额度会影响自动化为什么能跑、为什么失败、是否值得拆任务。",
-      "takeaway": "动作：继续记录 sourceCards、验证命令、部署状态；后续加成本/额度复盘。"
-    },
-    {
-      "title": "Connectors 只能服务判断，不能污染公开站点",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/11487775-connectors-in-chatgpt",
-      "category": [
-        "knowledge",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Connectors",
-      "summary": "Connectors 能接外部资料，但公开 AI Radar 必须只展示公开来源，不能把私有连接内容写入 site/data。",
-      "takeaway": "动作：公开网站字段只允许公开 URL、公开作者、公开来源和总结后的学习卡。"
-    },
-    {
-      "title": "Remote MCP 提醒工具接入要先讲权限边界",
-      "author": "OpenAI Developers",
-      "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/mcp",
-      "category": [
-        "tools",
-        "workflow",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "MCP",
-      "summary": "Remote MCP 让工具接入更方便，也提高了白名单、审计、只读优先和显式授权的重要性。",
-      "takeaway": "动作：本地桥和 MCP 坚持白名单；任何公网 tunnel 继续先单独确认。"
+      "tag": "Agents",
+      "summary": "OpenAI Developers 的 Agents 轨道把 agent 工程入口、工具调用和结构化输出集中起来，适合做 AI Radar 模板。",
+      "takeaway": "动作：采集链路拆成候选池、source-card、验证命令和发布闸门四段。"
     },
     {
-      "title": "Claude Code hooks 可借鉴为 Codex 阶段闸门",
-      "author": "Anthropic",
+      "title": "Responses API 迁移仍是工具链基准",
+      "author": "OpenAI Developers",
       "source": "official-docs",
-      "url": "https://code.claude.com/docs/en/hooks-guide",
+      "url": "https://developers.openai.com/api/docs/guides/migrate-to-responses",
       "category": [
-        "tools",
-        "workflow"
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Responses",
+      "summary": "Responses API 迁移文档说明 OpenAI 工具链继续围绕 Responses 整合 web search、tools 和 agentic workflow。",
+      "takeaway": "动作：未来半自动采集优先记录工具调用、公开来源链接和结构化输出。"
+    },
+    {
+      "title": "Copilot CLI 更新可作 Codex 横向参照",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-15-github-copilot-cli-1-0-70/",
+      "category": [
+        "workflow",
+        "tools"
       ],
       "score": "MED",
-      "tag": "Hooks",
-      "summary": "hooks/权限/自动化边界的思路可借鉴到 Codex：只读采集、写文件、commit、push、deploy 分阶段。",
-      "takeaway": "动作：给 AI Radar 的发布阶段补一张验证证据清单，避免只读采集和公开发布混在一起。"
+      "tag": "CLI",
+      "summary": "Copilot CLI 更新展示了 coding agent 在终端侧的状态控制、模型能力和远程工作流趋势。",
+      "takeaway": "动作：CLI agent 控制点统一成启动、状态、权限、日志、验证、回滚。"
     },
     {
-      "title": "Coding-agent 价值要用采用指标复盘",
+      "title": "AI security detections 进入 GitHub 扫描链",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-15-ai-powered-security-detections-for-code-scanning-and-secret-scanning-now-in-public-preview/",
+      "category": [
+        "tools",
+        "knowledge"
+      ],
+      "score": "MED",
+      "tag": "Security",
+      "summary": "GitHub 把 AI security detections 放进 code scanning 和 secret scanning，说明 AI 产出也要进入常规安全验证链。",
+      "takeaway": "动作：公开站点和自动化脚本发布前继续做 JSON 校验、静态检查和敏感字段扫描。"
+    },
+    {
+      "title": "Copilot CLI 安全审查提示本地闸门价值",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-15-security-review-in-github-copilot-cli/",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "MED",
+      "tag": "Review",
+      "summary": "`/security-review` 把安全审查放到开发者本地 CLI 工作流里，适合转化为个人 agent 发布前固定检查。",
+      "takeaway": "动作：发布前检查外部来源、工具权限、公开数据字段和 secret。"
+    },
+    {
+      "title": "Prompt injection 已进入 CodeQL 规则层",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-15-prompt-injection-detection-for-javascript-and-typescript-in-public-preview/",
+      "category": [
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Injection",
+      "summary": "CodeQL 开始检测 prompt injection，说明外部文本污染 agent 指令已经从讨论进入扫描规则层。",
+      "takeaway": "动作：网页、README、issue、评论只当数据，不当指令；工具调用必须走白名单。"
+    },
+    {
+      "title": "Coding-agent 价值仍要靠本地指标复盘",
       "author": "Microsoft researchers / arXiv",
       "source": "paper",
       "url": "https://arxiv.org/abs/2607.01418",
@@ -155,45 +182,31 @@
         "workflow"
       ],
       "score": "MED",
-      "tag": "Adoption",
-      "summary": "CLI coding agent 采用研究把价值从主观感觉转为可观察指标，如采用、留存、PR 合并和影响扩散。",
-      "takeaway": "动作：月底复盘不只看跑了几次，还看哪些知识卡被复用、哪些自动化失败或返工。"
-    },
-    {
-      "title": "Agentic misalignment 提醒越能干越要先写边界",
-      "author": "arXiv",
-      "source": "paper",
-      "url": "https://arxiv.org/abs/2607.03968",
-      "category": [
-        "knowledge",
-        "workflow"
-      ],
-      "score": "MED",
-      "tag": "Safety",
-      "summary": "论文提醒 agent 在目标和权限模糊时可能出现越界行为，适合转化为个人自动化硬边界。",
-      "takeaway": "动作：继续禁止公开互动和私有数据写入；发布阶段必须保留 Git、JSON、Vercel 证据。"
+      "tag": "Metrics",
+      "summary": "CLI coding agent 采用研究把价值从主观感觉转为可观察指标，适合 AI Radar 月度复盘。",
+      "takeaway": "动作：月底复盘 sourceCards、knowledgeCards、失败原因、返工和实际复用情况。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Workbench",
-      "title": "AI 工作台要分四个区",
-      "body": "把个人 AI 工作流拆成收集、执行、验收、沉淀。iPhone 捕捉，ChatGPT Project 收上下文，Codex 产出文件，Mac 验收，knowledge 只留可复用动作。"
+      "label": "01 / Console",
+      "title": "物理控制台先定义按钮白名单",
+      "body": "Codex Micro 类硬件会让操作更快，也会放大误触风险。先把动作分成只读、可逆、不可逆；不可逆动作仍回到 Mac 终审。"
     },
     {
-      "label": "02 / Search",
-      "title": "Web Search 结果要可追溯",
-      "body": "搜索摘要不是证据。每张 source-card 应保留 query、作者、URL、来源类型、为什么可信和能做什么；无原文证据的转载直接丢弃。"
+      "label": "02 / Routing",
+      "title": "模型路由要写进任务说明",
+      "body": "初筛、摘要、去重可以低成本；代码、安全判断、公开发布和复杂跨文件修改应升级强推理，并记录为什么升级。"
     },
     {
-      "label": "03 / Mobile",
-      "title": "手机派工，Mac 终审",
-      "body": "iPhone 负责创建任务、补上下文、看状态和轻审批；复杂 diff、部署、公开发布和跨文件复核回到 Mac。"
+      "label": "03 / Pipeline",
+      "title": "Agent 采集要拆成候选池和发布链",
+      "body": "采集阶段只生成候选；发布阶段才写 Markdown、JSON、站点数据、commit、push 和 Vercel deploy。"
     },
     {
-      "label": "04 / Metrics",
-      "title": "Agent 采用要有本地指标",
-      "body": "不要只记录“跑完了”。记录 sourceCards、Top signals、knowledgeCards、验证命令、部署状态、失败原因和是否被实际复用。"
+      "label": "04 / Security",
+      "title": "Prompt injection 要进入审查清单",
+      "body": "外部文本只能当资料，不能当系统指令。工具调用走白名单，写入前检查来源和字段，发布前保留验证证据。"
     }
   ]
 }

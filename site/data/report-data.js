@@ -1,207 +1,211 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-07-23",
-  "updatedAt": "2026-07-23T09:29:09+08:00",
-  "updatedLabel": "2026-07-23 09:29 CST",
-  "conclusion": "今日主线是：agent 工作流正在从“模型能力展示”进入“生产运行系统”。OpenAI Presence 把企业 agent 拆成岗位、权限、政策、批准动作、模拟评测、升级人工和 Codex 改进循环；GitHub Copilot 的 impact dashboard、AI credit 可见性、模型选择和 app 使用指标，说明行业正在给 agent 建成熟度、成本和采纳深度仪表盘。",
+  "date": "2026-07-24",
+  "updatedAt": "2026-07-24T09:16:36+08:00",
+  "updatedLabel": "2026-07-24 09:16 CST",
+  "conclusion": "今日主线是：agent 工作流正在进入“多入口、可审批、可追责”的阶段。OpenAI 把 ChatGPT Voice 带入桌面端 Work 和 Codex；GitHub 同日发布移动端修 CI、Linear 派单和 Issues 自动化审批能力；Pillar Security 的 sandbox escape 系列提醒，agent 的安全边界不只是进程沙箱，还包括它能写入、并被宿主工具信任的文件和配置。",
   "metrics": {
     "sourceCards": 14,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-07-23 的可复用变化集中在四块：岗位卡、持续评测、成熟度指标、程序化工具链。",
-    "今天的判断很明确：agent 越进入生产，越要先管权限、评测、成本和人工接管。"
+    "2026-07-24 的可复用变化集中在四块：语音/手机入口、agent 派工、rationale+confidence 审批、sandbox 写入边界。",
+    "今天的判断很明确：入口可以变多，权限必须分层；iPhone 和 Voice 做派工，Mac 做终审。"
   ],
   "signals": [
     {
-      "title": "OpenAI Presence 把 agent 推向生产岗位",
-      "author": "OpenAI",
-      "source": "official-product",
-      "url": "https://openai.com/index/introducing-openai-presence/",
+      "title": "ChatGPT Voice 进入 Work 和 Codex 桌面端",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "category": [
         "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Presence",
-      "summary": "Presence 面向企业语音和聊天 agent，把岗位、知识、系统权限、政策、guardrails、模拟、grader、人工升级和上线后改进放在同一产品里。",
-      "takeaway": "动作：每个自动化任务先写 job card，再给 Codex 或其他 agent 执行。"
+      "tag": "Voice",
+      "summary": "OpenAI 7 月 23 日 release notes 显示，ChatGPT Voice 已可在桌面端 Work 和 Codex 中启动、协调和转向任务。",
+      "takeaway": "动作：语音只做启动、检查和补上下文；commit、push、deploy 仍回 Mac 终审。"
     },
     {
-      "title": "Codex 成为生产 agent 改进循环的一环",
-      "author": "OpenAI",
-      "source": "official-product",
-      "url": "https://openai.com/index/introducing-openai-presence/",
+      "title": "GitHub Mobile 可一键派 Copilot 修 CI",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-23-github-mobile-fix-failing-actions-checks-with-copilot-cloud-agent/",
       "category": [
+        "hot",
+        "mobile",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Mobile CI",
+      "summary": "GitHub Mobile 可从失败 Actions check 触发 Copilot cloud agent 调查并创建叠加在原 PR 之上的修复 PR。",
+      "takeaway": "动作：手机负责触发调查，桌面负责 diff、检查和 merge 判断。"
+    },
+    {
+      "title": "GitHub Issues 给 agent 自动化加审批控件",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview/",
+      "category": [
+        "hot",
         "workflow",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Improve",
-      "summary": "Presence 用生产会话、升级记录和质量信号发现缺口，Codex 调查并提出可测试、可批准的更新。",
-      "takeaway": "动作：把失败原因和用户接管点作为下一轮自动化改进输入。"
+      "tag": "Approvals",
+      "summary": "Issues 自动化支持 rationale、confidence 和 approvals，标签、类型、关闭、指派等变更可按置信度自动或待审。",
+      "takeaway": "动作：给 AI Radar signals 增加 rationale/confidence 候选字段。"
     },
     {
-      "title": "新闻机构案例展示公共资料工作流",
-      "author": "OpenAI",
-      "source": "official-company",
-      "url": "https://openai.com/index/how-news-organizations-are-using-ai/",
+      "title": "Linear 正式成为 agent 派工入口",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-23-copilot-cloud-agent-for-linear-is-now-generally-available/",
       "category": [
-        "knowledge",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Newsrooms",
-      "summary": "新闻机构把 AI 用于 overnight scan、公开文件搜索、会议转录评分、风格校验、知识库查询、Slack 决策入口和 MCP 数据连接。",
-      "takeaway": "动作：AI Radar 从摘要升级为公开线索评分和可复用动作沉淀。"
-    },
-    {
-      "title": "GPT-5.6 强调工具密集工作流效率",
-      "author": "OpenAI",
-      "source": "official-release",
-      "url": "https://openai.com/index/gpt-5-6/",
-      "category": [
-        "hot",
+        "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "GPT-5.6",
-      "summary": "GPT-5.6 强调更少 token、更少工具往返、Programmatic Tool Calling 和 multi-agent ultra-style 并行。",
-      "takeaway": "动作：重复流程先做小型程序化工具链，再让模型处理关键证据。"
+      "tag": "Linear",
+      "summary": "Copilot cloud agent for Linear GA，支持把 issue 派给异步 agent，并配置模型、自定义 agent、base/working branch 和 session steering。",
+      "takeaway": "动作：任务卡要携带目标分支、模型档位、执行范围和转向入口。"
     },
     {
-      "title": "模型选择变成任务路由问题",
+      "title": "Sandbox escape 研究重定义 agent 边界",
+      "author": "Pillar Security",
+      "source": "primary-research",
+      "url": "https://www.pillar.security/blog/the-week-of-sandbox-escapes",
+      "category": [
+        "hot",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Sandbox",
+      "summary": "Pillar 将多款 coding agent 的越界问题归纳为：agent 不一定要逃出进程沙箱，只要写入宿主工具之后会信任的文件即可形成越界链。",
+      "takeaway": "动作：审查 agent 可写路径、配置型代码和宿主消费者。"
+    },
+    {
+      "title": "Codex CLI GitPwned 指向调用级白名单",
+      "author": "Pillar Security",
+      "source": "primary-research",
+      "url": "https://www.pillar.security/blog/gitpwned-allowlist-to-rce",
+      "category": [
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "GitPwned",
+      "summary": "Pillar 的 Codex CLI 个案强调，命令名白名单不足以判断安全；参数、写入目标和后续执行者才决定真实风险。",
+      "takeaway": "动作：把工具白名单从 command name 升级到 invocation 和 side-effect 检查。"
+    },
+    {
+      "title": "Programmatic Tool Calling 适合工具密集流",
       "author": "OpenAI Developers",
       "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "url": "https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling",
       "category": [
         "tools",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "Routing",
-      "summary": "OpenAI model guidance 建议按 Sol、Terra、Luna、reasoning effort、cache 成本和 PTC 适配不同工作负载。",
-      "takeaway": "动作：高风险终审用强模型和人工，批量抽取用更便宜的可控路径。"
+      "tag": "PTC",
+      "summary": "PTC 让模型生成程序来协调工具并处理中间结果，适合重复、工具密集、数据量大的流程。",
+      "takeaway": "动作：先定义工具白名单、关键证据输出和质量对照，再引入 PTC。"
     },
     {
-      "title": "ChatGPT Desktop 收束 Chat / Work / Codex",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "title": "Responses API Multi-agent 提供托管编排",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/responses-multi-agent",
       "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Desktop",
-      "summary": "桌面端更新提供 ChatGPT 和 Codex 全局切换，Chat / Work / Projects / Recents 更统一，Work 支持跨设备继续。",
-      "takeaway": "动作：按入口分配任务，避免一个长会话承担问答、执行、发布和复盘。"
-    },
-    {
-      "title": "Codex Mobile 明确手机监督角色",
-      "author": "OpenAI",
-      "source": "official-product",
-      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
-      "category": [
-        "mobile",
+        "tools",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "Mobile",
-      "summary": "Codex mobile remote control 让手机查看 host 上的线程、审批、截图、terminal、diff、test results 和上下文。",
-      "takeaway": "动作：iPhone 捕捉和派工，Mac 做 diff、测试、commit、push、deploy 终审。"
+      "tag": "Multi-agent",
+      "summary": "Responses API 支持 root agent 创建 subagents、等待结果并综合输出，减少应用侧自写编排。",
+      "takeaway": "动作：只有并行能实质提升速度或质量时才开 subagents，并设置合并证据。"
     },
     {
-      "title": "Copilot impact dashboard 指标升级",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard/",
+      "title": "Secure MCP Tunnel 强调私有边界",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/secure-mcp-tunnels",
       "category": [
-        "hot",
+        "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "MCP",
+      "summary": "Secure MCP Tunnel 通过 outbound-only HTTPS 让支持的 OpenAI 产品访问私有 MCP server，而不把 server 暴露到公网。",
+      "takeaway": "动作：本地桥和私有工具默认保持私有，只通过明确工作区和组织边界连接。"
+    },
+    {
+      "title": "Skills 需要当成特权自动化审查",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/tools-skills",
+      "category": [
+        "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Metrics",
-      "summary": "GitHub 把 Copilot 采纳分成 Code-first、Agent-first、Multi-agent/Copilot app、Passive，并展示吞吐、速度和趋势。",
-      "takeaway": "动作：AI Radar 月报增加任务成熟度，而不仅是 source card 数量。"
+      "tag": "Skills",
+      "summary": "OpenAI Skills 文档提醒，Skill 内容会影响规划、工具调用和命令执行，应作为特权代码和指令审查。",
+      "takeaway": "动作：Skill 先审查再集成；写操作和高影响动作保留审批。"
     },
     {
-      "title": "Gemini 3.6 Flash 进入 Copilot",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot/",
-      "category": [
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Models",
-      "summary": "Copilot 把 Gemini 3.6 Flash 推向 VS Code、CLI、cloud agent、Copilot app、JetBrains、Xcode 等入口。",
-      "takeaway": "动作：把模型看成路由层，按成本、延迟、质量和风险选默认档。"
-    },
-    {
-      "title": "AI credit 用量对个人可见",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-20-copilot-users-can-now-see-ai-credits-used-per-billing-cycle/",
-      "category": [
-        "workflow",
-        "knowledge"
-      ],
-      "score": "MED",
-      "tag": "Cost",
-      "summary": "Copilot Business / Enterprise 用户即使没有个人预算，也能看到本 billing cycle 实际 AI credit 使用量。",
-      "takeaway": "动作：记录失败重跑和复用价值，避免只看运行次数。"
-    },
-    {
-      "title": "Copilot app 指标进入 API",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api/",
-      "category": [
-        "knowledge",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Telemetry",
-      "summary": "Usage metrics API 单独报告 Copilot app 的 active users、session、request、prompt 和 token 指标。",
-      "takeaway": "动作：把 Codex app、mobile、browser、CLI 和自动化分开记录。"
-    },
-    {
-      "title": "Shortcuts 仍是 iPhone 低风险自动化底座",
+      "title": "Apple Shortcuts 可调用模型结构化 intake",
       "author": "Apple Support",
       "source": "official-docs",
-      "url": "https://support.apple.com/guide/shortcuts/welcome/ios",
+      "url": "https://support.apple.com/en-gb/guide/iphone/iph78c41eaf8/26/ios/26",
       "category": [
         "mobile",
         "workflow"
       ],
-      "score": "MED",
+      "score": "HIGH",
       "tag": "Shortcuts",
-      "summary": "iPhone Shortcuts 适合捕捉、提醒、格式化和结构化交接，与 Codex mobile 的监督角色互补。",
-      "takeaway": "动作：Shortcuts 做 intake，不做不可逆公开发布。"
+      "summary": "iPhone Shortcuts 可使用 on-device、Private Cloud Compute 或 ChatGPT 扩展模型处理输入、解析输出并接入后续动作。",
+      "takeaway": "动作：用 Shortcuts 把链接、语音和提醒整理成候选卡，不直接公开发布。"
+    },
+    {
+      "title": "AI Radar 可视化显示长期人机协作记忆",
+      "author": "Gerd Kortuem",
+      "source": "public-project",
+      "url": "https://kortuem.com/projects/collaboration-radar/",
+      "category": [
+        "knowledge",
+        "accounts"
+      ],
+      "score": "MED",
+      "tag": "Memory",
+      "summary": "Gerd Kortuem 的 AI Radar 把 5 个月、300 sessions、28 个 specialized agents 和 file-based transactive memory 可视化。",
+      "takeaway": "动作：把 raw logs、source-card、daily、knowledge 分层，长期记忆只收可复用资产。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Job Card",
-      "title": "Agent 上生产前先写岗位卡",
-      "body": "定义目标、可读资料、允许动作、需批准动作、人工接管条件和验收命令，再让 agent 执行。"
+      "label": "01 / Voice Gate",
+      "title": "语音入口只做协调",
+      "body": "Voice 适合启动、检查和补上下文；公开发布、权限和代码发布仍要经过 Mac 上的 diff 与验证。"
     },
     {
-      "label": "02 / Maturity",
-      "title": "Agent 成熟度按阶段衡量",
-      "body": "从 Chat、Code-first、Agent-first 到 Multi-agent，每个阶段的复盘指标不同，不能只数使用次数。"
+      "label": "02 / Confidence",
+      "title": "Agent 自动化要有理由和置信度",
+      "body": "每个自动分类、标签、关闭或归档建议都应带 rationale、confidence 和是否可自动应用的策略。"
     },
     {
-      "label": "03 / PTC",
-      "title": "工具密集流程先过滤中间噪声",
-      "body": "Programmatic Tool Calling 适合让程序处理重复中间结果，只把关键证据、异常和决策点交给模型。"
+      "label": "03 / Sandbox Boundary",
+      "title": "Sandbox 要审查写入后的消费者",
+      "body": "agent 可写文件、配置型代码和宿主工具消费者共同决定真实边界，不能只看命令名。"
     },
     {
-      "label": "04 / Lead Scoring",
-      "title": "知识工作要做线索评分",
-      "body": "公开来源扫描后先结构化证据、打分、人工判断，再把可复用动作沉淀为知识卡片。"
+      "label": "04 / Mobile Intake",
+      "title": "手机端 intake 要结构化",
+      "body": "iPhone Shortcuts 和 Voice 负责把零散输入转成候选卡；Mac 负责执行、验证和发布终审。"
     }
   ]
 };

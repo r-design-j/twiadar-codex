@@ -1,214 +1,214 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-07-30",
-  "updatedAt": "2026-07-30T09:06:38+08:00",
-  "updatedLabel": "2026-07-30 09:06 CST",
-  "conclusion": "今日主线是：agent 工作流正在从“能被远程启动和并行执行”进入“可被身份、工具、评审、指标和改进闭环治理”的阶段。Sign in with ChatGPT 降低插件接入摩擦，Presence 把生产 agent 拆成岗位、权限、评估、升级和 Codex 改进闭环，GitHub code review skills/MCP GA 与模型默认启用策略则提醒我们把评审上下文、模型权限和指标都资产化。",
+  "date": "2026-07-31",
+  "updatedAt": "2026-07-31T09:08:00+08:00",
+  "updatedLabel": "2026-07-31 09:08 CST",
+  "conclusion": "今日主线是：coding agent 正在从“会写代码的助手”升级成“有规则、有上下文、有权限边界、有跨设备控制面的工程系统”。Codex Code Review rules 把团队判断写进 AGENTS.md，Remote 把 iPhone 明确为控制面，Secure MCP Tunnel 则给私有工具接入提供 outbound-only、显式目的地、可检查客户端的边界模型。",
   "metrics": {
     "sourceCards": 13,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-07-30 的可复用变化集中在四块：Agent 生产闭环、插件身份最小披露清单、Review Skills + 只读 MCP、模型默认启用审计表。",
-    "今天的判断很明确：入口越统一，治理越要拆细；登录、工具、模型、评审和发布都需要独立证据。"
+    "2026-07-31 的可复用变化集中在四块：Repository Rules 评审资产、手机控制面协议、私有工具窄通道、Agentic Workflow 仓库化。",
+    "今天的判断很明确：入口越多，越需要把规则、权限、证据和换车边界写成资产。"
   ],
   "signals": [
     {
-      "title": "Sign in with ChatGPT 开始进入插件和合作站点",
+      "title": "Codex review rules 把 AGENTS.md 变成评审资产",
+      "author": "OpenAI Developers",
+      "source": "official-developer-blog",
+      "url": "https://developers.openai.com/blog/custom-code-review-rules-for-codex",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Review Rules",
+      "summary": "Codex Code Review 可以读取 scoped AGENTS.md 规则，发现仓库特有的不变量、兼容性风险和数据边界问题，并在 finding 中引用规则。",
+      "takeaway": "动作：给本仓库补 2-3 条高后果规则，覆盖 sourceCards/metrics、JSON/JS 同步和公开路径扫描。"
+    },
+    {
+      "title": "iPhone 被明确定位为 Codex 工程控制面",
+      "author": "OpenAI Developers / Thomas Ricouard",
+      "source": "official-developer-blog",
+      "url": "https://developers.openai.com/blog/mastering-codex-remote-for-engineering",
+      "category": [
+        "hot",
+        "mobile",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Mobile Control",
+      "summary": "Remote 支持从手机选择 host、repo、worktree，处理 Queue/Steer、审批、diff/test review 和长会话状态管理。",
+      "takeaway": "动作：手机只做派工、转向、卡点和最窄权限审批；复杂 diff、发布和密钥终审回到 Mac。"
+    },
+    {
+      "title": "Secure MCP Tunnel 给私有工具接入定边界",
+      "author": "OpenAI Developers / Denys Kurylenko",
+      "source": "official-developer-blog",
+      "url": "https://developers.openai.com/blog/connect-private-mcp-servers-to-openai-products",
+      "category": [
+        "hot",
+        "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Private MCP",
+      "summary": "客户环境内的 tunnel client 主动发起 outbound HTTPS，私有 MCP 地址仍留在内部网络，OpenAI 产品通过标准 MCP 请求路径使用它。",
+      "takeaway": "动作：私有工具只通过白名单目标、方法、超时、响应大小和日志接入，禁止泛化为公网隧道。"
+    },
+    {
+      "title": "ChatGPT 桌面端把 Chat/Work/Codex 放进统一工作台",
       "author": "OpenAI Help Center",
       "source": "official-help",
       "url": "https://help.openai.com/en/articles/6825453-release-notes",
       "category": [
-        "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Identity Gate",
-      "summary": "OpenAI 7 月 29 日 Release Notes 显示 Sign in with ChatGPT beta 从 Airtable、GitLab、HubSpot、Notion、Supabase、Vercel 等入口开始。",
-      "takeaway": "动作：为插件接入写身份最小披露清单，单独复核共享字段、读写范围、公开动作和撤销路径。"
+      "tag": "Unified App",
+      "summary": "7 月桌面端更新让 Chat、Work、Codex 更容易切换，Recents 和 Projects 更统一，同时 Codex workflows/history 保持独立。",
+      "takeaway": "动作：按任务类型分派入口：聊天问答、成品交付、代码执行分开，不把所有长任务塞进一个会话。"
     },
     {
-      "title": "OpenAI Presence 把 agent 生产闭环产品化",
+      "title": "Enterprise 管理侧开始纳入 Codex analytics",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes",
+      "category": [
+        "accounts",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Admin Analytics",
+      "summary": "Enterprise/Edu 管理员可创建 workspace-scoped Admin keys，并查看更长时间的 credit 与 Codex analytics 历史。",
+      "takeaway": "动作：个人自动化也记录 sourceCards、signals、knowledge、commit、deployment、验证命令和失败边界。"
+    },
+    {
+      "title": "Codex anywhere 把 Remote SSH、Hooks、tokens 合到一条治理线",
       "author": "OpenAI",
       "source": "official-product",
-      "url": "https://openai.com/index/introducing-openai-presence/",
+      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
       "category": [
-        "hot",
+        "mobile",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Production Agent",
-      "summary": "Presence 面向 voice/chat agent，把岗位定义、权限、模拟、评估、升级、上线后信号和 Codex 改进建议放在同一条链路。",
-      "takeaway": "动作：把日报、客服、研究和 review agent 都按岗位、权限、评估、线上信号、改进、批准发布来管理。"
+      "tag": "Remote Governance",
+      "summary": "OpenAI 官方说明 Codex mobile、Remote SSH、Hooks、programmatic access tokens 和本地环境合规支持正在组合成远程协作能力。",
+      "takeaway": "动作：远程工作流同时设计 host、relay、hooks、approval 和 token 边界，不能只加入口。"
     },
     {
-      "title": "GitHub code review skills/MCP GA",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available/",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Review Context",
-      "summary": "GitHub code review 现在可调用 agent skills 和只读 MCP 上下文，并在评论中显示 skills/MCP attribution。",
-      "takeaway": "动作：把评审规则写成可版本化 SKILL.md 或规则卡，MCP 保持只读，评论标明依据来源。"
-    },
-    {
-      "title": "GitHub 模型默认启用策略进入倒计时",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-29-default-model-enablement-for-copilot-business-and-enterprise/",
-      "category": [
-        "hot",
-        "accounts",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Model Policy",
-      "summary": "Copilot Business/Enterprise 的 GA 模型将按组织默认策略继承启用状态，8 月 26 日生效，显式选择和部分排除模型保留。",
-      "takeaway": "动作：建立模型默认启用审计表，区分默认继承、显式启用、显式禁用和例外排除。"
-    },
-    {
-      "title": "Copilot app usage metrics 进入标准报表",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-28-github-copilot-app-usage-metrics-now-expand-across-report-rollups/",
-      "category": [
-        "workflow",
-        "accounts",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Agent Metrics",
-      "summary": "Copilot app activity 被纳入 enterprise/user/org rollups，包含 session、request、prompt、token、code activity 和 lines changed 等字段。",
-      "takeaway": "动作：AI Radar 也记录 sourceCards、signals、knowledge、验证命令、commit、deployment 和失败边界。"
-    },
-    {
-      "title": "Agents SDK 把工具执行边界讲清楚",
-      "author": "OpenAI Agents SDK Docs",
+      "title": "OpenAI Developers 成为 Codex 能力总索引",
+      "author": "OpenAI Developers",
       "source": "official-docs",
-      "url": "https://openai.github.io/openai-agents-js/guides/tools/",
+      "url": "https://developers.openai.com/",
+      "category": [
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Docs Index",
+      "summary": "Developers 首页集中展示 Codex、Work、Plugins、Workspace Agents、Secure MCP Tunnel、AGENTS.md、permissions 和 Codex SDK 等入口。",
+      "takeaway": "动作：涉及 OpenAI 能力时，先用 Developers docs 与 Help Center 双源交叉确认当前可用性。"
+    },
+    {
+      "title": "GitHub Agentic Workflows 把自然语言自动化仓库化",
+      "author": "GitHub Docs",
+      "source": "official-docs",
+      "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/about-github-agentic-workflows",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Workflow as Code",
+      "summary": "GitHub 用 Markdown 定义 agentic workflow，再编译成 hardened GitHub Actions workflow，包含权限、网络、工具和 safe outputs。",
+      "takeaway": "动作：把每日仓库巡检、日报生成和状态 issue 摘要写成可版本化 workflow，先手动触发。"
+    },
+    {
+      "title": "Agentic Workflows 支持多 engine 路由",
+      "author": "GitHub Agentic Workflows",
+      "source": "official-docs",
+      "url": "https://github.github.com/gh-aw/reference/engines/",
       "category": [
         "tools",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "Tool Boundary",
-      "summary": "SDK 区分 hosted tools、computer use、shell、apply_patch、sandbox filesystem、skills 和 memory，执行发生在应用或沙箱环境。",
-      "takeaway": "动作：把安全写进执行环境、审批、文件权限和工具实现，不只依赖 prompt。"
+      "tag": "Engine Routing",
+      "summary": "GitHub Agentic Workflows 支持 Copilot、Claude Code、OpenAI Codex、Gemini、OpenCode 等 engine，并定义各自认证 secret。",
+      "takeaway": "动作：多 agent 路由要把 engine、secret、版本、timeout 和 harness 写进 workflow，而不是临时口头选择。"
     },
     {
-      "title": "AI 正在推动跨岗位任务流动",
-      "author": "OpenAI",
-      "source": "official-research",
-      "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/",
-      "category": [
-        "knowledge",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Task Crossover",
-      "summary": "OpenAI 研究显示 43.5% 的 occupation-specific AI 消息涉及本职业之外任务，营销、工程、金融计算和技术排障尤其会跨岗位流动。",
-      "takeaway": "动作：用户负责业务目标和验收，Codex 负责跨岗位可验证执行件。"
-    },
-    {
-      "title": "ChatGPT/Codex 进入科研协作和执行链路",
-      "author": "OpenAI",
-      "source": "official-release",
-      "url": "https://openai.com/index/chatgpt-for-academic-researchers/",
-      "category": [
-        "knowledge",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Research Workflow",
-      "summary": "OpenAI 为研究者提供 ChatGPT Work、Codex、frontier models、skills 和 connectors，覆盖假设、文献、代码、数据和发表材料。",
-      "takeaway": "动作：把研究工作拆成假设、文献、代码、数据、复现和发表材料，让 Codex 负责可复现执行件。"
-    },
-    {
-      "title": "Disney 重新组合 AI coding tools",
-      "author": "Business Insider / James Faris",
-      "source": "media-report",
-      "url": "https://www.businessinsider.com/disney-microsoft-github-copilot-openai-codex-ai-tools-claude-cursor-2026-7",
-      "category": [
-        "hot",
-        "accounts",
-        "tools"
-      ],
-      "score": "MEDIUM",
-      "tag": "Tool Portfolio",
-      "summary": "Business Insider 报道 Disney 美国将放弃 GitHub Copilot 等工具、准备采用 OpenAI Codex，并保留 Claude Enterprise 和 Cursor。",
-      "takeaway": "动作：用采用率、清理成本、PR 质量、测试通过率和 dashboard 数据评估 coding agent 组合。"
-    },
-    {
-      "title": "Codex 作为 JetBrains IDE agent provider",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-07-codex-as-agent-provider-and-agentic-enhancements-in-jetbrains-ides/",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "IDE Provider",
-      "summary": "GitHub Copilot for JetBrains 支持 Codex 作为 public preview agent provider，IDE 内多 agent provider 工作流继续正常化。",
-      "takeaway": "动作：为 IDE、CLI、desktop、mobile 入口维护同一套任务边界和验证清单。"
-    },
-    {
-      "title": "Codex mobile 仍应是控制面",
-      "author": "AI Catchup / Zac Smith",
-      "source": "public-analysis",
-      "url": "https://aicatchup.com/news/codex-chatgpt-mobile-preview",
+      "title": "Claude Cowork web/mobile 与 memory 更新提供同行参照",
+      "author": "Anthropic Help Center",
+      "source": "official-help",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
       "category": [
         "mobile",
-        "workflow"
-      ],
-      "score": "MEDIUM",
-      "tag": "Mobile Remote",
-      "summary": "公开长文整理 Codex mobile 两个月后的状态：手机看状态、审 diff/test、批准动作，真正执行仍在 Mac/Windows/remote host。",
-      "takeaway": "动作：手机只做审批、状态和轻量转向；长提示、复杂 diff、权限和发布回到 host/Mac。"
-    },
-    {
-      "title": "领域知识继续放大 agent 成功率",
-      "author": "Anthropic Research",
-      "source": "research",
-      "url": "https://www.anthropic.com/research/claude-code-expertise",
-      "category": [
         "knowledge",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "Expertise Loop",
-      "summary": "Anthropic 对 Claude Code session 的研究显示人负责规划、agent 负责执行，领域知识比纯 coding proficiency 更能放大产出。",
-      "takeaway": "动作：提示词写业务目标、领域约束、验收证据和停止条件，让 agent 在边界内找路线。"
+      "tag": "Cross-device Memory",
+      "summary": "Claude Cowork 扩展到 web/mobile，memory 从每日摘要转为单条分类 entries，同行也在补跨设备长任务和可管理记忆。",
+      "takeaway": "动作：把 Codex/ChatGPT memory 分成事实、规则、偏好、过期信息和运行证据。"
+    },
+    {
+      "title": "Claude Code Review trigger/cost 设计可借鉴",
+      "author": "Claude Help Center",
+      "source": "official-help",
+      "url": "https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code",
+      "category": [
+        "tools",
+        "workflow",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Review Trigger",
+      "summary": "Claude Code Review 支持 PR 创建后一次、每次 push、手动三种 trigger，并显示平均 review 成本。",
+      "takeaway": "动作：AI review 初期用手动触发；规则稳定、误报低、成本可接受后，再提高自动触发频率。"
+    },
+    {
+      "title": "Codex CLI 审批模式仍是本地安全底座",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/11096431",
+      "category": [
+        "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Approval Modes",
+      "summary": "Codex CLI 文档明确 suggest、auto edit、full auto 三种模式，以及本地执行、沙箱和网络边界。",
+      "takeaway": "动作：按任务风险选择模式；full auto 仍需验证命令、diff review、公开路径扫描和发布前终审。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Production",
-      "title": "Agent 生产闭环",
-      "body": "生产 agent 不是 prompt，而是岗位、权限、模拟、评估、线上信号、改进建议和批准发布的闭环。"
+      "label": "01 / Review",
+      "title": "Repository Rules 评审资产",
+      "body": "把团队反复解释的非显然规则写入 AGENTS.md，让 Codex review 能按规则发现问题并引用来源。"
     },
     {
-      "label": "02 / Identity",
-      "title": "插件身份最小披露清单",
-      "body": "Sign in with ChatGPT 降低账号接入摩擦，但每个插件仍要审查共享字段、读写范围、公开动作和撤销路径。"
+      "label": "02 / Mobile",
+      "title": "手机控制面协议",
+      "body": "iPhone 负责环境选择、派工、Queue/Steer、审批和状态管理；复杂 diff、发布和权限终审留在 Mac。"
     },
     {
-      "label": "03 / Review",
-      "title": "Review Skills + 只读 MCP",
-      "body": "评审规则应版本化，外部上下文应只读接入，评论需要标明 skill 或 MCP 来源，方便追责和迭代。"
+      "label": "03 / Boundary",
+      "title": "私有工具窄通道",
+      "body": "私有 MCP 和内部 API 只通过 customer-run client 与白名单目标接入，不暴露公网，不泛化成网络桥。"
     },
     {
-      "label": "04 / Models",
-      "title": "模型默认启用审计表",
-      "body": "新 GA 模型进入生产前，要区分默认继承、显式启用、显式禁用和例外排除，并跑代表任务。"
+      "label": "04 / Workflow",
+      "title": "Agentic Workflow 仓库化",
+      "body": "重复自然语言自动化应进入仓库，声明触发、权限、网络、工具和 safe outputs，再编译成 hardened workflow。"
     }
   ]
 };

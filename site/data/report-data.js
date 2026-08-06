@@ -1,214 +1,217 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-08-05",
-  "updatedAt": "2026-08-05T09:07:01+08:00",
-  "updatedLabel": "2026-08-05 09:07 CST",
-  "conclusion": "今日主线是：AI 工作台正在从“统一入口”进一步进入“可审计执行”。Chat、Work、Codex、Voice、iPhone Remote、Responses API、Computer Use 和 GitHub Agentic Workflows 都在指向同一件事：每一步都要有职责、权限、状态回传和验收证据。",
+  "date": "2026-08-06",
+  "updatedAt": "2026-08-06T09:12:10+08:00",
+  "updatedLabel": "2026-08-06 09:12 CST",
+  "conclusion": "今日主线是：AI 工作台正在从“可审计执行”继续升级为“可排程、可委派、可回收的自动化管线”。Scheduled Tasks、Work、Codex、Remote、Agents SDK Codex tool、GitHub Agentic Workflows 和 Obsidian second brain 都在指向同一件事：自动化必须带触发、权限、预算、状态回传、验收证据和写回阀。",
   "metrics": {
-    "sourceCards": 13,
+    "sourceCards": 16,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-05 的可复用变化集中在四块：入口职责矩阵、UI 自动化证据环、Agentic Workflow 上架单、凭证与外联兜底。",
-    "今天的判断很明确：agent 越能跨设备和跨工具执行，越要把意图、工具、证据和公开边界写成资产。"
+    "2026-08-06 的可复用变化集中在四块：自动化三层分工、Codex tool 封装清单、Agentic Workflow 安全门、Second-brain 写回阀。",
+    "今天的判断很明确：agent 入口越多，越要把触发、上下文、权限、预算、状态回传和失败停止写成固定资产。"
   ],
   "signals": [
     {
-      "title": "Work/Codex/Voice 入口职责更清晰",
+      "title": "Scheduled Tasks 与 Codex automations 分层",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Task Layer",
+      "summary": "Scheduled Tasks 支持一次性、循环和监控任务，并明确 active task limits、通知、app 权限和 Codex automations 差异。",
+      "takeaway": "动作：提醒和轻量监控用 Tasks，本地仓库执行、测试和发布用 Codex automation。"
+    },
+    {
+      "title": "Work/Codex/Voice/Remote 入口边界更新",
       "author": "OpenAI Help Center",
       "source": "official-help",
       "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
       "category": [
         "hot",
         "workflow",
-        "tools"
+        "mobile"
       ],
       "score": "HIGH",
-      "tag": "Entry Matrix",
-      "summary": "OpenAI 最新帮助文档把 Chat、Work、Codex、Voice 的职责、同步、本地文件和 Remote 边界拆得更明确。",
-      "takeaway": "动作：每个任务先写入口职责，避免把判断、执行、审批和验收混进同一入口。"
+      "tag": "Entry Map",
+      "summary": "Work 负责长任务交付，Codex 负责软件开发和本地执行，Voice 协调桌面任务，Remote 在移动端查看和审批。",
+      "takeaway": "动作：任务第一行声明入口、读写边界和成功证据。"
     },
     {
-      "title": "Codex plans 与 workspace controls 成为启动前检查",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/11369540-icodex-in-chatgpt",
+      "title": "手机成为 Work/Codex 控制面",
+      "author": "OpenAI",
+      "source": "official-product",
+      "url": "https://chatgpt.com/remote/",
       "category": [
-        "accounts",
+        "mobile",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Remote",
+      "summary": "ChatGPT Remote 让手机查看进度、补充输入、批准动作和调整方向，同时桌面继续保留文件、插件和代码上下文。",
+      "takeaway": "动作：iPhone 负责看状态和审批，最终验收回到 Mac/Codex 的 diff、测试和部署。"
+    },
+    {
+      "title": "Codex mobile 强化跨设备 live state",
+      "author": "OpenAI",
+      "source": "official-product",
+      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
+      "category": [
+        "mobile",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Codex Controls",
-      "summary": "Codex 覆盖 ChatGPT plans、桌面、CLI、IDE、web/cloud、plugins 和 workspace 权限，默认模型和插件可用性会影响执行。",
-      "takeaway": "动作：启动前检查 plan、workspace、plugin、model、local/cloud 和 Remote 控制。"
+      "tag": "Codex Mobile",
+      "summary": "Codex mobile 可从手机查看 active threads、approvals、plugins、project context、screenshots、terminal output、diffs 和 test results。",
+      "takeaway": "动作：移动端只传公开目标和审批，文件、凭证和权限留在运行 Codex 的机器。"
     },
     {
-      "title": "Responses API 是自建 agent 的状态主干",
-      "author": "OpenAI Developers",
+      "title": "Codex 计划与 Record & Replay 需要权限清单",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "category": [
+        "accounts",
+        "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Codex Controls",
+      "summary": "Codex 文档覆盖 CLI、IDE、desktop、cloud、Computer Use、Record & Replay、workspace controls 和 Remote 权限。",
+      "takeaway": "动作：录制稳定流程前先排除密钥和敏感数据，记录 workspace 权限和撤销路径。"
+    },
+    {
+      "title": "Agents SDK 将 Codex 包成 tool",
+      "author": "OpenAI Agents SDK",
       "source": "official-docs",
-      "url": "https://platform.openai.com/docs/guides/agents",
+      "url": "https://openai.github.io/openai-agents-js/guides/tools/",
       "category": [
         "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Codex Tool",
+      "summary": "experimental codexTool() 可把 workspace-scoped shell、文件编辑、MCP、thread reuse、streaming 和 output schema 接入 agent 应用。",
+      "takeaway": "动作：自建 agent 调 Codex 时必须绑定 workingDirectory、sandboxMode、threadId、日志和输出结构。"
+    },
+    {
+      "title": "Agents SDK 主栈继续收敛",
+      "author": "OpenAI Agents SDK",
+      "source": "official-docs",
+      "url": "https://openai.github.io/openai-agents-python/",
+      "category": [
         "workflow",
         "tools"
       ],
       "score": "HIGH",
       "tag": "Agent Stack",
-      "summary": "Agents 文档把 Responses、conversation state、background、WebSocket、multi-agent、guardrails 和 approvals 串成 agent 栈。",
-      "takeaway": "动作：自建 agent 先设计状态、审批、工具输出和恢复机制，再加多 agent。"
+      "summary": "Agents SDK 以 agents、tools/handoffs、guardrails、tracing、evals 和 fine-tuning 构成轻量生产栈。",
+      "takeaway": "动作：先定 agent、tool、handoff、guardrail、trace，再扩多 agent。"
     },
     {
-      "title": "Computer Use 要求动作后回传 UI 状态",
-      "author": "OpenAI Developers",
+      "title": "MCP 成为 agent 工具连接标准",
+      "author": "OpenAI Agents SDK",
       "source": "official-docs",
-      "url": "https://platform.openai.com/docs/guides/tools-computer-use",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "UI Evidence",
-      "summary": "Computer Use 文档强调每批动作后捕获并回传最新 UI 状态，截图质量和坐标映射会影响准确度。",
-      "takeaway": "动作：UI 自动化固定为观察、动作、截图/DOM回传、复核、失败停止五步。"
-    },
-    {
-      "title": "Codex 安全落到 sandbox、approval 与日志",
-      "author": "OpenAI",
-      "source": "official-security",
-      "url": "https://openai.com/index/running-codex-safely/",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Safety Rails",
-      "summary": "OpenAI 把 Codex 生产安全拆成 sandbox、approvals、network policies、credentials、managed configs 和 agent-native logs。",
-      "takeaway": "动作：本地/云端 agent 默认限定写入、网络、凭证和审批门，并保留日志证据。"
-    },
-    {
-      "title": "Codex CLI 是跨工具互通锚点",
-      "author": "OpenAI GitHub",
-      "source": "official-github",
-      "url": "https://github.com/openai/codex",
+      "url": "https://openai.github.io/openai-agents-js/guides/mcp/",
       "category": [
         "tools",
+        "knowledge",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "CLI Anchor",
-      "summary": "Codex CLI 承载本地 coding agent、ChatGPT 登录、配置、approval mode、IDE/desktop 互通和 resume。",
-      "takeaway": "动作：维护 install、login、version、approval、trusted project、config、resume、plugin 状态清单。"
+      "tag": "MCP",
+      "summary": "SDK 支持 hosted MCP、Streamable HTTP MCP 和 stdio MCP，工具与上下文连接正在标准化。",
+      "takeaway": "动作：私有工具优先走本地或受控 MCP；远程 MCP 先过权限和数据边界检查。"
     },
     {
-      "title": "Agentic Workflows 把自然语言自动化仓库化",
-      "author": "GitHub Docs",
+      "title": "GitHub Agentic Workflows 把自然语言自动化放进 Actions",
+      "author": "GitHub / Microsoft",
       "source": "official-docs",
-      "url": "https://docs.github.com/en/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows",
+      "url": "https://github.github.com/gh-aw/",
       "category": [
+        "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Workflow Asset",
-      "summary": "GitHub 用 markdown、frontmatter、lockfile 和 safe outputs 把自然语言自动化变成可 review 的仓库资产。",
-      "takeaway": "动作：把日报、CI 巡检、发布复核先写成 workflow 草案，人工触发验证。"
+      "tag": "Safe Outputs",
+      "summary": "gh-aw 用 Markdown 编写仓库自动化，在 GitHub Actions 中运行 coding agents，并提供 read-only token、safe outputs、sandbox、network firewall 和 cost controls。",
+      "takeaway": "动作：日报发布复核、CI 巡检和 docs 同步先写 workflow 草案，compile 后人工 review。"
     },
     {
-      "title": "Agentic Workflow engine 选择进入治理层",
+      "title": "Agentic Workflow engine 选择进入预算治理",
       "author": "GitHub Agentic Workflows",
       "source": "official-docs",
       "url": "https://github.github.com/gh-aw/reference/engines/",
       "category": [
         "workflow",
-        "tools"
+        "tools",
+        "accounts"
       ],
       "score": "HIGH",
       "tag": "Engine Policy",
-      "summary": "Agentic Workflows 支持 copilot、claude、codex、gemini 等 engine，并声明工具、web-search 和 allowlist 差异。",
-      "takeaway": "动作：按任务风险选择 engine 和工具白名单，不让多个 engine 并发写同一面。"
+      "summary": "Copilot、Claude、Codex、Gemini 等 engine 对 web-search、tool allowlist、turn limits、timeouts 和 BYOK 支持不同。",
+      "takeaway": "动作：按任务风险、预算、账号和工具白名单选 engine，不并发写同一对象。"
     },
     {
-      "title": "领域理解比职业编码身份更决定 agent 成功",
-      "author": "Anthropic Research",
-      "source": "research",
-      "url": "https://www.anthropic.com/research/claude-code-expertise?level=0",
+      "title": "Meta Muse Code 加剧 coding agent 成本竞争",
+      "author": "Business Insider / Meta AI",
+      "source": "public-news",
+      "url": "https://www.businessinsider.com/meta-muse-coding-agent-race-openai-codex-anthropic-claude-2026-8",
       "category": [
-        "knowledge",
-        "workflow"
+        "hot",
+        "accounts",
+        "tools"
       ],
-      "score": "HIGH",
-      "tag": "Expertise",
-      "summary": "Claude Code 研究显示用户多做规划决策、agent 多做执行决策；成功更依赖用户对领域问题的掌握。",
-      "takeaway": "动作：给 agent 的输入优先补目标、约束、验收、反例和业务判断。"
+      "score": "MEDIUM",
+      "tag": "Agent Cost",
+      "summary": "Meta 进入 coding agent 竞争，Muse Code / Muse Spark 主打低价 token、agentic coding、computer use 和长上下文。",
+      "takeaway": "动作：比较 coding agents 时固定任务、测试、日志、成本和隐私条款，不只看单价。"
     },
     {
-      "title": "审批疲劳提示必须靠环境兜底",
-      "author": "Anthropic Engineering",
-      "source": "engineering-blog",
-      "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+      "title": "Obsidian second brain 变成 agent 工作台",
+      "author": "Obsidian Community / GitHub",
+      "source": "community-plugin",
+      "url": "https://community.obsidian.md/plugins/agent-console",
       "category": [
         "knowledge",
         "workflow",
         "tools"
       ],
-      "score": "HIGH",
-      "tag": "Containment",
-      "summary": "Anthropic 指出用户会高频批准权限提示，真正限制 blast radius 的是 sandbox、VM 和 egress controls。",
-      "takeaway": "动作：把审批当最后一道门，优先用文件、网络、凭证和外联边界兜底。"
-    },
-    {
-      "title": "攻击者也在使用 coding agents",
-      "author": "Axios / Cisco Talos",
-      "source": "public-news",
-      "url": "https://www.axios.com/2026/08/04/exclusive-hackers-ai-chat-logs-reveal-evolving-tactics",
-      "category": [
-        "hot",
-        "knowledge",
-        "workflow"
-      ],
       "score": "MEDIUM",
-      "tag": "Threat Signal",
-      "summary": "公开报道显示攻击者使用 Claude Code、Codex、Cursor、Gemini 等工具加速漏洞利用和攻击开发。",
-      "takeaway": "动作：只沉淀防御启发，关注日志、凭证隔离、外联控制和公开 artifact 风险。"
-    },
-    {
-      "title": "企业 coding agent 组合进入度量期",
-      "author": "Business Insider",
-      "source": "public-news",
-      "url": "https://www.businessinsider.com/disney-microsoft-github-copilot-openai-codex-ai-tools-claude-cursor-2026-7",
-      "category": [
-        "accounts",
-        "workflow"
-      ],
-      "score": "MEDIUM",
-      "tag": "Tool Metrics",
-      "summary": "公开报道显示企业正在按开发速度、使用率、成本、满意度和 dashboard 重配 coding agent 工具。",
-      "takeaway": "动作：个人自动化也记录 sourceCards、验证、commit、deploy、失败原因和拍板项。"
+      "tag": "Second Brain",
+      "summary": "Agent Console、obsidian-second-brain、second-brain-mcp 等工具把 vault 接给 Codex、Claude、Gemini、MCP 和 scheduled agents。",
+      "takeaway": "动作：知识库默认只读；写回必须有备份、diff、限定 notes、审批和回滚。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Entry",
-      "title": "入口职责矩阵",
-      "body": "Chat 做判断，Work 做长任务交付，Codex 做代码和本地执行，Voice 做桌面协调，iPhone Remote 做状态和审批。"
+      "label": "01 / Tasks",
+      "title": "自动化三层分工",
+      "body": "ChatGPT Tasks 做提醒和轻量监控，Work 做长任务交付，Codex automation 做本地仓库执行和发布。"
     },
     {
-      "label": "02 / UI",
-      "title": "UI 自动化证据环",
-      "body": "Computer Use/浏览器自动化要有观察、动作、截图或 DOM 回传、结果复核和失败停止，不能只记录已点击。"
+      "label": "02 / Codex",
+      "title": "Codex tool 封装清单",
+      "body": "自建 agent 调 Codex 时，必须显式封装工作目录、沙箱、认证、线程复用、日志、输出结构和用量。"
     },
     {
-      "label": "03 / Workflow",
-      "title": "Agentic Workflow 上架单",
-      "body": "重复自然语言自动化进入仓库前，写清触发、权限、engine、network、safe outputs、lockfile 和回滚方式。"
+      "label": "03 / GitHub",
+      "title": "Agentic Workflow 安全门",
+      "body": "自然语言仓库自动化默认只读，写操作只能通过 safe outputs、scoped write job 和人工可审查策略落地。"
     },
     {
-      "label": "04 / Security",
-      "title": "凭证与外联兜底",
-      "body": "agent 安全不能只靠审批或模型拒绝；敏感路径、凭证、网络外联和日志必须由环境强约束。"
+      "label": "04 / Memory",
+      "title": "Second-brain 写回阀",
+      "body": "Obsidian/second-brain agent 可以读链接和写回决策，但写入 vault 前必须有备份、diff、审批和回滚。"
     }
   ]
 };

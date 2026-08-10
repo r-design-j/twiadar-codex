@@ -1,80 +1,67 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-08-07",
-  "updatedAt": "2026-08-07T09:03:44+08:00",
-  "updatedLabel": "2026-08-07 09:03 CST",
-  "conclusion": "今日主线是：AI 工作台正在从“多入口能跑”进入“可复用 agent 资产要治理”的阶段。GPT-5.6 的 Chat 更新、Workspace Agents、Codex 插件、Agents SDK Codex tool、GitHub Issues automation controls、MCP stateless spec、Copilot metrics 和 Meta Muse Code 价格战共同说明：下一步重点不是多叫几个 agent，而是把入口、权限、发布、排程、审计、指标和回滚做成固定清单。",
+  "date": "2026-08-10",
+  "updatedAt": "2026-08-10T09:36:42+08:00",
+  "updatedLabel": "2026-08-10 09:36 CST",
+  "conclusion": "今日主线是：AI 工作台正在从“多入口统一”进入“多模态控制 + 权限治理 + 可复用技能”的阶段。Voice in Work/Codex、Chat/Work/Codex 桌面入口、Atlas 退场、Plugins 权限继承、Record & Replay、Agents SDK Codex tool、GitHub MCP stateless、AGENTS.md review 和 worktrees 共同说明：下一步重点不是多开 agent，而是把入口、权限、浏览器状态、技能录制、协议验收和发布证据做成固定清单。",
   "metrics": {
     "sourceCards": 15,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-07 的可复用变化集中在四块：Agent 资产发布闸、插件权限上架单、Issue automation 置信度门、浏览器状态迁移清单。",
-    "今天的判断很明确：agent 资产要像正式产品一样区分 draft、publish、schedule、API trigger、权限、日志和运行回读。"
+    "2026-08-10 的可复用变化集中在四块：Voice 控制面验收环、浏览器状态分层迁移、插件权限上架单、可回放 skill 录制门。",
+    "今天的判断很明确：Voice、Remote、Work、Codex、Sites、Plugins 都只是入口和能力包；完成仍要看文件、测试、diff、push、deploy 和 Ready 证据。"
   ],
   "signals": [
     {
-      "title": "GPT-5.6 更新与 Work/Codex 执行面拆分",
+      "title": "Voice 进入 Work/Codex 桌面控制面",
       "author": "OpenAI Help Center",
       "source": "official-help",
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "category": [
         "hot",
-        "workflow"
+        "workflow",
+        "mobile"
       ],
       "score": "HIGH",
-      "tag": "Release Boundary",
-      "summary": "8 月 6 日 release notes 更新 GPT-5.6，并明确本次影响 Chat，Work 和 Codex 不随之改变。",
-      "takeaway": "动作：记录 OpenAI 更新时分列 Chat 模型、Work 交付、Codex 执行和浏览器迁移。"
+      "tag": "Voice Control",
+      "summary": "7 月 23 日 release notes 说明 ChatGPT Voice 可在桌面端 Work 和 Codex 中启动、打断和协调任务。",
+      "takeaway": "动作：Voice 只做控制面；最终仍用 Mac/Codex 的文件、测试、diff 和发布证据收口。"
     },
     {
-      "title": "大段粘贴附件化提示上下文卫生",
+      "title": "Chat、Work、Codex 入口边界被明确",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/20001275",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Entry Boundary",
+      "summary": "Work 负责长任务和成品交付，Codex 负责软件开发和技术执行，Codex 不作为 web/mobile selectable experience。",
+      "takeaway": "动作：任务记录中固定写入口、设备、读写边界、成功证据和停止条件。"
+    },
+    {
+      "title": "Atlas 退场强化浏览器状态分层",
       "author": "OpenAI Help Center",
       "source": "official-help",
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "category": [
-        "workflow",
+        "hot",
+        "mobile",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Context Hygiene",
-      "summary": "超过 10k 字符的大段粘贴会自动转为附件，避免把 composer 和上下文窗口一次塞满。",
-      "takeaway": "动作：长材料进 Work/Codex 前先结构化成附件、文件或知识卡，不直接塞 prompt。"
+      "tag": "Browser Migration",
+      "summary": "Atlas 已计划在 2026-08-09 停止工作，迁移涉及书签、标签页、历史、cookies/passwords 和 ChatGPT conversation history。",
+      "takeaway": "动作：公开日报只写公开链接和总结，浏览器截图、cookie、书签和登录态只做本地验收。"
     },
     {
-      "title": "Workspace Agents 成为可共享 SOP",
+      "title": "插件变成 workflow 容器而非权限本身",
       "author": "OpenAI Help Center",
       "source": "official-help",
-      "url": "https://help.openai.com/en/articles/20001143",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Agent Asset",
-      "summary": "Workspace Agents 支持 repeatable tasks、schedule、API trigger、Slack、skills、files、memory、apps 和 publish lifecycle。",
-      "takeaway": "动作：把重复任务做成 agent draft；draft、publish、schedule、API trigger 分开验收。"
-    },
-    {
-      "title": "Codex 可作为 Workspace Agent builder",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/20001143",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Codex Builder",
-      "summary": "Workspace Agents plugin in Codex 可创建、检查、更新和发布 agent，但 Codex 不负责运行该 agent。",
-      "takeaway": "动作：用 Codex 改 agent 配置后，仍需在 ChatGPT/Agent Studio 做运行或预览回读。"
-    },
-    {
-      "title": "Codex 插件权限继承 app 和源系统",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/20001256-plugins-in-codex/",
+      "url": "https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex",
       "category": [
         "accounts",
         "tools",
@@ -82,14 +69,57 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Plugin Policy",
-      "summary": "插件可打包 skills、apps 和 app templates，但 app-backed 能力仍继承 workspace app 设置和源系统权限。",
+      "summary": "Plugins 可包含 skills、apps 和 app templates，但 app-backed 能力仍继承 workspace 与源系统权限。",
       "takeaway": "动作：启用插件前写权限上架单，默认只读，写动作保留确认门。"
     },
     {
-      "title": "Agents SDK Codex tool 需要边界封装",
+      "title": "Sites 发布要区分草稿、预览和公开 URL",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/20001339",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Sites Publish",
+      "summary": "Sites 可把 Work/Codex 产物变成公开网站，但 public publish 和 workspace policy 必须单独验收。",
+      "takeaway": "动作：把 local_validated、github_pushed、vercel_ready、public_alias_readback 分开记录。"
+    },
+    {
+      "title": "Record & Replay 把演示流程变成 skill",
+      "author": "OpenAI Codex Learn",
+      "source": "official-docs",
+      "url": "https://learn.chatgpt.com/docs/extend/record-and-replay",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Replay Skill",
+      "summary": "Record & Replay 可把一次人工演示转成 Codex skill，适合重复、低风险、可回滚流程。",
+      "takeaway": "动作：录制前排除凭证、私密页面、不可逆提交和外部写动作；生成 skill 后审查再烟测。"
+    },
+    {
+      "title": "Codex Browser 只读采集需要证据环",
+      "author": "OpenAI Codex Learn",
+      "source": "official-docs",
+      "url": "https://learn.chatgpt.com/docs/browser?surface=app",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Browser Evidence",
+      "summary": "Codex browser 支持网页和前端工作，但浏览器状态和过程证据不应进入公开材料。",
+      "takeaway": "动作：观察前态、声明动作、执行、回传新状态、验收；遇到登录/验证码立即停。"
+    },
+    {
+      "title": "Agents SDK Codex tool 需要沙箱和结构化输出",
       "author": "OpenAI Agents SDK",
       "source": "official-docs",
-      "url": "https://openai.github.io/openai-agents-python/tools/",
+      "url": "https://openai.github.io/openai-agents-js/guides/tools/",
       "category": [
         "hot",
         "workflow",
@@ -97,37 +127,22 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Codex Tool",
-      "summary": "Codex tool 可在 agent 工具调用中执行 workspace-scoped Codex 任务，属于 experimental surface。",
-      "takeaway": "动作：绑定 working_directory、sandbox_mode、approval gate、streaming logs 和 output schema。"
+      "summary": "Codex tool 可让上层 agent 调用 Codex SDK 执行 workspace-scoped 任务。",
+      "takeaway": "动作：绑定 workingDirectory、sandboxMode、threadId 策略、stream logs 和严格 outputSchema。"
     },
     {
-      "title": "GitHub Agentic Workflows 变成仓库自动化资产",
-      "author": "GitHub Docs",
-      "source": "official-docs",
-      "url": "https://docs.github.com/en/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Workflow Asset",
-      "summary": "Agentic workflow 用 Markdown frontmatter 和自然语言指令定义，compile 成 lockfile 后通过 GitHub Actions 或 CLI 运行。",
-      "takeaway": "动作：仓库巡检和发布复核先写草案，compile 后人工 review lockfile。"
-    },
-    {
-      "title": "GitHub Issues 给 agent 动作加置信度和理由",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview/",
+      "title": "Codex 使用从开发者扩展到长时段工作",
+      "author": "OpenAI",
+      "source": "official-blog",
+      "url": "https://openai.com/index/how-agents-are-transforming-work/",
       "category": [
         "hot",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "Issue Intent",
-      "summary": "Approvals、confidence、rationale 让 issue label、field、close、assign 等动作可建议、可审、可解释。",
-      "takeaway": "动作：中低置信度只建议，高置信度才自动应用，并保留 rationale。"
+      "tag": "Agent Adoption",
+      "summary": "OpenAI 研究把 Codex 价值描述为长时段、跨部门、可委派任务，而不只是短聊天。",
+      "takeaway": "动作：月报增加 entry、execution、validation、publish、knowledge 和 failed_stop 指标。"
     },
     {
       "title": "GitHub MCP Server 支持 stateless spec",
@@ -135,78 +150,108 @@ window.AI_RADAR_REPORT = {
       "source": "official-changelog",
       "url": "https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/",
       "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "MCP Spec",
+      "summary": "GitHub MCP Server 支持 stateless spec，减少 sessions/initialize 写入，并强调 conformance tests。",
+      "takeaway": "动作：私有 MCP 上线前跑 conformance、鉴权、日志和 secret scanning 检查。"
+    },
+    {
+      "title": "AGENTS.md 成为 code review 规则入口",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-06-18-copilot-code-review-agents-md-support-and-ui-improvements/",
+      "category": [
+        "knowledge",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Repo Rules",
+      "summary": "Copilot code review 会读取仓库根目录 AGENTS.md，让 review 反馈更贴近仓库约定。",
+      "takeaway": "动作：AGENTS.md 写短规则和高后果约束，细节指向更深文档。"
+    },
+    {
+      "title": "GitHub Desktop worktrees 适合 agent 并行隔离",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration/",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Worktree",
+      "summary": "GitHub Desktop 3.6 支持 worktrees，并让 Copilot 参与 commit authoring 和 merge conflict resolution。",
+      "takeaway": "动作：多 agent 修改同一仓库时默认独立 worktree；合并前看 diff、测试和冲突解释。"
+    },
+    {
+      "title": "JetBrains Copilot 补齐 OTel 与模型治理",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-07-27-github-copilot-for-jetbrains-adds-improvved-opentelemetry-configuration-and-model-management/",
+      "category": [
+        "accounts",
         "tools",
         "workflow"
       ],
       "score": "HIGH",
-      "tag": "MCP Spec",
-      "summary": "GitHub MCP Server 提前支持新 MCP spec，减少 session 状态和 initialize 数据库写入，并强调 conformance tests。",
-      "takeaway": "动作：私有 MCP 上线前跑 spec/conformance、鉴权、日志和 secret scanning 检查。"
+      "tag": "Observability",
+      "summary": "JetBrains 更新加入 OpenTelemetry export、token limits、模型启停、MCP diagnostics 和 custom agents。",
+      "takeaway": "动作：agent 工具要记录 OTel/logs、token limit、model policy、MCP diagnostics 和 session 证据。"
     },
     {
-      "title": "Linear issue 成为 Copilot cloud agent 派工面",
+      "title": "VS Code Copilot 强化并行会话与成本可见性",
       "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-23-copilot-cloud-agent-for-linear-is-now-generally-available/",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Issue Dispatch",
-      "summary": "Linear 可指派 Copilot cloud agent，支持选模型、自定义 agent、branch 控制、评论 steer 和进度回写。",
-      "takeaway": "动作：任务卡写清 target branch、working branch、model、custom agent 和 steer channel。"
-    },
-    {
-      "title": "Copilot app metrics 覆盖 agent 桌面采用",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-28-github-copilot-app-usage-metrics-now-expand-across-report-rollups/",
+      "url": "https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases/",
       "category": [
         "accounts",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Agent Metrics",
-      "summary": "Copilot app activity 进入 user、feature、model、language 和 code activity rollups。",
-      "takeaway": "动作：AI Radar 月报增加 entry、execution、validation、publish、knowledge 和 failed_stop 指标。"
-    },
-    {
-      "title": "Obsidian second brain 写回需要串行化",
-      "author": "Obsidian Forum / PyPI",
-      "source": "community",
-      "url": "https://forum.obsidian.md/t/finally-put-your-second-brain-to-work-ai-agents-that-live-in-your-obsidian-vault/115488",
-      "category": [
-        "knowledge",
         "workflow",
         "tools"
       ],
+      "score": "HIGH",
+      "tag": "Cost Visibility",
+      "summary": "VS Code Copilot 更新覆盖 integrated browser、parallel sessions、cost visibility、Marketplace model discovery、MCP OAuth 和 managed settings。",
+      "takeaway": "动作：把 agent 工作台指标拆成并发任务、成本/额度、模型来源、OAuth 凭证和失败停止。"
+    },
+    {
+      "title": "公开 X 案例强调管理 agent 而不是多开 agent",
+      "author": "Degen Sing / @degensing",
+      "source": "x-public-search",
+      "url": "https://x.com/degensing/status/2026578817016566047",
+      "category": [
+        "workflow",
+        "knowledge"
+      ],
       "score": "MEDIUM",
-      "tag": "Second Brain",
-      "summary": "Agent Console 与 second-brain-mcp 指向 vault 内外 agent 共同读写 handoff note 和语义记忆层的趋势。",
-      "takeaway": "动作：知识库默认只读；写回同一 note 要串行、看 diff、能回滚。"
+      "tag": "Agent Ops",
+      "summary": "公开 X 长帖把一人 AI dev team 拆成 orchestrator、spawn script、tmux redirect、monitoring cron、task registry 和 DoD。",
+      "takeaway": "动作：先建立任务登记、worktree 隔离、监控、review gate 和完成条件，再扩大 agent 数量。"
     }
   ],
   "knowledge": [
     {
-      "label": "01 / Agents",
-      "title": "Agent 资产发布闸",
-      "body": "Workspace Agent 的 draft、preview、publish、schedule、API trigger 和 Slack channel 是不同状态，必须分别验收。"
+      "label": "01 / Voice",
+      "title": "Voice 控制面验收环",
+      "body": "Voice in Work/Codex 只能发起、询问、打断和转向任务，完成仍看权限、文件、测试、diff 和发布证据。"
     },
     {
-      "label": "02 / Plugins",
+      "label": "02 / Browser",
+      "title": "浏览器状态分层迁移",
+      "body": "conversation、bookmarks、tabs、history、cookies/passwords 分层处理；公开日报只保留来源链接和总结。"
+    },
+    {
+      "label": "03 / Plugins",
       "title": "插件权限上架单",
-      "body": "启用 Codex 插件前列清 skills、required apps、读写动作、确认门、sync/domain/source 边界和低风险烟测。"
+      "body": "插件启用前列清 skills、required apps、读写动作、确认门、sync/domain/source 边界和低风险烟测。"
     },
     {
-      "label": "03 / Issues",
-      "title": "Issue automation 置信度门",
-      "body": "Issue triage 自动化按 auto-apply、suggest-for-review、stop 三档处理，并记录 confidence 与 rationale。"
-    },
-    {
-      "label": "04 / Browser",
-      "title": "浏览器状态迁移清单",
-      "body": "浏览器迁移要把 conversation、bookmarks、open tabs、history、cookies/passwords 分开处理，公开材料只留脱敏链接和结论。"
+      "label": "04 / Skills",
+      "title": "可回放 skill 录制门",
+      "body": "Record & Replay 只录公开、低风险、可回滚流程；录制前排除凭证、私密页面和不可逆写动作。"
     }
   ]
 };

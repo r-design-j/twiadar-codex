@@ -2,7 +2,7 @@ window.AI_RADAR_REPORT = {
   "date": "2026-08-10",
   "updatedAt": "2026-08-10T09:36:42+08:00",
   "updatedLabel": "2026-08-10 09:36 CST",
-  "conclusion": "今日主线是：AI 工作台正在从“多入口统一”进入“多模态控制 + 权限治理 + 可复用技能”的阶段。Voice in Work/Codex、Chat/Work/Codex 桌面入口、Atlas 退场、Plugins 权限继承、Record & Replay、Agents SDK Codex tool、GitHub MCP stateless、AGENTS.md review 和 worktrees 共同说明：下一步重点不是多开 agent，而是把入口、权限、浏览器状态、技能录制、协议验收和发布证据做成固定清单。",
+  "conclusion": "今日主线是：AI 工作台正在从“多入口统一”进入“插件目录 + 多模态控制 + 权限治理 + 可复用技能”的阶段。Codex CLI 0.147.0、Voice in Work/Codex、Chat/Work/Codex 桌面入口、Atlas 退场、Plugins 权限继承、Record & Replay、Agents SDK v0.19.4、GitHub MCP stateless、AGENTS.md review 和 worktrees 共同说明：下一步重点不是多开 agent，而是把入口、权限、浏览器状态、技能录制、协议验收和发布证据做成固定清单。",
   "metrics": {
     "sourceCards": 15,
     "topSignals": 5,
@@ -13,6 +13,21 @@ window.AI_RADAR_REPORT = {
     "今天的判断很明确：Voice、Remote、Work、Codex、Sites、Plugins 都只是入口和能力包；完成仍要看文件、测试、diff、push、deploy 和 Ready 证据。"
   ],
   "signals": [
+    {
+      "title": "Codex CLI 0.147.0 加入插件目录和长会话分段",
+      "author": "OpenAI Codex team",
+      "source": "official-changelog",
+      "url": "https://developers.openai.com/codex/changelog",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Codex Plugins",
+      "summary": "2026-08-07 官方更新加入可移植 Agent Plugins，可搜索本地、个人、工作区和远程目录，并支持持久化会话分段。",
+      "takeaway": "动作：先在低风险仓库试跑插件目录；长任务按目标、执行、验证、复盘分段。"
+    },
     {
       "title": "Voice 进入 Work/Codex 桌面控制面",
       "author": "OpenAI Help Center",
@@ -131,18 +146,19 @@ window.AI_RADAR_REPORT = {
       "takeaway": "动作：绑定 workingDirectory、sandboxMode、threadId 策略、stream logs 和严格 outputSchema。"
     },
     {
-      "title": "Codex 使用从开发者扩展到长时段工作",
-      "author": "OpenAI",
-      "source": "official-blog",
-      "url": "https://openai.com/index/how-agents-are-transforming-work/",
+      "title": "Agents SDK v0.19.4 修复长流程可靠性问题",
+      "author": "OpenAI Agents SDK maintainers",
+      "source": "official-github-release",
+      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.19.4",
       "category": [
         "hot",
-        "workflow"
+        "workflow",
+        "tools"
       ],
       "score": "HIGH",
-      "tag": "Agent Adoption",
-      "summary": "OpenAI 研究把 Codex 价值描述为长时段、跨部门、可委派任务，而不只是短聊天。",
-      "takeaway": "动作：月报增加 entry、execution、validation、publish、knowledge 和 failed_stop 指标。"
+      "tag": "SDK Reliability",
+      "summary": "2026-08-05 版本修复 Guardrail 结果保留、无效工具参数脱敏、会话保存、并发失败取消和 Sandbox token 预算等问题。",
+      "takeaway": "动作：升级前后跑 Guardrail、MCP、Session、Sandbox 回归，不只看包安装成功。"
     },
     {
       "title": "GitHub MCP Server 支持 stateless spec",
@@ -201,21 +217,6 @@ window.AI_RADAR_REPORT = {
       "tag": "Observability",
       "summary": "JetBrains 更新加入 OpenTelemetry export、token limits、模型启停、MCP diagnostics 和 custom agents。",
       "takeaway": "动作：agent 工具要记录 OTel/logs、token limit、model policy、MCP diagnostics 和 session 证据。"
-    },
-    {
-      "title": "VS Code Copilot 强化并行会话与成本可见性",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases/",
-      "category": [
-        "accounts",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Cost Visibility",
-      "summary": "VS Code Copilot 更新覆盖 integrated browser、parallel sessions、cost visibility、Marketplace model discovery、MCP OAuth 和 managed settings。",
-      "takeaway": "动作：把 agent 工作台指标拆成并发任务、成本/额度、模型来源、OAuth 凭证和失败停止。"
     },
     {
       "title": "公开 X 案例强调管理 agent 而不是多开 agent",

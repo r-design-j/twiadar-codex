@@ -1,184 +1,212 @@
 {
-  "date": "2026-08-11",
-  "updatedAt": "2026-08-11T09:18:36+08:00",
-  "updatedLabel": "2026-08-11 09:18 CST",
-  "conclusion": "今日主线是：高能力 agent 正在从“帮我做事”进入“被授权、被隔离、被计量、被复核”的生产阶段。Daybreak Blue/Red、Codex CLI 0.147.0、Voice files/projects、Codex Code Review rules、私有 MCP tunnel、GitHub Copilot app、metrics dashboard 和 AI credit pools 共同说明：下一步重点不是多开入口，而是把身份、范围、sandbox、auto-review、成本、日志和最终验收做成固定清单。",
+  "date": "2026-08-12",
+  "updatedAt": "2026-08-12T09:33:43+08:00",
+  "updatedLabel": "2026-08-12 09:33 CST",
+  "conclusion": "今日主线是：高能力 agent 已经进入模型路由、上下文缓存、记忆范围、本地/云端执行和成本停止条件共同治理的阶段。GPT-5.6 guidance、API pricing、Models、Codex changelog、Copilot app、BYOK、Memory 和 usage governance 共同说明：下一步不是单纯追更强模型，而是给每个任务留下路由小票，说明为什么选这个模型、是否允许 sidecar/PTC/缓存/记忆、预算怎么停、最终用什么证据验收。",
   "metrics": {
-    "sourceCards": 13,
+    "sourceCards": 14,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-11 的可复用变化集中在四块：高权限 agent 授权单、自动审批白名单、Project/Voice 上下文闸、Harness-first 工作流。",
-    "今天的判断很明确：自动化可以更主动，但每个入口都要标注谁授权、能做什么、花多少、谁复核、验收证据在哪里。"
+    "2026-08-12 的可复用变化集中在四块：路由小票、缓存成本四分账、记忆范围闸、BYOK 数据边界单。",
+    "今天的判断很明确：agent 工作台越强，越要把模型、缓存、记忆、预算和最终验收从隐性习惯变成显性记录。"
   ],
   "signals": [
     {
-      "title": "Daybreak Blue/Red 明确高权限 agent 授权边界",
-      "author": "OpenAI / ChatGPT & Codex Changelog",
-      "source": "official-changelog",
-      "url": "https://learn.chatgpt.com/docs/changelog",
+      "title": "GPT-5.6 guidance 把模型路由工程化",
+      "author": "OpenAI API docs",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/latest-model",
       "category": [
         "hot",
         "workflow",
-        "accounts",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Model Routing",
+      "summary": "官方指南把 Sol/Terra/Luna、Programmatic Tool Calling、Multi-agent beta、explicit prompt caching、persisted reasoning、max effort 和 pro mode 放进迁移路线。",
+      "takeaway": "动作：为每类任务写模型路由表，记录模型、effort、PTC、多 agent、缓存和停止条件。"
+    },
+    {
+      "title": "API pricing 让缓存成本显性化",
+      "author": "OpenAI",
+      "source": "official-pricing",
+      "url": "https://openai.com/api/pricing/",
+      "category": [
+        "hot",
+        "workflow",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Cost Control",
+      "summary": "Sol/Terra/Luna 的输入、缓存输入和输出价格公开化；GPT-5.6 cache writes 按 uncached input 的 1.25 倍计费。",
+      "takeaway": "动作：长任务成本拆成 uncached input、cache write、cache read 和 output 四类记录。"
+    },
+    {
+      "title": "Models 页明确 Sol/Terra/Luna 的适用面",
+      "author": "OpenAI API docs",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/models",
+      "category": [
+        "hot",
+        "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Model Catalog",
+      "summary": "模型目录列出 GPT-5.6 Sol/Terra/Luna 的模型 ID、上下文窗口、最大输出、工具能力、价格和定位。",
+      "takeaway": "动作：高质量判断、高吞吐筛选和低成本格式检查分配到不同模型与 effort。"
+    },
+    {
+      "title": "GPT-5.6 发布页连接 Chat、Codex 和 API",
+      "author": "OpenAI",
+      "source": "official-product-release",
+      "url": "https://openai.com/index/gpt-5-6/",
+      "category": [
+        "hot",
+        "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Trusted Access",
-      "summary": "8 月 10 日更新把 Daybreak 拆成 Blue/Red 两级访问，并强调批准身份、workspace/API organization、项目、模型和产品表面。",
-      "takeaway": "动作：为高权限 agent 建立授权单，固定 scope、reviewer、sandbox、日志和停止条件。"
+      "tag": "Surface Scope",
+      "summary": "发布页说明 GPT-5.6 family 覆盖 ChatGPT、Codex 和 API，并强调 prompt caching、PTC 和 multi-agent。",
+      "takeaway": "动作：迁移时按 Chat、Work、Codex、API 分表验证，不把一个入口体验外推到全部。"
     },
     {
-      "title": "Codex CLI 0.147.0 强化插件、审批和 MCP",
+      "title": "ChatGPT Release Notes 继续提示入口边界",
+      "author": "OpenAI Help Center",
+      "source": "official-help",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "category": [
+        "mobile",
+        "workflow",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Voice Projects",
+      "summary": "Release notes 区分 ChatGPT、Voice、Projects 和模型表面变化，适合判断移动/语音入口与最终执行面的关系。",
+      "takeaway": "动作：Voice/Projects 做输入和转向，最终仍由 Mac/Codex 的本地证据收口。"
+    },
+    {
+      "title": "Codex changelog 仍是本地自动化边界源",
       "author": "OpenAI Codex team",
       "source": "official-changelog",
       "url": "https://developers.openai.com/codex/changelog",
       "category": [
-        "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
       "tag": "Codex CLI",
-      "summary": "8 月 7 日版本加入 Agent Plugins 目录、长会话分段、`--approve-for-me`、MCP 2026-07-28、secret redaction 和插件隔离。",
-      "takeaway": "动作：自动审批只进白名单；插件启用前检查来源、权限、网络策略和回滚路径。"
+      "summary": "Codex CLI 的插件、长会话分段、自动审批、MCP 支持和 secret redaction 是本地 agent 自动化的关键执行边界。",
+      "takeaway": "动作：写 approval 白名单、插件来源、MCP 范围、secret redaction 和长会话分段证据。"
     },
     {
-      "title": "Voice 支持文件和 Projects，但仍是控制面",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "title": "ChatGPT & Codex changelog 适合做高权限入口判断",
+      "author": "OpenAI / ChatGPT & Codex",
+      "source": "official-changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
       "category": [
         "workflow",
-        "mobile",
-        "knowledge",
+        "accounts",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Voice Context",
-      "summary": "8 月 7 日 GPT-Live in ChatGPT Voice 支持文件上传和 Projects，可引用 recent chats、sources 和 project instructions。",
-      "takeaway": "动作：Voice 负责输入与转向；最终仍用 Mac/Codex 的文件、测试、diff、push 和 deploy 证据收口。"
+      "tag": "Access Surface",
+      "summary": "该 changelog 汇总 ChatGPT、Codex、Daybreak、workspace/API organization、项目和产品表面边界。",
+      "takeaway": "动作：高权限 agent 任务记录批准身份、组织、项目、模型、产品表面、scope、reviewer 和日志。"
     },
     {
-      "title": "GPT-5.6 Chat 更新不能外推到 Work/Codex",
+      "title": "Codex CLI Help 明确本地执行面",
       "author": "OpenAI Help Center",
       "source": "official-help",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "url": "https://help.openai.com/en/articles/11096431",
       "category": [
-        "knowledge",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Surface Scope",
-      "summary": "8 月 6 日 GPT-5.6 Sol/Luna 更新明确适用于 Chat 体验，不改变 Work 和 Codex。",
-      "takeaway": "动作：评估模型变化时按产品表面拆开记录，不把 Chat 能力或限制直接套到 Codex 自动化。"
-    },
-    {
-      "title": "Codex review rules 把 reviewer 判断写进 AGENTS.md",
-      "author": "OpenAI Developers / Hari Srikanth",
-      "source": "official-developer-blog",
-      "url": "https://developers.openai.com/blog/custom-code-review-rules-for-codex",
-      "category": [
-        "hot",
-        "knowledge",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Review Rules",
-      "summary": "Codex Code Review 可读取 scoped repository rules，用来捕捉兼容性、数据边界和历史约束等非机械问题。",
-      "takeaway": "动作：每个仓库先写 2-3 条高后果、不显然、可验证的 review 规则。"
-    },
-    {
-      "title": "私有 MCP tunnel 强调边界显式",
-      "author": "OpenAI Developers",
-      "source": "official-developer-blog",
-      "url": "https://developers.openai.com/blog/connect-private-mcp-servers-to-openai-products",
-      "category": [
-        "workflow",
         "tools",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Local Agent",
+      "summary": "Help Center 对 Codex CLI 的本地读写、命令执行、approval modes 和 multimodal 输入做了入门边界说明。",
+      "takeaway": "动作：任何写入、命令和外部动作都走 sandbox、approval 和 diff 验收。"
+    },
+    {
+      "title": "Codex meetups 显示实践开始社区化",
+      "author": "OpenAI Developers",
+      "source": "official-community",
+      "url": "https://developers.openai.com/community/meetups",
+      "category": [
+        "knowledge",
         "accounts"
       ],
-      "score": "HIGH",
-      "tag": "Private MCP",
-      "summary": "私有 MCP 连接通过客户侧 tunnel client 发起出站路径，并保留私有服务地址、健康检查和日志的可解释边界。",
-      "takeaway": "动作：不要用公网 tunnel 暴露本地私有服务；只采用可观测、可停用、范围明确的连接方式。"
+      "score": "MED",
+      "tag": "Community",
+      "summary": "OpenAI Developers 列出 Codex community meetups，说明 Codex 实践正在从工具文档进入社区方法沉淀。",
+      "takeaway": "动作：社区案例只在有公开链接、可复现链路和边界说明时进入日报。"
     },
     {
-      "title": "Copilot app 展示 agent 桌面工作台形态",
-      "author": "Christopher Harrison / GitHub Blog",
-      "source": "public-blog",
-      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/",
+      "title": "Copilot app 把 agent 工作台对象化",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-06-17-github-copilot-app-generally-available/",
       "category": [
         "workflow",
         "tools"
       ],
       "score": "HIGH",
       "tag": "Agent Desktop",
-      "summary": "GitHub Copilot app 把 project context、多 session、canvas 和 Agent Merge 组织成一个桌面工作流。",
-      "takeaway": "动作：个人 Codex 任务按 project、thread、visual/run validation 和 PR/merge exit 四段管理。"
+      "summary": "Copilot app 把 issue/prompt、worktree、branch、terminal、browser、PR、cloud automation 和 MCP 组织成桌面 agent 工作台。",
+      "takeaway": "动作：个人 Codex 工作流绑定到文件、命令、运行检查、PR 或发布出口这些可验收对象。"
     },
     {
-      "title": "Harness-first: 先学工作台，再追插件",
-      "author": "Burke Holland / GitHub Blog",
-      "source": "public-blog",
-      "url": "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Harness",
-      "summary": "文章强调先掌握 prototype、plan、implement、review、sandbox 和成本策略，而不是追逐每个新 MCP 或 skill。",
-      "takeaway": "动作：固定一个 harness 跑完整闭环，再决定是否加插件、MCP 或 custom agents。"
-    },
-    {
-      "title": "Copilot metrics dashboard 转向采用阶段",
+      "title": "Copilot app available to all 显示入口下沉",
       "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard/",
+      "url": "https://github.blog/changelog/2026-07-07-github-copilot-app-available-to-all/",
       "category": [
         "workflow",
+        "tools",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Access",
+      "summary": "Copilot app 扩展到所有 Copilot plan，并保留 BYOK 路径，显示 agent desktop 的入口正在下沉。",
+      "takeaway": "动作：区分入口可用性、组织策略、模型供应商和真实写入权限。"
+    },
+    {
+      "title": "Copilot BYOK 把模型选择变成数据边界选择",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-06-23-github-copilot-app-support-for-byok/",
+      "category": [
+        "workflow",
+        "tools",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "BYOK",
+      "summary": "Copilot app 支持 OpenAI、Azure OpenAI、Anthropic、LM Studio、Ollama 和 OpenAI-compatible endpoint，key 存本地 OS keychain。",
+      "takeaway": "动作：BYOK 前写清数据发往哪里、谁计费、谁保留日志、key 存储和如何停用。"
+    },
+    {
+      "title": "Copilot Memory 强调删除、范围和 CLI 控制",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-05-26-copilot-memory-has-more-controls-for-deletion-scope-and-the-copilot-cli/",
+      "category": [
         "knowledge",
-        "accounts"
-      ],
-      "score": "HIGH",
-      "tag": "Adoption Metrics",
-      "summary": "Dashboard 按 Code-first、Agent-first、Multi-agent/Copilot app 和 Passive 分组，观察采用深度和吞吐趋势。",
-      "takeaway": "动作：个人周复盘也按 Chat-only、Agent-first、Multi-agent、Published 分层。"
-    },
-    {
-      "title": "AI credit pools 把 agent 成本变成工程边界",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-20-ai-credit-pools-for-cost-centers-in-the-billing-ui/",
-      "category": [
         "workflow",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Agent FinOps",
-      "summary": "GitHub 可在 billing UI 为 cost center 管理 AI credit pool，并选择到限后的阻断或继续计费策略。",
-      "takeaway": "动作：长任务和并行 agent 必须写预算、credit、时间停止条件。"
+      "tag": "Memory Scope",
+      "summary": "Copilot Memory 增加删除指引、仓库级关闭、CLI `/memory` 控制，并在写入时区分用户级偏好和仓库级事实。",
+      "takeaway": "动作：个人 Codex 记忆区分用户偏好、仓库事实、临时判断和过期内容。"
     },
     {
-      "title": "Daybreak 产品页把防御闭环讲清楚",
-      "author": "OpenAI",
-      "source": "official-product-page",
-      "url": "https://openai.com/daybreak/",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Codex Security",
-      "summary": "Daybreak 把 Codex Security、controlled access models、authorized defenders、logging 和 human oversight 放进同一防御闭环。",
-      "takeaway": "动作：安全类 agent 输出 findings 后，还要验证、修复、review、回写，而不是停在报告。"
-    },
-    {
-      "title": "GitHub Copilot agent 治理持续补齐",
+      "title": "Copilot changelog 提供治理型更新雷达",
       "author": "GitHub Changelog",
       "source": "official-changelog",
       "url": "https://github.blog/changelog/label/copilot/",
@@ -188,46 +216,31 @@
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Agent Governance",
-      "summary": "7 月下旬 GitHub 连续补 Copilot app policy、managed settings、Linear cloud agent、Mobile 修 CI 和 MCP stateless。",
-      "takeaway": "动作：观察 agent 生态时优先看 policy、managed settings、MCP conformance、mobile handoff 和 CI repair。"
-    },
-    {
-      "title": "Daybreak onboarding 强调最小验证流程",
-      "author": "OpenAI Help Center",
-      "source": "official-help",
-      "url": "https://help.openai.com/en/articles/20001261-enterprise-daybreak-onboarding",
-      "category": [
-        "workflow",
-        "accounts",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Access Check",
-      "summary": "企业接入流程从 intake、KYB、provisioning 到 first workflow validation，要求在确切 surface 上验证访问。",
-      "takeaway": "动作：受控能力上线前先跑最小验证，记录组织、surface、request ID、时间和失败原因。"
+      "tag": "Governance",
+      "summary": "Copilot changelog 汇总 usage metrics、AI credit pools、managed settings、MCP、agent controls、BYOK 和 Memory 等治理型更新。",
+      "takeaway": "动作：每周复盘成本、权限、记忆、模型供应商、组织策略和采用阶段，而不是只看新功能。"
     }
   ],
   "knowledge": [
     {
-      "label": "Access",
-      "title": "高权限 agent 授权单",
-      "body": "先确认身份、workspace/API organization、项目、模型、产品表面、scope、reviewer、sandbox 和日志，再执行。"
+      "label": "Routing",
+      "title": "路由小票",
+      "body": "每个 agent 任务启动前记录模型、effort、多 agent、PTC、缓存、记忆、预算和最终验收证据。"
     },
     {
-      "label": "Approval",
-      "title": "自动审批白名单",
-      "body": "自动审批只适合低风险、可重复、可回滚、已知命令；外部写入、凭证、公开发布和生产变更默认排除。"
+      "label": "Cache",
+      "title": "缓存成本四分账",
+      "body": "长会话成本至少拆成 uncached input、cache write、cache read、output，而不是只看总 token。"
     },
     {
-      "label": "Voice",
-      "title": "Project/Voice 上下文闸",
-      "body": "Voice 可以带文件和 Project 上下文，但它是输入和控制入口，不是最终完成证据。"
+      "label": "Memory",
+      "title": "记忆范围闸",
+      "body": "用户偏好、仓库事实、项目约定和临时任务判断必须分层存放，并支持删除、关闭、审计和过期。"
     },
     {
-      "label": "Harness",
-      "title": "Harness-first 工作流",
-      "body": "先掌握一个稳定 agent harness 的 prototype、plan、implement、review、sandbox、cost loop，再引入插件和 MCP。"
+      "label": "BYOK",
+      "title": "BYOK 数据边界单",
+      "body": "自带模型 key 先回答数据发往哪里、谁计费、谁保留日志、key 存哪里、如何停用，再谈模型能力。"
     }
   ]
 }

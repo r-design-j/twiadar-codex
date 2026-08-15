@@ -1,245 +1,267 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-08-14",
-  "updatedAt": "2026-08-14T09:04:32+08:00",
-  "updatedLabel": "2026-08-14 09:04 CST",
-  "conclusion": "今日主线是：agent 工作流正在从单点模型能力，进入插件、权限、沙箱、记忆、成本和产出边界的统一治理阶段。OpenAI 的 Plugins in ChatGPT and Codex 把 plugin 定义为 skills、apps 和 app templates 的工作流包，并强调 plugin 继承 app 权限、源系统权限和 action controls；GitHub Agent Plugins 1.0、Agentic Workflows、Issue intents、per-model token breakdown、JetBrains memory/Ollama/Codex logs 共同说明：下一步不是多装插件，而是给每个能力建立上架清单、MCP 白名单、记忆范围闸、成本归因表和最终证据链。",
+  "date": "2026-08-15",
+  "updatedAt": "2026-08-15T13:36:14+08:00",
+  "updatedLabel": "2026-08-15 13:36 CST",
+  "conclusion": "今日主线是：AI 工作台正在从单次对话或单个 coding agent，升级为跨设备、跨资料库、跨插件、跨本地/云端 agent 的受控工作面。ChatGPT release notes 把 Linux desktop、Projects memory controls、Drive Library、Computer History 和 connectors 放到同一条产品主线；Codex/Responses/Agents 文档则把 CLI、本地仓库、AGENTS.md、Workspace Agent API、multi-agent、background mode、computer use、plugins、MCP、code review rules 和私有 MCP 安全连接拼成一套可配置执行面。后续重点不是多开入口，而是给每个入口、资料、记忆、agent、plugin、MCP 和发布动作建立资产清单与证据闸。",
   "metrics": {
     "sourceCards": 14,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-14 的可复用变化集中在四块：Plugin 上架清单、MCP 白名单、Issue Intent 审批层、成本归因表。",
-    "今天的判断很明确：插件、模型和本地/云端 agent 越多，越要把权限、数据、记忆、成本和验收证据前置。"
+    "2026-08-15 的可复用变化集中在四块：工作台资产清单、Workspace Agent Job Envelope、项目记忆开关闸、Review Rule 合同化。",
+    "今天的判断很明确：桌面入口、资料库、记忆、云端 agent、插件和 MCP 都只能提供过程能力，最终完成仍要由本地证据链收口。"
   ],
   "signals": [
     {
-      "title": "OpenAI 文档明确 plugin 权限继承",
+      "title": "ChatGPT 更新把桌面、记忆和资料库并线",
       "author": "OpenAI Help Center",
       "source": "official-help",
-      "url": "https://help.openai.com/en/articles/20001256-plugins-in-codex/",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "category": [
         "hot",
         "workflow",
-        "tools",
-        "accounts"
+        "mobile",
+        "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Plugin Governance",
-      "summary": "Plugins in ChatGPT and Codex 说明 plugin 可包含 skills、apps 和 app templates，并继承 app 权限、源系统权限、sync、role access 和 action controls。",
-      "takeaway": "动作：每个 plugin 上线前写 included skills/apps、读写动作、sync、role access、确认要求和禁用路径。"
+      "tag": "Workbench Entry",
+      "summary": "ChatGPT release notes 把 Linux desktop、Project memory toggles、Drive Library、Computer History、Study Mode 和 connectors 放进同一批工作台能力。",
+      "takeaway": "动作：建立入口-资料-记忆-桌面状态矩阵，避免把资料层或桌面状态当成最终验收。"
     },
     {
-      "title": "Agent Plugins 1.0 推动跨客户端技能包",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app/",
+      "title": "Codex CLI 串起本地可审计循环",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/codex/cli",
       "category": [
         "hot",
         "workflow",
-        "tools",
-        "knowledge"
+        "tools"
       ],
       "score": "HIGH",
-      "tag": "Agent Plugins",
-      "summary": "Agent Plugins 1.0 把 skills 和 MCP server 配置打包成跨客户端标准，并支持 managed settings、marketplace controls 和 MCP allowlists。",
-      "takeaway": "动作：通用 skills/MCP 走标准目录，客户端私有能力放 namespaced directory，并绑定 MCP 白名单。"
+      "tag": "Codex CLI",
+      "summary": "Codex CLI 把本地仓库、AGENTS.md、权限、review、skills、MCP、web search、subagents 和 CI 串成可审计本地循环。",
+      "takeaway": "动作：在仓库建立 AGENTS.md 和 Git checkpoint；按任务选择权限，再用 review 或本地检查做交付前复核。"
     },
     {
-      "title": "Agent Plugins spec 成为可移植插件依据",
-      "author": "Agent Plugins maintainers",
-      "source": "open-standard",
-      "url": "https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md",
-      "category": [
-        "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Plugin Spec",
-      "summary": "公开 spec 给出 plugin manifest、skills、MCP 配置和包结构的迁移依据。",
-      "takeaway": "动作：自建工作流资产拆成 manifest、skills、mcp.json 和客户端私有目录。"
-    },
-    {
-      "title": "JetBrains Copilot 合并 memory、Ollama 与 Codex logs",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains/",
-      "category": [
-        "workflow",
-        "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "IDE Agent Console",
-      "summary": "JetBrains 更新同时加入 persistent memory、Ollama BYOK、Codex sessions debug logs、permission modes、instructions 和 skills。",
-      "takeaway": "动作：IDE agent 任务记录 memory 开关、本地模型 provider、permission mode、debug log 和 skill 来源。"
-    },
-    {
-      "title": "GitHub usage report 拆出模型 token",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-11-per-model-token-breakdown-in-the-usage-report/",
-      "category": [
-        "workflow",
-        "accounts",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Cost Attribution",
-      "summary": "AI usage report 开始按模型显示 input、output、cache read、cache write token 和 AI credits。",
-      "takeaway": "动作：每周成本复盘按模型和 token 类型归因，定位输出膨胀、缓存写入和低价值重试。"
-    },
-    {
-      "title": "Copilot web 暴露续跑与 token 状态",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls/",
-      "category": [
-        "workflow",
-        "accounts"
-      ],
-      "score": "HIGH",
-      "tag": "Control Surface",
-      "summary": "Copilot on web 增加 minimize/resume 和 token spend indicators，让轻量入口也显示会话续跑与预算状态。",
-      "takeaway": "动作：移动/网页入口做控制面时，显示 session 状态、per-message quota 和预算提示。"
-    },
-    {
-      "title": "Gemini 3.7 Flash 进入 Copilot 多入口",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot/",
-      "category": [
-        "hot",
-        "tools",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Multi-model",
-      "summary": "Gemini 3.7 Flash 将在 VS Code、Visual Studio、CLI、cloud agent、Copilot app、JetBrains、Xcode、Eclipse 中逐步可选。",
-      "takeaway": "动作：工作流不要写死模型名，记录 provider pricing、入口支持、选择理由和回退边界。"
-    },
-    {
-      "title": "Issue automation controls 加入 intent 审批层",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview/",
+      "title": "Codex App 把任务线程化",
+      "author": "OpenAI",
+      "source": "official-product-update",
+      "url": "https://openai.com/index/introducing-the-codex-app/",
       "category": [
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Issue Intents",
-      "summary": "GitHub Issues 给 label、field、type、close、assignee 自动化加入 approvals、confidence、rationale 和 issue intents。",
-      "takeaway": "动作：低置信度进入人工 review；真正安全边界仍靠 permissions 和 safe outputs。"
+      "tag": "Threaded Work",
+      "summary": "Codex App 将重点从单次代码生成转向多代理并行、线程化项目管理、diff 审查和长时间协作。",
+      "takeaway": "动作：把独立任务拆成不同线程或代理；先让代理运行，再在同一线程审查 diff、评论和手动修正。"
     },
     {
-      "title": "Agentic Workflows 用 frontmatter 管住写入",
-      "author": "GitHub Docs",
-      "source": "official-docs",
-      "url": "https://docs.github.com/en/copilot/concepts/agents/about-github-agentic-workflows",
+      "title": "手机是 Codex 控制面",
+      "author": "OpenAI",
+      "source": "official-product-update",
+      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
       "category": [
+        "mobile",
         "workflow",
-        "tools",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Mobile Control",
+      "summary": "OpenAI 明确手机控制面与本地执行面的分工：文件、凭证和权限留在 Mac 或远程环境，手机负责查看、引导和审批。",
+      "takeaway": "动作：用手机处理低风险 steer、审批和结果检查，不把本地执行环境暴露到公网。"
+    },
+    {
+      "title": "手机远程工程流程可复用",
+      "author": "Thomas Ricouard",
+      "source": "official-blog",
+      "url": "https://learn.chatgpt.com/blog/mastering-codex-remote-for-engineering",
+      "category": [
+        "mobile",
+        "workflow",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Safe Outputs",
-      "summary": "GitHub Agentic Workflows 用 Markdown frontmatter 定义 trigger、permissions、safe outputs 和 engine，并支持 OpenAI Codex 等 coding agents。",
-      "takeaway": "动作：把自动化写入放进 frontmatter 白名单，明确 permissions、safe outputs、engine 和 secrets。"
+      "tag": "Remote Engineering",
+      "summary": "Queue、Steer、worktree、Goal 和移动端 review 组成可直接复用的手机协作流程。",
+      "takeaway": "动作：将 Queue 设为默认；只在方向明显错误时 Steer，并用 Plan、Goal、diff review 完成长任务闭环。"
     },
     {
-      "title": "Agents SDK release notes 提醒升级闸门",
-      "author": "OpenAI Agents SDK",
+      "title": "Workspace Agent API 需要标准工作单",
+      "author": "OpenAI Developers",
       "source": "official-docs",
-      "url": "https://openai.github.io/openai-agents-python/release/",
-      "category": [
-        "tools",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "SDK Upgrade",
-      "summary": "近期 Agents SDK release notes 覆盖 Sandbox Agents、ModelRefusalError、default model 变更和 workspace materialization 安全检查。",
-      "takeaway": "动作：升级前检查 refusal handling、sandbox materialization、默认模型和 max_turns 行为。"
-    },
-    {
-      "title": "Model guidance 仍是路由小票来源",
-      "author": "OpenAI API docs",
-      "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "url": "https://developers.openai.com/codex/workspace-agent-api",
       "category": [
         "hot",
         "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Agent API",
+      "summary": "API 触发 workspace agent runs 让长任务可自动化，但 run started 不能替代完成证据。",
+      "takeaway": "动作：为每个 run 写 job envelope: prompt、repo、branch、权限、停止条件、交付物、验证命令和回传格式。"
+    },
+    {
+      "title": "Responses API 统一 agent loop",
+      "author": "OpenAI API docs",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/migrate-to-responses",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Responses API",
+      "summary": "Responses API 将 web search、file search、computer use、code interpreter、MCP 和多轮状态统一到 agent loop。",
+      "takeaway": "动作：新项目优先采用 Responses API；迁移时把 Messages 思维转为 Items，并显式设计 state、工具权限和数据保留策略。"
+    },
+    {
+      "title": "Responses multi-agent 适合边界清晰并行",
+      "author": "OpenAI API docs",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/responses-multi-agent",
+      "category": [
+        "workflow",
+        "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Model Routing",
-      "summary": "Model guidance 把 Sol/Terra/Luna、reasoning effort、Programmatic Tool Calling、multi-agent 和 prompt caching 放进迁移路线。",
-      "takeaway": "动作：任务入口记录模型、effort、sidecar/PTC、缓存、记忆和停止条件。"
+      "tag": "Multi-agent",
+      "summary": "Responses API beta 多代理能力适合把代码探索、文档研究和独立实现拆成并行且边界清晰的工作流。",
+      "takeaway": "动作：只把相互独立的任务交给 subagents；启用 beta 前评估 token 成本、共享状态冲突和最终合并责任。"
     },
     {
-      "title": "Models 页用于校准模型适用面",
+      "title": "Computer use 的核心是隔离和人审",
       "author": "OpenAI API docs",
       "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/models",
+      "url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
       "category": [
-        "tools",
-        "workflow"
+        "workflow",
+        "tools"
       ],
       "score": "HIGH",
-      "tag": "Model Catalog",
-      "summary": "模型目录是判断模型上下文窗口、工具能力、端点和适用任务的基础表。",
-      "takeaway": "动作：高价值判断、高吞吐筛选、格式检查和工具执行分配到不同模型/effort。"
+      "tag": "Computer Use",
+      "summary": "官方将 computer use 的关键问题定义为执行环境和安全边界，而不是单纯视觉点击能力。",
+      "takeaway": "动作：在隔离浏览器或 VM 中运行，清空环境变量、禁用扩展和本地文件访问，高影响动作保留人工确认。"
     },
     {
-      "title": "OpenAI pricing 继续约束缓存与输出成本",
+      "title": "Background mode 支持长任务轮询",
+      "author": "OpenAI API docs",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/background",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Background Mode",
+      "summary": "Background mode 为需要数分钟甚至更长时间的推理任务提供异步执行和状态轮询。",
+      "takeaway": "动作：对长任务设置 background=true，持久化 response id 并轮询到终态，同时检查 ZDR 和临时状态存储约束。"
+    },
+    {
+      "title": "Agents SDK 走向可恢复执行层",
       "author": "OpenAI",
-      "source": "official-pricing",
-      "url": "https://openai.com/api/pricing/",
+      "source": "official-product-update",
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
       "category": [
-        "accounts",
-        "workflow"
+        "workflow",
+        "tools",
+        "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Budget",
-      "summary": "价格页仍是计算 input、cached input、output、batch 和 cache write 成本的官方入口。",
-      "takeaway": "动作：长任务拆 uncached input、cache write、cache read、output 和重试，不用总 token 代替成本分析。"
+      "tag": "Agents SDK",
+      "summary": "Agents SDK 将文件、shell、skills、MCP、记忆和沙箱组合成可恢复的长任务执行层。",
+      "takeaway": "动作：从 SandboxAgent 开始试验；用 Manifest 明确输入、输出和 workspace，并用 snapshot/resume 处理长任务恢复。"
     },
     {
-      "title": "Copilot ROI dashboard 把成本连到产物",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-07-copilot-impact-dashboard-adds-a-return-on-investment-section/",
+      "title": "私有 MCP 不应靠公网硬开门",
+      "author": "Denys Kurylenko",
+      "source": "official-blog",
+      "url": "https://learn.chatgpt.com/blog/connect-private-mcp-servers-to-openai-products",
       "category": [
-        "accounts",
-        "knowledge",
-        "workflow"
+        "workflow",
+        "tools",
+        "accounts"
       ],
       "score": "HIGH",
-      "tag": "ROI",
-      "summary": "Impact dashboard 把 Copilot spend、AI credits、salary assumptions、PR output 和 adoption phases 放在一起。",
-      "takeaway": "动作：个人/团队 agent 复盘同时看成本、产物、采用阶段和质量，不只看启动次数。"
+      "tag": "Private MCP",
+      "summary": "OpenAI 私有 MCP 文章给出让 ChatGPT/Codex 使用私有 MCP、同时不开放公网入口的架构思路。",
+      "takeaway": "动作：采用私网内可审计客户端、出站 HTTPS、显式目标配置和本地健康检查；不要用公网隧道替代安全边界。"
+    },
+    {
+      "title": "Review rules 可把合同写进仓库",
+      "author": "Hari Srikanth",
+      "source": "official-blog",
+      "url": "https://learn.chatgpt.com/blog/custom-code-review-rules-for-codex",
+      "category": [
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Review Rules",
+      "summary": "Custom code review rules 让团队把历史约束、日志规范、兼容性要求和审查规范写进 AGENTS.md。",
+      "takeaway": "动作：为 breaking change、数据日志、旧客户端兼容、日报合同等高风险点写短小、局部的 AGENTS.md review rules。"
+    },
+    {
+      "title": "Claudian 把 coding agents 放进 Obsidian",
+      "author": "YishenTu",
+      "source": "github-open-source-project",
+      "url": "https://github.com/YishenTu/claudian",
+      "category": [
+        "knowledge",
+        "workflow",
+        "tools"
+      ],
+      "score": "MEDIUM",
+      "tag": "Second Brain",
+      "summary": "Claudian 把 Codex、Claude Code 等本地 coding agents 嵌入 Obsidian，支持 vault 文件读写、Plan Mode、Skills、MCP 和 diff 预览。",
+      "takeaway": "动作：只在可丢弃或已备份的 vault 中试用；先核验 CLI PATH、权限提示、provider 数据流和 MCP 配置，再启用写入能力。"
     }
   ],
   "knowledge": [
     {
-      "title": "Plugin 上架清单",
-      "summary": "上线前记录 skills、apps、app templates、源系统、读写动作、sync、role access、确认要求和禁用路径。",
-      "source": "https://help.openai.com/en/articles/20001256-plugins-in-codex/"
+      "title": "工作台资产清单",
+      "summary": "把入口、资料库、记忆、agent API、subagent、plugin、MCP、review rule 和发布证据放到同一张表里。",
+      "steps": [
+        "列出入口、资料源、记忆开关和连接器。",
+        "标记每个能力能读什么、能写什么、是否需要确认。",
+        "绑定最终验收证据: 文件、检查、diff、commit、push、deploy。"
+      ],
+      "risk": "把产品入口、资料层、工具层和最终证据混在一起，会导致已派工被误报为已完成。"
     },
     {
-      "title": "MCP 白名单",
-      "summary": "按 URL/command/name、tools、读写动作、凭证、网络和禁用路径管理每个 MCP server。",
-      "source": "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app/"
+      "title": "Workspace Agent Job Envelope",
+      "summary": "每个 API 或远程触发的 agent run 都要带完整工作单。",
+      "steps": [
+        "写清目标、repo、branch、入口和读写边界。",
+        "写清停止条件、交付物和不可修改事项。",
+        "写清验证命令、预期证据和回传格式。"
+      ],
+      "risk": "API run started 不是完成证据，必须等待可核验产物。"
     },
     {
-      "title": "Issue Intent 审批层",
-      "summary": "issue 自动化写入附 rationale、confidence 和 review 状态，低置信度先进入人工复核。",
-      "source": "https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview/"
+      "title": "项目记忆开关闸",
+      "summary": "项目级 memory 必须标注启用状态、适用范围、过期规则和复核要求。",
+      "steps": [
+        "区分长期偏好、仓库事实、项目约定和当天临时判断。",
+        "高漂移事实每次复核。",
+        "冲突时以当前证据为准。"
+      ],
+      "risk": "旧记忆会降低重复解释成本，也会放大过期事实。"
     },
     {
-      "title": "成本归因表",
-      "summary": "按模型和 input、output、cache read、cache write、AI credits 归因，并关联实际产物。",
-      "source": "https://github.blog/changelog/2026-08-11-per-model-token-breakdown-in-the-usage-report/"
+      "title": "Review Rule 合同化",
+      "summary": "把人工反复检查的发布合同写成仓库级 review/check 规则。",
+      "steps": [
+        "抽取固定合同: 日期、字段、计数、公开边界、同步关系。",
+        "写成本地脚本、review rule 或 CI 检查。",
+        "每次误报或漏报后更新规则。"
+      ],
+      "risk": "Review rule 只能辅助发现问题，不能替代最终 diff、push 和 deploy 验收。"
     }
   ]
 };

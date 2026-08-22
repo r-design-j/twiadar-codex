@@ -1,206 +1,207 @@
 {
-  "date": "2026-08-21",
-  "updatedAt": "2026-08-21T09:03:00+08:00",
-  "updatedLabel": "2026-08-21 09:03 CST",
-  "conclusion": "今日主线是: agent 工作台正在从“会执行任务”升级为“有模型路由、能力目录、插件边界、旁路提问、用量账本和知识回灌”的可运营系统。OpenAI 侧的 GPT-5.6 in ChatGPT、latest-model API docs、Developers 首页、Codex use cases 和 community showcase，把 Chat、Work、Codex、Plugins、MCP、skills、use cases 放到同一个工作台叙事里；GitHub 侧的 agent app metrics、per-model token breakdown、Agent Plugins 1.0、agent finder 和 Copilot conversation controls，则把多 agent 的发现、调用、度量和审查推向平台治理。",
+  "date": "2026-08-22",
+  "updatedAt": "2026-08-22T14:24:00+08:00",
+  "updatedLabel": "2026-08-22 14:24 CST",
+  "conclusion": "今日主线是: AI 工作台正在从“单个 agent 能完成任务”升级为“跨聊天、跨手机、跨 IDE、跨 Slack/Teams、跨插件和跨会话的运营系统”。OpenAI 8 月 21 日的 ChatGPT 记录把 plugin 发现、时间感知、长会话稳定性、progressive interactive replies 和移动端细节优化放在一起；8 月 20 日的记录把 Codex、Sites、Messages、Share Snapshot、Pinned Chat 同步和 Computer History 放入同一批发布；Codex CLI 0.149.0 则补上 agents dashboard、queue、doctor、设置账户切换和 SDK reasoning effort。GitHub 与 Slack/Microsoft 侧同时把 agent 放进团队聊天、agent panel、Teams bot 和 workflow 入口。",
   "metrics": {
     "sourceCards": 14,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-21 的可复用变化集中在模型路由、能力目录、旁路提问、agent 用量账本。",
-    "今天的判断很明确: agent 越多，越要把模型选择、工具选择、过程提问和用量复盘制度化。"
+    "2026-08-22 的可复用变化集中在插件发现、状态分享、队列诊断、ChatOps agent 入口。",
+    "今天的判断很明确: 工具越多、入口越多，越要把权限、公开边界和最终证据制度化。"
   ],
   "signals": [
     {
-      "title": "GPT-5.6 让 ChatGPT 工作流先做模型路由",
+      "title": "ChatGPT plugin 发现需要工具账本",
+      "author": "OpenAI Help",
+      "source": "official-release-notes",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Plugin Ledger",
+      "summary": "8 月 21 日 ChatGPT release notes 把 plugin 发现、时间感知、长会话稳定性和移动端优化放在同一批。",
+      "takeaway": "动作: 建 Plugin Discovery Ledger，记录发现、安装、授权、调用、撤销和是否保留。"
+    },
+    {
+      "title": "ChatGPT 时间感知要求写绝对日期",
+      "author": "OpenAI Help",
+      "source": "official-release-notes",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "category": [
+        "workflow",
+        "mobile"
+      ],
+      "score": "HIGH",
+      "tag": "Time Aware",
+      "summary": "时间感知增强让日程、截止日期和相对时间任务更自然，但发布材料不能只写今天、昨天。",
+      "takeaway": "动作: 自动化报告统一写绝对日期，并在任务入口记录时区。"
+    },
+    {
+      "title": "Codex/Sites/Messages 同批强化状态边界",
+      "author": "OpenAI Help",
+      "source": "official-release-notes",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "category": [
+        "hot",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "State Boundary",
+      "summary": "8 月 20 日记录把 Codex、Sites、Messages、Share Snapshot、Pinned Chat sync 和 Computer History 同批发布。",
+      "takeaway": "动作: 把内容分成公开摘要、私有过程和本地证据三层，分享前先过边界扫描。"
+    },
+    {
+      "title": "Sites 让公开输出边界变成必填项",
       "author": "OpenAI Help",
       "source": "official-help",
-      "url": "https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt",
+      "url": "https://help.openai.com/en/articles/20001339-creating-and-managing-chatgpt-sites",
       "category": [
-        "hot",
-        "workflow"
+        "workflow",
+        "tools"
       ],
       "score": "HIGH",
-      "tag": "Model Routing",
-      "summary": "GPT-5.6 的 ChatGPT 入口和模型定位提醒用户先匹配任务、预算和验收深度，而不是默认所有任务都上最高档。",
-      "takeaway": "动作: 给常见任务写 Model Routing Card，记录主模型、侧车模型、推理档位和验收深度。"
+      "tag": "Public Site",
+      "summary": "Sites 把 ChatGPT 产物变成可公开访问页面，要求发布前明确哪些材料能公开展示。",
+      "takeaway": "动作: 公开站点只放公开来源、总结和知识卡片，本地过程证据不进入站点。"
     },
     {
-      "title": "Latest model docs 适合做模型升级闸门",
-      "author": "OpenAI API Docs",
+      "title": "Codex 0.149.0 补上 dashboard、queue 和 doctor",
+      "author": "OpenAI / GitHub",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Queue Doctor",
+      "summary": "Codex 0.149.0 增加 agents dashboard、queue、doctor、account setup 和 SDK reasoning effort。",
+      "takeaway": "动作: 发布前固定 queue 状态、doctor 检查、reasoning 档位和最终写入 owner。"
+    },
+    {
+      "title": "Codex 高频 alpha 提醒本机能力要复核",
+      "author": "OpenAI / GitHub",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases",
+      "category": [
+        "tools",
+        "workflow"
+      ],
+      "score": "MED",
+      "tag": "Release Cadence",
+      "summary": "Codex release 页显示 CLI 仍保持高频 alpha/beta 节奏，功能面快速变化。",
+      "takeaway": "动作: 日报引用版本和采集日期；自动化不要假设 alpha 功能已安装或稳定。"
+    },
+    {
+      "title": "Agents SDK 适合作为多 agent 工程参照",
+      "author": "OpenAI Agents SDK",
       "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "url": "https://openai.github.io/openai-agents-python/",
       "category": [
         "workflow",
+        "knowledge",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Upgrade Contract",
-      "summary": "API 侧 latest-model 文档把模型选择、迁移和能力边界文档化，适合把模型升级从口头决策变成检查清单。",
-      "takeaway": "动作: 升级模型前固定输入输出合同、评测样例、回滚模型和成本变化。"
+      "tag": "Agent Runtime",
+      "summary": "Agents SDK 的 handoffs、guardrails、tracing、sessions 和 results/state 是多 agent 工程化参照。",
+      "takeaway": "动作: planner、collector、writer、reviewer 可以拆，但最终验收由一个主 owner 收口。"
     },
     {
-      "title": "OpenAI Developers 显示 Chat、Work、Codex 正在合流",
-      "author": "OpenAI Developers",
-      "source": "official-site",
-      "url": "https://developers.openai.com/",
+      "title": "GitHub agent panel 和聊天入口推动 ChatOps",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10/",
       "category": [
         "hot",
         "workflow",
-        "tools"
+        "accounts"
       ],
       "score": "HIGH",
-      "tag": "Unified Workbench",
-      "summary": "Developers 入口把 Chat、Work、Codex、Plugins、MCP、cookbooks 和 community 放在同一工作台叙事中。",
-      "takeaway": "动作: 任务启动时同时选择入口、模型、工具能力、预算和最终证据 owner。"
+      "tag": "ChatOps",
+      "summary": "GitHub 8 月 10 周报集中展示 agent panel、Slack workspace agents 和 Teams bot。",
+      "takeaway": "动作: 团队聊天只做入口、状态和低风险审批；最终证据回到 PR、diff、test 和 deploy。"
     },
     {
-      "title": "Codex use cases 把重复任务推向 capsule 和 skill",
-      "author": "OpenAI Developers",
-      "source": "official-site",
-      "url": "https://developers.openai.com/codex/use-cases",
+      "title": "Copilot agents 生命周期可作外部参照",
+      "author": "GitHub Docs",
+      "source": "official-docs",
+      "url": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/getting-started-with-copilot-agents",
       "category": [
-        "hot",
         "workflow",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Use Case Capsule",
-      "summary": "官方 use cases 覆盖 skills、verified operations、Slack/iMessage、docs、security、macOS 和 Sites，显示 Codex 正在从代码助手扩展成横向工作台。",
-      "takeaway": "动作: 把重复任务先写成 use-case capsule，再决定是否沉淀为 skill、runbook 或自动化。"
+      "tag": "Task Lifecycle",
+      "summary": "GitHub Docs 把 Copilot agents 的启动、分配、审查和结果回收流程文档化。",
+      "takeaway": "动作: 每个 agent 任务记录入口、权限、目标、产物、review 状态和是否接受。"
     },
     {
-      "title": "Community showcase 暴露真实 builder 的任务形状",
-      "author": "OpenAI Developers",
-      "source": "official-community",
-      "url": "https://developers.openai.com/community",
+      "title": "GitHub Copilot in Slack 降低派工成本",
+      "author": "GitHub Docs",
+      "source": "official-docs",
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack",
       "category": [
         "workflow",
-        "knowledge"
-      ],
-      "score": "MED",
-      "tag": "Workflow Shapes",
-      "summary": "社区案例包含过夜任务、硬件 dashboard、EPUB reader、Three.js 动画、Codex app server 和 handoff experience 等可复用任务形状。",
-      "takeaway": "动作: 从案例提炼任务 capsule 和验收链，不照搬营销式结论。"
-    },
-    {
-      "title": "Agent app activity 让多 agent 使用可度量",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-07-copilot-usage-metrics-api-adds-agent-app-activity/",
-      "category": [
-        "hot",
         "accounts",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Usage Ledger",
-      "summary": "GitHub 将第三方 agent app activity 按 agent_id 拆出来，说明多 agent 采用率和使用效果正在进入运营指标。",
-      "takeaway": "动作: 为个人自动化记录 agent、入口、耗时、产物、是否接受和返工原因。"
-    },
-    {
-      "title": "Per-model token breakdown 把模型路由接到账本",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/label/copilot/",
-      "category": [
-        "accounts",
-        "workflow"
-      ],
-      "score": "MED",
-      "tag": "Cost Accounting",
-      "summary": "每模型 token breakdown 将模型选择与成本账本绑定，支持用真实使用数据调整 agent 路由。",
-      "takeaway": "动作: 在 route receipt 中记录 model、reasoning、tokens/credits 可得值、耗时和任务类型。"
-    },
-    {
-      "title": "Agent Plugins 1.0 推动能力跨入口分发",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/label/copilot/",
-      "category": [
-        "hot",
         "tools"
       ],
-      "score": "MED",
-      "tag": "Plugin Catalog",
-      "summary": "Agent Plugins 1.0 进入 IDE、CLI 和 app，说明 agent 能力会以插件形态跨入口分发。",
-      "takeaway": "动作: 建立 Capability Catalog，记录插件用途、入口、读写边界、安装状态、owner 和撤销路径。"
+      "score": "HIGH",
+      "tag": "Slack Agent",
+      "summary": "GitHub Copilot in Slack 把 coding agent 放进团队聊天工具，派工更顺手，权限边界也更重要。",
+      "takeaway": "动作: 写 workspace、channel、bot、触发词、默认只读/草稿和升级路径。"
     },
     {
-      "title": "Agent finder 把能力发现从上下文预塞改为按需检索",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-06-17-agent-finder-for-github-copilot-now-available/",
+      "title": "Slack AI apps and agents 需要 admin 治理",
+      "author": "Slack Help",
+      "source": "official-help",
+      "url": "https://slack.com/help/articles/4402284269587-Slack-AI-apps-and-agents",
+      "category": [
+        "workflow",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Admin Boundary",
+      "summary": "Slack 将 AI apps and agents 纳入 workspace 使用和管理边界，团队聊天里的 agent 需要权限和安全设置治理。",
+      "takeaway": "动作: 启用前记录 app 来源、权限、频道范围、审计位置和撤销方式。"
+    },
+    {
+      "title": "Microsoft Agent Framework 提供服务化检查框架",
+      "author": "Microsoft Learn",
+      "source": "official-docs",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/",
       "category": [
         "tools",
         "knowledge"
       ],
-      "score": "HIGH",
-      "tag": "Capability Discovery",
-      "summary": "agent finder 和 ARD 将 MCP、skills、canvases、agents、tools 变成可发现资源，而不是预先塞满上下文。",
-      "takeaway": "动作: 任务前只检索最小必要能力；发现、安装、授权和调用分成四个动作。"
-    },
-    {
-      "title": "Side chat 和 Markdown diff 改善不中断协作",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3/",
-      "category": [
-        "workflow",
-        "mobile",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Side Question",
-      "summary": "`/btw` side chat、on-device multilingual dictation 和 Markdown hybrid diff 展示了不中断主任务提问、语音捕获和文档审阅的新模式。",
-      "takeaway": "动作: 长任务增加 Side-Question Log；旁路问题不直接改主线，文档产物像代码一样看 diff。"
-    },
-    {
-      "title": "Memory 与本地模型入口要求明确上下文边界",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/label/copilot/",
-      "category": [
-        "workflow",
-        "knowledge"
-      ],
       "score": "MED",
-      "tag": "Memory Boundary",
-      "summary": "memory 与本地模型入口同时出现，提醒工作台必须区分可持久化上下文、临时上下文和不可外发内容。",
-      "takeaway": "动作: 为每个项目记录 memory scope、local/cloud boundary、可外发材料和失效条件。"
+      "tag": "Agent Framework",
+      "summary": "Microsoft Agent Framework 把 agent 开发、编排、评测和部署放进统一工程框架。",
+      "takeaway": "动作: 脚本升级为 agent 服务前补齐评测、状态、权限、日志和部署回滚。"
     },
     {
-      "title": "Private MCP 边界仍是本地桥接安全线",
-      "author": "OpenAI Developers",
-      "source": "official-site",
-      "url": "https://developers.openai.com/",
+      "title": "Copilot Harness 指向 agent 评测与交付闭环",
+      "author": "Microsoft Learn",
+      "source": "official-docs",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-harness/overview",
       "category": [
         "tools",
-        "workflow"
+        "knowledge"
       ],
       "score": "MED",
-      "tag": "Private MCP",
-      "summary": "private MCP 主题强调私有网络边界、streaming、auth 和可检查 client，正好对应本地桥接安全线。",
-      "takeaway": "动作: 私有 MCP 不通过公网裸露；隧道、鉴权、可审计 client 和撤销路径分开记录。"
+      "tag": "Harness",
+      "summary": "Copilot Harness 代表 agent 应用从开发走向可测试、可评估、可发布的工具链。",
+      "takeaway": "动作: 复杂 agent 工作流不要只看 prompt，要补样例、评测、日志和回滚。"
     },
     {
-      "title": "Workspace agents 指向可重复业务流程",
-      "author": "OpenAI Developers Cookbooks",
-      "source": "official-site",
-      "url": "https://developers.openai.com/",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Workspace Agent",
-      "summary": "workspace agents 主题指向 repeatable end-to-end work，说明 ChatGPT Work 正在承接可复用业务流程。",
-      "takeaway": "动作: 把会议、资料、表格、文档类任务拆成输入合同、处理步骤、产物格式和验收标准。"
-    },
-    {
-      "title": "Web Clipper 适合把公开来源回灌成本地知识",
+      "title": "Web Clipper 继续承担公开来源回灌",
       "author": "Obsidian Docs",
       "source": "official-docs",
       "url": "https://obsidian.md/help/web-clipper",
@@ -210,58 +211,30 @@
       ],
       "score": "HIGH",
       "tag": "Knowledge Capture",
-      "summary": "Web Clipper 是公开来源沉淀成本地知识库的稳定入口，适合将今日 radar 来源转成可复用卡片。",
-      "takeaway": "动作: 剪藏模板只保存公开标题、URL、takeaway、复用标签和采集日期，不保存登录态或私有上下文。"
+      "summary": "Web Clipper 适合把公开来源沉淀成本地知识库，但今天应记录 workflow asset 而不是只剪新闻摘要。",
+      "takeaway": "动作: 剪藏模板增加 plugin_ledger、share_boundary、queue_doctor、chatops_lane 和采集日期。"
     }
   ],
   "knowledge": [
     {
-      "title": "Model Routing Card",
-      "summary": "每类任务启动前先写模型路由，不默认使用最高档，也不为了省钱牺牲必要验收。",
-      "steps": [
-        "标注任务类型: 写作、代码、研究、视觉、发布、审查或日常自动化。",
-        "选择主模型、侧车模型、推理档位和预算上限。",
-        "写清不适用条件: 高风险、安全、隐私、外部副作用、缺证据。",
-        "记录验收深度: 轻审、深审、真实发布或人工复核。",
-        "结束时补充耗时、是否一次通过、返工原因和下次默认档位。"
-      ],
-      "risk": "没有路由卡，团队会在贵但稳和便宜但返工之间靠感觉摇摆。"
+      "title": "Plugin Discovery Ledger",
+      "summary": "把插件从临时工具变成可盘点资产，记录发现、安装、授权、调用、撤销和保留状态。",
+      "reuse": "用于 ChatGPT plugins、MCP、skills、browser/GitHub/Sites 等能力发现和授权前检查。"
     },
     {
-      "title": "Capability Catalog",
-      "summary": "把 skills、plugins、MCP、browser、GitHub、Sites、local scripts 做成能力目录，按任务需要加载。",
-      "steps": [
-        "为每个能力记录名称、用途、入口、读写边界和 owner。",
-        "标注状态: 可用、需安装、需授权、只读、禁用。",
-        "写清可处理任务和不能处理任务。",
-        "高风险写动作必须有审批和撤销路径。",
-        "每次任务只加载最小必要能力，结束后记录是否有效。"
-      ],
-      "risk": "工具太多会放大权限面；没有目录会让 agent 临时乱找工具。"
+      "title": "Shareable State Boundary",
+      "summary": "把内容分成公开摘要、私有过程和本地证据三层，避免分享功能误带现场记录。",
+      "reuse": "用于 Share Snapshot、Pinned Chat、Computer History、Sites、日报公开发布和项目交接。"
     },
     {
-      "title": "Side-Question Log",
-      "summary": "长任务中途的问题先作为旁路问题记录，只有确认会改变目标时才升级为 steering message。",
-      "steps": [
-        "记录问题、触发上下文、是否影响目标和期望回答。",
-        "不让旁路问题直接修改文件、发布或改变权限。",
-        "回答后标注: 仅供理解、补充检查、改变计划、暂停执行。",
-        "若改变计划，生成新的任务 capsule 并重新冻结边界。",
-        "结束时把有价值的问题回灌到 FAQ 或 playbook。"
-      ],
-      "risk": "旁路聊天很方便，但容易把顺手问一句变成隐式改需求。"
+      "title": "Queue & Doctor Runbook",
+      "summary": "把 Codex queue/dashboard/doctor 当成发布前闸门，但完成仍以文件、测试、GitHub 和部署为证据。",
+      "reuse": "用于每日自动化、长任务队列、多人/多 agent 写入冲突和失败复盘。"
     },
     {
-      "title": "Agent Usage Ledger",
-      "summary": "多 agent 时代要记录真实使用，而不是凭印象评价哪个 agent 好。",
-      "steps": [
-        "记录入口、agent/model、reasoning、工具、任务类型和开始时间。",
-        "记录产物、验证命令、通过/失败和是否发布。",
-        "记录耗时、tokens/credits/cost 可得值和人工返工点。",
-        "用稳定 ID 归并同一 agent，不只看 display name。",
-        "每周按接受率、返工率、成本和任务类型更新默认路由。"
-      ],
-      "risk": "没有账本，多 agent 路由会变成品牌偏好；有账本才能持续降本提质。"
+      "title": "ChatOps Agent Lane",
+      "summary": "Slack/Teams agent 入口只做调度、状态和低风险审批，最终验收回到 repo、PR、测试和部署。",
+      "reuse": "用于团队群聊触发 agent、审批路由、状态广播和误触发治理。"
     }
   ]
 }

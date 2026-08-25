@@ -1,123 +1,151 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-08-24",
-  "updatedAt": "2026-08-24T09:02:00+08:00",
-  "updatedLabel": "2026-08-24 09:02 CST",
-  "conclusion": "今日主线是: AI 工作台正在从“单个入口里的 agent 功能”升级为“跨客户端、跨插件、跨团队聊天和跨企业策略的协议化运行层”。Agent Plugins 1.0 把 skills、MCP servers 和 client extensions 封装成可移植目录；OpenAI API changelog 在 8 月 21 日加入按请求选择区域处理，在 8 月 20 日加入 Prompt Caching dashboard；Codex releases 继续高频推进 0.150 alpha，并保留 0.149.0 的 dashboard、queue、doctor 和 reasoning effort 作为本地执行面信号；GitHub 则把 Copilot agent 放进 Slack 和 Teams，并在 JetBrains 侧补企业托管设置、MCP allowlist、OpenTelemetry 和权限模式。",
+  "date": "2026-08-25",
+  "updatedAt": "2026-08-25T09:00:00+08:00",
+  "updatedLabel": "2026-08-25 09:00 CST",
+  "conclusion": "今日主线是: AI 工作台正在从“多入口能用”进入“迁移、审批、预算和知识库边界必须显式化”的阶段。OpenAI 在 8 月 24 日标记 `codex mcp-server` 命令废弃，推荐 Codex app server，并发布 Codex CLI 0.149.1；8 月 20/21 日的 ChatGPT 与 Codex 更新继续把 Apple Messages、Site 协作、Codex snapshot、插件发现、长会话加载和 iOS 附件放到同一产品面；OpenAI Cookbook 的 Responses API 单次预算控制把每个 agent run 的成本闸门写成可执行模式；GitHub Slack/Teams Copilot 则把团队聊天变成共享 agent 现场，并把预算、云沙箱和额外审批推到前台。",
   "metrics": {
     "sourceCards": 14,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-24 的可复用变化集中在 Agent Plugins、区域处理、缓存看板、ChatOps agent 和企业控制矩阵。",
-    "今天的判断很明确: 入口越多，越要把插件上架、请求地理、共享任务信封和权限矩阵制度化。"
+    "2026-08-25 的可复用变化集中在 Codex MCP 迁移、跨 app 审批、单次任务预算、共享 agent 预算和知识库 vault 闸门。",
+    "今天的判断很明确: agent 入口越多，越要把迁移、发送、分享、预算和回滚做成可验证资产。"
   ],
   "signals": [
     {
-      "title": "Agent Plugins 变成跨客户端插件包",
-      "author": "Agent Plugins",
-      "source": "official-spec-site",
-      "url": "https://agent-plugins.org/",
+      "title": "Codex MCP 旧命令进入迁移期",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-changelog",
+      "url": "https://developers.openai.com/codex/changelog",
       "category": [
         "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Plugin Intake",
-      "summary": "Agent Plugins 1.0 把 skills、MCP servers 和 client extensions 统一到可移植插件包。",
-      "takeaway": "动作: 建 Portable Agent Plugin Intake，先验 manifest、固定路径、权限和撤销路径。"
+      "tag": "MCP Migration",
+      "summary": "8 月 24 日 changelog 标记 `codex mcp-server` command deprecated，并指向 Codex app server 与 Claude Code 插件。",
+      "takeaway": "动作: 建 Codex MCP Migration Card，记录旧命令、替代入口、插件依赖、验证任务和回滚路径。"
     },
     {
-      "title": "兼容客户端清单要求跨入口权限账本",
-      "author": "Agent Plugins",
-      "source": "official-spec-site",
-      "url": "https://agent-plugins.org/compatible-clients",
+      "title": "Codex CLI 0.149.1 提供稳定版本锚点",
+      "author": "OpenAI / GitHub",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases",
+      "category": [
+        "hot",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Version Gate",
+      "summary": "GitHub release 页显示 0.149.1 于 8 月 24 日发布，同时 nearby alpha 仍在高频变化。",
+      "takeaway": "动作: 自动化证据记录 release 页和本机 Codex 版本，不把 alpha 行为当成本地事实。"
+    },
+    {
+      "title": "Codex 0.149.0 闸门仍是本地执行核心",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-changelog",
+      "url": "https://developers.openai.com/codex/changelog",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Queue Doctor",
+      "summary": "0.149.0 的 agents dashboard、queue、doctor、config overrides 和 reasoning effort 仍是执行面关键更新。",
+      "takeaway": "动作: 发布前记录 queue、doctor、config、reasoning level 和最终 owner。"
+    },
+    {
+      "title": "Apple Messages 让逐次发送审批变刚需",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-changelog",
+      "url": "https://developers.openai.com/codex/changelog",
+      "category": [
+        "hot",
+        "mobile",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Send Approval",
+      "summary": "Apple Messages plugin 可读搜消息、准备或发送信息，默认发送前确认收件人和正文。",
+      "takeaway": "动作: 把 read/search、draft、send 分成独立权限；默认保留 allow once。"
+    },
+    {
+      "title": "Site co-editing 需要协作发布边界",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-changelog",
+      "url": "https://developers.openai.com/codex/changelog",
       "category": [
         "workflow",
         "tools",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Cross Client",
-      "summary": "兼容客户端覆盖 VS Code、Cursor、GitHub Copilot、ChatGPT & Codex 等工作面。",
-      "takeaway": "动作: 插件能力和权限记录按跨客户端资产管理，不绑死在单个 app。"
+      "tag": "Site Boundary",
+      "summary": "Site editor 可读 live database data、更新站点、保存版本，并在 owner 首次发布后发布变化。",
+      "takeaway": "动作: 区分 owner/editor、read live data、save version、publish、restore 和 revoke。"
     },
     {
-      "title": "插件加载应先看 plugin.json",
-      "author": "Agent Plugins",
-      "source": "official-spec-site",
-      "url": "https://agent-plugins.org/client-implementers/loading-and-discovery",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Manifest First",
-      "summary": "loading contract 要求先读取 plugin.json，再发现固定位置组件，并保持插件根目录边界。",
-      "takeaway": "动作: 新插件上架像超市上架清单，manifest first、固定路径、禁止 path escape。"
-    },
-    {
-      "title": "conformance checklist 可做插件闸门",
-      "author": "Agent Plugins",
-      "source": "official-spec-site",
-      "url": "https://agent-plugins.org/client-implementers/conformance",
+      "title": "Codex snapshot 分享仍要复核敏感内容",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-changelog",
+      "url": "https://developers.openai.com/codex/changelog",
       "category": [
         "workflow",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Conformance",
-      "summary": "conformance checklist 把 schema、组件发现、失败隔离、MCP transport 和版本匹配变成可验收项。",
-      "takeaway": "动作: 启用 skill/MCP bundle 前先过 conformance checklist，失败组件隔离处理。"
+      "tag": "Snapshot",
+      "summary": "Codex snapshot 是静态只读分享，但用户仍需复核敏感路径、diff、图片或其他内容。",
+      "takeaway": "动作: 公开分享前扫描 public summary、private process、local evidence 三层边界。"
     },
     {
-      "title": "ChatGPT plugin discovery 继续强化会话运营",
-      "author": "OpenAI Help",
-      "source": "official-release-notes",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "title": "插件目录跨 Chat/Work/Codex/CLI",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/codex/plugins",
+      "category": [
+        "workflow",
+        "tools",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Plugin Ledger",
+      "summary": "ChatGPT 和 Codex 使用同一个 public plugin catalog，插件可包含 skills、connectors、MCP、browser extensions、hooks 和 scheduled templates。",
+      "takeaway": "动作: 维护跨入口插件能力账本，分别记录 connectors、MCP、hooks、权限和卸载行为。"
+    },
+    {
+      "title": "Sign in with ChatGPT 不等于授权动作",
+      "author": "OpenAI / ChatGPT Learn",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/codex/plugins",
+      "category": [
+        "workflow",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Auth Split",
+      "summary": "插件连接身份、分享基本资料和批准插件权限是不同步骤，不会自动批准插件动作。",
+      "takeaway": "动作: 把 identity link、data permission、tool action approval 三层分开记录。"
+    },
+    {
+      "title": "Responses API 单次预算闸门可复用",
+      "author": "OpenAI Cookbook",
+      "source": "official-cookbook",
+      "url": "https://developers.openai.com/cookbook/articles/per_run_spending_controller_responses_api",
       "category": [
         "hot",
         "workflow",
-        "mobile"
+        "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Session Ops",
-      "summary": "8 月 21 日 release notes 同时提到插件发现、local time、长会话加载、progressive replies 和 iOS 更新。",
-      "takeaway": "动作: 长任务记录插件发现、绝对日期/时区、渐进输出和附件权限。"
+      "tag": "Spend Gate",
+      "summary": "Cookbook 展示每个 run 先 count tokens、预留 worst-case 成本、再按 usage 结算并在未知费用时阻断。",
+      "takeaway": "动作: agent 任务增加 run budget、价格验证日期、reserved/actual cost 和未知费用停止条件。"
     },
     {
-      "title": "ChatGPT 跨 app 分享边界变重要",
-      "author": "OpenAI Help",
-      "source": "official-release-notes",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "category": [
-        "workflow",
-        "mobile"
-      ],
-      "score": "HIGH",
-      "tag": "Share Boundary",
-      "summary": "8 月 20 日记录把 Sites、Apple Messages、Computer History 和 Codex snapshot 放在同一发布面。",
-      "takeaway": "动作: 分享前区分 public summary、private process、local evidence，并对消息发送单独审批。"
-    },
-    {
-      "title": "API 区域处理进入请求信封",
-      "author": "OpenAI API",
-      "source": "official-changelog",
-      "url": "https://platform.openai.com/docs/changelog",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Region",
-      "summary": "OpenAI API 8 月 21 日 changelog 支持 eligible project 对单个请求选择 regional processing。",
-      "takeaway": "动作: API 任务模板加入 request geography、项目资格、endpoint、模型和数据要求。"
-    },
-    {
-      "title": "Prompt Caching dashboard 让复用率可见",
+      "title": "Prompt Caching dashboard 让复用成本可见",
       "author": "OpenAI API",
       "source": "official-changelog",
       "url": "https://platform.openai.com/docs/changelog",
@@ -128,54 +156,11 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Cache Ops",
-      "summary": "Prompt Caching dashboard 展示 cache hit rate、cache reads/writes 和 cached/uncached token 分解。",
-      "takeaway": "动作: 评估 agent 工作流时把缓存命中、模型、service tier、延迟和成本放在同一表。"
+      "summary": "Prompt Caching dashboard 将 cache hit rate、cache reads/writes、cached/uncached tokens 按模型和 service tier 可视化。",
+      "takeaway": "动作: 将缓存命中、模型、service tier、延迟和成本放进 reusable workflow 看板。"
     },
     {
-      "title": "Codex 0.150 alpha 高频更新要记录版本",
-      "author": "OpenAI / GitHub",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases",
-      "category": [
-        "hot",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Version Gate",
-      "summary": "Codex release 页显示 0.150.0-alpha.7 和多次近期 alpha 构建，CLI 行为仍快速变化。",
-      "takeaway": "动作: 自动化证据记录 Codex 版本和 release 日期，不假设 alpha 功能已安装。"
-    },
-    {
-      "title": "Codex queue/doctor 适合发布前闸门",
-      "author": "OpenAI / GitHub",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Queue Doctor",
-      "summary": "Codex 0.149.0 增加 agents dashboard、codex queue、codex doctor、CLI config overrides 和 SDK reasoning effort。",
-      "takeaway": "动作: 发布前记录 queue 状态、doctor 摘要、config overrides、reasoning level 和 final owner。"
-    },
-    {
-      "title": "Copilot weekly release 指向可暂停工作流",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10/",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Session Control",
-      "summary": "GitHub 周报集中出现 Agent Plugins、side chat、/tasks、queue、/rewind、context-preserving /app、memory 和 BYOK/local model。",
-      "takeaway": "动作: 长 agent 任务按 queueable、reversible、context-preserving session 设计。"
-    },
-    {
-      "title": "Slack 变成共享 coding-agent 现场",
+      "title": "Slack 变成多人共享 coding-agent 现场",
       "author": "GitHub Changelog",
       "source": "official-changelog",
       "url": "https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack/",
@@ -186,11 +171,11 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Slack Agent",
-      "summary": "GitHub Copilot in Slack 可通过 @GitHub 启动 agent session，覆盖 triage、issue、实现、验证、PR 和 code channel。",
-      "takeaway": "动作: Slack 只做共享派工和 steering；合并仍要求 PR、额外审批和验证证据。"
+      "summary": "GitHub Copilot in Slack 可从对话启动 agent session，处理 triage、issue、实现、验证、PR 和 code channel。",
+      "takeaway": "动作: Slack 只做共享派工和 steering；合并前回到 PR、额外审批和验证证据。"
     },
     {
-      "title": "Teams 把会议动作项接进 agent session",
+      "title": "Teams agent session 带预算和云沙箱账本",
       "author": "GitHub Changelog",
       "source": "official-changelog",
       "url": "https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams/",
@@ -200,12 +185,12 @@ window.AI_RADAR_REPORT = {
         "mobile"
       ],
       "score": "HIGH",
-      "tag": "Teams Agent",
-      "summary": "GitHub Copilot in Teams 可把讨论转成共享 cloud agent session，并提到预算与额外审批要求。",
-      "takeaway": "动作: 会议动作项进入 agent 前写 repo、权限、budget、sandbox、approval 和继续入口。"
+      "tag": "Agent Budget",
+      "summary": "Teams 可把会议讨论变成 Copilot cloud agent session，并明确 AI credits、cloud sandbox budget 和额外审批。",
+      "takeaway": "动作: 会议动作项进入 agent 前写 repo、权限、AI credits、sandbox budget、approval 和继续入口。"
     },
     {
-      "title": "JetBrains 企业设置补齐 agent 控制面",
+      "title": "JetBrains 企业设置可借鉴成个人控制矩阵",
       "author": "GitHub Changelog",
       "source": "official-changelog",
       "url": "https://github.blog/changelog/2026-08-18-enterprise-managed-settings-in-github-copilot-for-jetbrains/",
@@ -216,53 +201,67 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Control Matrix",
-      "summary": "GitHub Copilot for JetBrains 支持企业托管插件治理、MCP allowlist、OpenTelemetry 和 permission modes。",
-      "takeaway": "动作: 建 Enterprise Agent Controls Matrix，覆盖 plugins、marketplace、MCP、telemetry 和 permission mode。"
+      "summary": "GitHub Copilot for JetBrains 支持插件治理、MCP allowlist/denylist、OpenTelemetry 和组织权限模式。",
+      "takeaway": "动作: 个人工作台也维护 plugin source、MCP allowlist、telemetry policy 和 permission mode 矩阵。"
+    },
+    {
+      "title": "Second brain 先做小 vault 闸门",
+      "author": "Xinwei Xiong / cubxxw",
+      "source": "public-article",
+      "url": "https://cubxxw.com/ai-agent/posts/ai-second-brain-build/",
+      "category": [
+        "knowledge",
+        "workflow"
+      ],
+      "score": "MED",
+      "tag": "Vault Gate",
+      "summary": "AI second brain 实践强调 Markdown store、agent access、capture entry，并配合敏感隔离、Git、preview、backup 和 rollback。",
+      "takeaway": "动作: Codex/Obsidian 自动化从一个小 vault 和一个明确工作流开始，批量改写必须先看 diff。"
     }
   ],
   "knowledge": [
     {
-      "title": "Portable Agent Plugin Intake",
-      "summary": "把 Agent Plugins 当成可移植资产，上架前验 manifest、固定路径、权限、外部副作用和撤销路径。",
+      "title": "Codex MCP Migration Card",
+      "summary": "当 Codex 旧 MCP 命令废弃时，记录旧入口、替代入口、权限、验证任务和回滚路径。",
       "steps": [
-        "读取 plugin.json 并记录 schema、name、版本、来源和 owner。",
-        "检查 skills、mcp.json 和 client extension 是否在固定位置。",
-        "确认路径不逃出插件根目录。",
-        "标注每个组件的读写能力、外部副作用、权限提示和撤销路径。",
-        "失败时隔离坏组件，并记录是否允许降级加载。"
+        "记录旧命令、当前版本、使用场景和调用方。",
+        "记录替代入口，例如 Codex app server 或特定客户端插件。",
+        "标注涉及的 MCP server、transport、权限和 owner。",
+        "在小任务上验证新入口可读、可写、可停止、可回滚。",
+        "保留旧入口下线日期、失败症状和恢复路径。"
       ]
     },
     {
-      "title": "Request Geography & Cache Dashboard",
-      "summary": "把 API 请求区域、缓存命中、模型、service tier、成本和延迟放进一张运行看板。",
+      "title": "Cross-App Send Approval",
+      "summary": "把跨 app 的读、草拟、发送、分享和发布拆成不同审批。",
       "steps": [
-        "为 API 任务记录目标区域、项目 geography、模型和 endpoint。",
-        "标注是否允许 request-level regional processing。",
-        "跟踪 prompt cache hit rate、cache reads/writes 和 uncached tokens。",
-        "按模型和 service tier 汇总成本、延迟和复用率。",
-        "价格或模型更新时重新计算默认路由。"
+        "区分 read/search、draft、send、share、publish 五类动作。",
+        "每次发送前复核收件人、正文、附件和是否含非公开信息。",
+        "默认使用 allow once，不给长期免审批。",
+        "分享 snapshot 前扫描本地路径、diff、截图、私有上下文和凭证形态。",
+        "发布后保留 commit、push、deploy 和 inspect 证据。"
       ]
     },
     {
-      "title": "ChatOps Shared-Agent Envelope",
-      "summary": "Slack/Teams 共享 agent 现场必须先转成任务信封，再允许多人 steering。",
+      "title": "Run-Level Spend Gate",
+      "summary": "为 agent 单次任务设置预算、预留成本、实际结算和未知费用停止条件。",
       "steps": [
-        "写清 workspace/channel/thread、repo、目标、权限和预算。",
-        "区分问答、triage、创建 issue、改代码和开 PR。",
-        "默认只允许计划、诊断和草稿，写动作需要明确 owner。",
-        "多人 steering 时记录谁改变了目标以及是否影响验收。",
-        "合并前回到 PR、测试、额外审批和 deploy 证据。"
+        "为每类任务设置 run budget、模型、service tier 和最大输入/输出 token。",
+        "请求前先 count tokens，并按 worst-case 输入价格和最大输出预留。",
+        "返回后校验模型、service tier、状态和 usage，再结算实际成本。",
+        "若请求中断、usage 缺失或费用无法确认，阻断该 run。",
+        "记录价格验证日期和 hosted tools、storage、regional prices 等预算排除项。"
       ]
     },
     {
-      "title": "Enterprise Agent Controls Matrix",
-      "summary": "把插件、marketplace、MCP、遥测和权限模式集中成一张可审计控制矩阵。",
+      "title": "Second-Brain Vault Gate",
+      "summary": "知识库接入 agent 前先限制 vault、权限、diff、备份和回滚路径。",
       "steps": [
-        "列出允许插件、禁止插件和允许 marketplace。",
-        "建 MCP allowlist/denylist，记录 transport、URL/command 和 owner。",
-        "为遥测记录 collector、protocol、service name 和内容捕获策略。",
-        "为每个入口定义 read-only、draft、ask-before-write 或 blocked。",
-        "每月复核误触发、被拒组件和人工返工点。"
+        "从一个小 vault 和一个明确工作流开始。",
+        "把敏感笔记放在 agent 不可访问的 vault 或目录。",
+        "所有批量改写先走 preview/diff。",
+        "用 Git 或等价备份保存可回滚历史。",
+        "每次运行记录输入来源、改动范围、链接策略和人工复核结果。"
       ]
     }
   ]

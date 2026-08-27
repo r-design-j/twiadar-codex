@@ -1,243 +1,247 @@
 {
-  "date": "2026-08-26",
-  "updatedAt": "2026-08-26T09:19:00+08:00",
-  "updatedLabel": "2026-08-26 09:19 CST",
-  "conclusion": "今日主线是: AI 工作台正在从“定时任务和多入口控制”进入“事件触发、登录态浏览器、模型/API 退役和规则审计同台治理”的阶段。OpenAI 在 8 月 25 日把 Work scheduled tasks 扩展到 webhook 触发，并让 Work 可以通过浏览器与已登录网站交互；8 月 26 日同时是 Assistants API sunset 与 ChatGPT o3 retirement 的明确日期；Codex 侧还存在 GPT-5.4 8 月 31 日退役、`codex mcp-server` 旧命令废弃和 CLI 0.149.1 版本锚点。GitHub 8 月 25 日的 Customize tab、Rule insights 和 path-based push-rule exceptions 则说明 agent 配置、规则效果和路径作用域正在产品化。",
+  "date": "2026-08-27",
+  "updatedAt": "2026-08-27T09:06:50+08:00",
+  "updatedLabel": "2026-08-27 09:06 CST",
+  "conclusion": "今日主线是: AI 工作台正在从“能执行任务”升级为“可治理、可串联、可审计的代理系统”。Codex release 把任务 @mention、终端任务控制和 Interrupt hooks 推到前台；GitHub 的 global model policy 说明模型启用不再只是个人选择，而是默认策略和例外治理；OpenAI Admin plugin、Enterprise/Edu 控制、WebMCP、Programmatic Tool Calling 和 Runme/WebMCP 复用流程，说明插件、站点工具、工具编排和团队管理都需要明确的权限、证据和回滚；Hugging Face 事故则把高能力代理的网络、凭证、监控和停止权限变成硬边界。",
   "metrics": {
     "sourceCards": 14,
     "topSignals": 5,
     "knowledgeCards": 4
   },
   "excerpt": [
-    "2026-08-26 的可复用变化集中在事件触发、登录态浏览器证据环、模型/API 退役和规则洞察台账。",
-    "今天的判断很明确: 自动化入口越会真实办事，越要把触发、身份、模型、API、规则和发布证据拆开治理。"
+    "2026-08-27 的重点是把 Codex 任务互引、模型默认策略、Admin plugin、WebMCP 和安全 containment 沉淀成治理资产。",
+    "今天的判断很明确: 代理越能跨任务、跨工具、跨账号真实执行，越要先定义权限、默认值、停止条件和 readback 证据。"
   ],
   "signals": [
     {
-      "title": "Work webhook-based scheduled tasks",
-      "author": "OpenAI / ChatGPT Learn",
-      "source": "official-changelog",
-      "url": "https://learn.chatgpt.com/docs/changelog",
+      "title": "Codex CLI release adds task @mentions and terminal task control",
+      "author": "OpenAI / GitHub",
+      "url": "https://github.com/openai/codex/releases",
+      "source": "official-release",
       "category": [
         "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Event Trigger",
-      "summary": "Work 的 scheduled tasks 可由外部 HTTP POST webhook 触发，意味着日报、监控和交付流程从定时提醒扩展到事件驱动执行。",
-      "takeaway": "动作: 为每个 webhook task 写 Event Trigger Envelope: 触发源、payload schema、幂等键、读写边界、失败回退和最终证据。"
+      "tag": "Task Graph",
+      "summary": "Codex can reference other tasks with @mentions and manage tasks from the terminal, so multi-agent work needs explicit dependency and state tracking.",
+      "takeaway": "动作: 为长任务维护 Task Link Ledger，避免任务互相引用后责任和验收边界变糊。"
     },
     {
-      "title": "Work can complete tasks by interacting with websites you are logged in to",
-      "author": "OpenAI / ChatGPT Learn",
+      "title": "Codex CLI release adds Interrupt hooks",
+      "author": "OpenAI / GitHub",
+      "url": "https://github.com/openai/codex/releases",
+      "source": "official-release",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Interrupt Hooks",
+      "summary": "Interrupt is becoming a first-class lifecycle hook, useful for pausing long tasks without losing state or leaving partial side effects unexplained.",
+      "takeaway": "动作: 给高风险长任务补 Interrupt Handler Contract，记录中断后该保存什么、清理什么、如何恢复。"
+    },
+    {
+      "title": "Global model policy generally available for GitHub Copilot",
+      "author": "GitHub Changelog",
+      "url": "https://github.blog/changelog/2026-08-26-global-model-policy-generally-available",
       "source": "official-changelog",
-      "url": "https://learn.chatgpt.com/docs/changelog",
       "category": [
         "hot",
+        "accounts",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Model Policy",
+      "summary": "Copilot model access is shifting from per-model manual toggles to a global default policy with explicit exceptions.",
+      "takeaway": "动作: 把模型可用性写成 Model Policy Matrix，不要让新 GA 模型靠默认值悄悄进入生产工作流。"
+    },
+    {
+      "title": "GitHub documentation explains default availability of Copilot models",
+      "author": "GitHub Docs",
+      "url": "https://docs.github.com/en/copilot/concepts/models/default-availability",
+      "source": "official-docs",
+      "category": [
         "workflow",
+        "knowledge",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Browser Evidence",
-      "summary": "ChatGPT Work 可通过浏览器与已登录网站交互，极大提高执行面能力，也把登录态、按钮动作和提交表单风险推到前台。",
-      "takeaway": "动作: 把登录态浏览器任务拆成 observe、declare、act、readback、accept/stop 五步，并默认禁止高风险提交。"
+      "tag": "Default Availability",
+      "summary": "The default model policy has scope limits, so compliance-sensitive workflows need class-level rules rather than a single enable switch.",
+      "takeaway": "动作: 把模型分成 inherited、enabled、disabled、never-default 四类，并把自动化路由绑定到这张表。"
     },
     {
-      "title": "Scheduled tasks get deep research and connectors in Work",
-      "author": "OpenAI Help Center",
-      "source": "official-release-notes",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Scheduled Research",
-      "summary": "8 月 25 日 release notes 把 scheduled tasks、deep research 和 connectors 组合起来，说明自动化不再只是轻提醒，而是可读上下文的定期研究任务。",
-      "takeaway": "动作: 把每日任务分成 trigger、research scope、connector permissions、artifact contract、publish evidence 五段。"
-    },
-    {
-      "title": "OpenAI Assistants API sunset on August 26, 2026",
-      "author": "OpenAI API Docs",
-      "source": "official-docs",
-      "url": "https://platform.openai.com/docs/guides/migrate-to-responses",
+      "title": "Admin plugin for ChatGPT Work and Codex",
+      "author": "OpenAI",
+      "url": "https://openai.com/index/introducing-admin-plugin/",
+      "source": "official-announcement",
       "category": [
         "hot",
-        "workflow",
-        "tools"
+        "accounts",
+        "workflow"
       ],
       "score": "HIGH",
-      "tag": "Responses Migration",
-      "summary": "Assistants API sunset 到达明确日期，所有仍依赖 assistant/thread/run 语义的工具都要迁移到 Responses API。",
-      "takeaway": "动作: 建立 Responses Migration Checklist: endpoint、tool calls、state、files、streaming、evals、rollback 逐项验收。"
+      "tag": "Admin Loop",
+      "summary": "Admin work is moving into conversational tools, but role permissions and action confirmation remain the hard boundary.",
+      "takeaway": "动作: 管理类自动化必须保留 read insight -> proposed action -> authorized write -> readback 的四段证据链。"
     },
     {
-      "title": "OpenAI o3 reaches ChatGPT retirement date",
+      "title": "Enterprise and Edu release notes add plugin controls, Remote GA, usage limits, and skills beta",
       "author": "OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes",
       "source": "official-release-notes",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Model Sunset",
-      "summary": "ChatGPT release notes 标注 o3 在 2026-08-26 退役，模型名不再是稳定长期依赖。",
-      "takeaway": "动作: 为自动化保留 Model Retirement Gate: 模型名、fallback、能力差异、验收样例和下线日期。"
-    },
-    {
-      "title": "Codex GPT-5.4 retirement warning for August 31",
-      "author": "OpenAI / ChatGPT Learn",
-      "source": "official-changelog",
-      "url": "https://learn.chatgpt.com/docs/changelog",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Codex Routing",
-      "summary": "Codex changelog 标注 GPT-5.4 将于 8 月 31 日从 Codex 退役，coding agent 路由必须把模型可用期写进任务信封。",
-      "takeaway": "动作: 所有 Codex 任务胶囊记录 model、reasoning effort、fallback 和到期日，避免长流程突然失效。"
-    },
-    {
-      "title": "Codex mcp-server command deprecated",
-      "author": "OpenAI / ChatGPT Learn",
-      "source": "official-changelog",
-      "url": "https://learn.chatgpt.com/docs/changelog",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "MCP Migration",
-      "summary": "8 月 24 日 changelog 标记旧 codex mcp-server 命令 deprecated，推荐 Codex app server 或 Claude Code plugin。",
-      "takeaway": "动作: 继续维护 Codex MCP Migration Card，记录旧入口、替代入口、客户端依赖、验证任务和回滚路径。"
-    },
-    {
-      "title": "Codex CLI v0.149.1 release",
-      "author": "OpenAI / GitHub",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases",
-      "category": [
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Version Gate",
-      "summary": "Codex CLI release 页提供稳定版本锚点，能把本机执行证据和线上 changelog 对齐。",
-      "takeaway": "动作: 发布自动化记录采集日、release 页、本机版本和是否使用 alpha，避免把观察信号当成本地事实。"
-    },
-    {
-      "title": "API changelog: prompt caching and regional processing",
-      "author": "OpenAI API Docs",
-      "source": "official-changelog",
-      "url": "https://platform.openai.com/docs/changelog",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Ops Visibility",
-      "summary": "API changelog 继续强化 cache dashboard、regional processing 等运行面能力，说明 agent 成本和合规位置都要可观察。",
-      "takeaway": "动作: 把 cache hit、service tier、region、model、latency 和 cost 写进运行看板，而不是只看最终输出。"
-    },
-    {
-      "title": "GitHub Copilot Customize tab generally available",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-25-copilot-customize-tab-is-now-generally-available/",
       "category": [
         "workflow",
         "accounts",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Control Inventory",
-      "summary": "Customize tab 把 coding guidelines、custom instructions、rulesets、MCP servers 等集中到可管理界面，说明 agent 配置正在产品化。",
-      "takeaway": "动作: 维护 Agent Control Inventory: rules、instructions、MCP、skills、hooks、owners、last_reviewed。"
+      "tag": "Enterprise Controls",
+      "summary": "ChatGPT Enterprise is aligning plugins, skills, Remote, usage and analytics under admin control instead of leaving each feature as a standalone toggle.",
+      "takeaway": "动作: 给每个技能/插件补 owner、可安装角色、运行权限、额度上限和复核日期。"
     },
     {
-      "title": "GitHub Rule insights generally available",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-25-rule-insights-are-now-generally-available/",
+      "title": "Automating repetitive work at OpenAI with Codex",
+      "author": "Jeremy Lewi / OpenAI Developers",
+      "url": "https://developers.openai.com/blog/automating-repetitive-work-at-openai-with-codex",
+      "source": "official-developer-blog",
       "category": [
         "workflow",
         "knowledge",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Rule Insights",
-      "summary": "Rule insights 让组织看到 ruleset 如何拦截或影响开发流程，可用于衡量自动化规则是否过严或漏拦。",
-      "takeaway": "动作: 为日报发布规则记录触发次数、误拦、漏拦、人工 override 和修正规则日期。"
+      "tag": "Reusable Workflow",
+      "summary": "Repeated work should become versioned workflow assets that Codex can run and reviewers can inspect, not buried conversation history.",
+      "takeaway": "动作: 把高频流程改成 notebook/runbook: 目标、前置条件、命令、预期输出、验收和回滚。"
     },
     {
-      "title": "GitHub push rules allow path-based exceptions",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-25-push-rules-now-support-path-based-exceptions/",
+      "title": "WebMCP Challenge invites agent-ready web apps",
+      "author": "OpenAI",
+      "url": "https://openai.com/webmcp-challenge/",
+      "source": "official-program",
       "category": [
-        "workflow",
-        "tools"
+        "hot",
+        "tools",
+        "workflow"
       ],
       "score": "HIGH",
-      "tag": "Path Guardrails",
-      "summary": "Push rules 支持路径例外，说明规则治理需要路径级作用域，而不是全仓一刀切。",
-      "takeaway": "动作: AI Radar 可把 public data、local receipts、automation memory 分不同路径策略，公开目录禁止私有证据。"
+      "tag": "WebMCP",
+      "summary": "Agent-ready websites should expose structured tools, not force agents to infer intent from buttons and pixels.",
+      "takeaway": "动作: 为站点写 Agent Tool Surface Spec，先定义可调用动作和权限，再让代理操作页面。"
     },
     {
-      "title": "GitHub Copilot in Slack starts shared agent sessions",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack/",
+      "title": "Programmatic Tool Calling in the OpenAI Agents SDK",
+      "author": "OpenAI / GitHub",
+      "url": "https://github.com/openai/openai-agents-python/releases",
+      "source": "official-release",
       "category": [
         "workflow",
-        "accounts"
+        "tools",
+        "knowledge"
       ],
       "score": "HIGH",
-      "tag": "ChatOps Agent",
-      "summary": "Slack 中启动 Copilot agent session 把群聊变成共享 coding-agent 现场，适合派工但不等于交付验收。",
-      "takeaway": "动作: Slack/聊天入口只做任务信封和 steering；合并、发布、回滚仍回到 PR、本地测试和部署证据。"
+      "tag": "Tool Program",
+      "summary": "Tool orchestration is moving from one JSON call per turn toward bounded programs that can branch, loop and combine tool outputs.",
+      "takeaway": "动作: 用 Programmatic Tool Calling 前先固定可调用工具、循环预算、结构化输出和审计日志。"
     },
     {
-      "title": "Shared agentic work with GitHub Copilot in Microsoft Teams",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams/",
+      "title": "ChatGPT and Codex weekly digest: Work with more websites",
+      "author": "OpenAI / ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/whats-new",
+      "source": "official-digest",
       "category": [
         "workflow",
         "mobile",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Browser Lanes",
+      "summary": "Website work now has multiple lanes: local browser tab, site tools, and cloud sign-in. Each has a different evidence and permission boundary.",
+      "takeaway": "动作: 每个网页任务先声明 browser lane，再按对应证据环验收。"
+    },
+    {
+      "title": "ChatGPT and Codex weekly digest: Apple Messages and shared Codex snapshots",
+      "author": "OpenAI / ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/whats-new",
+      "source": "official-digest",
+      "category": [
+        "mobile",
+        "workflow",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Meeting Agent",
-      "summary": "Teams 可把会议动作项转成 Copilot cloud agent session，并显式带出 AI credits、cloud sandbox budget 和审批。",
-      "takeaway": "动作: 会议动作进入 agent 前先写 repo、权限、预算、sandbox、approval 和继续入口。"
+      "tag": "Share Gate",
+      "summary": "Mac and iOS can coordinate Codex work more smoothly, but send/share actions need recipient, audience and sensitive-content review before execution.",
+      "takeaway": "动作: 对 Messages 和 shared snapshots 使用 Share/Send Gate，只批准本次发送或分享。"
+    },
+    {
+      "title": "The Hugging Face incident and the road ahead",
+      "author": "OpenAI",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+      "source": "official-security-report",
+      "category": [
+        "hot",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Containment",
+      "summary": "The incident is a sharp reminder that capable agents need containment, monitoring and stop authority before they get network or credential access.",
+      "takeaway": "动作: 高能力代理任务先做 Capability Containment Review，尤其检查出网、凭证、共享基础设施和停止权限。"
+    },
+    {
+      "title": "Business release notes: event-triggered scheduled tasks can be shared",
+      "author": "OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
+      "source": "official-release-notes",
+      "category": [
+        "workflow",
+        "accounts",
+        "mobile"
+      ],
+      "score": "HIGH",
+      "tag": "Shared Trigger",
+      "summary": "Event-triggered tasks are no longer only personal cron jobs; they can become workspace assets with connector and filter governance.",
+      "takeaway": "动作: 共享事件任务前补 trigger、filter、connector access、owner、artifact 和重复事件策略。"
+    },
+    {
+      "title": "OpenAI Developers resources highlight Codex, WebMCP, Daybreak, and platform harnesses",
+      "author": "OpenAI Developers",
+      "url": "https://developers.openai.com/",
+      "source": "official-developer-index",
+      "category": [
+        "knowledge",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Playbook Index",
+      "summary": "The useful material is increasingly a set of runnable playbooks, not isolated blog posts; index them by reusable asset type.",
+      "takeaway": "动作: 给 Codex/WebMCP/Daybreak/review rules 建 Developer Playbook Index，每周只更新可执行条目。"
     }
   ],
   "knowledge": [
     {
-      "title": "Event Trigger Envelope",
-      "summary": "webhook scheduled tasks 要记录触发源、payload schema、幂等键、读写边界、失败回退和最终证据。",
-      "usage": "用于把 cron 类自动化升级为事件触发自动化，避免误触发、重放和重复发布。"
+      "title": "Task Link Ledger",
+      "summary": "多 Codex 任务互相 @mention 或由终端创建/消息时，要记录 task id、依赖、owner、状态、允许动作和最终证据。",
+      "usage": "用于长会话、并行子任务、跨线程派工和任务接力，防止“某个任务说过”变成不可追溯的完成依据。"
     },
     {
-      "title": "Authenticated Browser Evidence Loop",
-      "summary": "登录态浏览器任务按观察前态、声明动作、执行动作、回传新状态、验收或失败停止五步运行。",
-      "usage": "用于 Work/browser、Computer Use 或任何会触碰已登录网页的只读/草稿流程。"
+      "title": "Model Policy Matrix",
+      "summary": "把模型分成默认继承、显式启用、显式禁用和永不默认四类，并记录 rollout date、owner 和审批轨迹。",
+      "usage": "用于 Copilot、Codex、Agents SDK 或任何多模型工作台，避免新模型靠默认策略进入高风险流程。"
     },
     {
-      "title": "Model/API Retirement Gate",
-      "summary": "为模型和 API 记录退役日期、fallback、能力差异、验收样例、迁移验证和 rollback。",
-      "usage": "用于 o3、GPT-5.4、Assistants API 等生命周期明确变化的自动化依赖。"
+      "title": "Agent Tool Surface Spec",
+      "summary": "给 WebMCP 或站点工具定义 action、input schema、权限、dry-run、result schema、错误码和审计字段。",
+      "usage": "用于把网页从“让代理猜按钮”升级为“给代理调用工具”，尤其适合内部后台和可重复流程。"
     },
     {
-      "title": "Rule Insights Ledger",
-      "summary": "规则要记录作用路径、命中、拦截、误拦、漏拦、override 和修订日期。",
-      "usage": "用于维护 source-card、report-data 同步、公开边界和 push-rule 类守门规则。"
+      "title": "Capability Containment Review",
+      "summary": "高能力代理拿到网络、凭证或共享基础设施前，先审查 egress、credential scope、monitoring triggers、stop authority 和 incident owner。",
+      "usage": "用于 cyber eval、browser/computer use、CI/CD 写入、云资源管理和任何可能越权的代理任务。"
     }
   ]
 }

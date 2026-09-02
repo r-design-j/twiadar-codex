@@ -1,200 +1,150 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-09-01",
-  "updatedAt": "2026-09-01T09:05:00+08:00",
-  "updatedLabel": "2026-09-01 09:05 CST",
-  "conclusion": "今日主线是: agent 工作台正在从“稳定版功能验收”进入“预发布节奏治理”。2026-09-01 凌晨 OpenAI Codex 已出现 0.152.0 alpha 线的多次预发布，说明 Codex 的 MCP、插件、沙箱、权限、预算和二进制分发还在快速收敛；这类信号适合进入观察和灰度验证，不适合直接改生产默认值。与此同时，GitHub Copilot CLI 1.0.83-0 增加自动 HTTPS proxy mTLS 客户端证书支持，并把 `/sandbox` policy 的路径授权按来源分组、显示检测到的开发工具；OpenAI Agents SDK Python/JS 最近的 guardrail replay、显式 client 配置、usage accounting 变更继续强调同一件事: agent 能力越强，越要把“可恢复状态、外部副作用、凭证暴露、工具结果、默认模型和最终证据”拆开治理。",
+  "date": "2026-09-02",
+  "updatedAt": "2026-09-02T09:03:00+08:00",
+  "updatedLabel": "2026-09-02 09:03 CST",
+  "conclusion": "今日主线是: agent 工作台正在从“能接更多入口”进入“谁能批准、谁能保留数据、谁能花预算”的治理阶段。OpenAI Codex 0.152.0/0.152.1 把长任务超时、MCP 工具输出上限、凭证刷新、审批恢复和不可信后端 URL 拦截推到前台；ChatGPT iOS/Remote 的队列同步、后台发送和任务优先级让手机更像控制面，但最终证据仍要回到 Mac/Codex。GitHub 侧同日出现 Copilot PR approve、个人预算到期日、Claude Fable 5.1 数据保留政策、Copilot CLI 插件面板和组织登录钉扎，说明高能力 agent 不再只是模型选择，而是审批权、路径白名单、数据保留、预算有效期和跨设备收口的系统设计。",
   "metrics": {
-    "sourceCards": 16,
+    "sourceCards": 14,
     "topSignals": 5,
-    "knowledgeCards": 4
+    "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-01 的重点是 Codex 0.152 alpha lane、代理 mTLS 凭证边界、sandbox 授权小票和 replay-safe guardrail。",
-    "今天的判断很明确: 预发布可以观察和灰度，不能自动替换稳定生产默认。"
+    "2026-09-02 的重点是 Codex 0.152.x 稳定基线、iOS Remote 队列同步、Copilot 审批权和预算到期治理。",
+    "今天的判断很明确: 手机可以派工和补充指令，但审批、预算、数据保留和最终发布证据要分层记录。"
   ],
   "signals": [
     {
-      "title": "OpenAI Codex 0.152.0 alpha.7.2 ships on September 1",
-      "author": "OpenAI / GitHub",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.7.2",
-      "source": "official-release",
+      "title": "ChatGPT for iOS 1.2026.237 syncs queued prompts with connected hosts",
+      "author": "OpenAI / ChatGPT & Codex changelog",
+      "source": "official-changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
       "category": [
-        "hot",
-        "workflow",
-        "tools"
+        "mobile",
+        "workflow"
       ],
-      "score": "MED",
-      "tag": "Alpha Lane",
-      "summary": "A September 1 prerelease in the 0.152 line shows Codex is moving quickly after the 0.151 stable baseline.",
-      "takeaway": "动作: 建 Alpha Lane Upgrade Gate，观察、pin、灰度测试，不自动推广生产默认。"
+      "score": "HIGH",
+      "tag": "Mobile Queue",
+      "summary": "iOS queued prompts can remain editable, sync with connected hosts, send in the background, and surface running tasks, unread updates, and response-needed tasks in a Priority view.",
+      "takeaway": "动作: Treat iPhone/Remote as a control plane: dispatch, edit queues, copy thread IDs, and approve low-risk prompts, while Mac/Codex keeps final evidence."
     },
     {
-      "title": "OpenAI Codex 0.151.0 remains the stable runtime-governance baseline",
+      "title": "Codex CLI 0.152.1 fixes Guardian approval review for Node REPL policies",
       "author": "OpenAI / GitHub",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0",
       "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.1",
       "category": [
-        "hot",
         "workflow",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Stable Baseline",
-      "summary": "The stable release documents MCP result inspection, plugin catalog handling, sandbox path semantics, permission restoration and budget aggregation.",
-      "takeaway": "动作: 先用 0.151.0 跑稳定基线，再把 0.152 alpha 放到单独试用区。"
+      "tag": "Approval Policy",
+      "summary": "The fix means automatic approval review must honor model-metadata policy for Node REPL use, tightening the boundary between assistant reasoning and executable JavaScript.",
+      "takeaway": "动作: Add Node REPL policy readback to any auto-approval checklist before enabling broader agent execution."
     },
     {
-      "title": "Codex 0.152 alpha line published multiple prereleases around the day boundary",
+      "title": "Codex CLI 0.152.0 adds longer shell command timeouts and MCP output limits",
       "author": "OpenAI / GitHub",
-      "url": "https://github.com/openai/codex/releases",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Runtime Contract",
+      "summary": "The release adds app-server shell command deadlines over one hour, package-style MCP names, per-tool output_token_limit, credential-refresh progress, and usage-plan actions in rate-limit banners.",
+      "takeaway": "动作: For long Codex work, record timeout owner, MCP name, output ceiling, credential refresh state, and usage action separately."
+    },
+    {
+      "title": "Codex 0.153 alpha builds continue immediately after 0.152 stable",
+      "author": "OpenAI / GitHub",
       "source": "official-release-index",
+      "url": "https://github.com/openai/codex/releases",
       "category": [
         "hot",
         "workflow"
       ],
       "score": "MED",
-      "tag": "Release Cadence",
-      "summary": "Multiple alpha builds in a short window indicate fast-moving runtime behavior before stable notes are available.",
-      "takeaway": "动作: alpha cadence 独立跟踪，每个 trial 都做 asset、schema、命令和 readback 检查。"
+      "tag": "Alpha Lane",
+      "summary": "Multiple 0.153 alpha releases appeared around the same day, so the stable baseline and prerelease observation lane are already diverging.",
+      "takeaway": "动作: Keep 0.152.x as the stable validation baseline and put 0.153 alpha in a separate no-auto-promote lane."
     },
     {
-      "title": "GitHub Copilot CLI 1.0.83-0 adds automatic HTTPS proxy mTLS client certificate support",
+      "title": "GitHub Copilot CLI 1.0.83-1 moves MCP config into the plugins dashboard",
       "author": "GitHub / GitHub releases",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-0",
       "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-1",
       "category": [
-        "workflow",
-        "accounts",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Proxy mTLS",
-      "summary": "Agent CLI traffic can integrate more directly with enterprise proxy and client-certificate setups.",
-      "takeaway": "动作: 增加 Proxy Credential Boundary，记录 proxy scope、certificate source、allowed domains 和 revocation。"
-    },
-    {
-      "title": "GitHub Copilot CLI 1.0.83-0 improves sandbox policy visibility",
-      "author": "GitHub / GitHub releases",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-0",
-      "source": "official-release",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Sandbox Grant",
-      "summary": "The release groups path grants by source and shows detected developer tools.",
-      "takeaway": "动作: 每次路径/工具授权都留 Sandbox Grant Receipt，写清来源、范围、原因和撤销条件。"
-    },
-    {
-      "title": "GitHub Copilot CLI 1.0.82 improves worktree transition and auth failure feedback",
-      "author": "GitHub / GitHub releases",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.82",
-      "source": "official-release",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "CLI State",
-      "summary": "Worktree transition and authentication feedback fixes reduce silent state drift during coding-agent handoffs.",
-      "takeaway": "动作: CLI retry 前记录 worktree、pending transition 和精确 auth error。"
-    },
-    {
-      "title": "OpenAI Agents SDK Python 0.22.0 hardens output guardrail replay and provider configuration",
-      "author": "OpenAI / GitHub",
-      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.0",
-      "source": "official-release",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Python SDK",
-      "summary": "The release redacts blocked terminal tool output, rejects terminal failed/incomplete responses and isolates usage accounting.",
-      "takeaway": "动作: Python agent 升级前补 blocked-output replay、terminal failure、explicit-client 和 usage 隔离测试。"
-    },
-    {
-      "title": "OpenAI Agents SDK JS 0.17.0 fails closed on ambiguous output-bearing approval checkpoints",
-      "author": "OpenAI / GitHub",
-      "url": "https://github.com/openai/openai-agents-js/releases/tag/v0.17.0",
-      "source": "official-release",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "JS SDK",
-      "summary": "The JS SDK blocks ambiguous serialized approval replays and replaces rejected function-tool final output in SDK-owned replay surfaces.",
-      "takeaway": "动作: 建 Replay-Safe Guardrail Contract，覆盖 live RunState、serialized checkpoint、new run 和应用日志。"
-    },
-    {
-      "title": "ChatGPT & Codex changelog remains the canonical model and product-entry source",
-      "author": "OpenAI / ChatGPT Learn",
-      "url": "https://learn.chatgpt.com/docs/changelog",
-      "source": "official-changelog",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Changelog Readback",
-      "summary": "Public model availability and product-entry changes can diverge from local CLI state or third-party client assumptions.",
-      "takeaway": "动作: 保留 Changelog-vs-Local Readback，比较官方 changelog、本地 CLI、账号 rollout 和自动化默认。"
-    },
-    {
-      "title": "ChatGPT Business release notes keep expanding app-triggered tasks and plugin surfaces",
-      "author": "OpenAI Help Center",
-      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
-      "source": "official-release-notes",
-      "category": [
-        "workflow",
-        "accounts",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Event Tasks",
-      "summary": "Scheduled tasks, app updates, plugin marketplaces and cross-app messaging blur reminder, draft and external action boundaries.",
-      "takeaway": "动作: 每个 app-triggered task 记录 trigger schema、idempotency、owner、allowed actions 和 send/publish gate。"
-    },
-    {
-      "title": "ChatGPT release notes reinforce host-vs-control device separation",
-      "author": "OpenAI Help Center",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "source": "official-release-notes",
-      "category": [
-        "mobile",
-        "workflow",
+        "tools",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Device Roles",
-      "summary": "Session visibility, app directory language, computer-use expansion and remote steering require host/control separation.",
-      "takeaway": "动作: 更新 Agent Session Policy Matrix，写清 host device、control device、数据边界和完成证据。"
+      "tag": "Plugin Dashboard",
+      "summary": "The CLI now opens MCP config and MCP add/edit/authenticate forms in the plugins dashboard, shows bundled built-in plugins, and lets admins pin sign-in to approved GitHub organizations.",
+      "takeaway": "动作: Unify plugin and MCP inventory review, and add an organization sign-in pin check before enterprise CLI rollout."
     },
     {
-      "title": "GitHub Copilot weekly releases show workbench controls moving into shared sessions and defaults",
-      "author": "GitHub Changelog",
-      "url": "https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24/",
-      "source": "official-changelog",
+      "title": "GitHub Copilot CLI 1.0.83-0 adds HTTPS proxy mTLS and sandbox policy visibility",
+      "author": "GitHub / GitHub releases",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-0",
       "category": [
         "workflow",
-        "mobile",
+        "accounts",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Workbench Controls",
-      "summary": "Shared sessions, CLI defaults, session restore and model usage visibility point to coding agents becoming managed workbenches.",
-      "takeaway": "动作: 记录 default mode、permission mode、restore、plugin/MCP surface、skills 和 model usage。"
+      "tag": "Proxy/Sandbox",
+      "summary": "Model and web requests can use automatic HTTPS proxy mTLS client certificates, while /sandbox policy groups path grants by source and shows detected developer tools.",
+      "takeaway": "动作: Maintain a proxy credential boundary and a sandbox grant receipt for every agent CLI environment."
     },
     {
-      "title": "GitHub Copilot policy and billing changes converge cloud agent, github.com Chat and Mobile",
+      "title": "Copilot code review can now approve pull requests in public preview",
       "author": "GitHub Changelog",
-      "url": "https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing/",
       "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/",
+      "category": [
+        "workflow",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "AI Approval",
+      "summary": "Admins can authorize Copilot to sign off on approvals; the ability is off by default and configurable at enterprise, organization, and repository levels, including file-path limits.",
+      "takeaway": "动作: Split assessment from approval: keep AI review comments always visible, but require explicit policy before AI approval counts toward merge rules."
+    },
+    {
+      "title": "GitHub adds expiration dates for individual user budgets",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-01-set-an-expiration-date-for-individual-user-budgets/",
+      "category": [
+        "accounts",
+        "workflow"
+      ],
+      "score": "HIGH",
+      "tag": "Budget Expiry",
+      "summary": "Business and Enterprise admins can set budget expiration at the next billing cycle or a specific date, including through the Budgets REST API expires_at field.",
+      "takeaway": "动作: Give temporary agent trials expiring budgets instead of permanent allowances; report expires_at with every high-cost lane."
+    },
+    {
+      "title": "Claude Fable 5.1 becomes available in GitHub Copilot with data-retention requirements",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot/",
+      "category": [
+        "accounts",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Retention Gate",
+      "summary": "The model is aimed at long-horizon autonomous coding, but requires data retention by default unless eligible enterprise zero-retention access is approved and enabled.",
+      "takeaway": "动作: Before selecting a long-horizon model, record data-retention mode, admin policy, billing mode, rollout status, and eligible surfaces."
+    },
+    {
+      "title": "Copilot cloud agent, github.com Chat, and GitHub Mobile are converging to one policy",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing/",
       "category": [
         "mobile",
         "accounts",
@@ -202,102 +152,118 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Unified Policy",
-      "summary": "Mobile, browser and cloud-agent surfaces are being pulled into unified policy and billing rules.",
-      "takeaway": "动作: 依赖 mobile/cloud agent 默认前，先审查组织策略、保留期、billing 和 review effort。"
+      "summary": "GitHub says these surfaces will relaunch under a unified policy no earlier than September 28, 2026, with cloud agent leveraging Sandbox and github.com Chat moving to agent sessions.",
+      "takeaway": "动作: Audit mobile, browser, and cloud-agent defaults before policy convergence, especially retention and review-effort defaults."
     },
     {
-      "title": "Copilot code review expands to bot-authored and larger pull requests",
+      "title": "GitHub Copilot in VS Code August releases emphasize Agent Host sessions",
       "author": "GitHub Changelog",
-      "url": "https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities/",
       "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases/",
       "category": [
         "workflow",
-        "knowledge"
+        "tools"
       ],
       "score": "HIGH",
-      "tag": "AI PR Review",
-      "summary": "AI-authored PRs can receive AI review, so reviewer independence matters more than a binary reviewed flag.",
-      "takeaway": "动作: 对 AI-authored PR 增加 Author/Reviewer Independence Gate 和 resolution reason。"
+      "tag": "Agent Host",
+      "summary": "Agent sessions can be arranged side by side, continued across applications, connected from multiple VS Code windows, and paired with integrated browser annotations and token usage visibility.",
+      "takeaway": "动作: Create a session mobility checklist: origin app, active host, side chat, prompt timeline, diff context, browser feedback, and per-model usage."
     },
     {
-      "title": "Claude Code hooks remain a useful lifecycle reference for agent workflows",
-      "author": "Anthropic Docs",
-      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks",
-      "source": "official-docs",
+      "title": "OpenAI Agents SDK Python 0.22.0 hardens replay and usage accounting",
+      "author": "OpenAI / GitHub",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.0",
       "category": [
         "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Python SDK",
+      "summary": "The release redacts blocked terminal tool output from replayable state, rejects terminal failed/incomplete Responses, rejects ignored explicit-client options, and isolates usage between independent RunState checkpoints.",
+      "takeaway": "动作: Add blocked-output replay, terminal failure, explicit-client, and checkpoint usage tests before SDK upgrades."
+    },
+    {
+      "title": "OpenAI Agents SDK JS 0.17.0 fails closed on ambiguous approval checkpoint replay",
+      "author": "OpenAI / GitHub",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-agents-js/releases/tag/v0.17.0",
+      "category": [
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "JS SDK",
+      "summary": "The JS SDK blocks ambiguous serialized approval replays, withholds rejected final tool output in SDK-owned replay surfaces, and clarifies that external side effects are not undone automatically.",
+      "takeaway": "动作: Use a replay-safe guardrail contract for live RunState, serialized checkpoints, new runs, and application-owned logs."
+    },
+    {
+      "title": "Claude Code hooks define lifecycle checkpoints for agent workflows",
+      "author": "Anthropic Docs",
+      "source": "official-docs",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks",
+      "category": [
         "knowledge",
         "tools"
       ],
       "score": "MED",
       "tag": "Lifecycle Hooks",
-      "summary": "Hook-style lifecycle events provide a practical vocabulary for pre-tool, post-tool, stop and notification gates.",
-      "takeaway": "动作: 只借鉴生命周期概念，迁移到 Codex 时重新定义事件名、权限和证据字段。"
-    },
-    {
-      "title": "Agent Fleet turns Obsidian vaults into agent task, skill and run-log workspaces",
-      "author": "Obsidian Community",
-      "url": "https://community.obsidian.md/plugins/agent-fleet",
-      "source": "community-plugin",
-      "category": [
-        "knowledge",
-        "workflow",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Second Brain",
-      "summary": "Markdown vaults are becoming personal agent workbenches, improving memory while increasing mutation risk.",
-      "takeaway": "动作: 用 Vault-Agent Ownership Fence，先 read/search，写入只限 approved folders，移动/删除/合并前做备份和 diff。"
+      "summary": "Claude Code hooks document lifecycle events around tool use, notifications, stop/subagent stop, pre-compaction, and session end, which are useful as a vocabulary for agent evidence gates.",
+      "takeaway": "动作: Map agent workflows into lifecycle hooks: pre-tool, post-tool, notification, stop, pre-compact, and session-end evidence."
     }
   ],
   "knowledge": [
     {
-      "title": "Alpha Lane Upgrade Gate",
-      "summary": "把 alpha、beta、nightly、preview 版本放进独立验证 lane，禁止自动替换生产默认。",
-      "steps": [
-        "记录版本、发布时间、来源链接、是否 prerelease 和 release body 完整度。",
-        "固定验证任务，不用生产仓库首跑。",
-        "标注 owner、可写目录、网络边界、凭证边界和回滚命令。",
-        "跑最小真实任务并保存本地证据。",
-        "只有稳定版或明确批准后才推广默认值。"
+      "title": "Connected-Host Queue Receipt",
+      "summary": "把手机、Remote、桌面和云端之间的排队提示当作可审计任务信封。",
+      "playbook": [
+        "记录 origin device、connected host、queued prompt、editable window、background-send status 和 thread ID。",
+        "手机只能派工、补充和低风险审批；最终文件、测试、commit、push、deploy 仍由 Mac/Codex 收口。",
+        "队列发送后必须回读任务状态，不能把“已发送”当作“已完成”。"
       ],
-      "risk": "alpha 更新速度快，昨天可用的行为今天可能已变化。"
+      "risk": "队列同步越顺手，越容易把控制面误当执行面。"
     },
     {
-      "title": "Proxy Credential Boundary",
-      "summary": "当 agent CLI 支持企业代理、mTLS 或客户端证书时，把网络路由和凭证授权当成独立风险面。",
-      "steps": [
-        "标明代理地址、证书来源、适用域和有效期。",
-        "日志默认脱敏，不把证书路径、指纹或账号细节写入公开报告。",
-        "区分模型请求、网页请求、包管理请求和 Git 请求。",
-        "每次失败记录 HTTP 状态和证书错误类型，不直接重试到更宽权限。",
-        "保留撤销、轮换和本地只读检查路径。"
+      "title": "Approval Authority Split",
+      "summary": "把“AI 认为可以通过”和“AI 的批准计入合并规则”拆成两层。",
+      "playbook": [
+        "默认只允许 AI 给 assessment 和 comments。",
+        "只有 enterprise/org/repo policy 明确开启且路径白名单命中时，approval 才能计入 required approvals。",
+        "新 commit 推送后重新请求审查，旧批准自动失效。"
       ],
-      "risk": "代理打通后，agent 的外联面会比原计划更宽。"
+      "risk": "没有拆层时，团队会误把建议性结论当成正式审批。"
     },
     {
-      "title": "Sandbox Grant Receipt",
-      "summary": "每次给 agent 授权路径、工具或开发环境，都留一张授权小票。",
-      "steps": [
-        "记录 grant source、path/tool、read/write、reason、owner、time。",
-        "把自动检测到的 developer tools 与手动授予的权限分开。",
-        "输出进入公开站点前做 local-path/secret scan。",
-        "恢复会话后重新读权限，不沿用旧分类。",
-        "任务完成后撤销临时授权或记录保留理由。"
+      "title": "Expiring Budget Lane",
+      "summary": "给临时 agent 试验设置会自动到期的预算，而不是永久额度。",
+      "playbook": [
+        "为每个试验记录 owner、plan、budget、expires_at、允许模型和允许工具。",
+        "预算到期前复核是否保留、扩容或关闭。",
+        "高成本模型和长任务必须和到期预算绑定。"
       ],
-      "risk": "只看最终能访问什么，会漏掉权限是如何来的。"
+      "risk": "无到期预算会让一次试验变成长期开销。"
     },
     {
-      "title": "Replay-Safe Guardrail Contract",
-      "summary": "被 guardrail 拦截的工具输出不能再通过 replay、checkpoint、session store 或应用自有副本回到模型上下文。",
-      "steps": [
-        "标注哪些输出可持久化、哪些只能本地短期审计。",
-        "guardrail trip 后替换或 withheld 模型可见内容。",
-        "外部副作用单独记录，不因 replay 清理而假装已撤销。",
-        "对 live RunState、serialized checkpoint 和 new run 三种路径分别测试。",
-        "应用自有日志也做同等脱敏策略。"
+      "title": "Model Retention Policy Gate",
+      "summary": "选长任务模型前先确认数据保留、零保留资格和管理员策略。",
+      "playbook": [
+        "记录模型、供应商、适用入口、是否默认保留数据、ZDR/例外资格和计费模式。",
+        "需要保留数据的模型默认不上私有代码和敏感知识库。",
+        "管理员启用策略本身也要作为显式确认记录。"
       ],
-      "risk": "SDK 清理 replay state 不会自动清理外部系统和应用自有存储。"
+      "risk": "高能力模型不等于同一隐私边界。"
+    },
+    {
+      "title": "MCP Output Ceiling Contract",
+      "summary": "给每个 MCP 工具配置输出上限和恢复后一致截断规则。",
+      "playbook": [
+        "记录 server name、tool name、output_token_limit、截断提示和恢复后行为。",
+        "长输出工具先做摘要或分页，再进入模型上下文。",
+        "公开输出前扫描凭证、本地路径和非公开状态。"
+      ],
+      "risk": "工具输出过大时，截断不一致会破坏恢复、审批和复盘。"
     }
   ]
 };

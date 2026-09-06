@@ -1,269 +1,255 @@
 {
-  "date": "2026-09-04",
-  "updatedAt": "2026-09-04T14:28:00+08:00",
-  "updatedLabel": "2026-09-04 14:28 CST",
-  "conclusion": "今日主线是: Astra 把“能替你操作电脑”的模型能力推到了更高位，但真正可复用的不是一句“更强”，而是三张准入表: 模型准入、权限准入、发布准入。OpenAI 发布 GPT-6 Astra，并在安全概览中明确它对浏览、工作场景和 prompt injection 更稳，但也指出更强模型带来更高的 cyber 能力和更复杂的监控问题；Codex 0.153.1 已把 GPT-6-Astra 配置带进 API model catalog，但不改变默认模型或 model picker。GitHub 侧，Copilot 新增 Gemini 3.8 Flash、准备淘汰一批旧模型、恢复 Business/Enterprise 信用卡与 PayPal 注册，同时 Actions、CodeQL、npm trusted publishing 和 Copilot CLI 都在补权限、身份、供应链和本地网络边界。",
+  "date": "2026-09-06",
+  "updatedAt": "2026-09-06T21:00:00+08:00",
+  "updatedLabel": "2026-09-06 21:00 CST",
+  "conclusion": "今日主线不是 Astra 又多了几个入口，而是三个默认行为在 24 小时内发生了实质变化: Codex 0.153.4 已把 Astra 放进 bundled model picker，并在未显式配置模型时设为 bundled default；GitHub Copilot 的 Astra GA 默认随新模型策略自动启用，除非管理员关闭全局默认或显式禁用；Copilot CLI 1.0.84-0 则允许用户在批准一次 bypass 后，为本次会话关闭 managed sandbox。与此同时，HydraFusion 开始把单模型、级联、独立评审三种路线交给运行时选择，VS Code Agent Merge 也开始循环处理 review、失败检查和冲突。",
   "metrics": {
-    "sourceCards": 14,
+    "sourceCards": 16,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-04 的重点是 Astra 模型准入、computer-use 权限边界、Codex model catalog 和 CI/发布供应链小票。",
-    "今天的判断很明确: 新模型上桌前先发工牌；能操作电脑前先划边界；能发布软件前先留小票。"
+    "2026-09-06 的重点是默认模型漂移、会话级 sandbox bypass、多模型路由小票和 Agent Merge 停止条件。",
+    "今天的判断很明确: 默认模型要点名验收，临时门禁要按时收回，多模型总包要分项记账，自动返工要先画停止线。"
   ],
   "signals": [
     {
-      "title": "GPT-6 Astra: A new generation of intelligence",
-      "author": "OpenAI",
-      "source": "official-announcement",
-      "url": "https://openai.com/index/gpt-6-astra/",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Astra",
-      "summary": "OpenAI positions GPT-6 Astra as a stronger model for coding, science, cybersecurity, and computer-use workflows, making model admission and tool-permission gates more important than raw capability claims.",
-      "takeaway": "动作: Create an Astra Model Admission Checklist before changing any default model: entry point, default state, tool scope, budget, fallback, and rollback."
-    },
-    {
-      "title": "Safety overview: GPT-6 Astra",
-      "author": "OpenAI",
-      "source": "official-safety",
-      "url": "https://openai.com/index/safety-overview-gpt-6-astra/",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Safety Gate",
-      "summary": "OpenAI describes improved robustness around browsing, workplace tasks, and prompt injection, while also warning that stronger capability raises cyber and monitoring risks.",
-      "takeaway": "动作: For computer-use agents, define allowed systems, forbidden actions, monitoring evidence, and human-stop conditions before granting tools."
-    },
-    {
-      "title": "GPT-6 Astra model documentation",
-      "author": "OpenAI Developers",
-      "source": "official-docs",
-      "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "category": [
-        "tools",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "API Contract",
-      "summary": "The model documentation is the operational reference for API availability, pricing, context, modalities, and endpoint support, which are separate from marketing launch language.",
-      "takeaway": "动作: Treat developer docs as the source of truth for API integration; record model key, context, supported endpoints, and pricing in model receipts."
-    },
-    {
-      "title": "Codex 0.153.1 adds API-configurable GPT-6-Astra without changing defaults",
+      "title": "Codex 0.153.4 makes Astra visible and bundled-default",
       "author": "OpenAI / GitHub",
       "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.1",
-      "category": [
-        "workflow",
-        "tools"
-      ],
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.4",
+      "category": ["hot", "workflow", "tools"],
       "score": "HIGH",
-      "tag": "Codex Catalog",
-      "summary": "Codex can configure GPT-6-Astra through the API model catalog, but the release explicitly keeps the default model and model picker unchanged.",
-      "takeaway": "动作: Separate model-catalog availability from default activation; keep alpha/model-catalog experiments outside the stable lane until local validation passes."
+      "tag": "Default Drift",
+      "summary": "Codex changed Astra from API-configurable but hidden in 0.153.1 to visible in the bundled model picker and the bundled default when no model is explicitly configured.",
+      "takeaway": "动作: Record requested and actual model, client version, default source, and rollback value for every new or resumed session."
     },
     {
-      "title": "Codex 0.154.0-alpha.3 continues the alpha lane",
+      "title": "Codex 0.153.3 adds Astra to Amazon Bedrock catalogs",
       "author": "OpenAI / GitHub",
       "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.3",
-      "category": [
-        "hot",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Alpha Lane",
-      "summary": "A newer alpha appears after the stable-facing 0.153.1 change, so release cadence is moving faster than stable operating guidance.",
-      "takeaway": "动作: Track alpha releases for direction only; require fixed tasks, owner, rollback, and local evidence before promoting any alpha behavior."
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.3",
+      "category": ["workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Provider Route",
+      "summary": "Astra entered Mantle and Runtime global and US Bedrock routes, while async-question guidance was corrected to match the available text-only tool.",
+      "takeaway": "动作: Validate each provider route separately and only invoke asynchronous clarification when the session exposes the supported tool."
     },
     {
-      "title": "GitHub Copilot CLI 1.0.83-5 gates localhost access in sandbox",
-      "author": "GitHub / GitHub releases",
+      "title": "GPT-6 Astra is generally available in GitHub Copilot",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-04-gpt-6-astra-is-generally-available-in-github-copilot",
+      "category": ["hot", "accounts", "workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Copilot GA",
+      "summary": "Astra reaches IDE, CLI, coding agent, app, web, and mobile surfaces, and new models are enabled automatically unless administrators change the default policy or disable the model.",
+      "takeaway": "动作: Use an explicit team model allowlist and read back model availability on each surface instead of treating GA as synchronized rollout."
+    },
+    {
+      "title": "Project HydraFusion introduces runtime multi-model orchestration",
+      "author": "GitHub",
+      "source": "official-research-preview",
+      "url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/",
+      "category": ["hot", "knowledge", "workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Compound Route",
+      "summary": "HydraFusion chooses single, cascade, or critique workflows and documents complete accounting, bounded execution, isolated review, fail-safe patches, and validated routing.",
+      "takeaway": "动作: Create a route receipt for every workflow leg, including role, model, tools, timeout, cost, result, retry, and fallback."
+    },
+    {
+      "title": "Copilot CLI 1.0.84-0 adds session-wide sandbox bypass",
+      "author": "GitHub / GitHub Releases",
       "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-5",
-      "category": [
-        "workflow",
-        "tools"
-      ],
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-0",
+      "category": ["hot", "accounts", "workflow", "tools"],
       "score": "HIGH",
-      "tag": "Localhost Gate",
-      "summary": "The release notes say macOS and Linux sandboxes block access to locally running services by default, requiring explicit Allow local network for localhost testing.",
-      "takeaway": "动作: Add a Localhost Sandbox Test Gate to any agent-driven dev-server, Playwright, or E2E task that needs 127.0.0.1 access."
+      "tag": "Sandbox Lease",
+      "summary": "An approved bypass prompt can disable managed sandboxing for the rest of the session, and the release fixes repository-account selection when several GitHub accounts exist.",
+      "takeaway": "动作: Treat session-wide bypass as an expiring privileged lease and read back sandbox plus account identity after approval."
     },
     {
-      "title": "Gemini 3.8 Flash is available in GitHub Copilot public preview",
+      "title": "Copilot CLI 1.0.84-1 adds Astra support",
+      "author": "GitHub / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-1",
+      "category": ["hot", "tools"],
+      "score": "HIGH",
+      "tag": "CLI Model",
+      "summary": "The CLI receives explicit Astra support shortly after the model becomes broadly available across Copilot surfaces.",
+      "takeaway": "动作: Pin the CLI version in reproducible trials and verify the actual model after rollout rather than relying on catalog announcements."
+    },
+    {
+      "title": "Copilot CLI 1.0.83 stabilizes model policy, identity, MCP, and sandbox controls",
+      "author": "GitHub / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83",
+      "category": ["accounts", "knowledge", "workflow", "tools"],
+      "score": "HIGH",
+      "tag": "CLI Baseline",
+      "summary": "The stable release combines ordered model fallback, required model policy, MCP OAuth CIMD, organization-pinned sign-in, repository-aware gh identity, and sandbox controls.",
+      "takeaway": "动作: Use 1.0.83 as a governance checklist covering model list, identity binding, MCP policy readiness, network boundary, and resume behavior."
+    },
+    {
+      "title": "GitHub Copilot weekly releases - August 31",
       "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-gemini-3-8-flash-is-now-available-in-github-copilot/",
-      "category": [
-        "hot",
-        "accounts",
-        "tools"
-      ],
+      "url": "https://github.blog/changelog/2026-09-04-github-copilot-weekly-releases-august-31",
+      "category": ["knowledge", "workflow", "tools"],
       "score": "HIGH",
-      "tag": "Model Catalog",
-      "summary": "GitHub continues to expand Copilot's model catalog, increasing the need to manage model selection, team defaults, and fallback rules instead of relying on a single provider mental model.",
-      "takeaway": "动作: Maintain a team model directory with approved models, allowed surfaces, retention notes, and fallback order."
+      "tag": "Session Control",
+      "summary": "The weekly rollup combines content exclusions with VS Code Agent Merge, multi-root workspaces, hierarchical chat sessions, and attention states.",
+      "takeaway": "动作: Track exclusions, primary workspace, pending approvals, and merge-loop stop conditions as one session control record."
     },
     {
-      "title": "Upcoming deprecation of selected GitHub Copilot models",
+      "title": "Visual Studio Code 1.136 expands agent sessions and Agent Merge",
+      "author": "Microsoft / VS Code",
+      "source": "official-release-notes",
+      "url": "https://code.visualstudio.com/updates/v1_136",
+      "category": ["hot", "knowledge", "workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Agent Merge",
+      "summary": "Agent Merge repeatedly addresses review feedback, failed checks, and conflicts; multi-root sessions expand agent work while hooks still resolve from a selected primary folder.",
+      "takeaway": "动作: Set maximum rounds, budget, allowed paths, CI retry limits, and the primary hook folder before enabling merge loops."
+    },
+    {
+      "title": "GitHub adds a privacy-safe repository star history API",
       "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-upcoming-deprecation-of-selected-github-copilot-models/",
-      "category": [
-        "accounts",
-        "workflow"
-      ],
+      "url": "https://github.blog/changelog/2026-09-04-new-api-endpoint-provides-privacy-safe-star-history-data",
+      "category": ["knowledge", "tools"],
       "score": "HIGH",
-      "tag": "Deprecation",
-      "summary": "Copilot model retirement means saved prompts, default settings, and automation receipts can drift even when local code does not change.",
-      "takeaway": "动作: Audit automations and team defaults for deprecated model IDs; store replacement model, cutoff date, and rollback plan."
+      "tag": "Private Metrics",
+      "summary": "The endpoint exposes historical star counts and timestamps without revealing individual stargazer identities, replacing a privacy-sensitive collection path.",
+      "takeaway": "动作: Use aggregate trend endpoints for tool scouting and keep individual account identities out of the research dataset."
     },
     {
-      "title": "Reopening Copilot Business and Enterprise signups",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-reopening-copilot-business-and-enterprise-signups/",
-      "category": [
-        "accounts",
-        "workflow"
-      ],
+      "title": "OpenAI Node SDK 7.10.0 adds Astra API types and a canonical security model",
+      "author": "OpenAI / GitHub",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.10.0",
+      "category": ["knowledge", "workflow", "tools"],
       "score": "HIGH",
-      "tag": "Account Access",
-      "summary": "Credit-card and PayPal signups for Copilot Business and Enterprise reopen, so smaller teams can reach enterprise-style controls without sales-led onboarding.",
-      "takeaway": "动作: For team trials, prepare access policy, budget, content exclusions, and default-model settings before enabling paid signup."
+      "tag": "SDK Contract",
+      "summary": "The SDK release adds Astra-related API support and documents a canonical SDK security model, separating integration contracts from launch messaging.",
+      "takeaway": "动作: Upgrade SDKs only after checking generated types, endpoints, security assumptions, and rollback in a fixed integration test."
     },
     {
-      "title": "GitHub Actions early September 2026 updates",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-github-actions-early-september-2026-updates/",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "CI Provenance",
-      "summary": "Actions adds runner deprecation APIs, vulnerability-alerts read permission, and reusable workflow metadata in job context, improving CI provenance and least-privilege controls.",
-      "takeaway": "动作: Record runner retirement, vulnerability-alert read scope, and reusable workflow provenance in CI release receipts."
-    },
-    {
-      "title": "CodeQL 2.26.4 improves GitHub Actions security detections",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-codeql-2-26-4-improves-github-actions-security-detections/",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Actions Security",
-      "summary": "CodeQL improves detection of mutable reusable workflow references and other Actions hardening issues, which directly affects agent-generated CI changes.",
-      "takeaway": "动作: Require sha pinning or documented exceptions for third-party and cross-repository reusable workflows created by agents."
-    },
-    {
-      "title": "Multiple trusted publishing configurations for npm",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-multiple-trusted-publishing-configurations-for-npm/",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "OIDC Publish",
-      "summary": "npm trusted publishing can now support multiple OIDC configurations for the same package, enabling stable, prerelease, and staging lanes without long-lived tokens.",
-      "takeaway": "动作: Build a Staged Publishing OIDC Matrix and verify additive matching does not accidentally broaden publish rights."
-    },
-    {
-      "title": "GitHub CLI Linux package signing key expires September 5",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-github-cli-linux-package-signing-key-expires-september-5/",
-      "category": [
-        "tools",
-        "workflow"
-      ],
-      "score": "HIGH",
-      "tag": "Signing Key",
-      "summary": "GitHub warns that the Linux package signing key expires on September 5, which can break CI images or developer hosts that install gh through package managers.",
-      "takeaway": "动作: Check CI base images and developer setup scripts for gh key refresh before treating package-install failures as application failures."
-    },
-    {
-      "title": "Supported AI models in GitHub Copilot",
-      "author": "GitHub Docs",
-      "source": "official-docs",
-      "url": "https://docs.github.com/copilot/reference/ai-models/supported-models",
-      "category": [
-        "accounts",
-        "tools"
-      ],
+      "title": "Introducing GPT-6 Astra for developers",
+      "author": "OpenAI",
+      "source": "official-video",
+      "url": "https://www.youtube.com/watch?v=bOC3DisEOfg",
+      "category": ["hot", "workflow", "tools"],
       "score": "MED",
-      "tag": "Docs Readback",
-      "summary": "The supported-models page is the durable readback point for which Copilot surfaces expose each model and what constraints apply.",
-      "takeaway": "动作: Pair changelog reading with docs readback before changing team defaults or automation routing."
+      "tag": "Async Tools",
+      "summary": "The official video description highlights computer use, creative and knowledge work, asynchronous tool calling, and steering in the Responses API.",
+      "takeaway": "动作: Prototype async tools with explicit progress, cancellation, user-input, and final state-readback contracts."
+    },
+    {
+      "title": "GPT-6 Astra with Ben Davis",
+      "author": "OpenAI",
+      "source": "official-video",
+      "url": "https://www.youtube.com/watch?v=B-jjnydci50",
+      "category": ["knowledge", "workflow"],
+      "score": "MED",
+      "tag": "Research Branches",
+      "summary": "The official description says parallel research branches helped test theories and stay on track on difficult puzzle tasks.",
+      "takeaway": "动作: Use parallel branches only for independent hypotheses, then require one coordinator to reconcile contradictions and verify the final claim."
+    },
+    {
+      "title": "GitWarren",
+      "author": "Michal Wrzosek / Product Hunt",
+      "source": "product-discovery-feed",
+      "url": "https://www.producthunt.com/products/gitwarren",
+      "category": ["workflow", "tools"],
+      "score": "MED",
+      "tag": "Candidate",
+      "summary": "The public Product Hunt feed describes a workflow for reviewing code with coding agents before committing, which fits a local quality-gate candidate pool.",
+      "takeaway": "动作: Before trial, inspect repository access, data retention, write behavior, diff scope, and whether review remains local and read-only."
+    },
+    {
+      "title": "Experiential Labs",
+      "author": "Product Hunt",
+      "source": "product-discovery-feed",
+      "url": "https://www.producthunt.com/products/experiential-labs",
+      "category": ["knowledge", "workflow", "tools"],
+      "score": "MED",
+      "tag": "Candidate",
+      "summary": "The feed describes an open-source AI gateway that uses traffic to improve model behavior, raising useful routing and data-governance questions.",
+      "takeaway": "动作: Require source-code, telemetry, retention, opt-out, eval, and rollback review before sending any real traffic."
+    },
+    {
+      "title": "TrackMCP",
+      "author": "Krishna Goyal / Product Hunt",
+      "source": "product-discovery-feed",
+      "url": "https://www.producthunt.com/products/trackmcp",
+      "category": ["knowledge", "workflow", "tools"],
+      "score": "MED",
+      "tag": "Candidate",
+      "summary": "The feed positions TrackMCP as analytics for MCP servers, making it a candidate for tool-call volume, latency, and failure visibility.",
+      "takeaway": "动作: Evaluate with synthetic traffic first and verify payload redaction, identity handling, retention, and self-hosting boundaries."
     }
   ],
   "knowledge": [
     {
-      "title": "Astra Model Admission Checklist",
-      "summary": "把新旗舰模型接入当成一次受控变更，而不是简单切换默认模型。",
+      "title": "Default Model Drift Receipt",
+      "label": "MODEL GOVERNANCE",
+      "body": "记录期望模型、实际模型、默认来源和回滚值，防止 hotfix 或管理员策略静默改变执行者。",
+      "summary": "每次会话同时记录期望模型和实际模型，把默认值变化当成配置发布。",
       "steps": [
-        "记录 model key、入口、默认状态、是否在 picker 可见、上下文上限、价格和可用计划。",
-        "固定允许工具、允许数据、禁止动作、预算和 fallback 模型。",
-        "用一组固定任务做可重复验收，再决定是否进入默认 lane。"
+        "记录客户端版本、入口、请求模型、实际模型、默认来源和管理员策略。",
+        "升级前后各跑一组固定任务，并读回 model 和 reasoning 字段。",
+        "发现未授权漂移时恢复固定模型并暂停推广。"
       ],
-      "risk": "“能配置”不等于“已经默认启用”，更不等于“适合生产任务”。"
+      "risk": "只看 release headline 会漏掉 hotfix 中的默认值变化。"
     },
     {
-      "title": "Computer-Use Permission Envelope",
-      "summary": "给能操作浏览器、桌面或 CLI 的模型套一层动作边界信封。",
+      "title": "Session Sandbox Bypass Receipt",
+      "label": "PRIVILEGED SESSION",
+      "body": "把整场会话的 sandbox bypass 当成有范围、有到期点、可撤销的临时高权限租约。",
+      "summary": "把本会话关闭 sandbox 当成临时高权限租约，而不是普通确认框。",
       "steps": [
-        "写清允许读写的系统、路径、账号、仓库和外部服务。",
-        "明确禁止交易、删数据、改安全阀、读凭证、扩大连接器或绕过审批。",
-        "每个关键动作后做状态读回，异常时停止而不是补权限硬闯。"
+        "记录发起原因、批准人、目录、网络、账号、开始时间和自动到期点。",
+        "每个高风险动作后读回 sandbox 与身份状态。",
+        "任务完成或范围变化时立即恢复默认隔离。"
       ],
-      "risk": "高能力 agent 更容易把“完成目标”理解成“绕过阻碍”。"
+      "risk": "一次 bypass 可能影响后续整个会话，而用户仍以为只是单条命令。"
     },
     {
-      "title": "Localhost Sandbox Test Gate",
-      "summary": "把 sandbox 是否允许访问本机服务当成测试前置条件。",
+      "title": "Compound Model Route Receipt",
+      "label": "MULTI-MODEL",
+      "body": "逐段记录 draft、critique、revision、cascade 的模型、权限、耗时、成本、结果与 fallback。",
+      "summary": "多模型不是一个黑盒名字，而是一串可审计的 draft、critique、revision 和 cascade 路段。",
       "steps": [
-        "记录测试是否需要 localhost、端口和启动进程。",
-        "若 sandbox 默认阻断本机服务，先判断是边界失败还是应用失败。",
-        "只有必要时开启 local network，并记录原因与撤销条件。"
+        "每段记录 role、model、reasoning、tool scope、timeout、cost、result 和 fallback。",
+        "critic 保持只读无工具，writer 串行修改共享状态。",
+        "失败、取消或未过 gate 时不应用 patch。"
       ],
-      "risk": "网络边界变化会伪装成测试回归。"
+      "risk": "只记最终模型会漏掉真正消耗成本或影响结论的中间调用。"
     },
     {
-      "title": "Reusable Workflow Provenance Receipt",
-      "summary": "对 reusable workflow 记录实际执行来源，而不是只看调用方 workflow。",
+      "title": "Agent Merge Stop Contract",
+      "label": "MERGE LOOP",
+      "body": "循环修复前固定最大轮次、预算、允许路径和 CI 重跑次数，范围扩大时交回人工。",
+      "summary": "给循环修到可合并的 agent 预先设置停止线。",
       "steps": [
-        "保存 job.workflow_ref、job.workflow_sha、job.workflow_repository、job.workflow_file_path。",
-        "对第三方或跨仓库 reusable workflow 要求 sha pinning 或明确例外。",
-        "把 provenance 写入 CI artifact 或发布小票。"
+        "固定最大轮次、预算、允许路径、CI 重跑次数和禁止变更。",
+        "每轮保存问题、改动、测试与剩余失败。",
+        "范围扩大、同错重复或需高风险权限时停给人工。"
       ],
-      "risk": "没有来源小票时，审计只知道谁触发，不知道真正跑了哪份 workflow。"
+      "risk": "没有停止线时，agent 可能为了变绿持续扩大改动。"
     },
     {
-      "title": "Staged Publishing OIDC Matrix",
-      "summary": "为同一个 npm 包配置多个 OIDC 发布入口，但默认只允许 staging，人审后再发布。",
+      "title": "MCP Identity and Account Binding Gate",
+      "label": "IDENTITY",
+      "body": "验证 MCP client、组织、仓库和实际账号的绑定，避免多账号环境下认证成功却身份错误。",
+      "summary": "MCP 与 CLI 不只要能登录，还要证明使用了哪个 client、组织和账号。",
       "steps": [
-        "给每个配置记录 repository、workflow、environment、是否允许 direct publish。",
-        "默认 staged publishing；malware scan 完成前不开放批准。",
-        "检查配置是否重叠，因为匹配是 additive 且顺序不保证。"
+        "记录 client metadata、server、organization、repository 与实际账号。",
+        "连接前等管理员 allow/deny 策略完成，禁止抢跑启动。",
+        "执行后读回账号与资源范围，发现错绑立即停止。"
       ],
-      "risk": "多配置能减少长期 token，但配置重叠会扩大可发布面。"
+      "risk": "credential store 中有多个账号时，成功认证不等于身份正确。"
     }
   ]
 }

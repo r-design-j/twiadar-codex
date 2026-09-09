@@ -1,279 +1,260 @@
 {
-  "date": "2026-09-07",
-  "updatedAt": "2026-09-07T09:09:00+08:00",
-  "updatedLabel": "2026-09-07 09:09 CST",
-  "conclusion": "今天没有比 9 月 6 日更晚的 Codex 稳定版、Copilot CLI 稳定版或 OpenAI Node SDK 发布。新增可确认信号是 Codex 0.154.0-alpha.4 预发布占位，但它没有行为说明，因此只能进入 alpha 观察 lane，不能据此调整生产默认。真正值得收口的是模型生命周期和策略执行层: Copilot 模型退役、Gemini 3.8 Flash 渐进 rollout、企业与团队默认模型、内容排除、预算到期、AI review approval、Actions provenance、CodeQL workflow pinning 和 npm OIDC staged publishing 都开始提供更细的政策与证据字段。",
+  "date": "2026-09-09",
+  "updatedAt": "2026-09-09T09:18:00+08:00",
+  "updatedLabel": "2026-09-09 09:18 CST",
+  "conclusion": "今天的核心不是单点模型新闻，而是 OpenAI SDK、Agents SDK、Codex alpha、Copilot CLI 和 GitHub Enterprise 同时把能力、权限、凭证与验证小票做细。GPT Image 2.5 已进入 Node/Python/Java SDK 公开发布面，Agents SDK 把 web search image、MCP server guardrail 和 sandbox isolation 推进到运行时层，Codex 0.154.0 继续只适合 alpha 观察，Copilot/GHES 则把 disconnected enterprise、MCP OAuth、sandbox block recording、Dependabot token fallback 这类治理问题推到前台。",
   "metrics": {
-    "sourceCards": 20,
+    "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-07 的重点是模型退役迁移、默认模型策略、上下文排除、CI provenance 和 staged OIDC 发布闸门。",
-    "今天的判断很明确: 旧模型要提前办交接，默认模型要现场点名，敏感文件要前后两次检查，CI 和发布都要留下真实执行者的小票。"
+    "2026-09-09 的重点是 SDK 多模态同步、agent guardrail 下沉、MCP/OAuth 启动可靠性、隔离企业 Copilot CLI、以及私有 registry 去 PAT 化。",
+    "白话说: 新工具箱在补刀具，也在补锁、进出库登记和质检小票；今天更应该升级验收表，而不是急着换默认生产线。"
   ],
   "signals": [
     {
-      "title": "Codex 0.154.0-alpha.4 published as a prerelease placeholder",
+      "title": "OpenAI Node SDK 7.12.1 publishes GPT Image 2.5 support",
+      "author": "OpenAI / openai-sdks[bot]",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.12.1",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "SDK Image",
+      "summary": "Node SDK 7.12.1 includes GPT Image 2.5 model and image-option support from 7.12.0, which the release notes say was not published to npm, and adds Cloudflare example regressions before release.",
+      "takeaway": "动作: Pin the SDK, test image options on Node and Cloudflare-like runtimes, and treat 7.12.0 as skipped for npm upgrade paths."
+    },
+    {
+      "title": "OpenAI Python SDK 3.10.0 adds GPT Image 2.5 and key-expiration fields",
+      "author": "OpenAI / openai-sdks[bot]",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.10.0",
+      "category": [
+        "hot",
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "SDK Parity",
+      "summary": "Python SDK 3.10.0 adds GPT Image 2.5 models and image options, plus service-account API key expiration fields.",
+      "takeaway": "动作: Add expiry readback to service-account receipts and run a fixed image-generation smoke before upgrading production agents."
+    },
+    {
+      "title": "OpenAI Java SDK 4.60.0 adds GPT Image 2.5 support",
+      "author": "OpenAI / openai-sdks[bot]",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-java/releases/tag/v4.60.0",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Java Parity",
+      "summary": "Java SDK 4.60.0 adds GPT Image 2.5 models and image options, following 4.59.0 additions for prompt-cache diagnostics, service-account expiration fields, and function-argument completion events.",
+      "takeaway": "动作: Keep a per-language parity matrix for image options, cache diagnostics, key expiry, and function-call streaming fields."
+    },
+    {
+      "title": "Agents Python 0.22.1 adds web-search images and server-wide MCP guardrails",
+      "author": "OpenAI Agents SDK contributors",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1",
+      "category": [
+        "hot",
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Guardrail Runtime",
+      "summary": "Agents SDK 0.22.1 adds image results in web search tools, customizable output-guardrail messages, server-wide guardrails for MCP tools, Unix-local environment isolation, Docker labels, and streamed transcription options.",
+      "takeaway": "动作: Define guardrail messages per tool server, classify image search outputs before reuse, and label sandbox containers for cleanup and receipts."
+    },
+    {
+      "title": "Codex 0.154.0-alpha.8 appears without behavioral notes",
       "author": "OpenAI / GitHub",
       "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.4",
-      "category": ["workflow", "tools"],
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.8",
+      "category": [
+        "workflow",
+        "tools"
+      ],
       "score": "MED",
       "tag": "Alpha Watch",
-      "summary": "The public release page exposes 0.154.0-alpha.4, but the body contains only the release label and no behavioral notes.",
-      "takeaway": "动作: Keep 0.154 in an isolated alpha lane and wait for detailed notes before changing defaults or acceptance criteria."
+      "summary": "The Codex releases feed lists 0.154.0-alpha.8 on 2026-09-08 UTC, but the release body only contains the release label.",
+      "takeaway": "动作: Keep 0.154.0 alpha isolated and require release-body evidence plus a fixed smoke suite before any default change."
     },
     {
-      "title": "Copilot CLI 1.0.83-4 adds MCP OAuth CIMD and safer session resume defaults",
-      "author": "GitHub / GitHub Releases",
+      "title": "Copilot CLI 1.0.84-3 fixes MCP OAuth startup and copy exports",
+      "author": "GitHub / copilot-cli-release-app[bot]",
       "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-4",
-      "category": ["workflow", "tools", "knowledge"],
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-3",
+      "category": [
+        "workflow",
+        "tools"
+      ],
       "score": "HIGH",
-      "tag": "MCP OAuth",
-      "summary": "The prerelease adds MCP OAuth Client ID Metadata Document support, starts without interrupted-session restore by default, and improves large-session responsiveness.",
-      "takeaway": "动作: Keep prerelease behavior isolated and record client identity, resume policy, and transcript state before upgrading."
+      "tag": "MCP Reliability",
+      "summary": "Copilot CLI 1.0.84-3 fixes OAuth-authenticated MCP server startup reliability and lets /copy include task-completion messages when available.",
+      "takeaway": "动作: After upgrading, test OAuth MCP startup from a cold session and verify copied transcripts include completion-state messages."
     },
     {
-      "title": "Copilot CLI 1.0.83-5 blocks sandboxed localhost access by default",
-      "author": "GitHub / GitHub Releases",
+      "title": "Copilot CLI 1.0.84-2 ships Vim mode and records sandbox blocks",
+      "author": "GitHub / copilot-cli-release-app[bot]",
       "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.83-5",
-      "category": ["hot", "workflow", "tools"],
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-2",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
       "score": "HIGH",
-      "tag": "Sandbox Boundary",
-      "summary": "On macOS and Linux, sandboxed commands cannot reach local services or a server started on 127.0.0.1; Linux dependencies are explicit.",
-      "takeaway": "动作: Classify localhost test failures as a network-boundary result and require explicit Allow local network approval for exceptions."
+      "tag": "Sandbox Receipt",
+      "summary": "Copilot CLI 1.0.84-2 makes Vim mode broadly available, speeds exact-UUID resume, records blocked accesses under supported Windows sandbox policies, and tightens managed hook lockdown.",
+      "takeaway": "动作: Add blocked-access logs, hook-policy state, and exact resume IDs to CLI run receipts before approving sandbox bypasses."
     },
     {
-      "title": "OpenAI Node SDK 7.9.0 updates usage APIs and WebSocket redirect handling",
-      "author": "OpenAI / GitHub",
-      "source": "official-release",
-      "url": "https://github.com/openai/openai-node/releases/tag/v7.9.0",
-      "category": ["knowledge", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "SDK Runtime",
-      "summary": "The SDK updates usage APIs, prevents Responses WebSockets from following redirects, and fixes browser/CommonJS and Jest 28 compatibility.",
-      "takeaway": "动作: Pin SDK versions and rerun telemetry, browser-bundle, and long-connection tests before upgrading."
-    },
-    {
-      "title": "GitHub schedules selected Copilot model retirements for October 2",
-      "author": "GitHub Changelog",
+      "title": "GHES 3.22 brings Copilot CLI to disconnected enterprise environments",
+      "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-upcoming-deprecation-of-selected-github-copilot-models",
-      "category": ["hot", "workflow", "knowledge", "tools"],
+      "url": "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available",
+      "category": [
+        "hot",
+        "accounts",
+        "workflow",
+        "tools"
+      ],
       "score": "HIGH",
-      "tag": "Model Retirement",
-      "summary": "Gemini 3.5 Flash, Gemini 3.6 Flash, Kimi K2.7 Code, and Claude Opus 4.7 are scheduled for Copilot retirement on 2026-10-02 with suggested replacements.",
-      "takeaway": "动作: Inventory retiring model keys, migrate fallbacks and policies, and run fixed regression tasks before the cutoff."
+      "tag": "Air-Gapped CLI",
+      "summary": "GitHub Enterprise Server 3.22 lets administrators configure Copilot CLI with a GHES-hosted model provider for disconnected or air-gapped enterprises; the capability is technical preview.",
+      "takeaway": "动作: For GHES use, record model-provider config, GHES credential source, air-gap boundary, preview status, and rollback owner."
     },
     {
-      "title": "Gemini 3.8 Flash rolls out across GitHub Copilot surfaces",
-      "author": "GitHub Changelog",
+      "title": "Dependabot can read GitHub-hosted private registries without PATs",
+      "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-gemini-3-8-flash-is-now-available-in-github-copilot",
-      "category": ["hot", "workflow", "tools"],
+      "url": "https://github.blog/changelog/2026-09-08-automatic-dependabot-access-to-github-hosted-registries",
+      "category": [
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
       "score": "HIGH",
-      "tag": "Model Rollout",
-      "summary": "Gemini 3.8 Flash is listed for VS Code, Visual Studio, Copilot CLI, cloud agent, app, JetBrains, Xcode, and Eclipse, with gradual rollout and policy controls.",
-      "takeaway": "动作: Read back model availability per surface and record introductory pricing expiry instead of assuming synchronized access."
+      "tag": "Registry Auth",
+      "summary": "Dependabot can use GITHUB_TOKEN packages:read for private GitHub Packages access when the package grants repository access; GitHub notes the feature was re-enabled with fallback authentication after a rollback.",
+      "takeaway": "动作: Remove PAT entries only after readback of package Actions access, Dependabot success, and normal registry precedence."
     },
     {
-      "title": "Enterprise-managed settings can choose any default Copilot model",
-      "author": "GitHub Changelog",
+      "title": "GitHub launches help.github.com with Copilot-powered search",
+      "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model",
-      "category": ["hot", "accounts", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Default Policy",
-      "summary": "Business and Enterprise admins can set a default model for new conversations and override it by enterprise team in the app, CLI, and VS Code.",
-      "takeaway": "动作: Version enterprise default, team overrides, model policy, and observed client model together."
-    },
-    {
-      "title": "Content exclusions are generally available in Copilot app and CLI",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli",
-      "category": ["hot", "accounts", "workflow", "knowledge"],
-      "score": "HIGH",
-      "tag": "Context Boundary",
-      "summary": "Copilot app and CLI honor enterprise, organization, and repository exclusion policies and do not use excluded files as context.",
-      "takeaway": "动作: Maintain an exclusion contract by policy level and verify policy readback plus the public output boundary."
-    },
-    {
-      "title": "GitHub Actions adds runner deprecation and workflow provenance controls",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-github-actions-early-september-2026-updates",
-      "category": ["hot", "workflow", "knowledge", "tools"],
-      "score": "HIGH",
-      "tag": "Workflow Provenance",
-      "summary": "Actions adds a runner deprecation API, read-only vulnerability-alerts permission, and job fields for the actual reusable workflow source.",
-      "takeaway": "动作: Record runner deadlines, minimize GITHUB_TOKEN scopes, and store job.workflow_* in agent CI receipts."
-    },
-    {
-      "title": "npm supports multiple trusted publishing configurations per package",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-multiple-trusted-publishing-configurations-for-npm",
-      "category": ["hot", "knowledge", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Staged OIDC",
-      "summary": "Stable, prerelease, and staging workflows can use separate additive OIDC configurations, while staged approval waits for malware scanning.",
-      "takeaway": "动作: Default OIDC lanes to staging, audit overlapping additive matches, and require scan completion plus human approval."
-    },
-    {
-      "title": "CodeQL 2.26.4 strengthens GitHub Actions security detections",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-codeql-2-26-4-improves-github-actions-security-detections",
-      "category": ["knowledge", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Workflow Security",
-      "summary": "CodeQL detects mutable references to reusable workflows and tightens actor-field and environment-check reasoning, which may surface new alerts.",
-      "takeaway": "动作: Pin reusable workflows to immutable SHAs and review new alerts as analysis updates."
-    },
-    {
-      "title": "GitHub CLI Linux package signing key rollover reaches its cutoff",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-github-cli-linux-package-signing-key-expires-september-5",
-      "category": ["accounts", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Supply Chain",
-      "summary": "APT and RPM metadata after September 5 use the replacement key; old Linux images or setup scripts may fail while macOS and Homebrew installs are unaffected.",
-      "takeaway": "动作: Verify CI images trust the replacement key before diagnosing gh install failures as application regressions."
-    },
-    {
-      "title": "Copilot code review can submit policy-controlled approvals",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests",
-      "category": ["hot", "workflow", "knowledge"],
-      "score": "HIGH",
-      "tag": "Review Approval",
-      "summary": "Approval assessment appears in every review, while formal approval is off by default and policy-controlled with path limits.",
-      "takeaway": "动作: Keep assessment, comments, formal approval, required approval, and post-commit dismissal as separate states."
-    },
-    {
-      "title": "Individual Copilot budgets can expire automatically",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-01-set-an-expiration-date-for-individual-user-budgets",
-      "category": ["accounts", "knowledge", "workflow"],
-      "score": "HIGH",
-      "tag": "Budget Expiry",
-      "summary": "Business and Enterprise admins can expire temporary user budget overrides on a billing date or specific date through settings or expires_at.",
-      "takeaway": "动作: Give experiments expiring budgets and include expires_at, fallback budget, and renewal owner in receipts."
-    },
-    {
-      "title": "Claude Fable 5.1 adds a model-specific retention gate in Copilot",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot",
-      "category": ["accounts", "knowledge", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Retention Gate",
-      "summary": "Claude Fable 5.1 targets long-horizon work but requires data retention by default; zero-retention access is limited to eligible approved enterprises.",
-      "takeaway": "动作: Record retention mode, zero-retention eligibility, admin enablement, plan, pricing, and surface before sensitive work."
-    },
-    {
-      "title": "GitHub CLI can attach local media to issues and pull requests",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments",
-      "category": ["workflow", "tools", "knowledge"],
-      "score": "HIGH",
-      "tag": "Evidence Attachments",
-      "summary": "gh 2.99.0 adds repeatable --attach for images and videos in issue and PR create, edit, and comment commands.",
-      "takeaway": "动作: Inspect media, remove private metadata, confirm repository scope, and require alt text before upload."
-    },
-    {
-      "title": "Copilot Business and Enterprise card signups reopen with upfront seat billing",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-03-reopening-copilot-business-and-enterprise-signups",
-      "category": ["accounts", "workflow"],
+      "url": "https://github.blog/changelog/2026-09-08-new-customer-portal-help-github-com",
+      "category": [
+        "accounts",
+        "knowledge",
+        "workflow"
+      ],
       "score": "MED",
-      "tag": "Account Billing",
-      "summary": "Credit-card and PayPal signups reopen gradually, with payment required before new seat access and upfront seat charging from October 1.",
-      "takeaway": "动作: Separate account availability from capability and record seat timing, included usage, and excess-payment behavior."
+      "tag": "Support Search",
+      "summary": "GitHub's redesigned help.github.com combines support, docs, learning, community, account resources, product statuses, and no-sign-in Copilot-powered search, with gradual rollout.",
+      "takeaway": "动作: Use help.github.com for public triage, then separately record account state and rollout availability before acting on support-sensitive cases."
     },
     {
-      "title": "Kit by Speakeasy advertises a coding-agent runtime",
-      "author": "Speakeasy / Product Hunt",
-      "source": "product-discovery-feed",
-      "url": "https://www.producthunt.com/products/speakeasydev",
-      "category": ["workflow", "tools"],
+      "title": "GitHub Copilot weekly release bundles model choice with agent-session management",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-04-github-copilot-weekly-releases-august-31",
+      "category": [
+        "workflow",
+        "mobile",
+        "tools"
+      ],
       "score": "MED",
-      "tag": "Discovery",
-      "summary": "Product Hunt RSS describes Kit as a faster, cheaper, concise coding-agent runtime; the item is a candidate, not an established capability claim.",
-      "takeaway": "动作: Trial only with synthetic work after checking data access, routing, retention, writes, billing, and rollback."
+      "tag": "Session Ops",
+      "summary": "The weekly release summarizes Gemini 3.8 Flash rollout, Claude Fable 5.1 availability, content exclusions, Agent Merge public preview, experimental multi-root workspaces, and chat-session hierarchy.",
+      "takeaway": "动作: Track model availability, content exclusions, session hierarchy, merge readiness, and multi-root folder boundaries as separate states."
     },
     {
-      "title": "Blume.codes proposes turning coding sessions into rules and skills",
-      "author": "Blume.codes / Product Hunt",
-      "source": "product-discovery-feed",
-      "url": "https://www.producthunt.com/products/blume-codes",
-      "category": ["knowledge", "workflow", "tools"],
-      "score": "MED",
-      "tag": "Discovery",
-      "summary": "Product Hunt RSS claims it converts coding-agent sessions into better rules and skills, which may capture sensitive transcripts.",
-      "takeaway": "动作: Use synthetic sessions and verify local processing, redaction, retention, generated-rule review, and opt-out."
-    },
-    {
-      "title": "Hyperprobe proposes production debugging without redeploying",
-      "author": "Hyperprobe / Product Hunt",
-      "source": "product-discovery-feed",
-      "url": "https://www.producthunt.com/products/hyperprobe",
-      "category": ["hot", "knowledge", "workflow", "tools"],
-      "score": "MED",
-      "tag": "Discovery",
-      "summary": "Product Hunt RSS positions Hyperprobe as a way for agents to debug production without redeployment, a high-privilege observability pattern.",
-      "takeaway": "动作: Require read-only synthetic evaluation, payload redaction, query allowlists, audit logs, and no-fix-in-production."
+      "title": "GPT-6 Astra is available across Copilot surfaces with gradual rollout",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-04-gpt-6-astra-is-generally-available-in-github-copilot",
+      "category": [
+        "hot",
+        "mobile",
+        "accounts",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Model Surface",
+      "summary": "GitHub says GPT-6 Astra is available in Copilot across VS Code, Visual Studio, CLI, coding agent, Copilot app, github.com, GitHub Mobile, JetBrains, Xcode, and Eclipse, with gradual rollout and admin model policy.",
+      "takeaway": "动作: Do not assume availability from the headline; read back model picker state per surface and record plan, policy, and observed model."
     }
   ],
   "knowledge": [
     {
-      "title": "Model Retirement Migration Gate",
-      "label": "MODEL LIFECYCLE",
-      "body": "盘点退役模型、截止日、替代模型、管理员启用状态和固定回归证据，完成迁移后再切默认。",
-      "summary": "把模型退役当成有截止日、替代方案和回归证据的迁移项目。",
-      "steps": ["盘点 model key、fallback、prompt 模板和 policy。", "记录截止日、替代模型、管理员启用状态和每个入口的 rollout。", "用固定任务回归质量、工具、成本和 retention。"],
-      "risk": "替代模型在公告中存在，不等于组织已启用或客户端已可选。"
+      "title": "SDK Multimodal Parity Matrix",
+      "label": "SDK PARITY",
+      "body": "把 Python、Node、Java 等 SDK 的图像模型、图像选项、缓存诊断、服务账号到期字段和流式事件字段做成同一张升级矩阵。",
+      "summary": "把多语言 SDK 的模型、字段和回归结果放进同一张升级矩阵。",
+      "steps": [
+        "逐语言记录版本、发布时间、npm/PyPI/Maven 发布状态和 release body。",
+        "用相同输入测试图像选项、缓存诊断、key expiry 和 function-call streaming。",
+        "只有所有生产语言通过固定 smoke 后，才更新共享 agent 模板。"
+      ],
+      "risk": "只验证一个 SDK 会让另一个语言栈在同名能力下行为不同。"
     },
     {
-      "title": "Default Model Policy Receipt",
-      "label": "DEFAULT POLICY",
-      "body": "同时记录企业默认、团队覆盖、picker 状态和实际会话模型，防止策略静默漂移。",
-      "summary": "同时记录企业默认、团队覆盖、picker 状态和实际会话模型。",
-      "steps": ["保存 policy 版本、enterprise default、team override 和允许覆盖范围。", "在每个入口创建新会话并读回实际模型。", "发现漂移时回滚 policy。"],
-      "risk": "默认、可选和实际执行模型可能处于不同状态。"
+      "title": "Service Account Expiry Receipt",
+      "label": "KEY EXPIRY",
+      "body": "服务账号 API key 不再只记录名字和创建人，还要记录过期字段、轮换负责人和失效前的验证动作。",
+      "summary": "服务账号 API key 必须带过期字段、轮换人和读回证据。",
+      "steps": [
+        "读回 SDK 或管理接口里的 expiration 字段。",
+        "记录 owner、用途、允许项目、轮换日期和失败 fallback。",
+        "到期前跑最小真实请求，确认新旧 key 切换和日志脱敏。"
+      ],
+      "risk": "没有到期小票时，agent 失败会被误判为模型或代码问题。"
     },
     {
-      "title": "Context Exclusion Contract",
-      "label": "CONTEXT BOUNDARY",
-      "body": "用可审计路径清单限制 agent 输入，并在 diff、日志、附件和公开产物中再次检查。",
-      "summary": "用可审计的路径清单限制 agent 输入，并在输出端再次检查。",
-      "steps": ["记录 enterprise、organization、repository 各层排除路径与适用入口。", "运行前读回 policy，禁止手工复制绕过排除。", "运行后扫描 diff、日志、附件和公开产物。"],
-      "risk": "输入排除不保证模型输出或外部附件自动安全。"
+      "title": "MCP Server Guardrail Contract",
+      "label": "MCP GUARDRAIL",
+      "body": "把 guardrail 从单个 agent 提示提升到 MCP server 级别，统一定义工具输出拦截、用户可见提示和回放边界。",
+      "summary": "MCP 工具服务要有统一拦截、提示和回放边界。",
+      "steps": [
+        "按 server 记录允许工具、禁止输出类型和 blocked message。",
+        "测试被拦截输出是否进入 replay、checkpoint 或导出文本。",
+        "上线后抽样验证每个工具仍返回可行动的错误信息。"
+      ],
+      "risk": "只在 agent 层拦截会漏掉工具服务重启、复用和导出的路径。"
     },
     {
-      "title": "Workflow Provenance Gate",
-      "label": "CI PROVENANCE",
-      "body": "对 agent 触发的 CI 同时证明 runner 仍受支持、token 足够小、实际 workflow 来源可追溯。",
-      "summary": "对 agent 触发的 CI 同时证明 runner、token 和实际 workflow 来源。",
-      "steps": ["预查 runner registration 和 runtime deprecation 时间。", "给 GITHUB_TOKEN 只开所需权限。", "保存 job.workflow_ref、job.workflow_sha、repository 和 file path。"],
-      "risk": "只记录调用方 workflow 会漏掉真正执行的跨仓工作流。"
+      "title": "Air-Gapped Agent Provider Gate",
+      "label": "AIR GAP",
+      "body": "离线或隔离企业里的 Copilot/Codex 需要把模型提供方、凭证来源、网络边界和预览状态单独列为准入条件。",
+      "summary": "隔离环境 agent 要单独验模型提供方、凭证和网络边界。",
+      "steps": [
+        "记录 GHES 或本地平台版本、model provider、凭证来源和允许网络路径。",
+        "标明 technical preview 或 GA 状态，禁止当成稳定云端能力。",
+        "用无外网样例任务验证认证、日志、更新和回滚。"
+      ],
+      "risk": "隔离环境里最常见的失败不是模型能力，而是凭证、路由和审计边界。"
     },
     {
-      "title": "Staged OIDC Publishing Gate",
-      "label": "PUBLISHING",
-      "body": "多发布入口分别使用 OIDC，但默认只进 staging，扫描完成后才由人批准。",
-      "summary": "多发布入口分别使用 OIDC，但默认只进 staging，扫描完成后才由人批准。",
-      "steps": ["为每个配置记录 repository、workflow、environment 和 direct publish 状态。", "检查 additive 匹配是否重叠。", "malware scan 完成前不开放批准，正式发布后读回 provenance。"],
-      "risk": "多配置减少长期 token，但也可能扩大可发布面。"
+      "title": "Registry Fallback Auth Gate",
+      "label": "REGISTRY AUTH",
+      "body": "Dependabot 或 agent 从私有 registry 拉包时，区分显式凭证、平台 token fallback 和普通公共 registry 路由。",
+      "summary": "私有 registry 自动化要区分显式凭证、fallback token 和公共路由。",
+      "steps": [
+        "读回 package 的 Actions access 和仓库权限。",
+        "确认 GITHUB_TOKEN 只请求 packages:read，且显式 registry 凭证优先。",
+        "跑一次依赖更新并保存 registry host、认证方式和回滚方案。"
+      ],
+      "risk": "fallback 认证省掉 PAT 的同时，也可能掩盖错误的 registry 路由。"
     }
   ]
 }

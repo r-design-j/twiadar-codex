@@ -1,218 +1,211 @@
 {
-  "date": "2026-09-10",
-  "updatedAt": "2026-09-10T09:04:00+08:00",
-  "updatedLabel": "2026-09-10 09:04 CST",
-  "conclusion": "今天的重点从“agent 会不会做事”转向“企业能不能把 agent 的动作边界管住”。GitHub 在 9 月 9 日集中推出 Copilot agent 企业托管权限、PR secret merge block、Code Quality 批量 agentic autofix、CodeQL 2.27.0 Linux ARM64 和 JetBrains 企业托管 sandbox；OpenAI 侧则在 SDK/release 线上继续补 key expiration、image-generation options、UnixLocal symlink race 修复和 Codex 0.154.0 稳定包。",
+  "date": "2026-09-11",
+  "updatedAt": "2026-09-11T09:18:00+08:00",
+  "updatedLabel": "2026-09-11 09:18 CST",
+  "conclusion": "今天的重点不是单点模型能力，而是把 agent 与 SDK 的新能力纳入可审计 rollout。GitHub 在 9 月 10 日推出 AI Scan for PR API、Actions cache-mode、新版 PR 列表、模型退役和 Xcode 27/macOS 27 runner；OpenAI Node/Python SDK 同日补 Live API 与 Agents API；Codex Python SDK 0.154.0 增加 ExternalMessage、include_turns、单 turn service tier 和 max/ultra reasoning effort。",
   "metrics": {
-    "sourceCards": 10,
+    "sourceCards": 12,
     "topSignals": 5,
-    "knowledgeCards": 4
+    "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-10 的重点是 agent 操作权限、PR secret 合并闸、批量 autofix、ARM64 CodeQL parity 和本地 sandbox 文件 API 加固。",
-    "白话说: 今天不是给 AI 员工发更多活，而是先给它配门禁卡、审批单和出厂安检。"
+    "2026-09-11 的重点是 AI Scan rollout、Actions cache 最小权限、Codex ExternalMessage 边界、OpenAI SDK Live/Agents parity 和 Copilot CLI 命令迁移。",
+    "白话说: 今天不是马上开更多 AI 功能，而是给每个功能配上小票、门禁和回滚按钮。"
   ],
   "signals": [
     {
-      "title": "Enterprise managed permissions for GitHub Copilot agent operations",
+      "title": "AI Scan for pull request APIs in public preview",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-09-enterprise-managed-permissions-for-github-copilot-agent-operations",
-      "category": [
-        "hot",
-        "workflow",
-        "accounts",
-        "tools"
-      ],
+      "url": "https://github.blog/changelog/2026-09-10-ai-scan-for-pull-request-apis-in-public-preview",
+      "category": ["hot", "workflow", "knowledge", "tools"],
       "score": "HIGH",
-      "tag": "Agent Policy",
-      "summary": "Enterprise administrators can centrally control Copilot agent shell commands, file reads/edits, and network domains as blocked, approval-required, or allowed operations.",
-      "takeaway": "动作: Build an agent operation policy matrix across app, CLI, IDE, and Codex entry points."
+      "tag": "AI Scan API",
+      "summary": "GitHub code scanning's AI Scan for pull requests can now be managed through organization and repository REST APIs, with organization-level disabled state taking precedence.",
+      "takeaway": "动作: Build an AI Scan rollout receipt with org/repo state, eligibility, support boundary, and rollback commands."
     },
     {
-      "title": "Remediate Code Quality findings with agentic autofix",
+      "title": "Control GitHub Actions cache access with cache-mode",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-09-remediate-code-quality-findings-with-agentic-autofix",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
+      "url": "https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode",
+      "category": ["hot", "workflow", "knowledge", "tools"],
       "score": "HIGH",
-      "tag": "Bulk Autofix",
-      "summary": "Copilot can take up to 25 standard Code Quality findings, fix them on a branch, validate changes, and open a pull request.",
-      "takeaway": "动作: Treat bulk autofix as PR generation; require review, tests, diff scope, and AI credit tracking."
+      "tag": "Cache Gate",
+      "summary": "Actions workflows and jobs can explicitly set cache access to read, write, write-only, or none, carrying least-privilege access through reusable workflows.",
+      "takeaway": "动作: Audit pull_request_target, fork PR, trusted push, and reusable workflows for explicit cache-mode."
     },
     {
-      "title": "Block pull requests with exposed secrets from merging",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-09-block-pull-requests-with-exposed-secrets-from-merging",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Secret Gate",
-      "summary": "Repository rulesets can block PR merges until secret scanning has completed and all PR-introduced secret alerts are resolved.",
-      "takeaway": "动作: Enable PR-layer secret merge gates and verify completed-scan, open-alert, and bypass states."
-    },
-    {
-      "title": "CodeQL 2.27.0 adds support for Linux ARM64",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-09-codeql-2-27-0-adds-support-for-linux-arm64",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "ARM64 CodeQL",
-      "summary": "CodeQL CLI now runs natively on Linux ARM64 and adds Rust command-line injection detection plus expanded framework coverage.",
-      "takeaway": "动作: Add ARM64 runner parity checks for CodeQL version, query packs, registry auth, and language baselines."
-    },
-    {
-      "title": "Enterprise-managed sandbox in Copilot for JetBrains",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-08-enterprise-managed-sandbox-in-copilot-for-jetbrains",
-      "category": [
-        "workflow",
-        "tools",
-        "accounts"
-      ],
-      "score": "HIGH",
-      "tag": "IDE Sandbox",
-      "summary": "Copilot for JetBrains can apply enterprise-managed sandbox policies for filesystem, network, proxy, developer tools, macOS Keychain, and diagnostics.",
-      "takeaway": "动作: Read back JetBrains managed sandbox state and compare it with CLI and VS Code policy behavior."
-    },
-    {
-      "title": "OpenAI Agents Python 0.22.2 updates image tools and hardens UnixLocal files",
-      "author": "OpenAI Agents SDK contributors",
+      "title": "OpenAI Codex Python SDK 0.154.0 adds ExternalMessage and turn controls",
+      "author": "OpenAI Codex contributors",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.2",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
+      "url": "https://github.com/openai/codex/releases/tag/python-v0.154.0",
+      "category": ["hot", "workflow", "mobile", "knowledge", "tools"],
       "score": "HIGH",
-      "tag": "Agents SDK",
-      "summary": "Agents SDK 0.22.2 supports current image generation tool options, prevents UnixLocal file API symlink races, and resets compaction response chains after pop.",
-      "takeaway": "动作: Add symlink-race and compaction-pop smoke tests before upgrading long-running local workflows."
+      "tag": "Codex Bridge",
+      "summary": "Codex Python SDK 0.154.0 adds ExternalMessage, include_turns, per-turn service tier, source metadata, and max/ultra reasoning efforts.",
+      "takeaway": "动作: Test ExternalMessage as tool-level authority that cannot replace user authorization."
     },
     {
-      "title": "OpenAI Node SDK 7.13.0 adds API key expiration controls",
+      "title": "OpenAI Node SDK 7.15.0 adds Agents API",
       "author": "OpenAI / openai-sdks[bot]",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-node/releases/tag/v7.13.0",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.15.0",
+      "category": ["hot", "workflow", "tools"],
       "score": "HIGH",
-      "tag": "Key Expiry",
-      "summary": "Node SDK support for API key expiration controls makes credential lifecycle governance available in the JavaScript production path.",
-      "takeaway": "动作: Extend service-account key receipts to record expiration controls and verify Node/Python parity."
+      "tag": "Node Agents",
+      "summary": "The Node SDK added generated Agents API support, moving agent primitives into the main JavaScript production SDK path.",
+      "takeaway": "动作: Add Node Agents API smoke tests and compare behavior with Python."
     },
     {
-      "title": "OpenAI Python SDK 3.11.0 adds service-account key expiration controls",
+      "title": "OpenAI Python SDK 3.13.0 adds Agents API",
       "author": "OpenAI / openai-sdks[bot]",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.11.0",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.13.0",
+      "category": ["hot", "workflow", "tools"],
       "score": "HIGH",
-      "tag": "Python Keys",
-      "summary": "Python SDK 3.11.0 adds expiration controls for service-account keys, matching the governance direction across SDKs.",
-      "takeaway": "动作: Read back expiration fields in Python jobs and fail closed when key owner, expiry, or rotation fallback is missing."
+      "tag": "Python Agents",
+      "summary": "The Python SDK added generated Agents API support on the same day as Node, signaling main-SDK convergence for agent capabilities.",
+      "takeaway": "动作: Decide which automations use openai-python Agents API versus openai-agents-python."
     },
     {
-      "title": "OpenAI Codex 0.154.0 reaches stable release lane",
-      "author": "OpenAI / GitHub Actions",
+      "title": "OpenAI Node SDK 7.14.0 adds Live API",
+      "author": "OpenAI / openai-sdks[bot]",
       "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Codex Stable",
-      "summary": "Codex moved from the previously observed alpha lane to a stable 0.154.0 release with platform assets, but public behavioral notes remain limited.",
-      "takeaway": "动作: Treat 0.154.0 as an upgrade candidate only after fixed local smoke covers picker, sandbox, edits, and resume."
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.14.0",
+      "category": ["workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Node Live",
+      "summary": "The Node SDK added Live API support, making realtime interactions a first-class generated SDK surface for JavaScript applications.",
+      "takeaway": "动作: Run Live API smoke tests for connection, cancellation, stream cleanup, and error shape."
     },
     {
-      "title": "GitHub Copilot CLI 1.0.84-3 remains the latest visible CLI release",
+      "title": "OpenAI Python SDK 3.12.0 adds Live API and AsyncStream cleanup",
+      "author": "OpenAI / openai-sdks[bot]",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.12.0",
+      "category": ["workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Python Live",
+      "summary": "The Python SDK added Live API plus AsyncStream aclose cleanup and output-preservation fixes for long-running realtime automations.",
+      "takeaway": "动作: Include AsyncStream cleanup and null response completion in Python Live API upgrade tests."
+    },
+    {
+      "title": "Refreshed repository pull requests page in public preview",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-refreshed-repository-pull-requests-page-in-public-preview",
+      "category": ["workflow", "tools"],
+      "score": "HIGH",
+      "tag": "PR Triage",
+      "summary": "GitHub's refreshed repository PR page adds content assist, advanced search, compact mode, status counts, stack indicators, and unread indicators.",
+      "takeaway": "动作: Use the preview as a triage surface, but keep final acceptance tied to tests, rulesets, and review."
+    },
+    {
+      "title": "GitHub Copilot CLI 1.0.84-4 prerelease updates commands and sandbox status",
       "author": "GitHub / copilot-cli-release-app[bot]",
       "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-3",
-      "category": [
-        "workflow",
-        "tools"
-      ],
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-4",
+      "category": ["workflow", "tools"],
       "score": "MED",
-      "tag": "CLI Watch",
-      "summary": "No newer public CLI release was observed beyond the MCP OAuth startup and copy-export fix captured yesterday.",
-      "takeaway": "动作: Keep cold-start OAuth MCP and /copy transcript smoke in the CLI upgrade gate."
+      "tag": "CLI Migration",
+      "summary": "The prerelease adds new list and JSON commands, replaces plugin enable/disable spelling, and improves sandbox current-session status.",
+      "takeaway": "动作: Update prerelease smoke tests before changing default installation docs."
+    },
+    {
+      "title": "MAI-Code-1-Flash deprecated across GitHub Copilot experiences",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-mai-code-1-flash-deprecated",
+      "category": ["accounts", "tools"],
+      "score": "HIGH",
+      "tag": "Model Policy",
+      "summary": "GitHub deprecated MAI-Code-1-Flash across Copilot Chat, inline edits, ask and agent modes, and code completions.",
+      "takeaway": "动作: Scan workflows, enterprise policies, IDE defaults, and docs for deprecated model names."
+    },
+    {
+      "title": "Xcode 27 runner image now runs on macOS 27",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-xcode-27-runner-image-now-runs-on-macos-27",
+      "category": ["mobile", "workflow", "tools"],
+      "score": "HIGH",
+      "tag": "Apple CI",
+      "summary": "GitHub-hosted macOS runners can validate Apple apps against macOS 27 through the Xcode 27 runner image on arm64 runners in public preview.",
+      "takeaway": "动作: Add a macOS 27/Xcode 27 CI lane and record runner architecture plus preview rollback boundaries."
+    },
+    {
+      "title": "OpenAI Codex 0.155.0 alpha lane continues",
+      "author": "OpenAI / GitHub Actions",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.2.3",
+      "category": ["workflow", "tools"],
+      "score": "MED",
+      "tag": "Alpha Lane",
+      "summary": "Codex 0.155.0 alpha releases appeared after the stable 0.154.0 line, indicating preview churn while public behavioral notes remain limited.",
+      "takeaway": "动作: Keep 0.155.0 in an alpha observation lane until a fixed smoke suite passes with explicit approval."
     }
   ],
   "knowledge": [
     {
-      "title": "Agent Operation Policy Matrix",
-      "label": "AGENT POLICY",
-      "body": "把 agent 的 shell、file read/edit、network domain、Keychain、developer tools 等动作按 deny/ask/allow 做成组织级矩阵。",
-      "summary": "用组织级红黄绿灯管理 agent 可执行动作。",
+      "title": "AI Scan Rollout Receipt",
+      "label": "AI SECURITY",
+      "body": "把 AI Scan for PR 的组织/仓库启用状态、资格、边界和回滚命令做成一张灰度发布小票。",
+      "summary": "批量安全功能启用前先读回组织和仓库状态。",
       "steps": [
-        "按入口列出 Copilot app、CLI、VS Code、JetBrains、Codex 的策略来源和生效范围。",
-        "按团队列出 deny、ask、allow，并标注是否可被用户设置覆盖。",
-        "每次策略变更后用新会话读回实际限制，并保存被阻断动作的小票。"
+        "先读 org-level AI Scan 状态，再读 repo-level 状态，标注 repo 是否被 org disabled 覆盖。",
+        "记录 GHAS 资格、github.com / GHES 支持边界、操作者和目标仓库清单。",
+        "每次变更都保存 before/after 状态和回滚命令。"
       ],
-      "risk": "只靠个人 auto-approval 会让旧审批或本地设置绕过组织边界。"
+      "risk": "只看单仓库 UI 可能误判组织级禁用或计划限制。"
     },
     {
-      "title": "PR Secret Merge Gate",
-      "label": "SECRET MERGE",
-      "body": "在 PR 合并层要求 secret scanning 完成且新增 alerts 全部解决，补上 push protection 之外的最后一道闸。",
-      "summary": "PR 合并前必须证明新增秘密告警已清零。",
+      "title": "Cache Mode Least-Privilege Gate",
+      "label": "CI CACHE",
+      "body": "用 cache-mode 把 GitHub Actions cache 权限显式化，按低信任、可信、只写和禁用四类验收。",
+      "summary": "让 CI 缓存权限像仓库钥匙一样分级。",
       "steps": [
-        "在 repository / organization / enterprise ruleset 启用 require_secret_scanning_alert_resolution。",
-        "标注覆盖的 secret types、bypass 权限和适用分支。",
-        "用模拟 PR 验证 scan completed、open alerts、bypass 三种状态。"
+        "扫描 pull_request_target、fork PR、trusted push 和 reusable workflow。",
+        "给每类 job 标注 read、write、write-only 或 none，解释为什么需要。",
+        "对低信任事件的写权限例外保存 annotation 和 reviewer 结论。"
       ],
-      "risk": "只启用 push protection 会漏掉某些 PR 层、generic/custom pattern 或配置外路径。"
+      "risk": "cache restore/save 权限过宽会把依赖缓存变成供应链污染入口。"
     },
     {
-      "title": "Bulk Autofix Review Queue",
-      "label": "AUTOFIX REVIEW",
-      "body": "把 Copilot 批量修复 code quality findings 的结果统一进入待审 PR 队列，而不是直接关闭 backlog。",
-      "summary": "批量修复只生成 PR，不能自动算验收完成。",
+      "title": "Codex ExternalMessage Boundary",
+      "label": "CODEX BRIDGE",
+      "body": "外部系统消息可以进入或加入 Codex turn，但不能自动获得用户授权。",
+      "summary": "同声传译能进会场，但不能替老板签字。",
       "steps": [
-        "每批最多 25 条 findings，记录 selection、branch、AI credits 和 owner。",
-        "要求 PR 展示测试、验证命令和涉及文件清单。",
-        "reviewer 按批次决定 merge、split、rerun 或 reject。"
+        "标注外部消息来源、tool-level authority、是否可启动 turn、是否可加入 active turn。",
+        "写入、提交、部署、外部副作用仍要求用户或既定 automation 授权。",
+        "用 include_turns 读历史时区分返回内容变化和模型上下文变化。"
       ],
-      "risk": "批量修复会快速制造 PR，但 reviewer 不跟上会把技术债变成 review 债。"
+      "risk": "把外部消息误当用户指令，会绕过审批边界。"
     },
     {
-      "title": "ARM64 CodeQL Parity Gate",
-      "label": "CODEQL ARM",
-      "body": "把 Linux ARM64 上的 CodeQL 原生执行纳入 code scanning parity，保证 runner 架构变化不降低扫描覆盖。",
-      "summary": "ARM64 runner 上的 CodeQL 也要验证规则包和认证一致。",
+      "title": "Live/Agents SDK Parity Gate",
+      "label": "SDK PARITY",
+      "body": "当 OpenAI Node/Python 主 SDK 同步加入 Live API 和 Agents API 时，用双栈小测保证接口、错误和流式行为一致。",
+      "summary": "两条生产线同时换接口，两边都要跑小测。",
       "steps": [
-        "记录 CodeQL CLI / bundle 版本、runner 架构和 GHES/github.com 环境。",
-        "验证 custom queries、packs、private registry config 和认证来源。",
-        "对 Rust、Java/Kotlin、C# 等新增/增强查询保存 baseline 差异。"
+        "分别固定 Node/Python 版本和 release 链接。",
+        "对 Live API 覆盖连接、取消、流式清理和错误 shape。",
+        "对 Agents API 覆盖创建、工具调用、权限失败和追踪字段。"
       ],
-      "risk": "换成 ARM64 runner 后，如果 query pack 或私有认证失败，扫描可能静默降级。"
+      "risk": "只升级一个语言栈会让生产与自动化脚本出现行为差。"
+    },
+    {
+      "title": "PR Queue Triage View",
+      "label": "PR TRIAGE",
+      "body": "把新版 PR 列表的筛选、compact view、status counts 和 unread indicators 当成审查队列入口，而不是最终验收系统。",
+      "summary": "PR 页面可帮你排队，但不能代替验收。",
+      "steps": [
+        "建立 authored/involves/status/search 查询模板。",
+        "对 agent 生成 PR 增加 label、owner、测试状态和 unread 更新检查。",
+        "最终合并仍回到 diff、测试、ruleset 和人工 review。"
+      ],
+      "risk": "preview 页面缺保存自定义视图和批量更新，不能替代正式队列流程。"
     }
   ]
 }

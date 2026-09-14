@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-13",
-  "updatedAt": "2026-09-13T21:30:00+08:00",
-  "updatedLabel": "2026-09-13 21:30 CST",
-  "conclusion": "今天的重点是 agent 从能执行任务进入可计量、可迁移、可管控的运营阶段。GitHub 把 VS Code Agents 纳入 Copilot usage metrics，并升级 Copilot code review 的自动关闭、shell 验证和 Lite ensemble；OpenAI 侧的 ChatGPT/Codex、Data plugin、Agents API、GPT-Live、API key expiration 与 GPT-6 Astra 技能瘦身，合起来指向更清晰的采纳度、权限、评审和上下文治理。",
+  "date": "2026-09-14",
+  "updatedAt": "2026-09-14T09:03:20+08:00",
+  "updatedLabel": "2026-09-14 09:03 CST",
+  "conclusion": "今天没有发现比 9 月 11 日更晚的一手大公告，重点从追新功能转成周一落地清单。最新公开信号显示 agent 工作流正在进入可度量、可复审、可沙箱化、可迁移的阶段: VS Code Agents 指标、Copilot review 自动关闭、recurring agent tasks、HydraFusion、Copilot CLI sandbox/import/trust/usage 变化，以及 Codex alpha lane 都要求把完成证据和权限边界写成小票。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-13 的重点是 agent adoption metrics、review closure、recurring task capsule、data permission contract 和 skill/context slimming。",
-    "白话说: AI 员工能干活之后，下一步是打卡、质检、门禁和把说明书变薄。"
+    "2026-09-14 的重点是 agent adoption receipt、review closure gate、CLI sandbox smoke、skill/memory import contract 和 model/tool migration ledger。",
+    "白话说: 周一不是追新玩具，而是给 AI 员工补考勤、质检、门禁、搬家和换岗小票。"
   ],
   "signals": [
     {
@@ -21,8 +21,8 @@
       "category": ["hot", "workflow", "knowledge", "tools", "accounts"],
       "score": "HIGH",
       "tag": "Agent Metrics",
-      "summary": "Copilot usage metrics now expose VS Code Agents-window activity separately, including active users, session counts, message counts, and user-level usage indicators.",
-      "takeaway": "动作: Build an adoption receipt that separates VS Code Agents window, editor Agent Mode, and generic Copilot usage rollups."
+      "summary": "Copilot usage metrics now expose VS Code Agents-window activity separately from generic Copilot usage, including active users, sessions, messages, and user-level indicators.",
+      "takeaway": "动作: Build an Agent Adoption Receipt that separates window, editor, CLI, and desktop usage and treats null as unavailable."
     },
     {
       "title": "Auto-resolution and analysis updates in Copilot code review",
@@ -32,8 +32,8 @@
       "category": ["hot", "workflow", "knowledge", "tools"],
       "score": "HIGH",
       "tag": "Review Gate",
-      "summary": "Copilot code review can automatically resolve addressed comments, generate smarter autofix commit messages, use broader shell tools, and apply a Lite effort agent ensemble.",
-      "takeaway": "动作: Record closed/open review-thread diffs after each fix commit, then keep final acceptance tied to tests and human review."
+      "summary": "Copilot code review can auto-resolve addressed comments and use shell tools plus Lite-effort agent ensembles for deeper analysis.",
+      "takeaway": "动作: Record closed/open thread diffs after fix commits, then keep final acceptance tied to tests, rulesets, and human review."
     },
     {
       "title": "GitHub Copilot weekly releases - September 7",
@@ -42,20 +42,20 @@
       "url": "https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7",
       "category": ["hot", "workflow", "mobile", "tools"],
       "score": "HIGH",
-      "tag": "Product Loop",
-      "summary": "The weekly bundle connects Jira-to-canvas work intake, HydraFusion adaptive model orchestration, VS Code recurring agent tasks, voice mode, and JetBrains sandbox controls.",
-      "takeaway": "动作: Write an end-to-end task capsule from requirement source to PR review, with policy and evidence boundaries."
+      "tag": "Agent Loop",
+      "summary": "Jira shared canvas, HydraFusion routing, VS Code recurring agent tasks, voice mode, and JetBrains sandbox policy form an end-to-end agent operations loop.",
+      "takeaway": "动作: Write task capsules from requirement source to PR review, including model routing, permission policy, and completion evidence."
     },
     {
-      "title": "ChatGPT and Codex changelog - September 2026",
-      "author": "OpenAI Developers",
-      "source": "official-docs",
-      "url": "https://learn.chatgpt.com/docs/changelog#september-2026",
-      "category": ["workflow", "mobile", "tools"],
+      "title": "GitHub Copilot CLI 1.0.84-5 prerelease",
+      "author": "GitHub / copilot-cli-release-app[bot]",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-5",
+      "category": ["hot", "workflow", "knowledge", "tools"],
       "score": "HIGH",
-      "tag": "Desktop Control",
-      "summary": "September ChatGPT/Codex desktop updates include quick chats, Pets, Appshots for Windows, command confirmation fixes, and workspace permission notes.",
-      "takeaway": "动作: Treat quick chat, voice, and Appshots as control-plane inputs while Mac/Codex remains the evidence plane."
+      "tag": "CLI Smoke",
+      "summary": "The prerelease adds semantic JSONL session and memory import, grammar-generated completions, absolute sandbox paths, resource trust details, per-model usage, and subagent preference fixes.",
+      "takeaway": "动作: Update smoke tests for import, parsing, sandbox denials, trust metadata, usage breakdowns, and explicit subagent preference inheritance."
     },
     {
       "title": "Rethinking skills and prompts for GPT-6 Astra",
@@ -65,147 +65,147 @@
       "category": ["hot", "workflow", "knowledge", "tools"],
       "score": "HIGH",
       "tag": "Skill Slimming",
-      "summary": "Frontier agents like GPT-6 Astra benefit from leaner prompts and skills centered on context, boundaries, validation, and high-signal examples rather than encyclopedic instructions.",
-      "takeaway": "动作: Run a context slimming audit across AGENTS.md and skills, measuring quality and rework after each reduction."
+      "summary": "Frontier agents benefit from leaner prompts and skills centered on boundaries, validation, context, and high-signal examples rather than encyclopedic instructions.",
+      "takeaway": "动作: Run a skill slimming audit that removes duplicate background while preserving safety boundaries, validation commands, and examples."
     },
     {
-      "title": "Data plugin for ChatGPT Work and Codex",
-      "author": "OpenAI Product Release Notes",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": ["workflow", "knowledge", "tools", "accounts"],
-      "score": "HIGH",
-      "tag": "Data Boundary",
-      "summary": "The Data plugin gives ChatGPT Work and Codex a product-level way to access organizational data, increasing the need for clear query, permission, and publication boundaries.",
-      "takeaway": "动作: Define a read-only query allowlist, redaction rules, private-result boundary, and public-summary-only contract."
-    },
-    {
-      "title": "Agents API public beta",
-      "author": "OpenAI Product Release Notes",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": ["hot", "workflow", "tools"],
-      "score": "HIGH",
-      "tag": "Agents API",
-      "summary": "OpenAI release notes list Agents API public beta, indicating that agent runtime primitives are moving into mainstream API surfaces.",
-      "takeaway": "动作: Add an Agents API gate for schema, tool calls, permission failures, tracing, streaming, and Node/Python parity."
-    },
-    {
-      "title": "GPT-Live 1 generally available",
-      "author": "OpenAI Product Release Notes",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": ["hot", "workflow", "mobile", "tools"],
-      "score": "HIGH",
-      "tag": "Realtime",
-      "summary": "GPT-Live 1 GA makes realtime and voice-like workflows more production-like, raising the bar for interruption, cancellation, stream cleanup, and evidence handling.",
-      "takeaway": "动作: Smoke-test connect, interrupt, cancel, cleanup, unsuccessful responses, and local-only evidence boundaries."
-    },
-    {
-      "title": "API key expiration controls",
-      "author": "OpenAI Product Release Notes",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": ["workflow", "knowledge", "accounts", "tools"],
-      "score": "HIGH",
-      "tag": "Credential Gate",
-      "summary": "API key expiration controls move long-running automations away from permanent-token assumptions and toward explicit credential lifecycle management.",
-      "takeaway": "动作: Attach credential receipts to automations with owner, scope, expiration, rotation reminder, fallback behavior, and no-secret logs."
-    },
-    {
-      "title": "OpenAI Codex 0.154.0 stable release",
-      "author": "OpenAI / GitHub Actions",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0",
-      "category": ["workflow", "mobile", "tools"],
-      "score": "HIGH",
-      "tag": "Codex Stable",
-      "summary": "Codex 0.154.0 adds GPT-6 Astra picker support, experimental worktrees, inline answers while work continues, Windows background server support, copy improvements, and permission preservation fixes.",
-      "takeaway": "动作: Test worktree and inline-answer flows in an isolated lane before changing default team workflows."
-    },
-    {
-      "title": "GitHub Copilot CLI 1.0.84-5 prerelease",
-      "author": "GitHub / copilot-cli-release-app[bot]",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-5",
-      "category": ["workflow", "knowledge", "tools", "accounts"],
-      "score": "MED",
-      "tag": "CLI Smoke",
-      "summary": "The prerelease adds semantic JSONL session and memory import, grammar-generated shell completions, absolute sandbox paths, resource trust details, and per-model AI credit breakdowns.",
-      "takeaway": "动作: Update CLI smoke tests for JSONL import, completions, sandbox paths, trust metadata, usage breakdowns, and parsing changes."
-    },
-    {
-      "title": "Automating repetitive work at OpenAI with Codex, Runme, and WebMCP",
-      "author": "OpenAI Developers / Jacob Lee",
-      "source": "official-blog",
-      "url": "https://developers.openai.com/blog/automating-repetitive-work-at-openai-with-codex",
+      "title": "Refreshed repository pull requests page in public preview",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-refreshed-repository-pull-requests-page-in-public-preview",
       "category": ["workflow", "knowledge", "tools"],
       "score": "MED",
-      "tag": "Repeatable Work",
-      "summary": "The case study shows notebook-style Runme workflows and WebMCP browser control turning repetitive visual update work into repeatable Codex-assisted procedures.",
-      "takeaway": "动作: For UI-assisted automation, preserve observe, declare, execute, read back, validate, and local-only screenshot boundaries."
+      "tag": "PR Queue",
+      "summary": "The refreshed PR page adds stronger filtering, compact view, status counts, and unread indicators that can help triage agent-generated pull requests.",
+      "takeaway": "动作: Use it as a human queue, but keep final acceptance tied to diff, tests, rulesets, review state, and merge policy."
+    },
+    {
+      "title": "AI Scan for pull request APIs in public preview",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-ai-scan-for-pull-request-apis-in-public-preview",
+      "category": ["workflow", "knowledge", "tools", "accounts"],
+      "score": "MED",
+      "tag": "PR Security",
+      "summary": "AI Scan pull request enablement can be managed with REST APIs at organization and repository levels, making security gates scriptable.",
+      "takeaway": "动作: Add org/repo AI Scan policy checks to agent PR setup receipts and record fallback behavior when unavailable."
+    },
+    {
+      "title": "Control GitHub Actions cache access with cache-mode",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode",
+      "category": ["workflow", "knowledge", "tools"],
+      "score": "MED",
+      "tag": "CI Cache",
+      "summary": "cache-mode applies least-privilege access to GitHub Actions cache at workflow or job level, reducing supply-chain risk in automated PR flows.",
+      "takeaway": "动作: Classify jobs as read, write, write-only, or none and require annotation for low-trust write access."
+    },
+    {
+      "title": "MAI-Code-1-Flash deprecated",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-mai-code-1-flash-deprecated",
+      "category": ["workflow", "knowledge", "tools"],
+      "score": "MED",
+      "tag": "Model Migration",
+      "summary": "MAI-Code-1-Flash deprecation across Copilot surfaces highlights the need for explicit model migration ledgers in agent workflows.",
+      "takeaway": "动作: Scan configs and instructions for deprecated model names, choose alternatives, and run representative regression tasks."
+    },
+    {
+      "title": "GitHub Copilot CLI 1.0.84-4 prerelease",
+      "author": "GitHub / copilot-cli-release-app[bot]",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-4",
+      "category": ["workflow", "knowledge", "tools"],
+      "score": "HIGH",
+      "tag": "CLI Migration",
+      "summary": "The prerelease splits plugin, MCP, skill, instruction, and LSP commands and changes JSON output shape, which can break old automation scripts.",
+      "takeaway": "动作: Update scripts that expect cross-kind plugin output or a top-level .plugins object."
+    },
+    {
+      "title": "OpenAI Codex 0.155.0-alpha.3.10 prerelease",
+      "author": "OpenAI / GitHub Actions",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.3.10",
+      "category": ["workflow", "mobile", "tools"],
+      "score": "MED",
+      "tag": "Codex Alpha",
+      "summary": "Codex 0.155 alpha releases continued on September 11, showing active experimentation even though public release body details are minimal.",
+      "takeaway": "动作: Keep alpha builds in an isolated lane and require behavior, permission, and rollback verification before default adoption."
+    },
+    {
+      "title": "Xcode 27 runner image now runs on macOS 27",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-10-xcode-27-runner-image-now-runs-on-macos-27",
+      "category": ["mobile", "workflow", "tools"],
+      "score": "MED",
+      "tag": "Apple CI",
+      "summary": "The Xcode 27 runner image on macOS 27 opens a new public-preview CI lane for Apple platform validation.",
+      "takeaway": "动作: Add it to an isolated Apple-lane matrix before requiring it for agent-generated iOS or macOS changes."
     }
   ],
   "knowledge": [
     {
-      "title": "VS Code Agents Adoption Receipt",
-      "label": "AGENT ADOPTION",
-      "body": "把 Copilot usage metrics 中 VS Code Agents window 的活跃人数、session 和 message 口径单独成账。",
-      "summary": "agent 采纳度要按入口拆账。",
+      "title": "Agent Adoption Receipt v2",
+      "label": "AGENT OPS",
+      "body": "把 agent 采纳度按入口、权限、时间窗口和字段状态拆账。",
+      "summary": "agent 使用量要按入口和口径拆开。",
       "steps": [
-        "分别拉取 enterprise/org aggregate 与 user-level 1-day/28-day 报表。",
-        "标注 daily_active_vscode_agent_users、used_vscode_agent、totals_by_vscode_agent 是否存在、为空或不可用。",
-        "把 VS Code Agents window、editor Agent Mode 和 generic Copilot usage rollup 分开展示。"
+        "分开记录 VS Code Agents window、editor Agent Mode、CLI、ChatGPT Work、Codex desktop。",
+        "对每个入口标注 active users、sessions、messages、user-level indicator、1-day/28-day window。",
+        "把 optional/null、policy disabled、permission missing、zero usage 四种状态分开。"
       ],
-      "risk": "把 optional/null 当 0 会误判采纳度；把多个入口混算会误导投入决策。"
+      "risk": "指标口径混算会把 adoption、engagement 和 availability 混成一个错结论。"
     },
     {
-      "title": "Copilot Review Closure Gate",
+      "title": "Review Closure Gate v2",
       "label": "PR REVIEW",
-      "body": "Copilot code review 自动关闭已处理评论后，用一张复审小票记录 closed/open thread 差异。",
-      "summary": "自动关闭评论后仍要复审证据。",
+      "body": "自动关闭评论后，用复审闸门确认工具判断已处理和团队接受完成之间的差距。",
+      "summary": "评论关掉后仍要看复审证据。",
       "steps": [
-        "在修复 commit 前保存 Copilot review comments 清单和对应文件行。",
-        "推送修复后读取自动关闭的评论、仍 open 的评论和 Copilot rereview 结论。",
-        "对自动生成 commit message 的 autofix 记录 diff、测试和人工接受/拒绝状态。"
+        "fix commit 前保存 open Copilot comments、文件行、严重级别和建议动作。",
+        "fix commit 后读取 auto-resolved、still-open、newly-created 三类 thread。",
+        "记录 shell tools、测试、ruleset、reviewer acceptance 和 Lite ensemble 误报。"
       ],
-      "risk": "自动关闭只说明 Copilot 判断评论已处理，不代表最终合并或人工验收完成。"
+      "risk": "自动关闭可以降低噪音，也可能让团队忽略未被工具识别的边界问题。"
     },
     {
-      "title": "Recurring Agent Task Capsule",
-      "label": "AUTOMATION",
-      "body": "将 recurring agent task 写成可复跑任务胶囊，固定触发频率、输入、权限、输出和完成证据。",
-      "summary": "排班表不是完工单。",
+      "title": "CLI Sandbox Smoke Matrix",
+      "label": "CLI UPGRADE",
+      "body": "针对 CLI sandbox、MCP、plugins、skills 和 resource trust 做最小烟测矩阵。",
+      "summary": "CLI 升级要先跑沙箱和命令形状小测。",
       "steps": [
-        "记录触发入口、运行设备、读写边界、成功证据和停止条件。",
-        "明确任务是否只提醒、只监控、生成草稿、提交 PR 或发布生产。",
-        "每次运行写入本地 memory，避免重复采集或把旧状态当新状态。"
+        "固定 CLI 版本、release 链接、OS、shell、工作目录和 sandbox policy。",
+        "覆盖 read-only write denial、network denial、absolute path display、EPERM/EACCES escalation hint。",
+        "覆盖 plugin、mcp、skill、instruction、lsp 列表命令及 JSON shape。"
       ],
-      "risk": "定时启动不等于任务完成并验证，必须看目标日期产物和发布链路。"
+      "risk": "CLI 帮助文字和 JSON shape 变化会让旧脚本静默读错。"
     },
     {
-      "title": "Data Plugin Permission Contract",
-      "label": "DATA BOUNDARY",
-      "body": "ChatGPT Work/Codex 读取企业数据前，先建立只读查询、数据脱敏和公开输出边界。",
-      "summary": "资料柜钥匙不等于公告栏授权。",
+      "title": "Skill/Memory Import Contract",
+      "label": "CONTEXT MIGRATION",
+      "body": "semantic JSONL session/memory import 需要来源、范围、隐私和回滚契约。",
+      "summary": "搬记忆前先给箱子贴标签。",
       "steps": [
-        "固定数据源、查询权限、字段白名单和禁止外发字段。",
-        "将 private query result 与 public summary 分层保存，公开网站只写脱敏结论和公开来源。",
-        "对每次查询保留 who/when/source/query-purpose receipt，不保存凭证。"
+        "标注导入来源、生成日期、授权范围、是否含私有路径/凭证/截图/账号状态。",
+        "导入前做 dry-run 或小样本验证，确认不会污染当前项目记忆。",
+        "导入后检查检索命中、重复条目、过期事实和可删除路径。"
       ],
-      "risk": "数据插件让读取更方便，也更容易把非公开事实误带入公开日报。"
+      "risk": "记忆迁移一旦混入私有状态，会在后续自动化里被误当事实。"
     },
     {
-      "title": "Skill Context Slimming Audit",
-      "label": "SKILL GOVERNANCE",
-      "body": "面向 GPT-6 Astra 的技能/提示瘦身检查，把长百科式说明改成边界、验收、例外和高信号示例。",
-      "summary": "给高手留边界和验收，而不是厚说明书。",
+      "title": "Model/Tool Migration Ledger",
+      "label": "TOOL GOVERNANCE",
+      "body": "对模型弃用、预览模型、CLI 命令迁移和工具命名变化建立台账。",
+      "summary": "模型换岗和工具改名都要留迁移账。",
       "steps": [
-        "标出重复背景、旧模型提示、过细微步骤和会诱导越权的指令。",
-        "保留不可破坏约束、停止条件、验证命令、产物格式和少量真实示例。",
-        "每次删减后跑一个代表任务，比较上下文占用、完成质量和返工率。"
+        "记录 deprecated model、suggested alternative、影响入口和截止日期。",
+        "扫描配置、脚本、AGENTS.md、CI 和自动化中是否引用旧模型或旧命令。",
+        "用代表任务做新旧结果对比，保存质量、成本和失败差异。"
       ],
-      "risk": "只做压缩可能丢失关键边界；瘦身必须以验收结果为准。"
+      "risk": "只替换名称不做回归，会把模型能力差异伪装成配置成功。"
     }
   ]
 }

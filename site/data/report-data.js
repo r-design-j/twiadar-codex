@@ -1,25 +1,133 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-09-15",
-  "updatedAt": "2026-09-15T09:16:15+08:00",
-  "updatedLabel": "2026-09-15 09:16 CST",
-  "conclusion": "今天的核心变化是模型选择、agent API、Codex/CLI 发布与企业治理开始被放到同一张运营表里。GitHub Copilot auto model selection 新增 efficiency、balance、intelligence 三档；Copilot CLI 继续补齐配置、沙箱网络规则、worktree、定时提示、Agent Factory 暂停恢复和 transcript 摘要；OpenAI 的 Agents API、Codex policies audit logs、Admin API group 管理和 Project API key 生命周期则把权限与证据层推到前台。",
+  "date": "2026-09-16",
+  "updatedAt": "2026-09-16T09:34:00+08:00",
+  "updatedLabel": "2026-09-16 09:34 CST",
+  "conclusion": "今天的新信号不是又多一个聊天入口，而是 AI 编程工作流的三层地基继续加厚: 组织治理、运行时上下文、实时/流式稳定性。GitHub Copilot 开始协助 repository custom properties 的 allowed values，Advanced Security configurations 可由企业层强制到组织与仓库管理员，Copilot CLI 1.0.84-9 把 agents/subagents context management tools 放进 /settings，并显式化 scheduled prompt 失败；OpenAI Node/Python SDK 则把 WebSocket、streaming、日志脱敏、错误形态和凭证作用域继续工程化。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-15 的重点是 Model Auto-Selection Policy、Agent API Capability Ledger、CLI Runtime Receipt、Policy/Audit/Key Lifecycle Gate。",
-    "白话说: AI 员工不只是换了新脑子，还开始有排班规则、门禁记录、钥匙保质期和工具箱清单。"
+    "2026-09-16 的重点是 Repository Governance Taxonomy、Agent Context Management Gate、Realtime Stream Resilience Checklist。",
+    "白话说: AI 员工要贴对工牌、带对钥匙、走稳定的对讲频道，不能只靠聪明脑子。"
   ],
   "signals": [
+    {
+      "title": "GitHub Copilot suggests custom properties definitions",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+      "category": [
+        "hot",
+        "workflow",
+        "knowledge",
+        "accounts",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Repo Governance",
+      "summary": "Copilot can suggest allowed values for repository custom properties, helping organizations standardize governance metadata for repositories.",
+      "takeaway": "动作: Build a Repository Governance Taxonomy with properties, allowed values, owners, rulesets, and drift checks."
+    },
+    {
+      "title": "GitHub Copilot CLI 1.0.84-9 prerelease",
+      "author": "GitHub / copilot-cli-release-app[bot]",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-9",
+      "category": [
+        "hot",
+        "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Context Gate",
+      "summary": "The prerelease adds /settings opt-in for context management tools for agents and subagents and fixes scheduled prompt, MCP, IDE bridge, path, cursor, and terminal issues.",
+      "takeaway": "动作: Smoke-test context settings, failure visibility, MCP reload, path expansion, terminal recovery, and retained boundaries."
+    },
+    {
+      "title": "OpenAI Node 7.16.0",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.16.0",
+      "category": [
+        "hot",
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Realtime SDK",
+      "summary": "The Node SDK adds WebSocket iterator event limits and fixes malformed events, buffering, callback credential scope, Live acknowledgments, and WebSocket error formatting.",
+      "takeaway": "动作: Add event-limit, malformed-event, buffering, cancellation, credential-scope, and log-format tests."
+    },
+    {
+      "title": "OpenAI Python 3.14.1",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.14.1",
+      "category": [
+        "hot",
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Python Reliability",
+      "summary": "The Python SDK fixes retry-limit validation, application-error preservation, metadata-only Live WebSocket diagnostics, commentary parsing, and streaming examples.",
+      "takeaway": "动作: Add retry-boundary, stream reuse, metadata-only diagnostics, commentary-output, and async cleanup checks."
+    },
+    {
+      "title": "Enforce GitHub Advanced Security configurations",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
+      "category": [
+        "hot",
+        "workflow",
+        "knowledge",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Security Baseline",
+      "summary": "Enterprise administrators can enforce GitHub Advanced Security configurations across organizations, reducing local override risk.",
+      "takeaway": "动作: Bind security configuration enforcement to repo properties, rulesets, and agent-generated change gates."
+    },
+    {
+      "title": "SHA-1 in HTTPS on GitHub sunset",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset",
+      "category": [
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Trust Chain",
+      "summary": "GitHub disabled SHA-1 in HTTPS for github.com and partner CDNs, which can expose outdated clients, proxies, and automation environments.",
+      "takeaway": "动作: Add TLS and certificate-chain checks to CLI, CI, SDK, and enterprise proxy smoke tests."
+    },
+    {
+      "title": "OpenAI Codex 0.155.0-alpha.8 prerelease",
+      "author": "OpenAI / GitHub Actions",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.8",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Codex Alpha",
+      "summary": "Codex 0.155.0-alpha.8 was published with many assets and digests, but the public release body remains minimal.",
+      "takeaway": "动作: Track tag, asset digest, prerelease status, and smoke evidence before promoting any alpha build."
+    },
     {
       "title": "Configure cost and quality in Copilot auto model selection",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
       "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
       "category": [
-        "hot",
         "workflow",
         "knowledge",
         "tools",
@@ -27,85 +135,8 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Model Routing",
-      "summary": "Copilot auto model selection now has efficiency, balance, and intelligence tiers for cost, quality, and response-time tradeoffs.",
-      "takeaway": "动作: Record tier, actual selected model, usage, latency, quality result, and rework rate."
-    },
-    {
-      "title": "GPT-6 Astra: OpenAI's next-generation model for work",
-      "author": "OpenAI",
-      "source": "official-announcement",
-      "url": "https://openai.com/index/gpt-6-astra-next-generation-work/",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Astra Work",
-      "summary": "OpenAI positions GPT-6 Astra for coding, agentic work, long-running work, and enterprise controls.",
-      "takeaway": "动作: Use Astra for high-value decision and acceptance lanes while keeping execution constrained by task capsules."
-    },
-    {
-      "title": "GitHub Copilot CLI 1.0.84-8 prerelease",
-      "author": "GitHub / copilot-cli-release-app[bot]",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-8",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "CLI UX",
-      "summary": "The prerelease adds concise transcript grouping, Agent Factory pause/resume, and model-list refresh fixes after account changes.",
-      "takeaway": "动作: Add transcript expandability, paused factory state, and account-switch model refresh to CLI smoke checks."
-    },
-    {
-      "title": "GitHub Copilot CLI 1.0.84-6 prerelease",
-      "author": "GitHub / copilot-cli-release-app[bot]",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.84-6",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Sandbox",
-      "summary": "The prerelease adds /config, sandbox host allow/deny rules, managed Edit/Write handling, scheduled prompt footer visibility, and non-experimental worktree commands.",
-      "takeaway": "动作: Smoke-test config, network allow/deny, managed write denial, scheduled prompts footer, and /worktree."
-    },
-    {
-      "title": "Introducing the Agents API",
-      "author": "OpenAI",
-      "source": "official-blog",
-      "url": "https://openai.com/index/introducing-the-agents-api/",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Agents API",
-      "summary": "OpenAI presents Agents API as a programmable path combining Research, Code Interpreter, MCP, image generation, file search, and Codex harness capabilities.",
-      "takeaway": "动作: Build an Agent API Capability Ledger across tools, permissions, cost, output proof, and rollback."
-    },
-    {
-      "title": "OpenAI Codex 0.155.0-alpha.5 prerelease",
-      "author": "OpenAI / GitHub Actions",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.5",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Codex Alpha",
-      "summary": "Codex 0.155.0-alpha.5 was published on 2026-09-15 with multi-platform assets, but the public release body remains minimal.",
-      "takeaway": "动作: Track alpha builds separately and require smoke, permission, and rollback evidence before default adoption."
+      "summary": "Copilot auto model selection has efficiency, balance, and intelligence tiers while still choosing the actual model per prompt.",
+      "takeaway": "动作: Record selected tier, actual model, usage, latency, quality result, and rework rate by task class."
     },
     {
       "title": "About Copilot auto model selection",
@@ -120,147 +151,115 @@ window.AI_RADAR_REPORT = {
       ],
       "score": "HIGH",
       "tag": "Model Contract",
-      "summary": "The docs clarify that auto evaluates each prompt and can select smaller models for simple tasks even under quality-oriented preferences.",
-      "takeaway": "动作: Treat tier as policy preference, not model identity; log actual model and compare similar task classes."
+      "summary": "The docs clarify that auto model selection evaluates prompts individually and can choose smaller models for simple work even under quality-oriented preferences.",
+      "takeaway": "动作: Treat tier as policy preference, not model identity; keep high-value acceptance independent from routing."
     },
     {
-      "title": "OpenAI release notes: Codex policies appear in audit logs",
+      "title": "Introducing the Agents API",
       "author": "OpenAI",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": [
-        "workflow",
-        "knowledge",
-        "accounts"
-      ],
-      "score": "MED",
-      "tag": "Audit Logs",
-      "summary": "Codex policy events appearing in audit logs moves Codex governance from local convention toward enterprise traceability.",
-      "takeaway": "动作: Add policy version and audit-log availability to recurring Codex automation receipts."
-    },
-    {
-      "title": "OpenAI release notes: Admin API group management",
-      "author": "OpenAI",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": [
-        "workflow",
-        "knowledge",
-        "accounts"
-      ],
-      "score": "MED",
-      "tag": "Groups",
-      "summary": "Admin API group creation, update, and deletion lets organizations manage AI access through group structure.",
-      "takeaway": "动作: Record group membership source, intended permission, drift checks, and rollback owner."
-    },
-    {
-      "title": "OpenAI release notes: Project API key lifecycle controls",
-      "author": "OpenAI",
-      "source": "official-release-notes",
-      "url": "https://openai.com/products/release-notes/",
-      "category": [
-        "workflow",
-        "knowledge",
-        "accounts",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Key Lifecycle",
-      "summary": "Project API keys with expiration and maximum lifetime reduce the risk of permanent credentials in automated agent workflows.",
-      "takeaway": "动作: Use short-lived project keys for experiments and record expiration, owner, rotation plan, and affected automations."
-    },
-    {
-      "title": "Add VS Code Agents to Copilot usage metrics",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools",
-        "accounts"
-      ],
-      "score": "HIGH",
-      "tag": "Agent Metrics",
-      "summary": "Dedicated VS Code Agents-window metrics remain a necessary adoption receipt as model routing and CLI usage become more automatic.",
-      "takeaway": "动作: Keep adoption receipts separate by entry point, account policy, and optional/null data status."
-    },
-    {
-      "title": "Auto-resolution and analysis updates in Copilot code review",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
+      "source": "official-blog",
+      "url": "https://openai.com/index/introducing-the-agents-api/",
       "category": [
         "workflow",
         "knowledge",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Review Gate",
-      "summary": "Copilot code review auto-resolution and shell-tool analysis remain key context for judging whether agent-generated changes are truly ready.",
-      "takeaway": "动作: Keep review closure separate from tests, rulesets, reviewer acceptance, and merge approval."
+      "tag": "Agents API",
+      "summary": "OpenAI presents Agents API as a programmable path combining Research, Code Interpreter, MCP, image generation, file search, and Codex harness capabilities.",
+      "takeaway": "动作: Maintain an Agent API Capability Ledger for tools, permissions, data boundaries, cost, proof, and rollback."
+    },
+    {
+      "title": "Agents API overview",
+      "author": "OpenAI Developers",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+      "category": [
+        "workflow",
+        "knowledge",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Agent Architecture",
+      "summary": "The overview frames agents as model-plus-tools systems for multi-step work, making tools, sessions, and safety design part of the contract.",
+      "takeaway": "动作: Freeze tools, data retention, session boundaries, and validation evidence before production wiring."
+    },
+    {
+      "title": "OpenAI release notes",
+      "author": "OpenAI",
+      "source": "official-release-notes",
+      "url": "https://openai.com/products/release-notes/",
+      "category": [
+        "workflow",
+        "knowledge",
+        "accounts"
+      ],
+      "score": "MED",
+      "tag": "Governance Signals",
+      "summary": "Recent release-note signals around Codex policies, audit logs, Admin API groups, and API key lifecycle controls remain important governance context.",
+      "takeaway": "动作: Keep policy version, audit-log availability, group membership source, key expiration, and rotation plan in receipts."
     }
   ],
   "knowledge": [
     {
-      "title": "Model Auto-Selection Policy",
-      "label": "MODEL ROUTING",
-      "body": "把自动选模型从相信平台改成有目标、有记录、有复盘的策略。",
-      "summary": "自动选模型要记录偏好和真实结果。",
+      "title": "Repository Governance Taxonomy",
+      "label": "REPO GOVERNANCE",
+      "body": "把仓库 custom properties 变成可执行治理标签，而不是随手填的备注字段。",
+      "summary": "仓库标签要绑定规则和审查。",
       "steps": [
-        "为任务标注 preferred tier: efficiency、balance 或 intelligence。",
-        "记录实际被选模型、用量、延迟、任务结果和返工次数。",
-        "对高价值任务保留人工验收和固定关键检查。"
+        "固定属性名: 数据等级、面向外网、合规域、owner 队列、agent-writable、public-output。",
+        "为每个属性定义 allowed values，并记录谁能修改。",
+        "将属性绑定到 rulesets、security configurations、审查队列和 agent 任务路由。"
       ],
-      "risk": "tier 看起来像质量承诺，但实际模型仍会按 prompt 动态选择。"
+      "risk": "标签如果不绑定规则，只会变成好看的表格。"
     },
     {
-      "title": "Agent API Capability Ledger",
-      "label": "AGENTS API",
-      "body": "把 agent 可用能力按工具、权限、输入数据、输出证据和回滚方式逐项登记。",
-      "summary": "agent 工具箱越大，越要登记边界。",
+      "title": "Agent Context Management Gate",
+      "label": "CLI CONTEXT",
+      "body": "agent/subagent 的上下文管理必须经过显式开关、样例回归和边界检查。",
+      "summary": "上下文裁剪要验是否丢边界。",
       "steps": [
-        "列出 Research、Code Interpreter、MCP、Image generation、File search、Codex harness 等能力。",
-        "对每项标注是否读取私有数据、是否写外部系统、是否会产生成本。",
-        "把公开输出和私有过程证据分层保存。"
+        "记录 CLI 版本、/settings 开关、适用 agent/subagent 和任务类型。",
+        "准备包含权限边界、停止条件、验收命令和用户偏好的长任务样例。",
+        "分别运行开启/关闭 context management 的结果，对比是否丢失关键约束。"
       ],
-      "risk": "能力组合越顺手，越容易把数据边界和完成证据混在一起。"
+      "risk": "只追求少上下文，可能把最重要的安全线和验收线剪掉。"
     },
     {
-      "title": "CLI Runtime Receipt",
-      "label": "CLI UPGRADE",
-      "body": "CLI 升级后用一张小票确认配置、沙箱、worktree、定时任务和 transcript 行为。",
-      "summary": "CLI 升级要验控制面板和门禁。",
+      "title": "Realtime Stream Resilience Checklist",
+      "label": "REALTIME AGENTS",
+      "body": "Live/WebSocket agent 要把事件上限、坏事件、取消、日志和凭证隔离放进升级验收。",
+      "summary": "实时 agent 要验坏网络和坏消息。",
       "steps": [
-        "固定 CLI 版本、OS、shell、账号状态和工作目录。",
-        "检查 /config、sandbox host allow/deny、managed Edit/Write、/worktree、scheduled prompts footer。",
-        "跑 read-only、预期写入拦截、网络 deny 和 transcript 展开。"
+        "为每个 iterator 设置最大事件数或超时，并验证超限行为。",
+        "注入 malformed event、半包、重复 acknowledgment、空 payload 和中途取消。",
+        "确认 diagnostics 只记录 metadata，并验证 credentials 作用域互相隔离。"
       ],
-      "risk": "CLI prerelease 变化快，只有 smoke pass 不能替代生产验证。"
+      "risk": "demo 能跑不代表长会话、坏网络和多租户场景能安全运行。"
     },
     {
-      "title": "Policy/Audit/Key Lifecycle Gate",
-      "label": "AGENT OPS",
-      "body": "自动化运行前确认策略、审计和密钥生命周期三件事都可追溯。",
-      "summary": "AI 自动化要有门禁、日志和钥匙保质期。",
+      "title": "Scheduled Prompt Failure Receipt",
+      "label": "RECURRING TASKS",
+      "body": "定时 prompt 失败时必须产生可见错误、失败原因和下一步动作。",
+      "summary": "定时任务失败必须显式留小票。",
       "steps": [
-        "记录适用的 Codex policies 或组织策略版本。",
-        "确认策略变更可进入 audit logs。",
-        "使用带到期时间和最大生命周期的 Project API key。"
+        "每次定时任务记录触发时间、输入版本、运行设备和目标产物。",
+        "失败时保存错误类型: 权限、网络、工具加载、数据不可达、验证失败或发布失败。",
+        "重跑前检查是否会重复发布或覆盖当天成果。"
       ],
-      "risk": "没有生命周期的密钥和没有审计的策略，都会让自动化长期漂移。"
+      "risk": "沉默失败比显式失败更危险，因为用户会误以为自动化仍在工作。"
     },
     {
-      "title": "Agent Factory Pause Resume Log",
-      "label": "BATCH AGENTS",
-      "body": "批量 agent 运行支持暂停/恢复后，必须记录中断原因和恢复状态。",
-      "summary": "暂停后的批量任务不能直接盲目续跑。",
+      "title": "Artifact Integrity Lane",
+      "label": "CLI RELEASE WATCH",
+      "body": "对 alpha/prerelease CLI 或 Codex 资产先检查版本、digest 和来源，再谈行为验证。",
+      "summary": "新版本先验来源和 digest。",
       "steps": [
-        "每次批量运行记录 run id、任务列表、已完成数和剩余数。",
-        "暂停时写明原因: 费用、权限、失败、用户转向或外部阻塞。",
-        "恢复前重新检查输入是否过期、权限是否变化、是否有重复输出。"
+        "记录 tag、published_at、prerelease/stable、asset names、digest 和下载入口。",
+        "release body 过薄时，不推断功能；只标为版本线观察。",
+        "隔离环境安装后跑 version、help、read-only、expected denial 和 rollback smoke。"
       ],
-      "risk": "暂停后直接恢复，可能用旧输入继续生产新结果。"
+      "risk": "只看到新版本号就升级，会把未知 alpha 行为带进生产自动化。"
     }
   ]
 };

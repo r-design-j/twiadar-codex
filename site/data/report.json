@@ -1,266 +1,268 @@
 {
-  "date": "2026-09-17",
-  "updatedAt": "2026-09-17T09:32:00+08:00",
-  "updatedLabel": "2026-09-17 09:32 CST",
-  "conclusion": "今天的主线是 AI 工作流从“能不能干活”继续转向“谁能授权、谁付钱、谁能继承指令、坏会话怎么恢复、长上下文怎么留证据”。GitHub 把企业 SSO 凭证授权、SCIM 身份映射、Copilot 预算申请和 AI Scan 覆盖面继续产品化；Copilot CLI 把自定义 agent 指令继承、插件/技能恢复、sandbox 网络状态、损坏 transcript 恢复和 Autopilot 停止边界推到前台；OpenAI Node SDK 则开始暴露 compaction progress events 和 abort reasons。结论: 未来几周值得补的不是更多 prompt 模板，而是授权小票、预算队列、指令继承合同、安全覆盖口径和长上下文遥测。",
+  "date": "2026-09-18",
+  "updatedAt": "2026-09-18T09:03:00+08:00",
+  "updatedLabel": "2026-09-18 09:03 CST",
+  "conclusion": "今天的主线是 AI 工作流进入“可度量、可白名单、可恢复、可跨运行时验收”的运营阶段。GitHub 把 Copilot feature engagement、agentic CLI 自定义项、Actions 执行保护和 Ubuntu runner 迁移都推成管理面信号；OpenAI 把 Codex 0.155.0 稳定版、Node/Python 受管 Responses 会话、prompt-cache prewarming 和会话设置往前推进；Claude Code 则在账号确认、插件同步、遥测告警、恢复和完整性校验上给出同类对照。结论: 今天该补的不是更多玩法列表，而是采用率账本、自定义项使用小票、Workflow 白名单、稳定版升级小票和 SDK 会话合同。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-17 的重点是 Enterprise Credential Delegation Receipt、AI Budget Escalation Queue、Instruction Inheritance Contract、AI Scan Coverage Gate、Compaction Progress Telemetry。",
-    "白话说: AI 同事越来越像正式员工，工牌、报销、岗位说明书、安全巡检和长会话行车记录仪都要齐。"
+    "2026-09-18 的重点是 Feature Engagement Ledger、Agentic Customization Usage Ledger、Workflow Execution Protection Gate、Stable Codex Upgrade Receipt、Managed Responses Session Contract。",
+    "白话说: AI 团队现在不只要会干活，还要交考勤表、工具使用清单、门禁白名单、升级验收单和行车记录仪。"
   ],
   "signals": [
     {
-      "title": "Automate SSO authorization for classic PATs and SSH keys",
+      "title": "Copilot impact dashboard now shows feature engagement",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys",
+      "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "category": [
         "hot",
-        "workflow",
-        "accounts",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "SSO Delegation",
-      "summary": "Enterprise admins can authorize existing classic PATs and verified SSH keys for up to 50 SSO-protected organizations through an enterprise-installed GitHub App.",
-      "takeaway": "动作: Record app permission, credential identifier, target orgs, skipped orgs, token lifetime, and audit owner."
-    },
-    {
-      "title": "Copilot budget increase requests are generally available",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
-      "category": [
-        "hot",
-        "workflow",
-        "accounts"
-      ],
-      "score": "HIGH",
-      "tag": "AI Budget",
-      "summary": "Copilot users who exhaust AI credits can request more budget, routed to the organization or enterprise account that pays for usage-based billing.",
-      "takeaway": "动作: Add budget requests to the same approval ledger as model routing, task value, and post-approval usage review."
-    },
-    {
-      "title": "Code scanning AI Scan no longer requires CodeQL default setup",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "AI Scan",
-      "summary": "AI Scan for pull requests can run on eligible repositories without CodeQL default setup, if code scanning and AI Scan are enabled at the proper level.",
-      "takeaway": "动作: Rebuild coverage reports around AI Scan eligibility and enablement, not only CodeQL default setup."
-    },
-    {
-      "title": "GitHub Copilot CLI 1.0.86-1 prerelease",
-      "author": "GitHub / copilot-cli-release-app[bot]",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.86-1",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Instructions",
-      "summary": "Custom agents can opt into repository instruction files, and resume reload behavior preserves marketplace plugins and skills after recoverable config issues.",
-      "takeaway": "动作: Test instruction inheritance, plugin persistence, sandbox local-network status, and background shell waiting states."
-    },
-    {
-      "title": "OpenAI Node 7.17.0",
-      "author": "OpenAI SDKs",
-      "source": "official-release",
-      "url": "https://github.com/openai/openai-node/releases/tag/v7.17.0",
-      "category": [
-        "hot",
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Compaction",
-      "summary": "Node SDK 7.17.0 adds compaction progress events and preserves chat runner abort reasons for more observable long-context runs.",
-      "takeaway": "动作: Surface compaction progress and abort reason in receipts before treating compaction as invisible plumbing."
-    },
-    {
-      "title": "SCIM user responses now include a profileUrl attribute",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute",
-      "category": [
         "workflow",
         "accounts",
         "knowledge"
       ],
-      "score": "MED",
-      "tag": "Identity Map",
-      "summary": "SCIM user responses now include profileUrl when the external identity is linked to a GitHub account.",
-      "takeaway": "动作: Use profileUrl for identity reconciliation and record absent values as unresolved links."
+      "score": "HIGH",
+      "tag": "Feature Engagement",
+      "summary": "Copilot impact dashboard and APIs now show 28-day active-user engagement by feature, including agent edit, code review, cloud agent, CLI, and app usage.",
+      "takeaway": "动作: Build a feature-level adoption ledger instead of relying on total active users."
     },
     {
-      "title": "GitHub Copilot CLI 1.0.85 stable",
-      "author": "GitHub / copilot-cli-release-app[bot]",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.85",
+      "title": "Agentic CLI customizations now in the usage metrics API",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
       "category": [
+        "hot",
         "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Agent Metrics",
+      "summary": "Copilot usage reports now cover skills, custom agents, MCP servers, slash commands, and plugins, with top-five arrays and distinct counts.",
+      "takeaway": "动作: Track adoption by customization type and avoid double-counting plugin usage with skills."
+    },
+    {
+      "title": "Workflow execution protections in GitHub Actions generally available",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
+      "category": [
+        "hot",
+        "workflow",
+        "tools",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Actions Policy",
+      "summary": "Workflow execution protections are GA with actor/event allowlists, workflow-file targeting, insights, REST API control, and pull_request_target secure defaults.",
+      "takeaway": "动作: Put deploy and release workflows through evaluate mode before enforcement."
+    },
+    {
+      "title": "OpenAI Codex 0.155.0 stable",
+      "author": "OpenAI / GitHub Actions",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0",
+      "category": [
+        "hot",
+        "workflow",
+        "mobile",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "CLI Surface",
-      "summary": "Copilot CLI 1.0.85 stabilizes Vim mode, context management settings, concise transcript view, /config, sandbox host rules, and session/memory import.",
-      "takeaway": "动作: Update CLI runtime smoke to include editor, transcript, network host, config, and import/export checks."
+      "tag": "Codex Stable",
+      "summary": "Codex 0.155.0 documents experimental voice, live reasoning summaries, task lifecycle actions, Touch ID MCP verification, daemon updates, and recovery fixes.",
+      "takeaway": "动作: Treat the release as an operator-surface upgrade and run local smoke before adopting."
     },
     {
-      "title": "GitHub Copilot CLI 1.0.86-0 prerelease",
-      "author": "GitHub / copilot-cli-release-app[bot]",
+      "title": "OpenAI Node 7.18.0",
+      "author": "OpenAI SDKs",
       "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.86-0",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.18.0",
+      "category": [
+        "hot",
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Responses WS",
+      "summary": "OpenAI Node 7.18.0 adds managed Responses WebSocket sessions, agent session model settings, prompt-cache prewarming, and WebSocket validation work.",
+      "takeaway": "动作: Add managed session, cache prewarm, and WebSocket lifecycle fields to run receipts."
+    },
+    {
+      "title": "OpenAI Python 3.15.0",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.15.0",
       "category": [
         "workflow",
         "tools",
         "knowledge"
       ],
-      "score": "MED",
-      "tag": "Recovery",
-      "summary": "Copilot CLI 1.0.86-0 improves recovery from corrupted transcripts and prevents Autopilot from continuing after accepted completion.",
-      "takeaway": "动作: Add corrupted transcript and accepted-completion stop cases to long-session tests."
+      "score": "HIGH",
+      "tag": "Python Parity",
+      "summary": "OpenAI Python 3.15.0 aligns with Node on agent session settings, managed Responses WebSocket sessions, prompt-cache prewarming, audio-mini choices, and compaction progress.",
+      "takeaway": "动作: Keep Node and Python agent session fixtures symmetrical."
     },
     {
-      "title": "OpenAI Codex 0.155.0-alpha.14 prerelease",
-      "author": "OpenAI / GitHub Actions",
+      "title": "GitHub Copilot CLI 1.0.86 stable",
+      "author": "GitHub / copilot-cli-release-app[bot]",
       "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.14",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.86",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "CLI Recovery",
+      "summary": "Copilot CLI 1.0.86 stable folds instruction inheritance, plugin and skill preservation, sandbox status, corrupted transcript recovery, and Autopilot stop fixes into stable.",
+      "takeaway": "动作: Upgrade with a receipt that verifies inheritance, resume, sandbox, recovery, and stop behavior."
+    },
+    {
+      "title": "Ubuntu 26 generally available and latest migration",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
       "category": [
         "workflow",
         "tools"
       ],
       "score": "MED",
-      "tag": "Codex Alpha",
-      "summary": "Codex 0.155.0 alpha tags advanced quickly on September 16, but public notes are thin and should not be treated as feature documentation.",
-      "takeaway": "动作: Track tags, digests, prerelease status, and local smoke evidence separately."
+      "tag": "CI Drift",
+      "summary": "Ubuntu 26.04 is GA for Actions runners and ubuntu-latest will migrate from October 19 to November 19, 2026.",
+      "takeaway": "动作: Test critical workflows on ubuntu-26.04 and pin ubuntu-24.04 where needed."
     },
     {
-      "title": "OpenAI Python 3.14.1",
-      "author": "OpenAI SDKs",
+      "title": "Claude Code v2.1.275",
+      "author": "Anthropic / GitHub Releases",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.14.1",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.275",
+      "category": [
+        "workflow",
+        "tools",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "Claude Reliability",
+      "summary": "Claude Code 2.1.275 adds account confirmation, queued-send controls, telemetry warnings, skill/plugin sync, marketplace install flow, secret redaction, resume hardening, and npm integrity verification.",
+      "takeaway": "动作: Use these as cross-tool reliability checks for local agent workflows."
+    },
+    {
+      "title": "Claude Code What's New Week 37",
+      "author": "Anthropic Docs",
+      "source": "official-docs",
+      "url": "https://code.claude.com/docs/en/whats-new/2026-w37",
       "category": [
         "workflow",
         "knowledge",
         "tools"
       ],
-      "score": "HIGH",
-      "tag": "Python SDK",
-      "summary": "Python SDK 3.14.1 keeps reliability work focused on retry validation, application errors, metadata-only diagnostics, and streaming examples.",
-      "takeaway": "动作: Keep retry, diagnostics, stream reuse, commentary, and cleanup checks in upgrade receipts."
+      "score": "MED",
+      "tag": "Plugin Eval",
+      "summary": "Claude Code docs highlight plugin evaluation with test cases, graders, and no-plugin baselines.",
+      "takeaway": "动作: Treat durable workflow plugins as evaluated assets, not just installed shortcuts."
     },
     {
-      "title": "Authorizing credentials for SSO with a GitHub App",
+      "title": "REST API endpoints for Copilot usage metrics",
       "author": "GitHub Docs",
       "source": "official-docs",
-      "url": "https://docs.github.com/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-credentials-for-single-sign-on-with-a-github-app",
+      "url": "https://docs.github.com/en/rest/copilot/copilot-usage-metrics",
       "category": [
-        "workflow",
         "accounts",
+        "knowledge",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Credential API",
-      "summary": "The GitHub Docs page defines the permission, app installation, token, credential identifier, and 50-org constraints for SSO credential authorization.",
-      "takeaway": "动作: Do not pass secrets to the app; use non-secret token IDs or SSH key fingerprints and enterprise installation tokens."
+      "tag": "Metrics API",
+      "summary": "GitHub Docs define daily and 28-day Copilot reports, report dates, signed download links, permission requirements, and historical windows.",
+      "takeaway": "动作: Ingest metrics with date-range, expiry, permission, null/absent, and reconciliation semantics."
     },
     {
-      "title": "AI Scan for pull requests",
+      "title": "Controlling who can execute GitHub Actions workflows",
       "author": "GitHub Docs",
       "source": "official-docs",
-      "url": "https://docs.github.com/code-security/concepts/code-scanning/ai-powered-security-detections",
+      "url": "https://docs.github.com/en/actions/how-tos/administer/control-workflow-execution",
       "category": [
         "workflow",
         "knowledge",
         "tools"
       ],
-      "score": "MED",
-      "tag": "Security Gate",
-      "summary": "AI Scan sits inside the broader code scanning contract, so PR security gates need enablement, alert, SARIF, and merge-rule evidence.",
-      "takeaway": "动作: Add AI Scan status to PR security gates instead of treating it as a separate advisory widget."
+      "score": "HIGH",
+      "tag": "Policy Runbook",
+      "summary": "GitHub Docs explain how to target workflow protections by repository, workflow path, actor, event, and evaluate/enforce status.",
+      "takeaway": "动作: Layer enterprise/org/repo policies and inspect would-block results before enforcement."
     }
   ],
   "knowledge": [
     {
-      "title": "Enterprise Credential Delegation Receipt",
-      "label": "SSO CREDENTIALS",
-      "body": "把企业 SSO 下的 PAT/SSH 授权变成 GitHub App 可审计流程，而不是靠人逐个组织手动点。",
-      "summary": "SSO 凭证授权要留授权小票。",
+      "title": "Feature Engagement Ledger",
+      "label": "COPILOT ADOPTION",
+      "body": "把 Copilot 采用率从“有人用过”细化成“哪些功能在 28 天里被稳定使用”。",
+      "summary": "按功能看真实采用率。",
       "steps": [
-        "确认 enterprise-level SSO、GitHub App 所属企业/组织、enterprise_credentials:write 权限。",
-        "记录非秘密 credential identifier: classic PAT token ID 或 SSH key fingerprint。",
-        "记录 target organizations、skipped organizations、installation token 一小时有效期和操作人。",
-        "轮换 token 或新增组织时重新跑授权，并保留失败组织清单。"
+        "拉取 enterprise/org 28-day aggregate reports。",
+        "分开记录 active users、totals_by_feature、users_in_phase_28d 和 null/absent 字段。",
+        "把 code completion、agent edit、code review、cloud agent、CLI、app 分开看，不混成一个总数。",
+        "对低采用功能关联培训、配置缺口和实际任务类型。"
       ],
-      "risk": "如果把它当成“批量传密钥”，会把自动化便利变成凭证泄露风险。"
+      "risk": "只看总活跃人数，会把“大家都开了”误判成“大家都会用关键功能”。"
     },
     {
-      "title": "AI Budget Escalation Queue",
-      "label": "AI COST OPS",
-      "body": "Copilot 额度追加要像费用申请一样进入队列，而不是谁卡住谁临时加钱。",
-      "summary": "AI 额度申请要绑定任务价值。",
+      "title": "Agentic Customization Usage Ledger",
+      "label": "AGENT CUSTOMIZATION",
+      "body": "把技能、自定义 agent、MCP、slash command、plugin 的使用情况变成可审计的采用证据。",
+      "summary": "自定义项要有使用小票。",
       "steps": [
-        "记录申请人、触发任务、当前额度、请求额度和付费账号。",
-        "审批时写明 approved amount、有效期、拒绝原因或调整原因。",
-        "恢复访问后复盘是否真的完成了高价值任务。",
-        "把异常高频申请和模型路由/任务类型联动分析。"
+        "采集 totals_by_skill、totals_by_custom_agent、totals_by_mcp、totals_by_slash_cmd、totals_by_plugin。",
+        "同时记录 distinct_*_use_count，判断工具品类是否扩散。",
+        "注意 plugin totals 是 skill totals 的子集，禁止简单相加。",
+        "客户自定义名称被隐藏时，把 other/custom 当成隐私保护状态，而不是数据丢失。"
       ],
-      "risk": "只批准额度、不看任务价值，会让 AI 成本变成看不见的漏水。"
+      "risk": "把所有自定义项加总，会重复计算并误导投资判断。"
     },
     {
-      "title": "Instruction Inheritance Contract",
-      "label": "AGENT INSTRUCTIONS",
-      "body": "自定义 agent 继承仓库指令前，要先定义哪些指令会被读、优先级是什么、能不能被恢复会话保留。",
-      "summary": "AGENTS 指令继承要验优先级。",
+      "title": "Workflow Execution Protection Gate",
+      "label": "CI GOVERNANCE",
+      "body": "让能触发自动化的人和事件进入白名单，不让危险 workflow 靠默认权限裸奔。",
+      "summary": "Actions 触发要有超市上架清单。",
       "steps": [
-        "列出 AGENTS.md、copilot-instructions.md、CLAUDE.md 的读取顺序和作用域。",
-        "为 include-custom-instructions 准备一组冲突样例，验证谁覆盖谁。",
-        "恢复会话后检查 marketplace plugins、skills、working directory 和 plugin directory 是否保留。",
-        "记录 sandbox local-network 状态和 background shell waiting 状态。"
+        "按 public/internal/private、deploy/release/CI 分类仓库和 workflow。",
+        "先用 evaluate mode 看哪些运行会被挡。",
+        "为敏感 workflow 设 actor rules、event rules 和 workflow path targeting。",
+        "将 insights、REST API 配置和被阻止运行写入治理记录。"
       ],
-      "risk": "指令继承如果不验优先级，agent 可能听到多套互相冲突的规矩。"
+      "risk": "直接 enforcement 可能阻断正常发布；完全不设规则则会放大 pull_request_target 和手动触发风险。"
     },
     {
-      "title": "AI Scan Coverage Gate",
-      "label": "PR SECURITY",
-      "body": "AI Scan 覆盖率要按 enablement 和 repository eligibility 算，不再只看 CodeQL default setup。",
-      "summary": "AI Scan 覆盖口径要重算。",
+      "title": "Stable Codex Upgrade Receipt",
+      "label": "CODEX UPGRADE",
+      "body": "Codex 稳定版升级不只看版本号，要验操作界面、身份、任务生命周期和恢复能力。",
+      "summary": "稳定版也要跑升级小票。",
       "steps": [
-        "列出 organization-owned、personal、GHAS eligible repositories。",
-        "分别检查 code scanning、AI Scan 和企业/组织/仓库级 enablement。",
-        "把 PR 上的 AI Scan、code scanning alerts、merge protection 和 SARIF 证据放在同一张表。",
-        "对没有 CodeQL default setup 但可运行 AI Scan 的仓库补覆盖标记。"
+        "记录 tag、published_at、release body、关键 feature/fix 和资产来源。",
+        "本地 smoke 覆盖 /voice 开关、reasoning status、task hide/archive/delete、MCP verification。",
+        "重启 daemon 后检查 saved threads、active goals 和 account-switch cache。",
+        "验证失败时保留旧版本路径和回滚条件。"
       ],
-      "risk": "还按旧口径统计，会低估 AI Scan 覆盖，也可能漏掉没启用的仓库。"
+      "risk": "新稳定版可能改变操作者界面和身份边界，只看 CLI 是否启动不够。"
     },
     {
-      "title": "Compaction Progress Telemetry",
-      "label": "LONG CONTEXT",
-      "body": "长上下文压缩不能只说“系统会处理”，要把 compaction progress 和 abort reason 暴露进运行小票。",
-      "summary": "换车前后要有进度和中止原因。",
+      "title": "Managed Responses Session Contract",
+      "label": "SDK SESSIONS",
+      "body": "Managed Responses WebSocket sessions、session model settings 和 prompt-cache prewarming 要作为同一条会话合同验收。",
+      "summary": "SDK 会话要验生命周期。",
       "steps": [
-        "记录 compaction start/progress/end 事件和关联 run id。",
-        "保存 abort reason，而不是只写 canceled 或 failed。",
-        "把压缩前后的关键约束、权限边界、验收命令做摘要对照。",
-        "UI 或日志只展示 metadata，不展示敏感 payload。"
+        "Node 和 Python 都记录 SDK 版本、session model settings、WebSocket start/end/error。",
+        "测试 prompt-cache prewarming 是否真的命中并记录命中证据。",
+        "保留 compaction progress、moderation results、header/default validation 和关闭原因。",
+        "不同语言运行时用同一组 fixture 对齐行为。"
       ],
-      "risk": "没有压缩进度和中止原因，长任务失败时很难判断是上下文丢失、用户取消还是运行时故障。"
+      "risk": "只升级一个 SDK，可能让 Node/Python agent 在会话、缓存和错误处理上分叉。"
     }
   ]
 }

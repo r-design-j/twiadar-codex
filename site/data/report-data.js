@@ -1,87 +1,83 @@
 window.AI_RADAR_REPORT = {
-  "date": "2026-09-18",
-  "updatedAt": "2026-09-18T09:03:00+08:00",
-  "updatedLabel": "2026-09-18 09:03 CST",
-  "conclusion": "今天的主线是 AI 工作流进入“可度量、可白名单、可恢复、可跨运行时验收”的运营阶段。GitHub 把 Copilot feature engagement、agentic CLI 自定义项、Actions 执行保护和 Ubuntu runner 迁移都推成管理面信号；OpenAI 把 Codex 0.155.0 稳定版、Node/Python 受管 Responses 会话、prompt-cache prewarming 和会话设置往前推进；Claude Code 则在账号确认、插件同步、遥测告警、恢复和完整性校验上给出同类对照。结论: 今天该补的不是更多玩法列表，而是采用率账本、自定义项使用小票、Workflow 白名单、稳定版升级小票和 SDK 会话合同。",
+  "date": "2026-09-19",
+  "updatedAt": "2026-09-19T09:00:00+08:00",
+  "updatedLabel": "2026-09-19 09:00 CST",
+  "conclusion": "今天的主线是 AI 工作流从“能跑”继续推进到“评审闭环、模型迁移、发布门禁、Provider 兼容和 Webhook 运营”。GitHub 把 Copilot code review 的进度视图、模型退役、npm stage-only token、覆盖率 ruleset API 放到治理面；OpenAI Codex 0.155.1 修正了 reasoning summaries 默认值与 provider 兼容问题，Node/Python SDK 同步推进 webhook endpoint management；Copilot CLI 与 Claude Code 的新版本则提示长任务要记录 routing default、worktree 位置、代理出口、后台任务和 gateway smoke。结论: 今天最该沉淀的是 Review Progress Receipt、Model Deprecation Migration Board、Stage-Only Publish Gate、Provider Capability Preflight 和 Webhook Endpoint Operations Ledger。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-18 的重点是 Feature Engagement Ledger、Agentic Customization Usage Ledger、Workflow Execution Protection Gate、Stable Codex Upgrade Receipt、Managed Responses Session Contract。",
-    "白话说: AI 团队现在不只要会干活，还要交考勤表、工具使用清单、门禁白名单、升级验收单和行车记录仪。"
+    "2026-09-19 的重点是 Review Progress Receipt、Model Deprecation Migration Board、Stage-Only Publish Gate、Provider Capability Preflight、Webhook Endpoint Operations Ledger。",
+    "白话说: AI 工具不只是更会干活了，现在还要会写验收单、提前换车型、把包先放待审货架、进门先验身份、给 webhook 单独看门。"
   ],
   "signals": [
     {
-      "title": "Copilot impact dashboard now shows feature engagement",
+      "title": "Copilot code review: An improved review experience",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
+      "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "category": [
         "hot",
         "workflow",
-        "accounts",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Feature Engagement",
-      "summary": "Copilot impact dashboard and APIs now show 28-day active-user engagement by feature, including agent edit, code review, cloud agent, CLI, and app usage.",
-      "takeaway": "动作: Build a feature-level adoption ledger instead of relying on total active users."
+      "tag": "Review Progress",
+      "summary": "Copilot code review now groups findings by lifecycle state, improves auto-resolution behavior, and generates commit messages for eligible batch suggestions.",
+      "takeaway": "动作: Build review receipts that separate open, resolved, previously missed, and human-overridden findings."
     },
     {
-      "title": "Agentic CLI customizations now in the usage metrics API",
+      "title": "Upcoming deprecation of selected GitHub Copilot models in mid-October",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
+      "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
       "category": [
         "hot",
         "workflow",
-        "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Agent Metrics",
-      "summary": "Copilot usage reports now cover skills, custom agents, MCP servers, slash commands, and plugins, with top-five arrays and distinct counts.",
-      "takeaway": "动作: Track adoption by customization type and avoid double-counting plugin usage with skills."
-    },
-    {
-      "title": "Workflow execution protections in GitHub Actions generally available",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
-      "category": [
-        "hot",
-        "workflow",
-        "tools",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Actions Policy",
-      "summary": "Workflow execution protections are GA with actor/event allowlists, workflow-file targeting, insights, REST API control, and pull_request_target secure defaults.",
-      "takeaway": "动作: Put deploy and release workflows through evaluate mode before enforcement."
+      "tag": "Model Migration",
+      "summary": "Selected Copilot models retire on 2026-10-19, with suggested replacements such as GPT-5.6 Sol, GPT-5.6 Luna, Gemini 3.8 Flash, and Grok 4.6.",
+      "takeaway": "动作: Inventory prompts, agents, model policies, and fixed test fixtures before the cutoff."
     },
     {
-      "title": "OpenAI Codex 0.155.0 stable",
-      "author": "OpenAI / GitHub Actions",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0",
+      "title": "Stage-only npm tokens for safer automation",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
       "category": [
         "hot",
         "workflow",
-        "mobile",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Stage Publish",
+      "summary": "npm stage-only granular tokens let automation stage a version without direct publish permission; a maintainer later approves with 2FA.",
+      "takeaway": "动作: Replace direct token publishing with staged publishing where trusted publishing is unavailable."
+    },
+    {
+      "title": "OpenAI Codex 0.155.1 stable",
+      "author": "OpenAI / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.1",
+      "category": [
+        "hot",
+        "workflow",
         "tools"
       ],
       "score": "HIGH",
       "tag": "Codex Stable",
-      "summary": "Codex 0.155.0 documents experimental voice, live reasoning summaries, task lifecycle actions, Touch ID MCP verification, daemon updates, and recovery fixes.",
-      "takeaway": "动作: Treat the release as an operator-surface upgrade and run local smoke before adopting."
+      "summary": "Codex 0.155.1 disables reasoning summaries by default for new local TUI sessions to avoid provider rejection while respecting explicit settings.",
+      "takeaway": "动作: Add provider capability preflight before enabling advanced request fields."
     },
     {
-      "title": "OpenAI Node 7.18.0",
+      "title": "OpenAI Node 7.19.0",
       "author": "OpenAI SDKs",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-node/releases/tag/v7.18.0",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.19.0",
       "category": [
         "hot",
         "workflow",
@@ -89,180 +85,180 @@ window.AI_RADAR_REPORT = {
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Responses WS",
-      "summary": "OpenAI Node 7.18.0 adds managed Responses WebSocket sessions, agent session model settings, prompt-cache prewarming, and WebSocket validation work.",
-      "takeaway": "动作: Add managed session, cache prewarm, and WebSocket lifecycle fields to run receipts."
+      "tag": "Webhooks",
+      "summary": "OpenAI Node 7.19.0 adds webhook endpoint management, creating a new SDK-governed operational surface.",
+      "takeaway": "动作: Track endpoint inventory, event allowlists, signing-secret rotation, and delivery checks."
     },
     {
-      "title": "OpenAI Python 3.15.0",
+      "title": "OpenAI Python 3.16.x",
       "author": "OpenAI SDKs",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.15.0",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.16.2",
       "category": [
         "workflow",
         "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Python Parity",
-      "summary": "OpenAI Python 3.15.0 aligns with Node on agent session settings, managed Responses WebSocket sessions, prompt-cache prewarming, audio-mini choices, and compaction progress.",
-      "takeaway": "动作: Keep Node and Python agent session fixtures symmetrical."
+      "tag": "Python Safety",
+      "summary": "OpenAI Python 3.16.x adds webhook management and fixes first-use resource loading plus parse_response memory behavior.",
+      "takeaway": "动作: Test Python agents for webhook behavior, startup footprint, and long-run parsing memory."
     },
     {
-      "title": "GitHub Copilot CLI 1.0.86 stable",
+      "title": "GitHub Copilot CLI 1.0.87-0 prerelease",
       "author": "GitHub / copilot-cli-release-app[bot]",
       "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.86",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.87-0",
       "category": [
         "workflow",
         "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "CLI Recovery",
-      "summary": "Copilot CLI 1.0.86 stable folds instruction inheritance, plugin and skill preservation, sandbox status, corrupted transcript recovery, and Autopilot stop fixes into stable.",
-      "takeaway": "动作: Upgrade with a receipt that verifies inheritance, resume, sandbox, recovery, and stop behavior."
+      "tag": "CLI Runtime",
+      "summary": "Copilot CLI 1.0.87-0 adds Auto routing startup defaults, prompt recall, worktreePathTemplate, MCP latency thresholds, and subagent elapsed time.",
+      "takeaway": "动作: Extend CLI runtime receipts to cover defaults, pending prompts, worktree placement, latency, and subagent timing."
     },
     {
-      "title": "Ubuntu 26 generally available and latest migration",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
-      "category": [
-        "workflow",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "CI Drift",
-      "summary": "Ubuntu 26.04 is GA for Actions runners and ubuntu-latest will migrate from October 19 to November 19, 2026.",
-      "takeaway": "动作: Test critical workflows on ubuntu-26.04 and pin ubuntu-24.04 where needed."
-    },
-    {
-      "title": "Claude Code v2.1.275",
+      "title": "Claude Code v2.1.277",
       "author": "Anthropic / GitHub Releases",
       "source": "official-release",
-      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.275",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.277",
       "category": [
         "workflow",
         "tools",
         "accounts"
       ],
       "score": "HIGH",
-      "tag": "Claude Reliability",
-      "summary": "Claude Code 2.1.275 adds account confirmation, queued-send controls, telemetry warnings, skill/plugin sync, marketplace install flow, secret redaction, resume hardening, and npm integrity verification.",
-      "takeaway": "动作: Use these as cross-tool reliability checks for local agent workflows."
+      "tag": "Gateway Ops",
+      "summary": "Claude Code 2.1.277 adds AGENTS.md fallback, egress-boundary proxy support, gateway headers, background-task waiting notices, and startup/recovery fixes.",
+      "takeaway": "动作: Compare Codex and Claude local workflows on instruction fallback, proxy egress, background status, and error exits."
     },
     {
-      "title": "Claude Code What's New Week 37",
-      "author": "Anthropic Docs",
-      "source": "official-docs",
-      "url": "https://code.claude.com/docs/en/whats-new/2026-w37",
+      "title": "Manage the code coverage ruleset condition with the REST API",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
       "category": [
         "workflow",
-        "knowledge",
+        "tools",
+        "knowledge"
+      ],
+      "score": "MED",
+      "tag": "Coverage Policy",
+      "summary": "GitHub REST API can now manage code coverage ruleset conditions for supported plans and repositories with GitHub Code Quality configured.",
+      "takeaway": "动作: Put coverage thresholds and tolerated drops into repo policy-as-code."
+    },
+    {
+      "title": "GitHub Copilot weekly releases - September 14",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
+      "category": [
+        "workflow",
+        "mobile",
         "tools"
       ],
       "score": "MED",
-      "tag": "Plugin Eval",
-      "summary": "Claude Code docs highlight plugin evaluation with test cases, graders, and no-plugin baselines.",
-      "takeaway": "动作: Treat durable workflow plugins as evaluated assets, not just installed shortcuts."
+      "tag": "Agent Surface",
+      "summary": "The Copilot weekly rollup ties review, model tiers, VS Code Agent Host metrics, Sentry canvas, local Dev Containers, and PR creation into one workflow.",
+      "takeaway": "动作: Design agent workflows from incident/context intake through validation, PR, review, and cleanup."
     },
     {
-      "title": "REST API endpoints for Copilot usage metrics",
-      "author": "GitHub Docs",
-      "source": "official-docs",
-      "url": "https://docs.github.com/en/rest/copilot/copilot-usage-metrics",
-      "category": [
-        "accounts",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Metrics API",
-      "summary": "GitHub Docs define daily and 28-day Copilot reports, report dates, signed download links, permission requirements, and historical windows.",
-      "takeaway": "动作: Ingest metrics with date-range, expiry, permission, null/absent, and reconciliation semantics."
-    },
-    {
-      "title": "Controlling who can execute GitHub Actions workflows",
-      "author": "GitHub Docs",
-      "source": "official-docs",
-      "url": "https://docs.github.com/en/actions/how-tos/administer/control-workflow-execution",
+      "title": "OpenAI Codex 0.156.0-alpha.5",
+      "author": "OpenAI / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.5",
       "category": [
         "workflow",
-        "knowledge",
         "tools"
       ],
-      "score": "HIGH",
-      "tag": "Policy Runbook",
-      "summary": "GitHub Docs explain how to target workflow protections by repository, workflow path, actor, event, and evaluate/enforce status.",
-      "takeaway": "动作: Layer enterprise/org/repo policies and inspect would-block results before enforcement."
+      "score": "MED",
+      "tag": "Alpha Lane",
+      "summary": "Codex 0.156 alpha builds are moving quickly with sparse notes, making them useful for observation but risky as defaults.",
+      "takeaway": "动作: Keep alpha builds disposable until a specific release body or issue justifies smoke testing."
+    },
+    {
+      "title": "Claude Code v2.1.276",
+      "author": "Anthropic / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.276",
+      "category": [
+        "workflow",
+        "accounts",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Gateway Hotfix",
+      "summary": "Claude Code 2.1.276 fixes a proxy/base-url regression from 2.1.275 that could make every request fail.",
+      "takeaway": "动作: Put gateway and base-url smoke tests in the first lane for agent CLI upgrades."
     }
   ],
   "knowledge": [
     {
-      "title": "Feature Engagement Ledger",
-      "label": "COPILOT ADOPTION",
-      "body": "把 Copilot 采用率从“有人用过”细化成“哪些功能在 28 天里被稳定使用”。",
-      "summary": "按功能看真实采用率。",
+      "title": "Review Progress Receipt",
+      "label": "AI REVIEW OPS",
+      "body": "把 AI 代码评审从一堆评论变成可追踪的进度账本。",
+      "summary": "记录评审发现的生命周期。",
       "steps": [
-        "拉取 enterprise/org 28-day aggregate reports。",
-        "分开记录 active users、totals_by_feature、users_in_phase_28d 和 null/absent 字段。",
-        "把 code completion、agent edit、code review、cloud agent、CLI、app 分开看，不混成一个总数。",
-        "对低采用功能关联培训、配置缺口和实际任务类型。"
+        "记录每个 finding 的 open、resolved since last review、previously missed 状态。",
+        "保留 severity、inline comment link、review effort level 和生成时间。",
+        "对自动关闭的评论记录 resolution reason；对人类要求保留的问题做 override 标记。",
+        "批量接受建议时，单独审阅 AI 生成的 commit title 和 description。"
       ],
-      "risk": "只看总活跃人数，会把“大家都开了”误判成“大家都会用关键功能”。"
+      "risk": "只看评论数量会误判进度；真正重要的是哪些问题仍打开、哪些已被验证修复。"
     },
     {
-      "title": "Agentic Customization Usage Ledger",
-      "label": "AGENT CUSTOMIZATION",
-      "body": "把技能、自定义 agent、MCP、slash command、plugin 的使用情况变成可审计的采用证据。",
-      "summary": "自定义项要有使用小票。",
+      "title": "Model Deprecation Migration Board",
+      "label": "MODEL GOVERNANCE",
+      "body": "把模型下线当成一次有日期、有替代、有回归测试的迁移项目。",
+      "summary": "模型退役要提前排迁移。",
       "steps": [
-        "采集 totals_by_skill、totals_by_custom_agent、totals_by_mcp、totals_by_slash_cmd、totals_by_plugin。",
-        "同时记录 distinct_*_use_count，判断工具品类是否扩散。",
-        "注意 plugin totals 是 skill totals 的子集，禁止简单相加。",
-        "客户自定义名称被隐藏时，把 other/custom 当成隐私保护状态，而不是数据丢失。"
+        "列出旧模型、下线日期、建议替代模型和受影响入口。",
+        "读取管理员 model policy，确认替代模型是否自动启用或需要手动打开。",
+        "用固定任务比较输出质量、速度、成本和工具兼容性。",
+        "在用户可见 picker 改变前准备公告、回滚和例外清单。"
       ],
-      "risk": "把所有自定义项加总，会重复计算并误导投资判断。"
+      "risk": "等到模型消失才处理，会把路由失败伪装成 agent 能力下降。"
     },
     {
-      "title": "Workflow Execution Protection Gate",
-      "label": "CI GOVERNANCE",
-      "body": "让能触发自动化的人和事件进入白名单，不让危险 workflow 靠默认权限裸奔。",
-      "summary": "Actions 触发要有超市上架清单。",
+      "title": "Stage-Only Publish Gate",
+      "label": "SUPPLY CHAIN",
+      "body": "让自动化只能把包放到待审核区，最终发布必须经过维护者 2FA。",
+      "summary": "包发布从直发改成暂存审核。",
       "steps": [
-        "按 public/internal/private、deploy/release/CI 分类仓库和 workflow。",
-        "先用 evaluate mode 看哪些运行会被挡。",
-        "为敏感 workflow 设 actor rules、event rules 和 workflow path targeting。",
-        "将 insights、REST API 配置和被阻止运行写入治理记录。"
+        "为包创建 read/write stage-only granular token。",
+        "把 CI 命令从 npm publish 改为 npm stage publish。",
+        "由 maintainer 用 2FA 审核并批准 staged version。",
+        "记录 token 权限、dist-tag/deprecate 权限和 npm/node 最低版本。"
       ],
-      "risk": "直接 enforcement 可能阻断正常发布；完全不设规则则会放大 pull_request_target 和手动触发风险。"
+      "risk": "stage-only token 仍有写权限，不能因为不能 direct publish 就当成低敏凭证。"
     },
     {
-      "title": "Stable Codex Upgrade Receipt",
-      "label": "CODEX UPGRADE",
-      "body": "Codex 稳定版升级不只看版本号，要验操作界面、身份、任务生命周期和恢复能力。",
-      "summary": "稳定版也要跑升级小票。",
+      "title": "Provider Capability Preflight",
+      "label": "CODEX RUNTIME",
+      "body": "在打开 reasoning summary、工具调用或高级会话字段前，先确认目标 provider 是否支持。",
+      "summary": "能力开关先验后开。",
       "steps": [
-        "记录 tag、published_at、release body、关键 feature/fix 和资产来源。",
-        "本地 smoke 覆盖 /voice 开关、reasoning status、task hide/archive/delete、MCP verification。",
-        "重启 daemon 后检查 saved threads、active goals 和 account-switch cache。",
-        "验证失败时保留旧版本路径和回滚条件。"
+        "记录 provider、模型、客户端版本和默认开关。",
+        "先用最小请求验证 reasoning summaries、streaming、tool calling 等能力。",
+        "显式设置和安全默认分开记录；不要让默认值覆盖用户明确选择。",
+        "遇到 provider rejection 时降级能力，不扩大权限或更换账号绕过。"
       ],
-      "risk": "新稳定版可能改变操作者界面和身份边界，只看 CLI 是否启动不够。"
+      "risk": "客户端支持某能力，不代表每个 provider 都接受对应请求字段。"
     },
     {
-      "title": "Managed Responses Session Contract",
-      "label": "SDK SESSIONS",
-      "body": "Managed Responses WebSocket sessions、session model settings 和 prompt-cache prewarming 要作为同一条会话合同验收。",
-      "summary": "SDK 会话要验生命周期。",
+      "title": "Webhook Endpoint Operations Ledger",
+      "label": "SDK OPS",
+      "body": "把 SDK 管 webhook 当成线上入口治理，而不是普通 API 调用。",
+      "summary": "Webhook 入口要有运营账本。",
       "steps": [
-        "Node 和 Python 都记录 SDK 版本、session model settings、WebSocket start/end/error。",
-        "测试 prompt-cache prewarming 是否真的命中并记录命中证据。",
-        "保留 compaction progress、moderation results、header/default validation 和关闭原因。",
-        "不同语言运行时用同一组 fixture 对齐行为。"
+        "盘点 endpoint URL、event allowlist、signing secret、owner 和环境。",
+        "记录创建、更新、禁用、轮换和删除动作的审批与回读结果。",
+        "测试签名验证、重试、幂等、失败告警和本地/生产隔离。",
+        "SDK 升级时分开验证 Node 和 Python 的行为。"
       ],
-      "risk": "只升级一个 SDK，可能让 Node/Python agent 在会话、缓存和错误处理上分叉。"
+      "risk": "Webhook 是外部系统进来的门，配置错了会把测试流量、生产事件和安全边界混在一起。"
     }
   ]
 };

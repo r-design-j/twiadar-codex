@@ -1,54 +1,39 @@
 {
-  "date": "2026-09-20",
-  "updatedAt": "2026-09-20T09:00:00+08:00",
-  "updatedLabel": "2026-09-20 09:00 CST",
-  "conclusion": "今天的主线是 AI 工具的“运营面”继续变厚：OpenAI Node 7.20.0 把 vault、external storage、safety case、webhook safety events 和 SIP security 推进到 SDK 管理面；Codex 0.156 alpha 快速滚动但稳定线仍停在 0.155.1，适合观察不适合默认替换；Claude Code 2.1.278 把 auto mode classifier 的位置、状态和计费警告显性化；OpenAI Agents Python 0.22.3 则把审批、resume、SQLite、tool usage 和子进程清理这些长任务基础设施补牢。结论: 今天最该沉淀的是 SDK Operations Surface Register、Alpha Churn Observation Lane、Server-Side Auto Classifier Receipt、Agent Runtime Recovery Smoke 和 Feature Engagement Adoption Lens。",
+  "date": "2026-09-22",
+  "updatedAt": "2026-09-22T09:00:00+08:00",
+  "updatedLabel": "2026-09-22 09:00 CST",
+  "conclusion": "今天的主线是“权限与模型都要进台账”：GitHub Enterprise 凭证清单导出把 token/key 风险变成可盘点资产；Grok 4.7 进入 Copilot 后，模型选择同时变成计费和组织策略事件；Copilot CLI 1.0.87/1.0.88 强化 prompt 队列、worktree、精确授权和网络拒绝解释；Codex alpha 已滚到 0.157.0-alpha.2，但稳定锚点仍是 0.155.1；OpenAI SDK/Agents 更新继续提醒我们把 vault、webhook、parser、resume、SQLite 和子进程清理写进运行验收。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-20 的重点是 SDK Operations Surface Register、Alpha Churn Observation Lane、Server-Side Auto Classifier Receipt、Agent Runtime Recovery Smoke、Feature Engagement Adoption Lens。",
-    "白话说: AI 工具不只是会干活了，现在还多了钥匙柜、外部仓库、安检单、自动分派台和使用率仪表盘；每个都要有小票。"
+    "2026-09-22 的重点是 Credential Inventory Incident Board、Model Picker Policy Ledger、CLI Permission Micro-Grant Receipt、Prompt Queue Worktree Contract、Alpha Stable Dual-Lane Gate。",
+    "白话说: 今天不是“又多了几个模型和版本”，而是办公室多了钥匙清单、车型上架清单、排队取号系统和试验车道；每一项都要留小票。"
   ],
   "signals": [
     {
-      "title": "OpenAI Node 7.20.0",
-      "author": "OpenAI SDKs",
-      "source": "official-release",
-      "url": "https://github.com/openai/openai-node/releases/tag/v7.20.0",
+      "title": "GitHub Enterprise credential inventory exports",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
       "category": [
         "hot",
         "workflow",
-        "tools",
+        "accounts",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "SDK Ops",
-      "summary": "OpenAI Node 7.20.0 adds environment-variable vault credentials, external storage configuration management, safety case retrieval, safety warning/deactivation webhook events, and SIP media security fields.",
-      "takeaway": "动作: Treat SDK upgrades as operations-surface changes: vault, storage, safety events, and SIP security each need a readback receipt."
+      "tag": "Credential Inventory",
+      "summary": "GitHub Enterprise owners can export an inventory of SSH keys, PATs, OAuth tokens, and GitHub App tokens, with owner, scope, date, target, and audit-log correlation fields.",
+      "takeaway": "动作: Build a credential inventory review loop before incident response, not after a token leak."
     },
     {
-      "title": "OpenAI Codex 0.156.0-alpha.9",
-      "author": "OpenAI / GitHub Releases",
-      "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.9",
-      "category": [
-        "hot",
-        "workflow",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "Alpha Churn",
-      "summary": "Codex alpha moved from 0.156.0-alpha.3 to alpha.9 across September 18-20, while stable remains 0.155.1; the latest alpha release body is sparse.",
-      "takeaway": "动作: Keep fast alpha builds in an observation lane until a specific diff or disposable-workspace smoke justifies testing."
-    },
-    {
-      "title": "Claude Code v2.1.278",
-      "author": "Anthropic / GitHub Releases",
-      "source": "official-release",
-      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.278",
+      "title": "Grok 4.7 is available in GitHub Copilot",
+      "author": "GitHub Changelog / Allison",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
       "category": [
         "hot",
         "workflow",
@@ -56,58 +41,87 @@
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Auto Routing",
-      "summary": "Claude Code now defaults auto mode to a server-side classifier for Claude API, Enterprise, Bedrock, Vertex, Foundry, and gateway users, with status visibility and billed-fallback warnings.",
-      "takeaway": "动作: Record where auto routing is classified, whether fallback is billed, and how to opt out before comparing agent cost or latency."
+      "tag": "Model Policy",
+      "summary": "Grok 4.7 is rolling out to Copilot Pro, Pro+, Max, Business, and Enterprise across IDE, CLI, cloud agent, app, JetBrains, Xcode, and Eclipse surfaces, billed at provider list pricing.",
+      "takeaway": "动作: Treat every new model-picker entry as a policy and cost event; confirm admin enablement and billing before pilots."
     },
     {
-      "title": "OpenAI Agents Python 0.22.3",
-      "author": "OpenAI / Agents SDK",
+      "title": "Copilot CLI 1.0.88-1",
+      "author": "GitHub Copilot CLI Releases",
       "source": "official-release",
-      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.3",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.88-1",
       "category": [
-        "hot",
         "workflow",
         "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Agent Runtime",
-      "summary": "Agents Python 0.22.3 fixes conditional approvals, server-managed resume output, async SQLite startup, tracing API-key caching, AdvancedSQLiteSession tool usage, subprocess reaping, and Unix-local execution docs.",
-      "takeaway": "动作: Add resume, approval, SQLite concurrency, tool-usage ledger, and subprocess cleanup checks to Python agent runtime smoke tests."
+      "tag": "CLI Permissions",
+      "summary": "Copilot CLI 1.0.88-1 preserves /allow-all during managed-settings refresh failures, records exact approvals for missing paths without granting the parent directory, and explains sandboxed network denials from proxy tunnel failures.",
+      "takeaway": "动作: In CLI agent receipts, distinguish exact path grants from parent-directory grants and record network-denial bypass guidance."
     },
     {
-      "title": "Copilot code review: An improved review experience",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
+      "title": "Copilot CLI 1.0.87 stable",
+      "author": "GitHub Copilot CLI Releases",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.87",
       "category": [
-        "hot",
         "workflow",
+        "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Review Progress",
-      "summary": "Copilot code review groups findings by lifecycle state, improves auto-resolution behavior, and can generate commit messages for eligible batch suggestions.",
-      "takeaway": "动作: Build review receipts that separate open, resolved, previously missed, and human-overridden findings."
+      "tag": "Prompt Queue",
+      "summary": "Copilot CLI 1.0.87 adds Auto routing startup defaults and org policy controls, recallable pending prompts, worktreePathTemplate, task forking during active turns, and more explicit session deletion behavior.",
+      "takeaway": "动作: Split prompt queue, worktree creation, auto routing, and session deletion into separate, reviewable operating receipts."
     },
     {
-      "title": "GitHub Copilot weekly releases - September 14",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
+      "title": "OpenAI Codex 0.157.0-alpha.2",
+      "author": "OpenAI / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.2",
       "category": [
+        "hot",
         "workflow",
-        "mobile",
         "tools"
       ],
       "score": "HIGH",
-      "tag": "Agent Surface",
-      "summary": "The weekly Copilot rollup ties code review, model tiers, VS Code Agent Host metrics, Sentry canvas, local Dev Containers, and PR creation into one workflow surface.",
-      "takeaway": "动作: Design agent workflows from intake through local validation, PR creation, review, and cleanup instead of treating features as separate toys."
+      "tag": "Alpha Lane",
+      "summary": "Codex alpha moved into the 0.157.0 line on 2026-09-21, while the latest stable release remains 0.155.1; alpha release bodies are sparse and need disposable-workspace testing before use.",
+      "takeaway": "动作: Keep 0.157 alpha as an observation lane and anchor production behavior on 0.155.1 until a specific fix justifies smoke testing."
     },
     {
-      "title": "Upcoming deprecation of selected GitHub Copilot models in mid-October",
+      "title": "OpenAI Codex 0.155.1 stable",
+      "author": "OpenAI / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.1",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Provider Guardrail",
+      "summary": "Codex 0.155.1 restores the local TUI default to disable reasoning summaries, avoiding provider request rejection when a provider does not support summary fields while respecting explicit settings.",
+      "takeaway": "动作: Add provider-capability preflight before enabling reasoning summaries, especially in mixed-provider or gateway setups."
+    },
+    {
+      "title": "ChatGPT for iOS 1.2026.251 Codex updates",
+      "author": "OpenAI Codex Changelog",
+      "source": "official-changelog",
+      "url": "https://learn.chatgpt.com/codex/changelog",
+      "category": [
+        "mobile",
+        "workflow",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Mobile Dispatch",
+      "summary": "The Codex changelog reports iOS 1.2026.251 improvements around task detail layout, queued prompt display, and remembering the previously selected worktree mode for new tasks.",
+      "takeaway": "动作: Let iPhone handle dispatch and status checks, but keep Mac/Codex as the final evidence gate for file, test, commit, push, and deploy."
+    },
+    {
+      "title": "Upcoming Copilot model deprecations",
       "author": "GitHub Changelog / Allison",
       "source": "official-changelog",
       "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
@@ -118,150 +132,134 @@
       ],
       "score": "HIGH",
       "tag": "Model Migration",
-      "summary": "Selected Copilot models retire on 2026-10-19, with suggested replacement families and admin-policy implications.",
-      "takeaway": "动作: Inventory prompts, agents, model policies, and fixed regression fixtures before the cutoff."
+      "summary": "Selected Copilot models, including GPT-5.5, GPT-5.4, GPT-5 mini, Gemini 3.7 Flash, and Grok 4.5, are scheduled for deprecation on 2026-10-19 with suggested replacements.",
+      "takeaway": "动作: Create a dated model migration board for prompts, agents, policies, fixtures, and fallback models before 2026-10-19."
     },
     {
-      "title": "Stage-only npm tokens for safer automation",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
+      "title": "OpenAI Node 7.20.0",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.20.0",
       "category": [
         "workflow",
         "tools",
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Stage Publish",
-      "summary": "npm stage-only granular tokens let automation stage a version without direct publish permission; a maintainer later approves with 2FA.",
-      "takeaway": "动作: Replace direct token publishing with staged publishing where trusted publishing is unavailable."
+      "tag": "SDK Ops",
+      "summary": "OpenAI Node 7.20.0 adds environment-variable vault credentials, external storage configuration management, safety case retrieval, safety warning/deactivation webhook events, and SIP media security fields.",
+      "takeaway": "动作: Treat SDK upgrades as operations-surface changes that need owner, permission, environment, and readback records."
     },
     {
-      "title": "Manage the code coverage ruleset condition with the REST API",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
+      "title": "OpenAI Python 3.16.2",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.16.2",
+      "category": [
+        "workflow",
+        "tools"
+      ],
+      "score": "MED",
+      "tag": "Parser Hygiene",
+      "summary": "OpenAI Python 3.16.2 fixes a parse_response memory leak caused by TextFormatT parameterization, following 3.16.0 webhook endpoint management additions.",
+      "takeaway": "动作: Include parser memory behavior and webhook endpoint management in Python SDK upgrade smoke tests."
+    },
+    {
+      "title": "OpenAI Agents Python 0.22.3",
+      "author": "OpenAI / Agents SDK",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.3",
       "category": [
         "workflow",
         "tools",
         "knowledge"
       ],
-      "score": "MED",
-      "tag": "Coverage Policy",
-      "summary": "GitHub REST API can manage code coverage ruleset conditions for supported plans and repositories with GitHub Code Quality configured.",
-      "takeaway": "动作: Put coverage thresholds, tolerated drops, rollout mode, and repository eligibility into policy-as-code receipts."
+      "score": "HIGH",
+      "tag": "Agent Runtime",
+      "summary": "Agents Python 0.22.3 fixes conditional approvals, server-managed resume output, async SQLite startup, tracing API-key caching, AdvancedSQLiteSession tool usage, subprocess reaping, and Unix-local execution docs.",
+      "takeaway": "动作: Add approval, resume, SQLite concurrency, tool-usage ledger, and subprocess cleanup to runtime smoke fixtures."
     },
     {
-      "title": "Copilot impact dashboard now shows feature engagement",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
+      "title": "Claude Code 2.1.278",
+      "author": "Anthropic / GitHub Releases",
+      "source": "official-release",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.278",
       "category": [
         "workflow",
         "accounts",
-        "knowledge"
+        "tools"
       ],
       "score": "MED",
-      "tag": "Adoption Metrics",
-      "summary": "GitHub added feature engagement to the Copilot impact dashboard, shifting adoption analysis from seat counts toward actual feature use.",
-      "takeaway": "动作: Track which Copilot surfaces teams use, not only whether they have access."
-    },
-    {
-      "title": "Agentic CLI customizations now in the usage metrics API",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
-      "category": [
-        "workflow",
-        "tools",
-        "knowledge"
-      ],
-      "score": "MED",
-      "tag": "Customization Metrics",
-      "summary": "GitHub usage metrics can report agentic CLI customizations such as skills, custom agents, MCP, slash commands, and plugins.",
-      "takeaway": "动作: Separate totals by customization type and avoid double counting plugins as independent adoption."
-    },
-    {
-      "title": "Workflow execution protections in GitHub Actions generally available",
-      "author": "GitHub Changelog",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
-      "category": [
-        "workflow",
-        "tools",
-        "accounts"
-      ],
-      "score": "MED",
-      "tag": "Workflow Gate",
-      "summary": "GitHub Actions workflow execution protections are generally available, providing actor/event/path controls and evaluate/enforce modes for sensitive workflows.",
-      "takeaway": "动作: Put high-risk release and deploy workflows behind actor, event, and path gates before enabling enforcement."
+      "tag": "Auto Classifier",
+      "summary": "Claude Code 2.1.278 defaults auto mode to the server-side classifier for several provider paths, adds a status row for classifier location, and warns on billed fallback.",
+      "takeaway": "动作: When comparing agents, record classifier location, opt-out switch, and billed fallback before attributing cost or latency to the model."
     }
   ],
   "knowledge": [
     {
-      "title": "SDK Operations Surface Register",
-      "label": "SDK OPS",
-      "body": "把 SDK 新增的 vault、external storage、safety case、webhook event 和 SIP security 当成运营面变更，而不是普通类型更新。",
-      "summary": "SDK 升级要登记运营入口。",
+      "title": "Credential Inventory Incident Board",
+      "label": "ACCESS OPS",
+      "body": "把 SSH key、PAT、OAuth token、GitHub App token 做成可导出的权限资产清单，并和审计日志关联。",
+      "summary": "凭证先盘点，事故才不乱。",
       "steps": [
-        "记录每个新增 API 面的 owner、权限、环境、事件类型和回读命令。",
-        "把 vault credentials、external storage、safety case、webhook events 和 SIP media security 分成独立验收项。",
-        "升级后先跑只读 inventory，再决定是否允许创建、更新或删除远端配置。",
-        "公开报告只保留来源链接和总结，不写凭证名、端点细节或本地路径。"
+        "按 owner、credential type、scope、created_at、expires_at、last_used 和 target org/repo 建表。",
+        "把 export CSV/API readback、过滤条件和 audit-log 关联方式写进操作记录。",
+        "事件响应时先冻结受影响凭证集合，再决定 revoke、rotate 或通知范围。",
+        "公开报告只写能力和方法，不写真实凭证名、用户邮箱或组织私密路径。"
       ],
-      "risk": "SDK release 可能打开新的管理入口；只跑 import 会漏掉权限和外部事件风险。"
+      "risk": "没有统一凭证清单时，事故响应会靠人工猜测，容易漏掉 app token 或细粒度 PAT。"
     },
     {
-      "title": "Alpha Churn Observation Lane",
-      "label": "CODEX RUNTIME",
-      "body": "快速滚动的 alpha 版本先进入观察 lane，用来判断方向，不自动替换稳定默认。",
-      "summary": "快更 alpha 只观察不默认。",
+      "title": "Model Picker Policy Ledger",
+      "label": "MODEL COST",
+      "body": "每个新进入模型选择器的模型，都同时是权限、计费、可用面和回归测试事件。",
+      "summary": "新模型上架要先看政策。",
       "steps": [
-        "记录 alpha tag、发布时间、是否有完整 release body 和相邻稳定版。",
-        "只有出现明确修复、功能说明或本地问题匹配时，才开 disposable workspace smoke。",
-        "把 alpha 结果和 stable 结果分栏保存，禁止混写成同一条通过证据。",
-        "如果 release body 稀疏，只能写“观察”，不能写“建议升级”。"
+        "记录模型、可用 SKU、入口面、provider list pricing、usage-based billing 和 admin policy。",
+        "在 Business/Enterprise 环境先读 policy，再做 pilot，不默认相信全局自动启用。",
+        "用固定任务比较质量、延迟、费用和工具兼容性。",
+        "把模型启用、禁用、替代和退役日期放在同一张迁移表。"
       ],
-      "risk": "alpha 连续发版可能代表活跃，也可能代表不稳定；没有差异证据时不应推广。"
+      "risk": "只看到模型名就试用，可能绕过预算、组织策略或固定回归基线。"
     },
     {
-      "title": "Server-Side Auto Classifier Receipt",
-      "label": "ROUTING COST",
-      "body": "自动路由要记录分类发生在哪里、是否计费、状态页如何显示，以及如何退出。",
-      "summary": "自动选模型也要有小票。",
+      "title": "CLI Permission Micro-Grant Receipt",
+      "label": "CLI SAFETY",
+      "body": "CLI agent 的授权要精确到路径和网络条件，不能把缺失路径误扩成父目录权限。",
+      "summary": "授权要给到门牌号。",
       "steps": [
-        "记录 provider、gateway、auto classifier location、status output 和 opt-out flag。",
-        "如果 fallback 会计费，把 billed fallback warning 单独写进成本风险。",
-        "比较模型效果前，先确认分类开销是否由客户端、服务端或供应商承担。",
-        "对企业/网关环境保留一次状态读回，避免把路由变化误判成模型变好或变差。"
+        "记录 exact path grant、parent directory grant、allow-all 状态和刷新失败时的保留规则。",
+        "把 /list-dirs、/reset-allowed-tools 和 network denial 文案保存为本地验收证据。",
+        "代理遇到 proxy tunnel/network denial 时先解释绕行条件，不直接放宽沙箱。",
+        "权限刷新失败后复读实际有效权限，避免 UI 文案和执行权限分叉。"
       ],
-      "risk": "自动模式如果不记分类位置，会让成本、延迟和质量归因全部混在一起。"
+      "risk": "把一个文件的缺失路径授权扩大成父目录，会让后续代理读写范围悄悄变大。"
     },
     {
-      "title": "Agent Runtime Recovery Smoke",
-      "label": "AGENT RUNTIME",
-      "body": "代理 SDK 升级要验证恢复、审批、会话存储、工具记账和子进程清理。",
-      "summary": "恢复能力要真跑一遍。",
+      "title": "Prompt Queue Worktree Contract",
+      "label": "SESSION OPS",
+      "body": "长任务里的排队提示、撤回编辑、fork 和 worktree 模板要分开记录，避免会话恢复时弄错现场。",
+      "summary": "长任务像排队取号，要有票根。",
       "steps": [
-        "准备一个会触发 conditional approval、tool-not-found、resume 和 tool usage 的 fixture。",
-        "用并发 async SQLite 启动检查 session 初始化是否稳定。",
-        "验证 shell/apply_patch 等工具调用能进入 session usage ledger。",
-        "中断 stream 后检查子进程是否回收，并记录退出码。"
+        "记录 pending prompts、queued prompts、recall 操作和当前处理中的 prompt。",
+        "为 /worktree、/move、/new 和 --worktree 固定模板，并保存 repo/branch 展开结果。",
+        "active turn 中 fork 任务时，注明父任务状态、子任务目标和写入边界。",
+        "删除/关闭 session 前区分本地永久删除和服务端 conversation 保留。"
       ],
-      "risk": "长任务最怕表面恢复成功，实际漏记工具、丢失输出或留下后台进程。"
+      "risk": "提示队列和 worktree 规则混在一起，会导致恢复后在错误目录或错误任务继续写。"
     },
     {
-      "title": "Feature Engagement Adoption Lens",
-      "label": "ADOPTION METRICS",
-      "body": "看 AI 工具 adoption 不只看席位和活跃人数，还要看具体功能、技能和自定义项有没有被真实使用。",
-      "summary": "采用率要看用什么。",
+      "title": "Alpha Stable Dual-Lane Gate",
+      "label": "RUNTIME ROUTING",
+      "body": "alpha 版本看方向，stable 版本做默认；两条证据线不能混写。",
+      "summary": "试验车和通勤车分开开。",
       "steps": [
-        "把 seat count、active users、feature engagement 和 customizations usage 分开。",
-        "按 review、agent host、CLI、MCP、slash command、plugin 等 surface 归类。",
-        "plugin totals 是 skill totals 子集时不要重复相加。",
-        "用数据决定培训和模板投入，而不是只看授权是否打开。"
+        "记录最新 alpha、最新 stable、发布时间、release body 丰富度和目标问题。",
+        "没有明确修复点时，只写观察，不建议升级。",
+        "如需试验，用 disposable workspace 和最小 fixture，不污染默认工作流。",
+        "报告里把 alpha 观察、stable 默认和本地 smoke 结论分栏。"
       ],
-      "risk": "只看“有多少人开通”会把访问权限误认为工作流成熟。"
+      "risk": "alpha 连续滚动不等于适合生产；把 alpha 结果当 stable 证据会误导升级决策。"
     }
   ]
 }

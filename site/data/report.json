@@ -1,23 +1,23 @@
 {
-  "date": "2026-09-23",
-  "updatedAt": "2026-09-23T09:00:00+08:00",
-  "updatedLabel": "2026-09-23 09:00 CST",
-  "conclusion": "今天的主线是“模型货架扩容，控制小票升级”：GPT-6 Sol/Luna 和 Claude Opus 5.5 让 Copilot 模型选择正式变成路由、计费和管理员策略问题；Copilot JetBrains 与 CLI 把 assisted approvals、plan mode、MCP 控制、fork、exact grants 和 consent progress 推到前台；Codex 0.156.0 stable 把 TUI、voice、usage、worktree、daemon 和 sandbox 修复合成新的本地工作台锚点；SDK、C++ indexing、SSH 与 CodeQL 更新提醒我们，真正的提效来自可回读的模型、索引、权限和 CI 迁移台账。",
+  "date": "2026-09-25",
+  "updatedAt": "2026-09-25T09:00:00+08:00",
+  "updatedLabel": "2026-09-25 09:00 CST",
+  "conclusion": "今天的主线是“agent 进入可约束、可观测、可复查阶段”：GitHub Copilot app 把本地沙箱和 OpenTelemetry 放到企业管理面，Copilot code review 把个人与企业默认 effort 变成可配置项，Actions Node 20 退役把 CI 运行时迁移推到硬截止；Codex stable、Copilot CLI 和 OpenAI SDK 同步补齐 GPT-6 Sol/Luna、外部存储、工具调用与文档边界；OpenAI 的 LED display 实作则给出一条 Voice + Mac + Codex + local device 的真实协作链路。",
   "metrics": {
     "sourceCards": 12,
     "topSignals": 5,
     "knowledgeCards": 5
   },
   "excerpt": [
-    "2026-09-23 的重点是 Three-Lane Model Router、IDE Agent Control Receipt、Stable Upgrade Smoke Matrix、Index Warmup Receipt、Platform-Specific CI Artifact Gate。",
-    "白话说: 今天不是单纯多了几个模型，而是工具间多了新车型、值班台、车间地图和安检规则；每一项都要留小票。"
+    "2026-09-25 的重点是 Local Agent Sandbox Receipt、Agent Telemetry Boundary、Review Effort Policy Ladder、Node 24 Actions Migration Gate、Voice-to-Device Codex Loop。",
+    "白话说: AI 工具不只是更会干活了，现在开始像正规施工队一样，有围挡、有监控、有审稿标准、有设备迁移表，还有能把语音指令落到真实硬件的小工作流。"
   ],
   "signals": [
     {
-      "title": "New features and improvements in Copilot for JetBrains",
-      "author": "GitHub Changelog / Allison",
+      "title": "Local sandboxing in the GitHub Copilot app",
+      "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
+      "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "category": [
         "hot",
         "workflow",
@@ -25,15 +25,32 @@
         "knowledge"
       ],
       "score": "HIGH",
-      "tag": "IDE Agent Controls",
-      "summary": "JetBrains Copilot now combines low-risk assisted approvals, message rewind, shared skills/instructions, Codex plan mode, and per-tool MCP controls.",
-      "takeaway": "动作: Give IDE agents a plan/approval/MCP-control receipt before letting them edit code."
+      "tag": "Local Sandbox",
+      "summary": "Copilot app public preview adds per-project local sandbox policy for filesystem, network and credentials, with enterprise settings able to tighten the effective policy.",
+      "takeaway": "动作: Before local agent sessions, record requested sandbox policy, enterprise overrides, session scope and whether the OS can enforce it."
     },
     {
-      "title": "OpenAI's GPT-6 Sol and GPT-6 Luna now available",
-      "author": "GitHub Changelog / Allison",
+      "title": "OpenTelemetry in the GitHub Copilot app",
+      "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
+      "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
+      "category": [
+        "hot",
+        "workflow",
+        "accounts",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Agent Telemetry",
+      "summary": "Enterprise-managed OTel lets organizations trace Copilot agent sessions, model calls and tool use in existing monitoring systems while prompt/response content stays excluded by default.",
+      "takeaway": "动作: Treat telemetry as an observability contract: endpoint, labels, content-capture setting and retention must be explicit."
+    },
+    {
+      "title": "More ways to request and configure Copilot code reviews",
+      "author": "GitHub Changelog",
+      "source": "official-changelog",
+      "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
       "category": [
         "hot",
         "workflow",
@@ -41,229 +58,213 @@
         "tools"
       ],
       "score": "HIGH",
-      "tag": "GPT-6 Router",
-      "summary": "GPT-6 Sol and Luna enter GitHub Copilot alongside Astra, making model choice an explicit task-shape and cost decision.",
-      "takeaway": "动作: Freeze a routing table before teams casually switch models."
+      "tag": "Review Policy",
+      "summary": "Copilot code review now has a dedicated personal settings page, automatic review controls for PR states and pushes, and enterprise-level default review effort inheritance.",
+      "takeaway": "动作: Separate personal defaults, enterprise defaults, org/repo overrides and one-off manual review effort in review receipts."
     },
     {
-      "title": "Claude Opus 5.5 is now available in GitHub Copilot",
-      "author": "GitHub Changelog / Allison",
+      "title": "Node 20 is no longer available in GitHub Actions",
+      "author": "GitHub Changelog",
       "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
+      "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
       "category": [
-        "hot",
         "workflow",
-        "accounts",
-        "tools"
+        "tools",
+        "knowledge"
       ],
       "score": "HIGH",
-      "tag": "Opus Policy",
-      "summary": "Claude Opus 5.5 joins Copilot with broad IDE/CLI/mobile availability, usage-based billing, admin policy control, and output watermarking.",
-      "takeaway": "动作: Treat external model pilots as policy/cost/provenance events, not only quality tests."
+      "tag": "CI Runtime",
+      "summary": "GitHub Actions runners now use Node 24 for JavaScript actions, the temporary insecure Node opt-out is gone, and old macOS or ARM32 self-hosted runners are outside support.",
+      "takeaway": "动作: Scan JavaScript actions for runs.using=node20 and verify self-hosted runner OS/architecture before the next release train."
     },
     {
-      "title": "OpenAI Codex 0.156.0 stable",
+      "title": "OpenAI Codex 0.156.1 stable",
       "author": "OpenAI / GitHub Releases",
       "source": "official-release",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.1",
       "category": [
         "hot",
         "workflow",
+        "tools"
+      ],
+      "score": "HIGH",
+      "tag": "Codex Model Picker",
+      "summary": "Codex stable adds GPT-6 Sol and GPT-6 Luna to the model picker and updates the rate-limit switch prompt to recommend Luna.",
+      "takeaway": "动作: Update Codex model routing receipts so Sol/Luna selection is recorded with task shape, cost intent and fallback behavior."
+    },
+    {
+      "title": "Copilot CLI 1.0.89-1 prerelease",
+      "author": "GitHub Copilot CLI Releases",
+      "source": "official-release",
+      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.89-1",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "MED",
+      "tag": "CLI Queue Hygiene",
+      "summary": "The prerelease adds GPT-6 Sol/Luna to the picker, fixes line-range handling in view tools, and keeps queued prompts queued when recalling a pending message.",
+      "takeaway": "动作: In CLI agent receipts, distinguish pending-message recall from queued prompt execution and verify file view ranges."
+    },
+    {
+      "title": "OpenAI Node 7.23.0",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-node/releases/tag/v7.23.0",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "SDK Storage",
+      "summary": "Node SDK adds GCP external storage support, GPT-Rosalind research model identifiers, and documentation for exact Chat Completions seed bounds.",
+      "takeaway": "动作: Treat SDK upgrades as data-plane changes: storage provider, model allowlist and deterministic seed tests all need readback."
+    },
+    {
+      "title": "OpenAI Python 3.19.2 / 3.19.1",
+      "author": "OpenAI SDKs",
+      "source": "official-release",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.19.2",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Python Tooling",
+      "summary": "Python SDK fixes fallback file extraction, single-pass tool iterables and case-insensitive header merging while clarifying web-search location, Realtime modalities and fine-tuning bounds.",
+      "takeaway": "动作: Add fixtures for one-shot tool iterables, fallback file extraction and approximate web-search location defaults before bumping runtime dependencies."
+    },
+    {
+      "title": "GPT-6 Sol and GPT-6 Luna in the OpenAI API changelog",
+      "author": "OpenAI API Changelog",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "category": [
+        "hot",
+        "workflow",
+        "tools",
+        "accounts"
+      ],
+      "score": "HIGH",
+      "tag": "API Model Cost",
+      "summary": "OpenAI documents GPT-6 Sol and Luna availability for Responses and Chat Completions, including standard token pricing and long-context pricing caveats.",
+      "takeaway": "动作: Keep API model routing tied to price tier, context length and cache assumptions, not just model labels seen in a picker."
+    },
+    {
+      "title": "Agents API managed Codex harness",
+      "author": "OpenAI API Docs",
+      "source": "official-docs",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+      "category": [
+        "workflow",
+        "tools",
+        "knowledge"
+      ],
+      "score": "HIGH",
+      "tag": "Managed Harness",
+      "summary": "The Agents API gives applications durable sessions, managed Codex orchestration, context compaction, recovery, sandboxes, MCP connections and subagent delegation.",
+      "takeaway": "动作: Design hosted agents with session, environment, events and billing receipts before adding autonomous write tools."
+    },
+    {
+      "title": "Bringing my LED display to life with GPT-Live-1 and Codex",
+      "author": "OpenAI Developers",
+      "source": "official-blog",
+      "url": "https://developers.openai.com/blog/bringing-my-led-display-to-life",
+      "category": [
         "mobile",
-        "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Codex Stable",
-      "summary": "Codex stable moves from a basic terminal agent toward a fuller workstation: TUI, voice, usage analytics, worktree command center, daemon control, and sandbox fixes.",
-      "takeaway": "动作: Create a stable-upgrade smoke list instead of upgrading just because the tag is stable."
-    },
-    {
-      "title": "Copilot CLI 1.0.88 stable",
-      "author": "GitHub Copilot CLI Releases",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.88",
-      "category": [
         "workflow",
         "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "CLI Receipts",
-      "summary": "Copilot CLI 1.0.88 turns prior prerelease fixes into a stable operating surface for permissions, forks, skills, search, and managed policy.",
-      "takeaway": "动作: Make every active-turn fork and exact permission grant auditable."
-    },
-    {
-      "title": "Copilot CLI 1.0.89-0 prerelease",
-      "author": "GitHub Copilot CLI Releases",
-      "source": "official-release",
-      "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.89-0",
-      "category": [
-        "workflow",
-        "accounts",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "Consent Progress",
-      "summary": "The prerelease points to two near-term flows: Opus 5.5 routing and visible managed Connector consent progress.",
-      "takeaway": "动作: Keep consent URLs as private local evidence, never public report content."
-    },
-    {
-      "title": "OpenAI Node 7.22.0 and 7.21.0",
-      "author": "OpenAI SDKs",
-      "source": "official-release",
-      "url": "https://github.com/openai/openai-node/releases/tag/v7.22.0",
-      "category": [
-        "workflow",
-        "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Node SDK",
-      "summary": "Node SDK updates connect the model router to runtime hygiene: model identifiers, session reset events, request handling, and response management docs.",
-      "takeaway": "动作: Upgrade tests should verify model IDs and reset events together."
-    },
-    {
-      "title": "OpenAI Python 3.19.0 / 3.18.0 / 3.17.0",
-      "author": "OpenAI SDKs",
-      "source": "official-release",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.19.0",
-      "category": [
-        "workflow",
-        "tools",
-        "knowledge"
-      ],
-      "score": "HIGH",
-      "tag": "Python SDK",
-      "summary": "Python SDK updates make external storage, session reset, safety events, model identifiers, research models, and replay-safe retries part of the upgrade surface.",
-      "takeaway": "动作: Treat SDK upgrade as an operations contract, not a package bump."
-    },
-    {
-      "title": "Faster C++ code intelligence with whole codebase indexing",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "HIGH",
-      "tag": "C++ Indexing",
-      "summary": "Whole codebase indexing gives C++ agents a reusable symbol map instead of rediscovering definitions and references every request.",
-      "takeaway": "动作: Warm and verify the index before blaming the model for slow code intelligence."
-    },
-    {
-      "title": "Security improvements for SSH",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
-      "category": [
-        "workflow",
-        "accounts",
         "knowledge"
       ],
       "score": "MED",
-      "tag": "SSH Migration",
-      "summary": "SSH algorithm/key changes turn access hygiene into a migration task for CI, deploy keys, and developer machines.",
-      "takeaway": "动作: Inventory SSH keys and algorithms before they become a failed deploy."
+      "tag": "Voice Device Loop",
+      "summary": "The project combines Voice in ChatGPT desktop, Codex-built rendering skills, a Mac renderer, local network DDP frames and later GPT-Live-1 delegation to update a physical LED wall.",
+      "takeaway": "动作: Prototype voice-to-device workflows by splitting human feedback, local renderer, device controller and model delegation into separate receipts."
     },
     {
-      "title": "Deprecation notice: All-platform CodeQL bundle",
-      "author": "GitHub Changelog / Allison",
-      "source": "official-changelog",
-      "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
-      "category": [
-        "workflow",
-        "knowledge",
-        "tools"
-      ],
-      "score": "MED",
-      "tag": "CodeQL Migration",
-      "summary": "CodeQL's all-platform bundle is on a removal clock, so CI bootstrap scripts need platform-specific artifact logic.",
-      "takeaway": "动作: Replace one-size-fits-all CodeQL downloads with OS/arch selection."
-    },
-    {
-      "title": "Claude Code 2.1.280",
+      "title": "Claude Code 2.1.281",
       "author": "Anthropic / GitHub Releases",
       "source": "official-release",
-      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.280",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.281",
       "category": [
         "workflow",
         "tools",
         "knowledge"
       ],
       "score": "MED",
-      "tag": "Safety Comparator",
-      "summary": "Claude Code's release is a useful external checklist for CLI safety, hook telemetry, MCP budget control, symlink writes, and auto-mode denial behavior.",
-      "takeaway": "动作: Compare Codex/Copilot receipts against these safety categories."
+      "tag": "Agent Resilience Comparator",
+      "summary": "Claude Code 2.1.281 is a dense comparator for agent reliability: gateway policies, Bedrock guardrails, MCP validation, resume repair, stream recovery, dangerous rm prompts and setting propagation.",
+      "takeaway": "动作: Use it as a cross-agent checklist for resume integrity, prompt-cache preservation, sandbox trust and dangerous-command handling."
     }
   ],
   "knowledge": [
     {
-      "title": "Three-Lane Model Router",
-      "label": "MODEL ROUTING",
-      "body": "把 Astra、Sol、Luna 这类模型放进按任务形状选择的路由表，而不是靠个人临时手感切换。",
-      "summary": "先定车型，再上路。",
+      "title": "Local Agent Sandbox Receipt",
+      "label": "SANDBOX OPS",
+      "body": "把本地 agent 的文件、网络和凭证权限记录成可回读的小票，而不是只写“开了沙箱”。",
+      "summary": "先围施工区，再开工。",
       "steps": [
-        "给每个模型记录适用任务、入口、成本、上下文、工具兼容、隐私边界和 fallback。",
-        "把高风险规划、日常 agentic coding、快速低风险执行分成不同默认 lane。",
-        "每次切换模型时保存任务类型、选择原因和验收结果。",
-        "外部模型另记 provider pricing、admin policy、watermark 或数据保留差异。"
+        "记录项目级默认、会话级开关、企业托管设置和实际生效策略。",
+        "把 additional read/write、read-only、denied folders、outbound internet、local network 和 credentials 分开。",
+        "确认当前 OS 能执行该策略；不能执行时应失败停止。",
+        "沙箱变更只声明影响新会话、重启会话或当前会话，不混写。"
       ],
-      "risk": "模型越多，越容易把质量、成本和权限问题混成一个模糊的“换个模型试试”。"
+      "risk": "请求的策略和实际生效策略可能不同；企业设置和 OS 能力会让结果更严格或直接失败。"
     },
     {
-      "title": "IDE Agent Control Receipt",
-      "label": "IDE OPS",
-      "body": "IDE 里的 agent 也要留下 plan、approval、rewind、shared instruction 和 MCP tool 控制证据。",
-      "summary": "IDE 不是免检车间。",
+      "title": "Agent Telemetry Boundary",
+      "label": "OBSERVABILITY",
+      "body": "给 agent 监控建立边界：看流程、工具和模型调用，但内容采集要单独审批。",
+      "summary": "装监控，不等于直播工位。",
       "steps": [
-        "记录 assisted approval 是否启用、哪些动作自动批准、哪些必须人工批准。",
-        "使用 message re-edit/rewind 前后，保存影响范围和文件变化读回。",
-        "标明 shared skills/instructions 的组织或企业来源。",
-        "MCP 工具按 server 和 tool 分开记录启用状态，不把内置 GitHub MCP 与手动 MCP 混写。"
+        "记录 OTel endpoint、resource attributes、owner、环境和启用范围。",
+        "默认不采集 prompt/response 内容；如要采集，另走审批和保留策略。",
+        "把 model request、tool use、session flow 和错误调查分成不同 trace 视角。",
+        "公开报告只写观测能力和方法，不写监控端点或敏感 span 内容。"
       ],
-      "risk": "IDE agent 看似贴近日常开发，若没有小票，自动批准和回退会很难复盘。"
+      "risk": "可观测性如果没有内容边界，会从排障工具变成隐私和合规风险。"
     },
     {
-      "title": "Stable Upgrade Smoke Matrix",
-      "label": "RUNTIME RELEASE",
-      "body": "稳定版升级也要按能力面 smoke，而不是看到 stable tag 就直接替换默认工具。",
-      "summary": "稳定车也要试刹车。",
+      "title": "Review Effort Policy Ladder",
+      "label": "CODE REVIEW",
+      "body": "Copilot review effort 要按个人、企业、组织、仓库和单次请求分层记录。",
+      "summary": "审稿标准要看谁定的。",
       "steps": [
-        "列出本次 stable 新增能力面，例如 TUI、voice、usage、worktree、daemon、sandbox。",
-        "每个能力面准备一个最小真实任务和失败停止条件。",
-        "先在 disposable workspace 或低风险仓库跑，再推广到主工作流。",
-        "报告中区分 stable tag、local smoke、默认启用三层证据。"
+        "记录个人 automatic review、draft PR、新 push 和默认 effort。",
+        "记录企业默认 effort 以及组织/仓库覆盖关系。",
+        "手动请求 review 时保存当次选择，避免误以为等于默认值。",
+        "比较效果时同时记录 Lite/Balanced、PR 类型和触发来源。"
       ],
-      "risk": "stable 表示发布线稳定，不表示你的本地工具链、账号、代理和仓库都已适配。"
+      "risk": "review effort 混在一起，会让代码审查质量、成本和责任边界都难以复盘。"
     },
     {
-      "title": "Index Warmup Receipt",
-      "label": "KNOWLEDGE OPS",
-      "body": "大代码库的代码智能要把索引首次构建、复用和关闭选项写进运行记录。",
-      "summary": "先建地图，再问路。",
-      "steps": [
-        "记录语言、索引器、默认启用状态、首次构建耗时和内存峰值。",
-        "用 /lsp logs 或等价日志确认索引进度。",
-        "把冷启动耗时和热索引查询耗时分开比较。",
-        "在 CI 或共享环境中明确索引缓存位置和清理策略。"
-      ],
-      "risk": "不区分冷索引和热索引，会把基础设施延迟误判为模型能力差。"
-    },
-    {
-      "title": "Platform-Specific CI Artifact Gate",
+      "title": "Node 24 Actions Migration Gate",
       "label": "CI MIGRATION",
-      "body": "当安全工具停止提供全平台包时，CI 下载逻辑必须按 OS/架构显式选择。",
-      "summary": "工具箱要按车型配。",
+      "body": "JavaScript Actions 迁移到 Node 24 是运行时硬门槛，要做仓库和 runner 两侧扫描。",
+      "summary": "流水线换发动机。",
       "steps": [
-        "列出 CI runner 的 OS、架构和所需工具版本。",
-        "把下载 URL、checksum、cache key 和 fallback 分平台维护。",
-        "为 Linux ARM64 等特殊路径单独跑 smoke。",
-        "在弃用日期前移除 all-platform bundle 假设。"
+        "扫描 action.yml/action.yaml 中 runs.using=node20 的自研 action。",
+        "升级到 node24 后发布新 tag，并让下游 workflow 引用新版本。",
+        "盘点 self-hosted runner 的 macOS 和架构，老 macOS 与 ARM32 需要替换。",
+        "删除依赖临时 opt-out 的流程，并跑一次真实 workflow smoke。"
       ],
-      "risk": "一个 all-platform 包消失后，最先坏的往往是夜间扫描、release 检查和临时 runner。"
+      "risk": "只升级官方 action 不够；自研 action 和自托管 runner 才是最容易被漏掉的断点。"
+    },
+    {
+      "title": "Voice-to-Device Codex Loop",
+      "label": "MOBILE WORKFLOW",
+      "body": "把语音、Codex、本地渲染器和实体设备拆成可调试链路。",
+      "summary": "对着墙说话，也要有分工。",
+      "steps": [
+        "先定义人类反馈入口：Voice、桌面 ChatGPT 或移动端指令。",
+        "让 Codex 负责 renderer、skill 和集成代码，但由人反馈真实显示效果。",
+        "本地 Mac/设备 controller 只接收明确帧或命令，避免模型直接碰设备权限。",
+        "记录每次迭代的目标、视觉问题、代码变更和设备读回。"
+      ],
+      "risk": "实体设备反馈不能靠日志替代；看得清、听得懂、能恢复才算可用。"
     }
   ]
 }
